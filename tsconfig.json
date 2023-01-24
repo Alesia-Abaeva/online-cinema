@@ -1,0 +1,14 @@
+{
+    "exclude": ["node_modules"],
+    "include": ["src", "webpack.config.ts"],
+    "compilerOptions": {
+        "strict": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "module": "commonjs",
+        "target": "es5",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true
+    }
+}
