@@ -1,0 +1,50 @@
+{
+  "devDependencies": {
+    "@testing-library/dom": "^8.19.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@types/jest": "^29.4.0",
+    "@types/node-sass": "^4.11.3",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
+    "@webpack-cli/generators": "^3.0.1",
+    "babel-register": "^6.26.0",
+    "css-loader": "^6.7.2",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-webpack-plugin": "^3.2.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.4.0",
+    "jest-environment-jsdom": "^29.3.1",
+    "prettier": "2.8.3",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.1.0",
+    "style-loader": "^3.3.1",
+    "ts-jest": "^29.0.5",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "name": "Clone kinopoisk",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development --node-env=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch --node-env=development",
+    "serve": "webpack serve --node-env=development",
+    "start": "webpack serve --open --mode=development --node-env=development",
+    "test": "jest"
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "jest-transform-css": "^6.0.1",
+    "ts-node": "^10.9.1"
+  }
+}
