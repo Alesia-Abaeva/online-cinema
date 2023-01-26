@@ -2,7 +2,7 @@ import { PATH_NAMES } from '../const/path-names';
 import { ROUTER_PATHS } from '../const/router-paths';
 import { extractPathId } from '../utils/extract-path-id';
 
-export const dynamicRouteHander = async (
+export const dynamicRouteHandler = async (
   pathname: string,
   commonPath: string,
   fetchData: (id: number | string) => Promise<TestData | -1> // TODO replace function types with dynamic equivalent
