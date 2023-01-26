@@ -1,26 +1,14 @@
 import { ROUTER_PATHS } from '../const/router-paths';
-import { extractPathId } from '../utils/extract-path-id';
-import { findItemById } from '../utils/find-item-by-id';
 import { PATH_NAMES } from '../const/path-names';
+import { getTestData } from '../utils/get-test-data';
+import { dynamicRouteHander } from './dynamic-route-handler';
 
 /** Рендер темплейтов страниц */
-export const pathResolver = async (pathname: string): Promise<void> => {
-  let route = ROUTER_PATHS[pathname] || ROUTER_PATHS[PATH_NAMES.notFound];
+export const pathResolver = (pathname: string): void => {
+  const route = ROUTER_PATHS[pathname] || ROUTER_PATHS[PATH_NAMES.notFound];
+  // If any dynamic cases else all handle all static routes
   if (pathname.startsWith(PATH_NAMES.films)) {
-    // TEST// TEST// TEST// TEST// TEST// TEST// TEST
-    let testStore: TestData[] = [];
-    testStore = await (await fetch('http://localhost:3000/garage')).json();
-
-    const film = findItemById(extractPathId(pathname), testStore);
-    if (film !== -1) {
-      route = ROUTER_PATHS[PATH_NAMES.films];
-      document.title = route.title;
-      route.template(film);
-    } else {
-      route = ROUTER_PATHS[PATH_NAMES.notFound];
-      route.template();
-      document.title = route.title;
-    }
+    dynamicRouteHander(pathname, PATH_NAMES.films, getTestData);
   } else {
     route.template();
     document.title = route.title;

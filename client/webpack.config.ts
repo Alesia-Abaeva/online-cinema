@@ -22,7 +22,7 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Online-store',
+      title: 'Online-store', //TODO change name
       alwaysWriteToDisk: true,
       template: htmlTemplatePath,
       inject: 'body',
