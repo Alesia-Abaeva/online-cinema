@@ -1,3 +1,4 @@
+/* eslint-disable */
 import path from 'path';
 import { Configuration } from 'webpack';
 import 'webpack-dev-server';
@@ -21,7 +22,7 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Online-store',
+      title: 'Online-store', //TODO change name
       alwaysWriteToDisk: true,
       template: htmlTemplatePath,
       inject: 'body',
