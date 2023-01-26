@@ -1,3 +1,4 @@
+/* eslint-disable */
 import path from 'path';
 import { Configuration } from 'webpack';
 import 'webpack-dev-server';
