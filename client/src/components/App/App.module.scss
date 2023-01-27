@@ -29,3 +29,9 @@
 .hidden {
   display: none;
 }
+
+@media (max-width: 750px) {
+  .main {
+    min-height: calc(100vh - $footer-height-mobile - $header-height-mobile);
+  }
+}

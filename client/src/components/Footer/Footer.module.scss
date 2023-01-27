@@ -50,3 +50,22 @@
     filter: invert(56%) sepia(67%) saturate(0%) hue-rotate(277deg) brightness(97%) contrast(100%);
   }
 }
+
+@media (max-width: 750px) {
+  .footer {
+    height: $footer-height-mobile;
+  }
+}
+
+
+@media (max-width: 440px) {
+  .footer {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer {
+    font-size: 0.5rem;
+  }
+}

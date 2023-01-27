@@ -10,6 +10,7 @@
   padding-right: 15px;
   padding-left: 15px;
   max-width: $desktop;
+  height: 100%;
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -25,4 +26,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media (max-width: 750px) {
+  .header {
+    height: $header-height-mobile;
+  }
+
+  .header-logo__link {
+    width: 5rem;
+    height: 3rem;
+  }
 }
