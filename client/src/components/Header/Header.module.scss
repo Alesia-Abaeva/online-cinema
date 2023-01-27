@@ -1,0 +1,28 @@
+@import '/src/theme/variable';
+
+.header {
+  background-color: $black;
+  max-width: 100%;
+  height: $header-height;
+}
+
+.header__container {
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: $desktop;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo__link {
+  display: block;
+  background-image: url('/src/assets/img/netflix-test-logo.png');
+  width: 7rem;
+  height: 5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
