@@ -1,16 +1,16 @@
 interface ResponseMovie {
   ageRating: null | string | number;
   alternativeName: string;
-  backdrop: { previewUrl: string; url: string };
+  backdrop: { previewUrl: string; url: string } | null;
   budget: { currency: string; value: number };
   collections: string[]; //????
   countries: ChildeAttribures[];
   createDate: string;
   description: string;
-  distributors: { distributor: string; distributorRelease: string };
+  distributors: { distributor: string | null; distributorRelease: string | null };
   enName: string | null;
   externalId: ExternalId;
-  facts: ChildeAttribures;
+  facts: ChildeAttribures | null;
   fees: FeesApi;
   genres: ChildeAttribures;
   id: number;
