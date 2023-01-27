@@ -6,7 +6,7 @@ interface ResponseMovie {
   collections: string[]; //????
   countries: ChildeAttribures[];
   createDate: string;
-  description: string;
+  description: string | null;
   distributors: { distributor: string | null; distributorRelease: string | null };
   enName: string | null;
   externalId: ExternalId;
@@ -38,14 +38,15 @@ interface ResponseMovie {
   ticketsOnSale: boolean;
   top10: null; //????
   top250: null | number;
-  type: TypesFilm | string;
-  typeNumber: TypesFilm | number;
+  type: string;
+  typeNumber: number;
   updateDates: string[];
   updatedAt: string;
   videos: VideosApi;
   votes: RaitingApi;
   watchability: null; //??????
   year: number;
+  releaseYears?: { start: number; end: number }[];
 }
 
 interface ChildeAttribures {
@@ -113,11 +114,25 @@ interface SeasonsInfo {
 
 type SequelsAndPrequels = Pick<ResponseMovie, 'alternativeName' | 'enName' | 'id' | 'name' | 'poster' | 'type'>;
 
-declare enum TypesFilm {
-  'movie' = 1,
-  'tv-series' = 2,
-  'cartoon' = 3,
-  'anime' = 4,
-  'animated-series' = 5,
-  'tv-show' = 6,
+type FindedMovies = Pick<
+  ResponseMovie,
+  | 'alternativeName'
+  | 'description'
+  | 'enName'
+  | 'logo'
+  | 'movieLength'
+  | 'name'
+  | 'names'
+  | 'poster'
+  | 'rating'
+  | 'releaseYears'
+  | 'shortDescription'
+  | 'type'
+  | 'votes'
+  | 'watchability'
+  | 'year'
+  | 'externalId'
+>;
+interface ResponseFindedMovies extends PageLimit {
+  data: FindedMovies[];
 }
