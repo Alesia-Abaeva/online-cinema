@@ -10,6 +10,7 @@ const bundlePath = path.join(__dirname, 'dist');
 const htmlTemplatePath = path.join(__dirname, 'src', 'index.html');
 const assetsPath = path.resolve(__dirname, 'src', 'assets');
 const srcPath = path.resolve(__dirname, 'src');
+const distPath = path.resolve(__dirname, 'dist');
 // const faviconPath = path.join(__dirname, 'src', 'assets', 'favicon.png'); //TODO
 
 const config: Configuration = {
@@ -22,7 +23,7 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Online-store', //TODO change name
+      title: 'Rs-Clone',
       alwaysWriteToDisk: true,
       template: htmlTemplatePath,
       inject: 'body',
@@ -34,7 +35,7 @@ const config: Configuration = {
   devtool: 'source-map',
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist'),
+      directory: distPath,
     },
     port: 8080,
     hot: true,

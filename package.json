@@ -22,6 +22,8 @@
   "homepage": "https://github.com/Alesia-Abaeva/rs-clone#readme",
   "devDependencies": {
     "@types/json-server": "^0.14.4",
+    "@types/node": "^18.11.18",
+    "@types/webpack-env": "^1.18.0",
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.20",
