@@ -4,6 +4,7 @@ $desktop: 95vw;
 $footer-height: 70px;
 $header-height: 80px;
 
+// REDO TODO Create generic btn component
 @mixin btn($color, $background-color, $hover-background-color) {
   cursor: pointer;
   border: none;
