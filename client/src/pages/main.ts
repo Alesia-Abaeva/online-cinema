@@ -1,9 +1,6 @@
-export const app = (): void => {
-  // TODO renderApp(renderMainPage);
-  const appContiner = document.querySelector('#app') as HTMLElement;
-  appContiner.innerHTML = '';
+import { renderApp } from '../components/App/App';
+import { renderMainPage } from '../components/MainPage/MainPage';
 
-  const header: HTMLElement = document.createElement('h1');
-  header.innerHTML = 'APP';
-  appContiner.append(header);
+export const app = (): void => {
+  renderApp(renderMainPage);
 };

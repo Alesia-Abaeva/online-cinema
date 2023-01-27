@@ -1,0 +1,26 @@
+@import '/src/theme/variable';
+
+@font-face {
+  font-family: 'NetflixSans-Regular';
+  src: url('/src/assets/fonts/NetflixSans-Regular.woff2') format('woff2');
+}
+
+.main {
+  min-height: calc(100vh - $footer-height - $header-height);
+}
+
+.body {
+  background-color: $background;
+  font-family: NetflixSans-Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
