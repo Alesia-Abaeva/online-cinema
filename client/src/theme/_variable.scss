@@ -1,0 +1,22 @@
+@import '/src/theme/colors';
+
+$desktop: 1200px;
+$footer-height: 70px;
+$header-height: 80px;
+
+@mixin btn($color, $background-color, $hover-background-color) {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: $color;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: $background-color;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $hover-background-color;
+    }
+}
+
