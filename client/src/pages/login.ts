@@ -1,9 +1,6 @@
-export const login = (): void => {
-  // TODO renderApp(renderLoginPage);
-  const appContiner = document.querySelector('#app') as HTMLElement;
-  appContiner.innerHTML = '';
+import { renderApp } from '../components/App/App';
+import { renderLoginPage } from '../components/Login/Login';
 
-  const header: HTMLElement = document.createElement('h1');
-  header.innerHTML = 'LOGIN';
-  appContiner.append(header);
+export const login = (): void => {
+  renderApp(renderLoginPage);
 };

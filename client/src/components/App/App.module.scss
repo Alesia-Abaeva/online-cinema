@@ -9,6 +9,11 @@
   min-height: calc(100vh - $footer-height - $header-height);
 }
 
+.main_backdrop {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://authors.appadvice.com/wp-content/appadvice-v2-media/2016/11/Netflix-background_860c8ece6b34fb4f43af02255ca8f225.jpg');
+}
+
 .body {
   background-color: $background;
   font-family: NetflixSans-Regular;
