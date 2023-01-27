@@ -1,6 +1,13 @@
 import { apiCall } from './api';
 
-export const getFimlForID = async (options: RequestData, page: ApiPage) => {
-  const { data, response } = await apiCall.get(page, options);
-  return { data, response: response.headers.get('X-Total-Count') };
+export const getData = async (options: RequestData, page: ApiPage) => {
+  const { data } = await apiCall.get(page, options);
+  return data;
 };
+
+// export const getData = async <T>(options: RequestData, page: ApiPage) => {
+//   const { data } = await apiCall.get<T>(page, options);
+//   return data;
+// };
+
+// const getMovie = () => getData<null>()
