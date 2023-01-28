@@ -44,9 +44,13 @@
   @include header-link;
 }
 
-@media (max-width: 750px) {
+@media (max-width: $phone-width) {
   .header {
     height: $header-height-mobile;
+  }
+
+  .header__account {
+    display: none;
   }
 
   .header-logo__link {

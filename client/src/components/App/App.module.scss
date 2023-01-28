@@ -30,7 +30,7 @@
   display: none;
 }
 
-@media (max-width: 750px) {
+@media (max-width: $phone-width) {
   .main {
     min-height: calc(100vh - $footer-height-mobile - $header-height-mobile);
   }

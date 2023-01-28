@@ -3,6 +3,7 @@ import { createLink } from '../../utils/create-link-element';
 import styles from './Header.module.scss';
 import { linkHandler } from '../../utils/link-handler';
 import { rednerNavbar } from './components/Navbar/Navbar';
+import { rednerHamburgerNavbar } from './components/HamburgerNavbar/HamburgerNavbar';
 
 export const renderHeader = (): HTMLElement => {
   const header: HTMLElement = createElem('header', 'header');
@@ -27,7 +28,9 @@ export const renderHeader = (): HTMLElement => {
 
   accoutSection.append(loginBtn);
 
-  headerContainer.append(logo, navBar, accoutSection);
+  const hamburger: HTMLElement = rednerHamburgerNavbar();
+
+  headerContainer.append(logo, navBar, accoutSection, hamburger);
   header.append(headerContainer);
 
   return header;

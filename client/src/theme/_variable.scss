@@ -6,6 +6,8 @@ $footer-height-mobile: 60px;
 $header-height: 80px;
 $header-height-mobile: 60px;
 
+$phone-width: 768px;
+
 @mixin header-link {
   font-size: 1.3rem;
   text-decoration: none;

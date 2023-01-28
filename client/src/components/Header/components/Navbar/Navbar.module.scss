@@ -35,3 +35,9 @@
     filter: invert(100%);
   }
 }
+
+@media (max-width: $phone-width) {
+  .nav {
+    display: none;
+  }
+}

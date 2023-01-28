@@ -51,7 +51,7 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: $phone-width) {
   .footer {
     height: $footer-height-mobile;
   }
