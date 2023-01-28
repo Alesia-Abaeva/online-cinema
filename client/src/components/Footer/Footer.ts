@@ -1,3 +1,4 @@
+import { projectTitle } from '../../const/project-title';
 import { createElem } from '../../utils/create-element';
 import { createLink } from '../../utils/create-link-element';
 import { rederCredentials } from './components/Credentials/Credentials';
@@ -14,7 +15,7 @@ export const renderFooter = (): HTMLElement => {
   const rsSchoolLink: HTMLElement = createLink('https://rs.school/js/', 'rs-school-link', true, '');
 
   const copyrightText: HTMLElement = createElem('p', 'footer__text');
-  copyrightText.innerHTML = '© 2023 rs clone. All rights reserved.';
+  copyrightText.innerHTML = `© 2023 ${projectTitle}. All rights reserved.`;
 
   footerCopyright.append(rsSchoolLink, copyrightText);
 
