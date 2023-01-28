@@ -1,0 +1,71 @@
+@import '/src/theme/variable';
+
+.footer {
+  height: $footer-height;
+  width: 100%;
+  background-color: $black;
+  text-transform: uppercase;
+  color: $copyright-footer;
+  font-size: 0.7rem;
+  display: flex;
+}
+
+.footer__container {
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: $desktop;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__link {
+  color: $copyright-footer;
+  &:hover {
+    color: $copyright-footer-hover;
+    text-decoration: none;
+  }
+}
+
+.rs-school-link {
+  display: block;
+  background-image: url('../../assets/img/rs_school_js.svg');
+  width: 2.5rem;
+  height: 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: invert(56%) sepia(67%) saturate(0%) hue-rotate(277deg) brightness(50%) contrast(100%);
+
+  &:hover {
+    filter: invert(56%) sepia(67%) saturate(0%) hue-rotate(277deg) brightness(97%) contrast(100%);
+  }
+}
+
+@media (max-width: $phone-width) {
+  .footer {
+    height: $footer-height-mobile;
+  }
+}
+
+
+@media (max-width: 440px) {
+  .footer {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer {
+    font-size: 0.5rem;
+  }
+}

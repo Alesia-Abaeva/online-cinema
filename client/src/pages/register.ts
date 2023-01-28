@@ -1,9 +1,6 @@
-export const register = (): void => {
-  // TODO renderApp(renderRegisterPage);
-  const appContiner = document.querySelector('#app') as HTMLElement;
-  appContiner.innerHTML = '';
+import { renderApp } from '../components/App/App';
+import { renderRegisterPage } from '../components/Register/Register';
 
-  const header: HTMLElement = document.createElement('h1');
-  header.innerHTML = 'REGISTER';
-  appContiner.append(header);
+export const register = (): void => {
+  renderApp(renderRegisterPage);
 };

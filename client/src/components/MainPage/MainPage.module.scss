@@ -1,0 +1,14 @@
+@import '/src/theme/variable';
+
+.main {
+  color: $white;
+  background-color: $background;
+}
+
+.main__container {
+  max-width: $desktop;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}

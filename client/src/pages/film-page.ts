@@ -1,9 +1,6 @@
-export const film = (films: TestData): void => {
-  // TODO renderApp(renderFilmPage);
-  const appContiner = document.querySelector('#app') as HTMLElement;
-  appContiner.innerHTML = '';
+import { renderApp } from '../components/App/App';
+import { renderFilmPage } from '../components/FilmPage/FilmPage';
 
-  const header: HTMLElement = document.createElement('h1');
-  header.innerHTML = `${films.name}`;
-  appContiner.append(header);
+export const film = (filmData: TestData): void => {
+  renderApp(() => renderFilmPage(filmData));
 };

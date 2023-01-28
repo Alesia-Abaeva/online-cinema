@@ -18,6 +18,8 @@
     "import/prefer-default-export": "off",
     "no-debugger": "off",
     "no-console": 0,
+    "dot-notation": "off",
+    "no-plusplus": "off",
     "class-methods-use-this": "off",
     "prettier/prettier": [
       "error",

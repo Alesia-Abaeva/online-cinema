@@ -1,1 +1,1 @@
-export const projectTitle = 'Kinopoisk clone'; // заменить на название нашего онлайн-кинотеатра
+export const projectTitle = 'RS films';

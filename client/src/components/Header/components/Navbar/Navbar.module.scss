@@ -1,0 +1,43 @@
+@import '/src/theme/variable';
+
+.nav {
+  @include flex-center;
+  height: 100%;
+  gap: 3rem;
+}
+
+.nav__list {
+  @include flex-center;
+  gap: 3rem;
+}
+
+.nav__list-link {
+  @include header-link;
+  padding-bottom: 5px;
+}
+
+.nav__list-link_active {
+  color: $white;
+  border-bottom: 2px solid;
+  border-image-slice: 1;
+  border-image-source: $gradient-primary;
+}
+
+.search__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url('assets/img/search.png');
+  background-size: cover;
+  filter: invert(100%) brightness(60%);
+  cursor: pointer;
+
+  &:hover {
+    filter: invert(100%);
+  }
+}
+
+@media (max-width: $phone-width) {
+  .nav {
+    display: none;
+  }
+}
