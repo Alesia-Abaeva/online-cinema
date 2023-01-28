@@ -21,16 +21,29 @@ class ApiWrapper {
     return { data, response };
   }
 
-  private makeUrl(endpoint: string, options?: RequestData | null): string {
-    const queryParams: string = Object.entries(options ?? {})
-      .map(([param, value]) => `${param}=${String(value)}`)
-      .join('&');
+  private makeUrl(endpoint: string, options?: RequestData | RequestData[] | null): string {
+    let queryParams: string = '';
+    if (Array.isArray(options)) {
+      queryParams = options
+        .map((params) =>
+          Object.entries(params ?? {})
+            .map(([param, value]) => `${param}=${String(value)}`)
+            .join('&')
+        )
+        .join('&');
+      console.log(queryParams);
+    } else {
+      queryParams = Object.entries(options ?? {})
+        .map(([param, value]) => `${param}=${String(value)}`)
+        .join('&');
+    }
 
     const queryString = queryParams && `?${queryParams}`;
+    console.log('queryString', queryString);
     return `${this.baseUrl}/${endpoint}${queryString}`;
   }
 
-  async get<ResponseBody>(endpoint: string, options: RequestData) {
+  async get<ResponseBody>(endpoint: string, options: RequestData | RequestData[]) {
     const url: string = this.makeUrl(endpoint, options);
 
     return await this.fetchWrapper<ResponseBody>(url, {
