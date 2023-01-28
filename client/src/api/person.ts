@@ -1,6 +1,6 @@
 import { FIELD } from '../const/api/field';
 import { API_KEY, API_REQUEST } from '../const/api/url';
-import { getData } from './films';
+import { getData } from './get-data-api';
 
 /** Получаем данные об актере по id */
 export const getActor = (idActors: number) =>

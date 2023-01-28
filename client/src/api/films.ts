@@ -1,12 +1,7 @@
 import { FIELD } from '../const/api/field';
 import { FILM_TYPE_NUMB } from '../const/api/film-type';
 import { API_KEY, API_REQUEST } from '../const/api/url';
-import { apiCall } from './api';
-
-export const getData = async <T>(options: RequestData | RequestData[], page: ApiPage) => {
-  const { data } = await apiCall.get<T>(page, options);
-  return data;
-};
+import { getData } from './get-data-api';
 
 /** Получаем данные о фильме по id */
 export const getMovie = (idFilms: number) =>
@@ -28,9 +23,9 @@ export const complexMovieSearch = (options: RequestData[]) => getData<ResponseFi
 
 // Пример сложного поиска
 complexMovieSearch([
-  { field: 'rating.kp', search: 7 },
-  { field: FIELD.YEAR, search: '2017-2020' },
-  { field: FIELD.TYPENUMBER, search: 2 },
-  { sortField: 'year', sortType: 1 },
-  { sortField: 'votes.imdb', sortType: -1, token: API_KEY },
+  { field: FIELD.RATING_KP, search: '7-10' }, //поиск по рейтингу кинопоиска с 7 -10 баллов
+  { field: FIELD.YEAR, search: '2017-2020' }, // которые были выпущены с 2017-2020 год
+  { field: FIELD.TYPENUMBER, search: FILM_TYPE_NUMB.TV_SERIES }, // выбираем только сериалы
+  { sortField: FIELD.YEAR, sortType: 1 }, //сортируем по году в порядке возрастания
+  { sortField: FIELD.VOTES_IMDB, sortType: -1, token: API_KEY }, // и отсортированы по голосам (рейтинге imb)
 ]);
