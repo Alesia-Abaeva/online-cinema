@@ -6,6 +6,23 @@ $footer-height-mobile: 60px;
 $header-height: 80px;
 $header-height-mobile: 60px;
 
+@mixin header-link {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: $light-text;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // REDO TODO Create generic btn component
 @mixin btn($color, $background-color, $hover-background-color) {
   cursor: pointer;

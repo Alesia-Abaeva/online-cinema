@@ -18,14 +18,30 @@
   justify-content: space-between;
 }
 
-.header-logo__link {
+.header__logo {
+  width: 15vw;
+}
+
+.header__logo-link {
   display: block;
-  background-image: url('/src/assets/img/netflix-test-logo.png');
+  background-image: url('/src/assets/img/rs-films-logo.png');
   width: 7rem;
   height: 5rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.header__account {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 15vw;
+}
+
+.header__login-link {
+  @include header-link;
 }
 
 @media (max-width: 750px) {
