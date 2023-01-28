@@ -1,0 +1,3 @@
+interface TypesRedux {
+  type: string;
+}
