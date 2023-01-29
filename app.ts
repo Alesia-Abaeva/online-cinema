@@ -1,11 +1,14 @@
 import express from "express";
 import config from "config";
 import mongoose from "mongoose"; // позволяет подключаться к базе данных
+import { router } from "./routes/auth.routes";
 const app = express();
 
 mongoose.set("strictQuery", true);
 
 const PORT: string | number = config.get("port") || 3003;
+
+app.use("/api/auth", router); //регистрация роутов, для запросов от фронта
 
 async function start() {
   try {
