@@ -1,4 +1,4 @@
-import { createElem } from '../../../utils/create-element';
+import { createElem } from 'src/utils/create-element';
 import styles from './Buttons.module.scss';
 
 /** Функция для генерации кнопки, параметрами передаем текс внутри кнопки и функцию на онклик, причем, при добавлении функции необходимо прописать тип который будет возвращать функция, у кнопки есть дефолтный стиль, его меняем, добавляя третий параментр style */

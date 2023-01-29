@@ -1,5 +1,5 @@
+import { createElem } from 'src/utils/create-element';
 import styles from './Input.module.scss';
-import { createElem } from '../../../utils/create-element';
 
 export const createInputElement = (attribute: AttributeInput): HTMLInputElement => {
   const input = createElem('input', styles['input']) as HTMLInputElement;

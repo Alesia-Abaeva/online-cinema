@@ -1,5 +1,5 @@
-import { METHODS } from '../const/api/methods';
-import { API_KEY, BASE_URL } from '../const/api/url';
+import { METHODS } from 'src/const/api/methods';
+import { API_KEY, BASE_URL } from 'src/const/api/url';
 
 class ApiWrapper {
   private baseUrl: string;

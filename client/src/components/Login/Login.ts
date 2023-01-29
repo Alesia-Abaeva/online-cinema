@@ -1,4 +1,4 @@
-import { createElem } from '../../utils/create-element';
+import { createElem } from 'src/utils/create-element';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
 import styles from './Login.module.scss';
