@@ -23,23 +23,23 @@
   border-image-source: $gradient-primary;
 }
 
-.search {
+.search-btn {
   height: 44px;
   width: 44px;
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
 
-  &:hover > .search__icon {
+  &:hover > .search-btn__icon {
     filter: invert(100%);
   }
 }
 
-.search_open {
+.search-btn_open {
   pointer-events: none;
 }
 
-.search__icon {
+.search-btn__icon {
   width: 1.5rem;
   height: 1.5rem;
   background-image: url('assets/img/search.png');

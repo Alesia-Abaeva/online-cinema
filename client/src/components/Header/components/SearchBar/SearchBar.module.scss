@@ -1,6 +1,6 @@
 @import '/src/theme/variable';
 
-.search-container {
+.search {
   position: absolute;
   top: 40px;
   left: 50%;
@@ -28,8 +28,8 @@
   width: 40vw;
   height: 44px;
   margin: 0px 8px;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   border-radius: 10px;
   pointer-events: all;
   opacity: 1;
@@ -42,12 +42,13 @@
 .search__close {
   @include flex-center;
   position: absolute;
-  right: 20px;
+  right: 1.5rem;
   top: 4px;
   border-radius: 10px;
   padding: 10px;
   opacity: 0;
   cursor: pointer;
+  pointer-events: none;
   transition: all 0.3s ease;
 
   &:hover > .search__close-icon {
@@ -57,6 +58,7 @@
 
 .search__close_open {
   opacity: 1;
+  pointer-events: all;
 }
 
 .search__close-icon {
@@ -67,4 +69,9 @@
   filter: invert(100%) brightness(50%);
   transition: all 0.3s ease;
   pointer-events: none;
+}
+
+.search__box-container {
+  position: absolute;
+  margin-top: 0.3rem;
 }

@@ -24,8 +24,8 @@ export const rednerNavbar = (): HTMLElement => {
 
   navUl.onclick = linkHandler;
 
-  const navSearch: HTMLElement = createElem('div', 'search');
-  const searchIcon: HTMLElement = createElem('div', 'search__icon');
+  const navSearch: HTMLElement = createElem('div', 'search-btn');
+  const searchIcon: HTMLElement = createElem('div', 'search-btn__icon');
 
   navSearch.onclick = toggleSearchBar;
   navSearch.append(searchIcon);
