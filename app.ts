@@ -1,17 +1,15 @@
-const express = require("express");
+import express from "express";
+import config from "config";
+import mongoose from "mongoose"; // позволяет подключаться к базе данных
 const app = express();
-const config = require("config");
-const mongoose = require("mongoose"); // позволяет подключаться к базе данных
+
 mongoose.set("strictQuery", true);
 
 const PORT: string | number = config.get("port") || 3003;
 
 async function start() {
   try {
-    await mongoose.connect(config.get("mongoUri"), {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(config.get("mongoUri"));
     app.listen(PORT, () =>
       console.log(`Server is running on port PORT:${PORT}`)
     );
