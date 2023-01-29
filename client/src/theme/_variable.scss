@@ -41,3 +41,17 @@ $phone-width: 768px;
     background-color: $hover-background-color;
   }
 }
+
+@mixin input($border-color, $box-shadow) {
+  width: 20rem;
+  height: 3rem;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+
+  &:focus {
+    border: 1px solid transparent;
+    box-shadow: 0 0 0 1px $box-shadow;
+  }
+}

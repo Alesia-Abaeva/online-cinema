@@ -1,1 +1,26 @@
 @import '/src/theme/variable';
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_container {
+  background-color: $tundora-60;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.form__wrapp {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+.form__email_input {
+  @include input($silver, $tundora);
+}

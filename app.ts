@@ -24,38 +24,6 @@ async function start() {
 
 start();
 
-const db = {
-  garage: [
-    {
-      name: "Tesla",
-      color: "#e6e6fa",
-      id: 1,
-    },
-    {
-      name: "BMW",
-      color: "#fede00",
-      id: 2,
-    },
-    {
-      name: "Mersedes",
-      color: "#6c779f",
-      id: 3,
-    },
-    {
-      name: "Ford",
-      color: "#ef3c40",
-      id: 4,
-    },
-  ],
-  winners: [
-    {
-      id: 1,
-      wins: 1,
-      time: 10,
-    },
-  ],
-};
-
 /**
  * 
     "server": "cross-env NODE_ENV=production node app.ts", - старт сервера в обычном режиме
