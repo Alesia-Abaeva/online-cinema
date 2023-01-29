@@ -14,21 +14,25 @@ export const renderLoginPage = (): HTMLElement => {
 
   const formContainer = createElem('form', 'form_container');
 
-  const labels = ['Email', 'Телефон'];
+  const labels = ['Email', 'Пароль']; //TODO - вынести в глобальную, если будет делать перевод
 
   labels.forEach((data) => {
     const wrapper = createElem('div', 'form__wrapp');
     const label = createElem('label', 'form_label');
     label.innerHTML = data;
-    const input = data === 'Email' ? createInputElement('text') : createInputElement('phone');
+    const input =
+      data === 'Email'
+        ? createInputElement({ type: 'text', placeholder: 'Введите email', id: 'email', name: 'email' })
+        : createInputElement({ type: 'password', placeholder: 'Введите пароль', id: 'password', name: 'password' });
     wrapper.append(label, input);
 
     formContainer.append(wrapper);
   });
 
   const button = createButton('Войти');
+  const buttonReg = createButton('Регистрация');
 
-  formContainer.append(button);
+  formContainer.append(button, buttonReg);
   mainContent.append(header, formContainer);
   mainContainer.append(mainContent);
   main.append(mainContainer);
