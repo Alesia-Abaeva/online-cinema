@@ -1,10 +1,27 @@
 const express = require("express");
 const app = express();
 const config = require("config");
+const mongoose = require("mongoose"); // позволяет подключаться к базе данных
+mongoose.set("strictQuery", true);
 
 const PORT: string | number = config.get("port") || 3003;
 
-app.listen(PORT, () => console.log(`Server is running on port PORT:${PORT}`));
+async function start() {
+  try {
+    await mongoose.connect(config.get("mongoUri"), {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    app.listen(PORT, () =>
+      console.log(`Server is running on port PORT:${PORT}`)
+    );
+  } catch (e) {
+    console.log("Server Error", e.message);
+    process.exit(1); // завершаем процесс, в случае, если что-то пошло не так
+  }
+}
+
+start();
 
 // const jsonServer = require("json-server");
 // const dotenv = require("dotenv");
