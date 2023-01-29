@@ -1,6 +1,7 @@
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { linkHandler } from '../../../../utils/link-handler';
+import { toggleSearchBar } from '../Handlers/toggle-search-bar';
 import styles from './Navbar.module.scss';
 
 export const rednerNavbar = (): HTMLElement => {
@@ -25,6 +26,8 @@ export const rednerNavbar = (): HTMLElement => {
 
   const navSearch: HTMLElement = createElem('div', 'search');
   const searchIcon: HTMLElement = createElem('div', 'search__icon');
+
+  navSearch.onclick = toggleSearchBar;
   navSearch.append(searchIcon);
 
   navBar.append(navUl, navSearch);

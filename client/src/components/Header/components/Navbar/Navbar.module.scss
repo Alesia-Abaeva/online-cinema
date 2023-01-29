@@ -23,17 +23,29 @@
   border-image-source: $gradient-primary;
 }
 
+.search {
+  height: 44px;
+  width: 44px;
+  border-radius: 50px;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover > .search__icon {
+    filter: invert(100%);
+  }
+}
+
+.search_open {
+  pointer-events: none;
+}
+
 .search__icon {
   width: 1.5rem;
   height: 1.5rem;
   background-image: url('assets/img/search.png');
   background-size: cover;
   filter: invert(100%) brightness(60%);
-  cursor: pointer;
-
-  &:hover {
-    filter: invert(100%);
-  }
+  pointer-events: none;
 }
 
 @media (max-width: $phone-width) {

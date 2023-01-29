@@ -4,6 +4,7 @@ import styles from './Header.module.scss';
 import { linkHandler } from '../../utils/link-handler';
 import { rednerNavbar } from './components/Navbar/Navbar';
 import { rednerHamburgerNavbar } from './components/HamburgerNavbar/HamburgerNavbar';
+import { renderSearchBar } from './components/SearchBar/SearchBar';
 
 export const renderHeader = (): HTMLElement => {
   const header: HTMLElement = createElem('header', 'header');
@@ -30,7 +31,9 @@ export const renderHeader = (): HTMLElement => {
 
   const hamburger: HTMLElement = rednerHamburgerNavbar();
 
-  headerContainer.append(logo, navBar, accoutSection, hamburger);
+  const searchInput: HTMLElement = renderSearchBar();
+
+  headerContainer.append(logo, navBar, accoutSection, hamburger, searchInput);
   header.append(headerContainer);
 
   return header;
