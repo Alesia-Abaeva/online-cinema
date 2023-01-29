@@ -24,21 +24,6 @@ async function start() {
 
 start();
 
-// const jsonServer = require("json-server");
-// const dotenv = require("dotenv");
-// // считать переменные из .env
-// dotenv.config();
-// const server = jsonServer.create();
-// const router = jsonServer.router(db);
-// const middlewares = jsonServer.defaults();
-
-// server.use(middlewares);
-
-// server.use(router);
-// server.listen(PORT, () => {
-//   console.log("Server is running on port", PORT);
-// });
-
 const db = {
   garage: [
     {
