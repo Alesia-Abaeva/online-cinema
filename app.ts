@@ -1,10 +1,25 @@
-const jsonServer = require("json-server");
-const dotenv = require("dotenv");
+const express = require("express");
+const app = express();
+const config = require("config");
 
-// считать переменные из .env
-dotenv.config();
+const PORT: string | number = config.get("port") || 3003;
 
-const PORT: string | number = process.env.PORT || 3003;
+app.listen(PORT, () => console.log(`Server is running on port PORT:${PORT}`));
+
+// const jsonServer = require("json-server");
+// const dotenv = require("dotenv");
+// // считать переменные из .env
+// dotenv.config();
+// const server = jsonServer.create();
+// const router = jsonServer.router(db);
+// const middlewares = jsonServer.defaults();
+
+// server.use(middlewares);
+
+// server.use(router);
+// server.listen(PORT, () => {
+//   console.log("Server is running on port", PORT);
+// });
 
 const db = {
   garage: [
@@ -37,17 +52,6 @@ const db = {
     },
   ],
 };
-
-const server = jsonServer.create();
-const router = jsonServer.router(db);
-const middlewares = jsonServer.defaults();
-
-server.use(middlewares);
-
-server.use(router);
-server.listen(PORT, () => {
-  console.log("Server is running on port", PORT);
-});
 
 /**
  * 
