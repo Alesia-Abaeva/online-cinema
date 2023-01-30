@@ -8,7 +8,7 @@
   padding: 0 0.5rem;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all $base-transition;
   &:hover {
     background-color: $black-10;
   }

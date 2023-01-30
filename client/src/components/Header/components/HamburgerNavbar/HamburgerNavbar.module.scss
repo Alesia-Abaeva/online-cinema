@@ -16,7 +16,7 @@
     width: 100%;
     padding: 2rem 0;
     text-align: center;
-    transition: all 0.3s;
+    transition: all $base-transition;
   }
 
   .nav__list_hamburger.menu-active {
@@ -42,7 +42,7 @@
     width: 100%;
     background-color: $white;
     border-radius: 5px;
-    transition: all 0.3s;
+    transition: all $base-transition;
   }
 
   #bar1 {

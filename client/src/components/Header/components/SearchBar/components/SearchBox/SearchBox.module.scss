@@ -1,7 +1,7 @@
 @import '/src/theme/variable';
 
 .search-box {
-  transition: all 0.3s ease;
+  transition: all $base-transition;
 }
 
 .search-box__no-results {

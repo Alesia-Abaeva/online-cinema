@@ -16,7 +16,7 @@
   width: 0px;
   opacity: 0;
   font-size: 1.2rem;
-  transition: all 0.3s ease;
+  transition: all $base-transition;
 
   &::placeholder {
     color: $white;
@@ -57,7 +57,7 @@ input[type='search']::-webkit-search-results-decoration {
   opacity: 0;
   cursor: pointer;
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: all $base-transition;
 
   &:hover > .search__close-icon {
     filter: brightness(100%);
@@ -75,7 +75,7 @@ input[type='search']::-webkit-search-results-decoration {
   background-image: url('assets/img/icons/close.png');
   background-size: cover;
   filter: invert(100%) brightness(50%);
-  transition: all 0.3s ease;
+  transition: all $base-transition;
   pointer-events: none;
 }
 
@@ -92,7 +92,7 @@ input[type='search']::-webkit-search-results-decoration {
   width: 0px;
   opacity: 0;
   font-size: 1.2rem;
-  transition: all 0.3s ease;
+  transition: all $base-transition;
 }
 
 .search__box-container_open {

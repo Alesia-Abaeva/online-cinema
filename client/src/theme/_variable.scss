@@ -13,11 +13,13 @@ $search-input-width-phone: 90vw;
 $phone-width: 768px;
 $tablet-width: 1000px;
 
+$base-transition: 0.3s ease;
+
 @mixin header-link {
   font-size: 1.3rem;
   text-decoration: none;
   color: $light-text;
-  transition: all 0.3s;
+  transition: all $base-transition;
 
   &:hover {
     color: $white;
@@ -40,7 +42,7 @@ $tablet-width: 1000px;
   padding: 1rem;
   font-size: 0.9rem;
   background-color: $background-color;
-  transition: background-color 0.3s ease;
+  transition: background-color $base-transition;
 
   &:hover {
     background-color: $hover-background-color;
