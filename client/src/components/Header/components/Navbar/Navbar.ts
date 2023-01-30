@@ -1,7 +1,7 @@
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { linkHandler } from '../../../../utils/link-handler';
-import { toggleSearchBar } from '../Handlers/toggle-search-bar';
+import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
 import { renderSearchBox } from '../SearchBar/components/SearchBox/SearchBox';
 import styles from './Navbar.module.scss';
 

@@ -1,9 +1,7 @@
-import { complexMovieSearch } from '../../../../api/films';
-import { FIELD } from '../../../../const/api/field';
-import { API_KEY } from '../../../../const/api/url';
 import { createElem } from '../../../../utils/create-element';
-import { toggleSearchBar } from '../Handlers/toggle-search-bar';
-import { renderSearchBox } from './components/SearchBox/SearchBox';
+import { debounce } from '../../../../utils/debounce';
+import { searchFilms } from '../../Handlers/search-films';
+import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
 import styles from './SearchBar.module.scss';
 
 export const renderSearchBar = (): HTMLElement => {
@@ -20,18 +18,7 @@ export const renderSearchBar = (): HTMLElement => {
   const searchBoxContainer: HTMLElement = createElem('div', 'search__box-container');
   searchBoxContainer.id = 'search-box';
 
-  searchInput.oninput = async (e: Event) => {
-    const target = e.target as HTMLInputElement;
-    const searchValue = target.value;
-    const res = await complexMovieSearch([
-      { field: FIELD.NAME, search: searchValue },
-      { sortField: FIELD.VOTES_IMDB, sortType: -1, token: API_KEY },
-    ]);
-    const searchBox = document.getElementById('search-box') as HTMLElement;
-    searchBox.innerHTML = '';
-    const resElems = await renderSearchBox(res);
-    searchBox.append(resElems);
-  };
+  searchInput.oninput = debounce(searchFilms);
 
   navSearch.append(searchInput, closeBtn, searchBoxContainer);
   return navSearch;
