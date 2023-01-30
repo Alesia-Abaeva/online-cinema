@@ -9,7 +9,7 @@
   .nav__list_hamburger {
     position: fixed;
     right: -100%;
-    top: 50px;
+    top: 60px;
     gap: 2rem;
     flex-direction: column;
     background-color: $black;
@@ -33,6 +33,7 @@
     cursor: pointer;
     @include flex-center;
     flex-direction: column;
+    margin-left: 1rem;
   }
 
   .hamburger-menu__line {
@@ -68,5 +69,9 @@
 
   .active-burger #bar3 {
     transform: translateY(-2px) rotateZ(45deg);
+  }
+
+  .search-btn__icon {
+    filter: invert(100%);
   }
 }

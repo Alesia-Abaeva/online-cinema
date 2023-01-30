@@ -1,8 +1,11 @@
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { linkHandler } from '../../../../utils/link-handler';
+import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
+import { renderSearchBox } from '../SearchBar/components/SearchBox/SearchBox';
 import styles from './HamburgerNavbar.module.scss';
 
+// REFACTOR
 export const rednerHamburgerNavbar = (): HTMLElement => {
   const hamburgerNav: HTMLElement = createElem('div', styles['hamburger-nav']);
 
@@ -32,6 +35,18 @@ export const rednerHamburgerNavbar = (): HTMLElement => {
 
   navUl.onclick = linkHandler;
 
+  const navSearch: HTMLElement = createElem('div', 'search-btn');
+  const searchIcon: HTMLElement = createElem('div', 'search-btn__icon');
+
+  navSearch.onclick = async () => {
+    toggleSearchBar();
+    const searchBoxCont = document.getElementById('search-box') as HTMLElement;
+    searchBoxCont.innerHTML = '';
+    const searchBox = await renderSearchBox(null);
+    searchBoxCont.append(searchBox);
+  };
+  navSearch.append(searchIcon);
+
   const hamburgerMenu: HTMLElement = createElem('div', 'hamburger-menu');
   for (let i = 0; i < 3; i++) {
     const stripe: HTMLElement = createElem('div', 'hamburger-menu__line');
@@ -46,6 +61,6 @@ export const rednerHamburgerNavbar = (): HTMLElement => {
     slideNav.classList.toggle('menu-active');
   };
 
-  hamburgerNav.append(navUl, hamburgerMenu);
+  hamburgerNav.append(navUl, navSearch, hamburgerMenu);
   return hamburgerNav;
 };

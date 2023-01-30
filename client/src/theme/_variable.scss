@@ -4,9 +4,14 @@ $desktop: 95vw;
 $footer-height: 70px;
 $footer-height-mobile: 60px;
 $header-height: 80px;
-$header-height-mobile: 60px;
+$header-height-mobile: 80px;
+
+$search-input-width: 600px;
+$search-input-width-tablet: 450px;
+$search-input-width-phone: 90vw;
 
 $phone-width: 768px;
+$tablet-width: 1000px;
 
 @mixin header-link {
   font-size: 1.3rem;

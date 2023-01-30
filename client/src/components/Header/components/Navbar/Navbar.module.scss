@@ -3,11 +3,12 @@
 .nav {
   @include flex-center;
   height: 100%;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .nav__list {
   @include flex-center;
+  list-style: none;
   gap: 3rem;
 }
 

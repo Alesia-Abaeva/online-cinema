@@ -8,7 +8,9 @@ export const renderSearchBar = (): HTMLElement => {
   const navSearch: HTMLElement = createElem('div', styles['search']);
   const searchInput: HTMLElement = createElem('input', 'search__input');
   searchInput.id = 'search-input';
+  searchInput.setAttribute('type', 'search');
   searchInput.setAttribute('placeholder', 'Искать фильмы и сериалы');
+  searchInput.setAttribute('spellcheck', 'false');
 
   const closeBtn: HTMLElement = createElem('div', 'search__close');
   const closeIcon: HTMLElement = createElem('div', 'search__close-icon');

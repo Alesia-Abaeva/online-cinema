@@ -5,6 +5,7 @@ import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
 import { renderSearchBox } from '../SearchBar/components/SearchBox/SearchBox';
 import styles from './Navbar.module.scss';
 
+// REFACTOR
 export const rednerNavbar = (): HTMLElement => {
   const navBar: HTMLElement = createElem('nav', styles['nav']);
   const navUl: HTMLElement = createElem('ul', 'nav__list');
