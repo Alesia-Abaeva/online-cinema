@@ -1,4 +1,4 @@
-export const BASE_URL: string = 'https://api.kinopoisk.dev';
+export const BASE_URL = 'https://api.kinopoisk.dev';
 export const API_KEY = 'DENQT2G-3XYM131-GQT69CC-DFS8K0R' as const;
 // export const API_KEY = 'T7RA20P-ETH4ZGD-PP4PDVS-Q3FPSZB' as const;
 

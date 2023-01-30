@@ -3,11 +3,17 @@
 .nav {
   @include flex-center;
   height: 100%;
-  gap: 3rem;
+  gap: 2rem;
+}
+
+.hamburger-menu,
+.hamburger-nav {
+  display: none;
 }
 
 .nav__list {
   @include flex-center;
+  list-style: none;
   gap: 3rem;
 }
 
@@ -23,17 +29,29 @@
   border-image-source: $gradient-primary;
 }
 
-.search__icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  background-image: url('assets/img/search.png');
-  background-size: cover;
-  filter: invert(100%) brightness(60%);
+.search-btn {
+  height: 44px;
+  width: 44px;
+  border-radius: 10px;
+  padding: 10px;
   cursor: pointer;
 
-  &:hover {
+  &:hover > .search-btn__icon {
     filter: invert(100%);
   }
+}
+
+.search-btn_open {
+  pointer-events: none;
+}
+
+.search-btn__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url('assets/img/icons/search.png');
+  background-size: cover;
+  filter: invert(100%) brightness(60%);
+  pointer-events: none;
 }
 
 @media (max-width: $phone-width) {

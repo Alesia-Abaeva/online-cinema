@@ -132,7 +132,8 @@ type FindedMovies = Pick<
   | 'watchability'
   | 'year'
   | 'externalId'
+  | 'id'
 >;
 interface ResponseFindedMovies extends PageLimit {
-  data: FindedMovies[];
+  docs: FindedMovies[];
 }
