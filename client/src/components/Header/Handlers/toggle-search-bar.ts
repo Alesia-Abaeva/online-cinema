@@ -1,4 +1,4 @@
-export const toggleSearchBar = () => {
+export const toggleSearchBar = (): void => {
   const search = document.querySelector('.search-btn') as HTMLElement;
   search.classList.toggle('search-btn_open');
 

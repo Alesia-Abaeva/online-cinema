@@ -1,6 +1,8 @@
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { linkHandler } from '../../../../utils/link-handler';
+import { removeOverlay } from '../../../../utils/remove-overlay';
+import { renderOverlay } from '../../../Overlay/Overlay';
 import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
 import { renderSearchBox } from '../SearchBar/components/SearchBox/SearchBox';
 import styles from './Navbar.module.scss';
@@ -28,6 +30,12 @@ export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElemen
 
   navSearch.onclick = async () => {
     toggleSearchBar();
+    const app = document.getElementById('app') as HTMLElement;
+    const overlay = renderOverlay(() => {
+      toggleSearchBar();
+      removeOverlay('search-overlay');
+    }, 'search-overlay');
+    app.append(overlay);
     const searchBoxCont = document.getElementById('search-box') as HTMLElement;
     searchBoxCont.innerHTML = '';
     const searchBox = await renderSearchBox(null);
