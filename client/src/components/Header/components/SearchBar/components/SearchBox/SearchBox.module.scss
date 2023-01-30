@@ -4,3 +4,7 @@
   transition: all 0.3s ease;
 }
 
+.search-box__no-results {
+  @include flex-center;
+  padding: 4rem 2rem;
+}

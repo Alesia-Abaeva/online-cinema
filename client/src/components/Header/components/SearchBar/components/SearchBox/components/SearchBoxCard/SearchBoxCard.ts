@@ -6,7 +6,12 @@ export const renderSearchBoxCard = (cardData: FindedMovies): HTMLElement => {
   const searchCard: HTMLElement = createLink(`/films/${cardData.id}`, styles['search-box__card'], false, '');
   const cardPosterCont: HTMLElement = createElem('div', 'search-box__card-poster-cont');
   const cardPosterImg: HTMLElement = createElem('img', 'search-box__card-poster');
-  cardPosterImg.setAttribute('src', cardData.poster.previewUrl);
+  const url = `${
+    cardData.poster
+      ? cardData.poster.previewUrl
+      : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
+  }`;
+  cardPosterImg.setAttribute('src', url);
 
   cardPosterCont.append(cardPosterImg);
 
@@ -20,7 +25,8 @@ export const renderSearchBoxCard = (cardData: FindedMovies): HTMLElement => {
   filmRating.innerHTML = cardData.rating.kp.toFixed(1);
 
   const filmYear: HTMLElement = createElem('div', 'search-box__card-year');
-  filmYear.innerHTML = cardData.year.toString();
+  const year = cardData.year ? cardData.year.toString() : 'N/A';
+  filmYear.innerHTML = year;
 
   filmSpecs.append(filmRating, filmYear);
   cardInfo.append(filmTitle, filmSpecs);

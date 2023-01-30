@@ -7,6 +7,8 @@ export const toggleSearchBar = () => {
 
   const input = document.getElementById('search-input') as HTMLInputElement;
   input.classList.toggle('search__input_open');
+  input.value = '';
+  input.focus();
 
   const close = document.querySelector('.search__close') as HTMLElement;
   close.classList.toggle('search__close_open');

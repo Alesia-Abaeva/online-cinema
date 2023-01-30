@@ -32,7 +32,7 @@ export const rednerNavbar = (): HTMLElement => {
     toggleSearchBar();
     const searchBoxCont = document.getElementById('search-box') as HTMLElement;
     searchBoxCont.innerHTML = '';
-    const searchBox = await renderSearchBox();
+    const searchBox = await renderSearchBox(null);
     searchBoxCont.append(searchBox);
   };
   navSearch.append(searchIcon);
