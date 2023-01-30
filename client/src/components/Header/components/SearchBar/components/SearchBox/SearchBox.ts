@@ -11,13 +11,16 @@ export const renderSearchBox = async (res: ResponseFindedMovies | null): Promise
   if (res) {
     films = res;
   } else {
-    // Сделать предложения лушче
     // USE STATE HERE ???
+    const suggestionsTitle: HTMLElement = createElem('div', 'seach-box__suggestions');
+    suggestionsTitle.innerHTML = 'Возможно вам понравится';
+    searchBox.append(suggestionsTitle);
+
     films = await complexMovieSearch([
-      { field: FIELD.RATING_KP, search: '7-10' }, // поиск по рейтингу кинопоиска с 7 -10 баллов
-      { field: FIELD.YEAR, search: '2017-2020' }, // которые были выпущены с 2017-2020 год
-      { sortField: FIELD.YEAR, sortType: 1 }, // сортируем по году в порядке возрастания
-      { sortField: FIELD.VOTES_IMDB, sortType: -1, token: API_KEY }, // и отсортированы по голосам (рейтинге imb)
+      { field: FIELD.RATING_KP, search: '7-10' },
+      { field: FIELD.YEAR, search: '2020-2023' },
+      { sortField: FIELD.YEAR, sortType: -1 },
+      { sortField: FIELD.VOTES_IMDB, sortType: -1, token: API_KEY },
     ]);
   }
 

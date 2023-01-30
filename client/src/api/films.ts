@@ -8,7 +8,7 @@ export const getMovie = (idFilms: number) =>
   getData<ResponseMovie>({ search: idFilms, field: FIELD.ID, token: API_KEY }, API_REQUEST.MOVIE);
 
 /** Поиск по фильмaм по году(FIELD.YEAR), жанру(FIELD.TYPENUMBER), названию(FIELD.NAME) */
-export const findedMovies = (inputData: number | string, fieldData: string, isStrict: boolean = true) =>
+export const findedMovies = (inputData: number | string, fieldData: string, isStrict = true) =>
   getData<ResponseFindedMovies>({ search: inputData, field: fieldData, token: API_KEY, isStrict }, API_REQUEST.MOVIE);
 // При поиске по полям содержащих текст стоит учитывать, что по умолчанию поиск строгий, но строгий режим можно отключить добавив параметр isStrict=false.
 // Тогда поиск будет использовать выражение /.*текст.*/gi это сделает текстовый поиск очень гибким, значительно медленным (приходится обходить всю базу) и не совсем точным.
