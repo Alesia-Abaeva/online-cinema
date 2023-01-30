@@ -5,15 +5,12 @@ import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
 import { renderSearchBox } from '../SearchBar/components/SearchBox/SearchBox';
 import styles from './Navbar.module.scss';
 
-// REFACTOR
-export const rednerNavbar = (): HTMLElement => {
-  const navBar: HTMLElement = createElem('nav', styles['nav']);
+export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElement => {
+  const navBar: HTMLElement = createElem('nav', styles[`${navType ? `${navType}-nav` : 'nav'}`]);
   const navUl: HTMLElement = createElem('ul', 'nav__list');
-  const navBtns = [
-    { link: '/', text: 'Главная' },
-    { link: '/personal', text: 'Мое' },
-    { link: '/lists', text: 'Списки' },
-  ];
+
+  if (navType) navUl.classList.add(`nav__list_${navType}`);
+
   navBtns.forEach((el) => {
     const li: HTMLElement = createElem('li', 'nav__list-item');
     const a: HTMLElement = createLink(el.link, 'nav__list-link', false, el.text);

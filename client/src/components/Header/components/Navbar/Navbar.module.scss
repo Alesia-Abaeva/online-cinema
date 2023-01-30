@@ -6,6 +6,11 @@
   gap: 2rem;
 }
 
+.hamburger-menu,
+.hamburger-nav {
+  display: none;
+}
+
 .nav__list {
   @include flex-center;
   list-style: none;
@@ -43,7 +48,7 @@
 .search-btn__icon {
   width: 1.5rem;
   height: 1.5rem;
-  background-image: url('assets/img/search.png');
+  background-image: url('assets/img/icons/search.png');
   background-size: cover;
   filter: invert(100%) brightness(60%);
   pointer-events: none;

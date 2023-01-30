@@ -5,6 +5,7 @@ import { linkHandler } from '../../utils/link-handler';
 import { rednerNavbar } from './components/Navbar/Navbar';
 import { rednerHamburgerNavbar } from './components/HamburgerNavbar/HamburgerNavbar';
 import { renderSearchBar } from './components/SearchBar/SearchBar';
+import { NAVBAR_BTNS } from '../../const/nav-bar-btns';
 
 export const renderHeader = (): HTMLElement => {
   const header: HTMLElement = createElem('header', 'header');
@@ -18,7 +19,7 @@ export const renderHeader = (): HTMLElement => {
 
   logoLink.onclick = linkHandler;
 
-  const navBar: HTMLElement = rednerNavbar();
+  const navBar: HTMLElement = rednerNavbar(NAVBAR_BTNS, '');
 
   const accoutSection: HTMLElement = createElem('div', 'header__account');
   const loginBtn: HTMLElement = createElem('div', 'header__login');
