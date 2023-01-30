@@ -1,6 +1,7 @@
 import { registerHandler } from 'src/api/back/auth';
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
+import { linkHandler } from 'src/utils/link-handler';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
 import { mailIcon, passwordIcon } from './icons';
@@ -59,6 +60,8 @@ export const renderLoginPage = (): HTMLElement => {
 
   const registrationContainer = createElem('div', 'reg__container');
   const registrationLink = createLink('/register', 'reg__link', true, 'Зарегистрироваться');
+  registrationLink.onclick = linkHandler;
+
   const registrationText = createElem('div', 'reg__text');
   registrationText.innerHTML = `, если у вас не аккаунта.`;
   registrationContainer.append(registrationLink, registrationText);
