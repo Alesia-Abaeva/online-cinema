@@ -1,28 +1,33 @@
 import { METHODS } from 'src/const/api/methods';
-import { API_KEY, BASE_URL } from 'src/const/api/url';
+import { BASE_URL, URL_SERVER } from 'src/const/api/url';
 
 class ApiWrapper {
   private baseUrl: string;
 
-  constructor(baseUrl: string, apiKey: string) {
+  constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
   }
 
   private async fetchWrapper<ResponseBody>(url: string, options: RequestInit) {
-    const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      },
-      ...options,
-    });
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        ...options,
+      });
+      console.log(response);
+      const data: ResponseBody = await response.json();
 
-    const data: ResponseBody = await response.json();
-
-    return { data, response };
+      return { data, response };
+    } catch (e) {
+      console.log(e);
+      return { data: e as { message: string } };
+    }
   }
 
   private makeUrl(endpoint: string, options?: RequestData | RequestData[] | null): string {
-    let queryParams: string = '';
+    let queryParams = '';
     if (Array.isArray(options)) {
       queryParams = options
         .map((params) =>
@@ -39,11 +44,11 @@ class ApiWrapper {
     }
 
     const queryString = queryParams && `?${queryParams}`;
-    console.log('queryString', queryString);
+    console.log('queryString', queryString, `${this.baseUrl}/${endpoint}${queryString}`);
     return `${this.baseUrl}/${endpoint}${queryString}`;
   }
 
-  async get<ResponseBody>(endpoint: string, options: RequestData | RequestData[]) {
+  async get<ResponseBody>(endpoint: string, options?: RequestData | RequestData[]) {
     const url: string = this.makeUrl(endpoint, options);
 
     return await this.fetchWrapper<ResponseBody>(url, {
@@ -64,6 +69,7 @@ class ApiWrapper {
       body: JSON.stringify(body),
       headers,
       method: METHODS.POST,
+      // mode: 'no-cors',
     });
   }
 
@@ -100,4 +106,5 @@ class ApiWrapper {
   }
 }
 
-export const apiCall = new ApiWrapper(BASE_URL, API_KEY);
+export const apiCall = new ApiWrapper(BASE_URL);
+export const backCall = new ApiWrapper(URL_SERVER);

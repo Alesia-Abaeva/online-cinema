@@ -34,7 +34,8 @@
       }
     ],
     "global-require": "off",
-    "@typescript-eslint/no-explicit-any": "error"
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-return-await": "off"
   }
   // "settings": {
   //   "import/resolver": {

@@ -1,5 +1,5 @@
 {
   "port": 3000,
   "jwtSecret": "ALESIA-ABAEVA  LGKLSV  GAMESAM88",
-  "mongoUri": "mongodb+srv://admin:RS2023cLone@cluster0.uu4xryw.mongodb.net/?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://admin:RS2023cLone@cluster0.uu4xryw.mongodb.net/blog?retryWrites=true&w=majority"
 }

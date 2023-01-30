@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { User } from "../models/User";
+import express from "express";
+import User from "../models/User";
 import bcrypt from "bcryptjs";
 import config from "config";
 import { check, validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 
-export const router: Router = Router();
+export const router = Router();
 
 // api/auth/register
 router.post(
@@ -14,12 +15,14 @@ router.post(
     check("email", "Неккоректный email").isEmail(),
     check("password", "Минимальная длина символов - 6").isLength({ min: 6 }),
   ],
-  async (req, res) => {
+  async (req: express.Request, res: express.Response) => {
     try {
+      console.log(req.body);
+
       //валидация на стороне сервера
       const errors = validationResult(req);
 
-      if (!errors.isEmpty) {
+      if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
           message: "Неккоректные данные при регистрации!",
@@ -29,7 +32,6 @@ router.post(
       const { email, password } = req.body;
 
       const candidate = await User.findOne({ email });
-
       //прoверяем есть ли такой юзер уже
       if (candidate) {
         return res
@@ -43,11 +45,15 @@ router.post(
 
       await user.save();
 
-      res.status(201).json({ message: "Пользователь успешно создан!" });
+      res
+        .status(201)
+        .send({ ...user, message: "Пользователь успешно создан!" });
+      // .json({ ...user, message: "Пользователь успешно создан!" });
     } catch (e) {
+      console.log(e);
       res
         .status(500) // добавляем стандартную серверную ошибку
-        .json({ message: "Что-то пошло не так, попробуйте еще раз" });
+        .json({ message: "Не удалось зарегистрироваться" });
     }
   }
 );
@@ -63,7 +69,7 @@ router.post(
     try {
       const errors = validationResult(req);
 
-      if (!errors.isEmpty) {
+      if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
           message: "Попробуйте еще раз. В данных ошибка",

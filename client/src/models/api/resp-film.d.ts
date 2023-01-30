@@ -1,54 +1,3 @@
-interface ResponseMovie {
-  ageRating: null | string | number;
-  alternativeName: string;
-  backdrop: { previewUrl: string; url: string } | null;
-  budget: { currency: string; value: number };
-  collections: string[]; //????
-  countries: ChildeAttribures[];
-  createDate: string;
-  description: string | null;
-  distributors: { distributor: string | null; distributorRelease: string | null };
-  enName: string | null;
-  externalId: ExternalId;
-  facts: ChildeAttribures | null;
-  fees: FeesApi;
-  genres: ChildeAttribures;
-  id: number;
-  images: ImagesApi;
-  imagesInfo: ImagesApi;
-  lists: string[]; // ??????
-  logo: { url: string | null };
-  movieLength: number;
-  name: string;
-  names?: ChildeAttribures | null;
-  persons: PersonDataApi[];
-  poster: { previewUrl: string; url: string };
-  premiere: ChildeAttribures;
-  productionCompanies: ProductionCompanies;
-  rating: RaitingApi;
-  ratingMpaa: string;
-  seasonsInfo: SeasonsInfo[];
-  sequelsAndPrequels: SequelsAndPrequels[];
-  shortDescription: string;
-  similarMovies: SequelsAndPrequels[];
-  slogan: string;
-  spokenLanguages: ChildeAttribures;
-  status: string;
-  technology: { has3D: boolean; hasImax: boolean };
-  ticketsOnSale: boolean;
-  top10: null; //????
-  top250: null | number;
-  type: string;
-  typeNumber: number;
-  updateDates: string[];
-  updatedAt: string;
-  videos: VideosApi;
-  votes: RaitingApi;
-  watchability: null; //??????
-  year: number;
-  releaseYears?: { start: number; end: number }[];
-}
-
 interface ChildeAttribures {
   [key: string]: string | number | null;
 }
@@ -67,17 +16,17 @@ interface RaitingApi extends ExternalId {
   russianFilmCritics: number;
 }
 
-interface VideosApi {
-  teasers: VideosData[] | null;
-  trailers: VideosData[] | null;
-}
-
 interface VideosData {
   url: string;
   name: string;
   site: string;
   size?: number;
   type: string;
+}
+
+interface VideosApi {
+  teasers: VideosData[] | null;
+  trailers: VideosData[] | null;
 }
 
 interface FeesApi {
@@ -112,8 +61,56 @@ interface SeasonsInfo {
   episodesCount?: number;
 }
 
-type SequelsAndPrequels = Pick<ResponseMovie, 'alternativeName' | 'enName' | 'id' | 'name' | 'poster' | 'type'>;
-
+interface ResponseMovie {
+  ageRating: null | string | number;
+  alternativeName: string;
+  backdrop: { previewUrl: string; url: string } | null;
+  budget: { currency: string; value: number };
+  collections: string[]; // TODO - исправить тип
+  countries: ChildeAttribures[];
+  createDate: string;
+  description: string | null;
+  distributors: { distributor: string | null; distributorRelease: string | null };
+  enName: string | null;
+  externalId: ExternalId;
+  facts: ChildeAttribures | null;
+  fees: FeesApi;
+  genres: ChildeAttribures;
+  id: number;
+  images: ImagesApi;
+  imagesInfo: ImagesApi;
+  lists: string[]; // TODO - исправить тип
+  logo: { url: string | null };
+  movieLength: number;
+  name: string;
+  names?: ChildeAttribures | null;
+  persons: PersonDataApi[];
+  poster: { previewUrl: string; url: string };
+  premiere: ChildeAttribures;
+  productionCompanies: ProductionCompanies;
+  rating: RaitingApi;
+  ratingMpaa: string;
+  seasonsInfo: SeasonsInfo[];
+  sequelsAndPrequels: SequelsAndPrequels[];
+  shortDescription: string;
+  similarMovies: SequelsAndPrequels[];
+  slogan: string;
+  spokenLanguages: ChildeAttribures;
+  status: string;
+  technology: { has3D: boolean; hasImax: boolean };
+  ticketsOnSale: boolean;
+  top10: null; //????
+  top250: null | number;
+  type: string;
+  typeNumber: number;
+  updateDates: string[];
+  updatedAt: string;
+  videos: VideosApi;
+  votes: RaitingApi;
+  watchability: null; //??????
+  year: number;
+  releaseYears?: { start: number; end: number }[];
+}
 type FindedMovies = Pick<
   ResponseMovie,
   | 'alternativeName'
@@ -136,3 +133,5 @@ type FindedMovies = Pick<
 interface ResponseFindedMovies extends PageLimit {
   data: FindedMovies[];
 }
+
+type SequelsAndPrequels = Pick<ResponseMovie, 'alternativeName' | 'enName' | 'id' | 'name' | 'poster' | 'type'>;
