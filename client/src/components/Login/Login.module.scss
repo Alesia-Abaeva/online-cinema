@@ -8,6 +8,7 @@
 }
 
 .form_container {
+  margin-top: 4rem;
   background-color: $tundora-60;
   padding: 2rem;
   display: flex;
@@ -16,11 +17,78 @@
   border-radius: 5px;
 }
 
+.form_logo {
+  width: 14rem;
+  height: 5rem;
+  background-image: url('../../assets/img/rs-films-logo.png');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 2.8rem;
+}
+
 .form__wrapp {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+
+  input {
+    padding: 1rem;
+    padding-left: 2.7rem;
+
+    @media (max-width: $phone-width) {
+      width: 15rem;
+    }
+  }
+
+  &:invalid {
+    svg {
+      path {
+        stroke: $yandex-red;
+        fill: rgba(95, 158, 160, 0);
+      }
+    }
+    input {
+      border: 2px solid $yandex-red;
+      outline: none;
+
+      &:focus {
+        color: $yandex-red;
+      }
+    }
+  }
 }
+
+.icon__container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding-left: 0.75rem;
+}
+
 .form__email_input {
   @include input($silver, $tundora);
+}
+
+.form_button {
+  width: 20rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  @media (max-width: $phone-width) {
+    width: 15rem;
+  }
+}
+
+.reg__container {
+  font-size: 0.7rem;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.reg__link {
+  color: white;
 }
