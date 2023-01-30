@@ -12,7 +12,7 @@ class ApiWrapper {
     try {
       const response = await fetch(url, {
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', // заголовок для запроса на API
         },
         ...options,
       });

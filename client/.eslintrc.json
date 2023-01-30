@@ -21,6 +21,7 @@
     "dot-notation": "off",
     "no-plusplus": "off",
     "class-methods-use-this": "off",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "prettier/prettier": [
       "error",
       {
