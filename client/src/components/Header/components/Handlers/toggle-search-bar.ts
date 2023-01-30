@@ -11,6 +11,6 @@ export const toggleSearchBar = () => {
   const close = document.querySelector('.search__close') as HTMLElement;
   close.classList.toggle('search__close_open');
 
-  const searchBox = document.querySelector('.search__box') as HTMLElement;
-  searchBox.classList.toggle('search__box_open');
+  const searchBox = document.querySelector('.search__box-container') as HTMLElement;
+  searchBox.classList.toggle('search__box-container_open');
 };

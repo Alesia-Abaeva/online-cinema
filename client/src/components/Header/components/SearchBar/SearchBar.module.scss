@@ -18,9 +18,9 @@
   font-size: 1.2rem;
   transition: all 0.3s ease;
 
-  &::placeholder { 
+  &::placeholder {
     color: $white;
-    opacity: 0; 
+    opacity: 0;
   }
 }
 
@@ -33,9 +33,9 @@
   border-radius: 10px;
   pointer-events: all;
   opacity: 1;
-  &::placeholder { 
-    color: $light-black;
-    opacity: 1; 
+  &::placeholder {
+    color: $black-50;
+    opacity: 1;
   }
 }
 
@@ -73,5 +73,24 @@
 
 .search__box-container {
   position: absolute;
-  margin-top: 0.3rem;
+  margin-top: 0.3rem 8px;
+  max-height: 75vh;
+  overflow: scroll;
+  background: $white;
+  color: $black;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  width: 0px;
+  opacity: 0;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.search__box-container_open {
+  width: 40vw;
+  margin: 0.3rem 8px;
+  border-radius: 10px;
+  pointer-events: all;
+  opacity: 1;
 }

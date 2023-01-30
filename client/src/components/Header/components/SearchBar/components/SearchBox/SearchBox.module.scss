@@ -1,33 +1,6 @@
 @import '/src/theme/variable';
 
-.search__box {
-  background: $white;
-  color: $black;
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  width: 0px;
-  opacity: 0;
-  font-size: 1.2rem;
+.search-box {
   transition: all 0.3s ease;
-
-  &::placeholder {
-    color: $white;
-    opacity: 0;
-  }
 }
 
-.search__box_open {
-  width: 40vw;
-  height: 100px;
-  margin: 0px 8px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  border-radius: 10px;
-  pointer-events: all;
-  opacity: 1;
-  &::placeholder {
-    color: $light-black;
-    opacity: 1;
-  }
-}
