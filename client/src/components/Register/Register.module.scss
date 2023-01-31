@@ -1,1 +1,8 @@
 @import '/src/theme/variable';
+
+.reg-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

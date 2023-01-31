@@ -4,3 +4,5 @@ export const passwordIcon = `<svg fill="none" height="20" viewBox="0 0 26 26" wi
 <path d="M21.1 25H5C3.3 25 1.89999 23.6 1.89999 21.9V13C1.89999 11.3 3.3 9.90002 5 9.90002H21.1C22.8 9.90002 24.2 11.3 24.2 13V21.9C24.2 23.6 22.8 25 21.1 25Z" stroke="#4F4F4F" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
 <path d="M16.6 9.79999H9.29999C8.69999 9.79999 8.10001 9.30001 8.10001 8.60001V5.5C8.10001 3 10.1 1 12.6 1H13.2C15.7 1 17.7 3 17.7 5.5V8.60001C17.8 9.30001 17.3 9.79999 16.6 9.79999Z" stroke="#4F4F4F" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
 <path d="M13 21C12.1 21 11.4 20.3 11.4 19.4V15.4C11.4 14.5 12.1 13.8 13 13.8C13.9 13.8 14.6 14.5 14.6 15.4V19.4C14.6 20.3 13.9 21 13 21Z" fill="#4F4F4F"/></svg>`;
+
+export const userIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 26 26" fill="none"><path fill="#4F4F4F" d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2a9.985 9.985 0 0 0-8 4 9.985 9.985 0 0 0 8 4 9.985 9.985 0 0 0 8-4 9.985 9.985 0 0 0-8-4z"/></svg>`;

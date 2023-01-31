@@ -9,7 +9,8 @@
 
 .form_container {
   margin-top: 4rem;
-  background-color: $tundora-60;
+  // background-color: $tundora-60; белая тема
+  background-color: $black-60;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -36,6 +37,8 @@
   input {
     padding: 1rem;
     padding-left: 2.7rem;
+    background-color: $tundora-60; // dark
+    color: $white; // dark
 
     @media (max-width: $phone-width) {
       width: 15rem;
@@ -50,7 +53,8 @@
       }
     }
     input {
-      border: 2px solid $yandex-red;
+      border: 1px solid $yandex-red;
+      box-shadow: 0 0 0 1px $yandex-red;
       outline: none;
 
       &:focus {
@@ -70,9 +74,9 @@
   padding-left: 0.75rem;
 }
 
-.form__email_input {
-  @include input($silver, $tundora);
-}
+// .form__email_input {
+//   @include input($silver, $tundora);
+// }
 
 .form_button {
   width: 20rem;

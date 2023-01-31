@@ -62,3 +62,24 @@ $base-transition: 0.3s ease;
     box-shadow: 0 0 0 1px $box-shadow;
   }
 }
+
+@mixin btn-new-style {
+  background-image: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 1px #eee;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border: none;
+
+  display: block;
+
+  &:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+}

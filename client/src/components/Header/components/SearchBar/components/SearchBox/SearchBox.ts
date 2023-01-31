@@ -1,7 +1,7 @@
-import { complexMovieSearch } from '../../../../../../api/films';
-import { FIELD } from '../../../../../../const/api/field';
-import { API_KEY } from '../../../../../../const/api/url';
-import { createElem } from '../../../../../../utils/create-element';
+import { complexMovieSearch } from 'src/api/films';
+import { FIELD } from 'src/const/api/field';
+import { API_KEY } from 'src/const/api/url';
+import { createElem } from 'src/utils/create-element';
 import { renderSearchBoxCard } from './components/SearchBoxCard/SearchBoxCard';
 import styles from './SearchBox.module.scss';
 
