@@ -1,6 +1,6 @@
-import { FIELD } from 'src/const/api/field';
-import { FILM_TYPE_NUMB } from 'src/const/api/film-type';
-import { API_KEY, API_REQUEST } from 'src/const/api/url';
+import { FIELD } from '../const/api/field';
+// import { FILM_TYPE_NUMB } from '../const/api/film-type';
+import { API_KEY, API_REQUEST } from '../const/api/url';
 import { getData } from './get-data-api';
 
 /** Получаем данные о фильме по id */
@@ -15,7 +15,7 @@ export const findedMovies = (inputData: number | string, fieldData: string, isSt
 // Чтобы отображать более релевантные результаты придется добавлять сортировки.
 
 // Пример поиска по типу фильмы
-findedMovies(FILM_TYPE_NUMB.MOVIE, FIELD.TYPENUMBER);
+// findedMovies(FILM_TYPE_NUMB.MOVIE, FIELD.TYPENUMBER);
 
 //
 /** Сложный поиск фильмов, по любому значению в любых вариациях, в options передается массив поисковых параметров */

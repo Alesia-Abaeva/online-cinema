@@ -5,6 +5,11 @@
   src: url('/src/assets/fonts/NetflixSans-Regular.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'NetflixSans-Bold';
+  src: url('/src/assets/fonts/NetflixSans-Bold.woff2') format('woff2');
+}
+
 .main {
   min-height: calc(100vh - $footer-height - $header-height);
 }

@@ -129,9 +129,10 @@ type FindedMovies = Pick<
   | 'watchability'
   | 'year'
   | 'externalId'
+  | 'id'
 >;
 interface ResponseFindedMovies extends PageLimit {
-  data: FindedMovies[];
+  docs: FindedMovies[];
 }
 
 type SequelsAndPrequels = Pick<ResponseMovie, 'alternativeName' | 'enName' | 'id' | 'name' | 'poster' | 'type'>;
