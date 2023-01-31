@@ -1,9 +1,12 @@
 import { createElem } from 'src/utils/create-element';
+import { linkHandler } from 'src/utils/link-handler';
 import styles from './ListCard.module.scss';
 
 export const renderListCard = (cardData: ListCard): HTMLElement => {
   const listCard: HTMLElement = createElem('a', styles['list-card']);
   listCard.setAttribute('href', cardData.url);
+
+  listCard.onclick = linkHandler;
 
   const imgCont: HTMLElement = createElem('div', 'list-card__img-cont');
   const img: HTMLElement = createElem('img', 'list-card__img');

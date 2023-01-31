@@ -11,6 +11,7 @@
   padding: 2rem;
   text-decoration: none;
   color: $white;
+  pointer-events: all;
 
   transition: all $base-transition;
   &:hover {
@@ -25,6 +26,7 @@
 
 .list-card__img-cont {
   height: 100%;
+  pointer-events: none;
 }
 
 .list-card__img {
@@ -40,6 +42,7 @@
   flex-direction: column;
   gap: 1rem;
   margin-left: 2rem;
+  pointer-events: none;
 }
 
 .list-card__title {

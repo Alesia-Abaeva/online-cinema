@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-types */
 interface Paths {
   [key: string]: {
-    template: (...args: ResponseMovie[]) => void;
+    template: Function;
     title: string;
   };
 }

@@ -29,13 +29,3 @@ export const complexMovieSearch = (options: RequestData[]) => getData<ResponseFi
 //   { sortField: FIELD.YEAR, sortType: 1 }, // сортируем по году в порядке возрастания
 //   { sortField: FIELD.VOTES_IMDB, sortType: -1, token: API_KEY }, // и отсортированы по голосам (рейтинге imb)
 // ]);
-
-// ТОР 250 фильмов, пока возвращает 286 штук, можно просто отрезать конец, или подумать как точнее получить результаты
-// const test = await complexMovieSearch([
-//   { field: FIELD.TYPE, search: 'movie' },
-//   { field: FIELD.TYPE, search: 'cartoon' },
-//   { field: FIELD.TYPE, search: 'anime' },
-//   { field: 'top250', search: '!null' },
-//   { sortField: 'top250', sortType: 1, token: API_KEY },
-// ]);
-// console.log('test', test);

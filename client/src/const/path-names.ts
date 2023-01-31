@@ -4,6 +4,7 @@ export const PATH_NAMES: PathNames = {
   login: '/login',
   register: '/register',
   films: '/films', // dynamic
-  lists: '/lists',
+  list: '/list', // dynamic
+  lists: '/all-lists',
   subscriptions: '/subscriptions',
 };

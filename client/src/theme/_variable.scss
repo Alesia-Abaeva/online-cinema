@@ -32,6 +32,15 @@ $base-transition: 0.3s ease;
   align-items: center;
 }
 
+@mixin default-page-container {
+  height: calc(100vh - $footer-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: auto 0;
+}
+
 // REDO TODO Create generic btn component
 @mixin btn($color, $background-color, $hover-background-color) {
   cursor: pointer;

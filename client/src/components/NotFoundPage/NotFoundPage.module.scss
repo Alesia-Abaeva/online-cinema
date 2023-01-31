@@ -1,12 +1,7 @@
 @import '/src/theme/variable';
 
 .not-found {
-  height: calc(100vh - $footer-height);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: auto 0;
+  @include default-page-container;
 }
 
 .not-found__error-code {
