@@ -1,10 +1,11 @@
-import { projectTitle } from './project-title';
+import { lists } from 'src/pages/lists';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
 import { register } from '../pages/register';
 import { film } from '../pages/film-page';
 import { PATH_NAMES } from './path-names';
+import { projectTitle } from './project-title';
 
 export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.notFound]: {
@@ -26,5 +27,9 @@ export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.films]: {
     template: film,
     title: `films | ${projectTitle}`,
+  },
+  [PATH_NAMES.lists]: {
+    template: lists,
+    title: `lists | ${projectTitle}`,
   },
 };

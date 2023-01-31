@@ -1,0 +1,23 @@
+@import '/src/theme/variable';
+
+.lists-page {
+  min-height: calc(100vh - $footer-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: auto 0;
+  padding-top: calc($header-height);
+}
+
+.lists-page__lists {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.lists-page__title {
+  margin-bottom: 1rem;
+  font-size: 4.5rem;
+  line-height: normal;
+}

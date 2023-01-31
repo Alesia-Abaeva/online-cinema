@@ -1,7 +1,7 @@
 @import '/src/theme/variable';
 
 .not-found {
-  height: calc(100vh - $header-height - $footer-height);
+  height: calc(100vh - $footer-height);
   display: flex;
   flex-direction: column;
   justify-content: center;
