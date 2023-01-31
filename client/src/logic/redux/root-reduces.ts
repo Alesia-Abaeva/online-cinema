@@ -6,7 +6,7 @@ const initialTheme = {
   disabled: false,
 }; // тестовое начальное значение - TODO - изменить и перенести
 
-function themeReducer(state = initialTheme, action: TypesRedux) {
+function themeReducer(action: TypesRedux, state = initialTheme) {
   switch (action.type) {
     case ENABLE:
       return { ...state, disabled: false };

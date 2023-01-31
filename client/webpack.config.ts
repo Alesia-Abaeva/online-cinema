@@ -9,6 +9,8 @@ const entryPath = path.join(__dirname, 'src', 'index.ts');
 const bundlePath = path.join(__dirname, 'dist');
 const htmlTemplatePath = path.join(__dirname, 'src', 'index.html');
 const assetsPath = path.resolve(__dirname, 'src', 'assets');
+const utilsPath = path.resolve(__dirname, 'src', 'utils');
+
 const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
 // const faviconPath = path.join(__dirname, 'src', 'assets', 'favicon.png'); //TODO
@@ -77,7 +79,7 @@ const config: Configuration = {
   },
   resolve: {
     extensions: ['.ts', '.js', '.css', '.scss'],
-    alias: { assets: assetsPath, src: srcPath },
+    alias: { assets: assetsPath, src: srcPath, utils:utilsPath },
   },
 };
 
