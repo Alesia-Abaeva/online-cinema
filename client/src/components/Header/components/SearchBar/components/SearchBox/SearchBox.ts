@@ -5,7 +5,11 @@ import { createElem } from '../../../../../../utils/create-element';
 import { renderSearchBoxCard } from './components/SearchBoxCard/SearchBoxCard';
 import styles from './SearchBox.module.scss';
 
-export const renderSearchBox = async (res: ResponseFindedMovies | null): Promise<HTMLElement> => {
+function isError(obj: ResErrorMes | ResponseFindedMovies): obj is ResErrorMes {
+  return 'message' in obj;
+}
+
+export const renderSearchBox = async (res: ResponseFindedMovies | ResErrorMes | null): Promise<HTMLElement> => {
   const searchBox: HTMLElement = createElem('div', styles['search-box']);
   let films;
   if (res) {
@@ -23,16 +27,21 @@ export const renderSearchBox = async (res: ResponseFindedMovies | null): Promise
       { sortField: FIELD.VOTES_IMDB, sortType: -1, token: API_KEY },
     ]);
   }
-
-  if (films.docs.length === 0) {
-    const noResults: HTMLElement = createElem('div', 'search-box__no-results');
-    noResults.innerHTML = 'По вашему запросу ничего не найдено';
-    searchBox.append(noResults);
+  if (!isError(films)) {
+    if (films.docs.length === 0) {
+      const noResults: HTMLElement = createElem('div', 'search-box__no-results');
+      noResults.innerHTML = 'По вашему запросу ничего не найдено';
+      searchBox.append(noResults);
+    } else {
+      films.docs.forEach((el) => {
+        const searchCard: HTMLElement = renderSearchBoxCard(el);
+        searchBox.append(searchCard);
+      });
+    }
   } else {
-    films.docs.forEach((el) => {
-      const searchCard: HTMLElement = renderSearchBoxCard(el);
-      searchBox.append(searchCard);
-    });
+    const noResults: HTMLElement = createElem('div', 'search-box__no-results');
+    noResults.innerHTML = 'Произошла какая то ошибка на сервере...';
+    searchBox.append(noResults);
   }
 
   return searchBox;

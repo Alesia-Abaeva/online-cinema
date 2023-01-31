@@ -1,4 +1,4 @@
-import { createElem } from '../../utils/create-element';
+import { createElem } from 'src/utils/create-element';
 import styles from './FilmPage.module.scss';
 
 export const renderFilmPage = (filmData: TestData): HTMLElement => {

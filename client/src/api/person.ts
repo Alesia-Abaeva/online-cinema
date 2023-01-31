@@ -1,5 +1,5 @@
-import { FIELD } from '../const/api/field';
-import { API_KEY, API_REQUEST } from '../const/api/url';
+import { FIELD } from 'src/const/api/field';
+import { API_KEY, API_REQUEST } from 'src/const/api/url';
 import { getData } from './get-data-api';
 
 /** Получаем данные об актере по id */
