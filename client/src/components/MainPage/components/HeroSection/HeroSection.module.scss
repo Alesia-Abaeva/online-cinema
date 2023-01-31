@@ -11,6 +11,7 @@
   font-family: NetflixSans-Bold;
   font-weight: 900;
   font-size: 4rem;
+  text-align: center;
 }
 
 .subs-hero__subTitle {
@@ -34,4 +35,35 @@
   background-color: $black;
   height: 250px;
   @include flex-center;
+}
+
+@media (max-width: 1120px) {
+  .subs-hero__title {
+    font-size: 3.5rem;
+  }
+
+  .subs-hero__subTitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .subs-hero__title {
+    font-size: 2.5rem;
+  }
+
+  .subs-hero__subTitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .subs-hero__title {
+    font-size: 2rem;
+  }
+
+  .subs-hero__subTitle {
+    margin: 0;
+    width: 100%;
+  }
 }
