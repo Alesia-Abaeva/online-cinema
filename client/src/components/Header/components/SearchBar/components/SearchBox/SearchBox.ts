@@ -1,13 +1,10 @@
+import { isError } from 'src/utils/type-checkers';
 import { complexMovieSearch } from '../../../../../../api/films';
 import { FIELD } from '../../../../../../const/api/field';
 import { API_KEY } from '../../../../../../const/api/url';
 import { createElem } from '../../../../../../utils/create-element';
 import { renderSearchBoxCard } from './components/SearchBoxCard/SearchBoxCard';
 import styles from './SearchBox.module.scss';
-
-function isError(obj: ResErrorMes | ResponseFindedMovies): obj is ResErrorMes {
-  return 'message' in obj;
-}
 
 export const renderSearchBox = async (res: ResponseFindedMovies | ResErrorMes | null): Promise<HTMLElement> => {
   const searchBox: HTMLElement = createElem('div', styles['search-box']);
