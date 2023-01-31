@@ -4,7 +4,7 @@ import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
-import { mailIcon, passwordIcon } from './icons';
+import { mailIcon, passwordIcon } from '../../const/icons/icons';
 import styles from './Login.module.scss';
 
 export const renderLoginPage = (): HTMLElement => {
