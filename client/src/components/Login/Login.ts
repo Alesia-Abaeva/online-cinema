@@ -24,7 +24,9 @@ export const renderLoginPage = (): HTMLElement => {
   const logo = createElem('div', 'form_logo');
 
   const errorWrapp = createElem('div', 'form__error');
+  errorWrapp.innerHTML = '.';
 
+  // email
   const wrapperEmail = createElem('form', 'form__wrapp');
   const labelEmail = createElem('label', 'form_label');
   const iconEmail = createElem('div', 'icon__container');
@@ -36,6 +38,7 @@ export const renderLoginPage = (): HTMLElement => {
 
   wrapperEmail.append(labelEmail, iconEmail, inputEmail);
 
+  // password
   const wrapperPas = createElem('form', 'form__wrapp');
   const labelPas = createElem('label', 'form_label');
   const iconPass = createElem('div', 'icon__container');
@@ -83,9 +86,7 @@ export const renderLoginPage = (): HTMLElement => {
     if (loginState.error) {
       errorWrapp.style.visibility = 'visible';
       errorWrapp.innerHTML = loginState.error?.message as string;
-    } else {
-      errorWrapp.style.visibility = 'hidden';
-    }
+    } else errorWrapp.style.visibility = 'hidden';
   });
 
   return main;

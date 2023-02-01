@@ -25,7 +25,7 @@ router.post(
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
-          message: "Неккоректные данные при регистрации!",
+          message: "Неккоректные данные при регистрации.",
         });
       }
 
@@ -53,7 +53,7 @@ router.post(
       console.log(e);
       res
         .status(500) // добавляем стандартную серверную ошибку
-        .json({ message: "Не удалось зарегистрироваться" });
+        .json({ message: "Не удалось зарегистрироваться." });
     }
   }
 );
@@ -72,7 +72,7 @@ router.post(
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
-          message: "Попробуйте еще раз. В данных ошибка",
+          message: "Попробуйте еще раз. В данных ошибка.",
         });
       }
 
@@ -82,14 +82,14 @@ router.post(
       const user = await User.findOne({ email });
 
       if (!user) {
-        return res.status(400).json({ message: "Пользователь не найден" });
+        return res.status(400).json({ message: "Пользователь не найден." });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
         return res
           .status(400)
-          .json({ message: "Неверный пароль, попробуйте снова" });
+          .json({ message: "Неверный пароль, попробуйте снова." });
       }
 
       //   создаем токен для авторизованного пользователя

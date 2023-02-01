@@ -1,4 +1,6 @@
-import { registerHandler } from 'src/api/back/auth';
+// import { registerHandler } from 'src/api/back/auth';
+import { appDispatch, store } from 'src/logic/redux';
+import { register } from 'src/logic/redux/actions';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { createElem } from '../../utils/create-element';
@@ -23,8 +25,11 @@ export const renderRegisterPage = (): HTMLElement => {
 
   const logo = createElem('div', 'form_logo');
 
+  const errorWrapp = createElem('div', 'form__error');
+  errorWrapp.innerHTML = '.';
+
   // email
-  const wrapperEmail = createElem('form', 'form__wrapp');
+  const wrapperEmail = createElem('form', styles['form__wrapp-reg']);
   const labelEmail = createElem('label', 'form_label');
   const iconEmail = createElem('div', 'icon__container');
   iconEmail.innerHTML = mailIcon;
@@ -36,7 +41,7 @@ export const renderRegisterPage = (): HTMLElement => {
   wrapperEmail.append(labelEmail, iconEmail, inputEmail);
 
   // name
-  const wrapperName = createElem('form', 'form__wrapp');
+  const wrapperName = createElem('form', styles['form__wrapp-reg']);
   const labelName = createElem('label', 'form_label');
   const iconName = createElem('div', 'icon__container');
   iconName.innerHTML = userIcon;
@@ -50,7 +55,7 @@ export const renderRegisterPage = (): HTMLElement => {
   wrapperName.append(labelName, iconName, inputName);
 
   // password
-  const wrapperPas = createElem('form', 'form__wrapp');
+  const wrapperPas = createElem('form', 'form__wrapp-reg');
   const labelPas = createElem('label', 'form_label');
   const iconPass = createElem('div', 'icon__container');
   iconPass.innerHTML = passwordIcon;
@@ -70,7 +75,7 @@ export const renderRegisterPage = (): HTMLElement => {
   const button = createButton(
     `Зарегистрироваться`,
     () => {
-      registerHandler({ email: stateInput.email, password: stateInput.password, name: stateInput.name });
+      appDispatch(register({ email: stateInput.email, password: stateInput.password, name: stateInput.name }));
     },
     'form_button'
   );
@@ -83,10 +88,22 @@ export const renderRegisterPage = (): HTMLElement => {
   registrationText.innerHTML = `Уже есть аккаунт?&nbsp `;
   registrationContainer.append(registrationText, registrationLink);
 
-  formContainer.append(logo, wrapperEmail, wrapperName, wrapperPas, button, registrationContainer);
+  formContainer.append(logo, errorWrapp, wrapperEmail, wrapperName, wrapperPas, button, registrationContainer);
   mainContent.append(formContainer);
   mainContainer.append(mainContent);
   main.append(mainContainer);
+
+  store.subscribe(() => {
+    const regirterState = store.getState().auth.register;
+
+    const loginLoading = regirterState.isLoading;
+    button.innerText = loginLoading ? 'Загрузка' : 'Войти';
+
+    if (regirterState.error) {
+      errorWrapp.style.visibility = 'visible';
+      errorWrapp.innerHTML = regirterState.error?.message as string;
+    } else errorWrapp.style.visibility = 'hidden';
+  });
 
   return main;
 };

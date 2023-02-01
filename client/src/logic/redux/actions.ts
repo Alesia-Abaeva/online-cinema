@@ -1,4 +1,4 @@
-import { loginHandler } from 'src/api/back/auth';
+import { loginHandler, registerHandler } from 'src/api/back/auth';
 import { AppDispatch } from '.';
 import { AuthTypes } from './types-redux';
 
@@ -11,12 +11,12 @@ const setLoginInfo = (payload: ApiResponse<AuthResponse>) => {
   };
 };
 
-// const setRegisterInfo = (payload: ApiResponse<AuthResponse>) => {
-//   return {
-//     type: AuthTypes.REGISTER,
-//     payload,
-//   };
-// };
+const setRegisterInfo = (payload: ApiResponse<AuthResponse>) => {
+  return {
+    type: AuthTypes.REGISTER,
+    payload,
+  };
+};
 
 export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
   try {
@@ -31,5 +31,15 @@ export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
     // оформляем ошибку
     // оформляем конец загрузки
     dispatch(setLoginInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
+  }
+};
+
+export const register = (body: AuthRequest) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(setRegisterInfo({ isLoading: true }));
+    const { data } = await registerHandler(body);
+    dispatch(setRegisterInfo({ error: null, data, isLoading: false }));
+  } catch (e) {
+    dispatch(setRegisterInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
 };

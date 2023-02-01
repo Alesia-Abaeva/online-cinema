@@ -25,7 +25,7 @@
   background-position: left;
   background-repeat: no-repeat;
   background-size: contain;
-  margin-bottom: 2.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .form__wrapp {
@@ -45,23 +45,23 @@
     }
   }
 
-  &:invalid {
-    svg {
-      path {
-        stroke: $yandex-red;
-        fill: rgba(95, 158, 160, 0);
-      }
-    }
-    input {
-      border: 1px solid $yandex-red;
-      box-shadow: 0 0 0 1px $yandex-red;
-      outline: none;
+  // &:invalid {
+  //   svg {
+  //     path {
+  //       stroke: $yandex-red;
+  //       fill: rgba(95, 158, 160, 0);
+  //     }
+  //   }
+  //   input {
+  //     border: 1px solid $yandex-red;
+  //     box-shadow: 0 0 0 1px $yandex-red;
+  //     outline: none;
 
-      &:focus {
-        color: $yandex-red;
-      }
-    }
-  }
+  //     &:focus {
+  //       color: $yandex-red;
+  //     }
+  //   }
+  // }
 }
 
 .icon__container {
@@ -98,5 +98,22 @@
 }
 
 .form__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   visibility: hidden;
+  margin-bottom: 1rem;
+  width: 20rem;
+  height: 2rem;
+  padding: 0.1rem;
+  outline: none;
+  border: 1px solid $yandex-red;
+  border-radius: 5px;
+  background-color: $yandex-red;
+  font-size: 0.7rem;
+  text-align: center;
+  transition: ease visibility $base-transition;
+  @media (max-width: $phone-width) {
+    width: 15rem;
+  }
 }
