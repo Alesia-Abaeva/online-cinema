@@ -9,7 +9,9 @@ import { renderListContent } from './components/ListContent/ListContent';
 export const updateListPageUI = async () => {
   const { pathname } = window.location;
   const listFn = getListFucntion(pathname);
-  toQueryString(paginaitonState);
+
+  toQueryString({ page: paginaitonState.page, limit: paginaitonState.limit });
+
   if (listFn !== -1) {
     const res = await listFn({ page: paginaitonState.page, limit: paginaitonState.limit });
     const listData = ALL_LISTS.find((el) => el.url === pathname);

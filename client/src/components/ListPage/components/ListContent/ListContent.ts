@@ -25,8 +25,7 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
   const listItemsContainer: HTMLElement = createElem('div', 'list-content__list-items');
 
   listItems.item.docs.forEach((el, id) => {
-    // TODO: change id to serial number
-    const listItem: HTMLElement = renderListItem(el, id + 1);
+    const listItem: HTMLElement = renderListItem(el, id);
     listItemsContainer.append(listItem);
   });
 

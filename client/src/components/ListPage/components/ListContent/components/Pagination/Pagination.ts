@@ -11,6 +11,11 @@ export const renderPagination = (updateFunc: () => void): HTMLElement => {
   const prevBtn: HTMLElement = createButton(
     'Назад',
     () => {
+      const opt = fromQueryString(window.location.search);
+      if (opt.page && opt.limit) {
+        paginaitonState.page = opt.page;
+        paginaitonState.limit = opt.limit;
+      }
       paginaitonState.page--;
       updateFunc();
     },
@@ -21,6 +26,11 @@ export const renderPagination = (updateFunc: () => void): HTMLElement => {
   const nextBtn: HTMLElement = createButton(
     'Вперед',
     () => {
+      const opt = fromQueryString(window.location.search);
+      if (opt.page && opt.limit) {
+        paginaitonState.page = opt.page;
+        paginaitonState.limit = opt.limit;
+      }
       paginaitonState.page++;
       updateFunc();
     },

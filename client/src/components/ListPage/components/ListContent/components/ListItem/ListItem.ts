@@ -1,14 +1,15 @@
 import { createButton } from 'src/components/ui/Button/Button';
+import { paginaitonState } from 'src/const/default-query-options';
 import { createElem } from 'src/utils/create-element';
 import styles from './ListItem.module.scss';
 
-export const renderListItem = (itemData: FindedMovies, num: number): HTMLElement => {
+export const renderListItem = (itemData: FindedMovies, i: number): HTMLElement => {
   const listItem: HTMLElement = createElem('a', styles['list-item']);
   listItem.setAttribute('href', `/films/${itemData.id}`);
 
   const itemNumCont: HTMLElement = createElem('div', 'list-item__number-cont');
   const itemNum: HTMLElement = createElem('p', 'list-item__number');
-  itemNum.innerHTML = num.toString();
+  itemNum.innerHTML = ((paginaitonState.page - 1) * paginaitonState.limit + (i + 1)).toString();
   itemNumCont.append(itemNum);
 
   const itemImgCont: HTMLElement = createElem('div', 'list-item__img-cont');
