@@ -14,7 +14,12 @@ export const renderListItem = (itemData: FindedMovies, i: number): HTMLElement =
 
   const itemImgCont: HTMLElement = createElem('div', 'list-item__img-cont');
   const itemImg: HTMLElement = createElem('img', 'list-item__img');
-  itemImg.setAttribute('src', itemData.poster.previewUrl);
+  const url = `${
+    itemData.poster
+      ? itemData.poster.previewUrl
+      : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
+  }`;
+  itemImg.setAttribute('src', url);
   itemImgCont.append(itemImg);
 
   const itemInfo: HTMLElement = createElem('div', 'list-item__info');
@@ -23,10 +28,13 @@ export const renderListItem = (itemData: FindedMovies, i: number): HTMLElement =
   filmTitle.innerHTML = itemData.name;
 
   const origNameYearLength: HTMLElement = createElem('div', 'list-item__description');
-  origNameYearLength.innerHTML = `${itemData.alternativeName}, ${itemData.year}, ${itemData.movieLength}&#160;мин`;
+  const enName = itemData.alternativeName ? `${itemData.alternativeName}, ` : '';
+  const year = itemData.year ? `${itemData.year}, ` : '';
+  const length = itemData.movieLength ? `${itemData.movieLength}&#160;мин` : '';
+  origNameYearLength.innerHTML = `${enName}${year}${length}`;
 
   const countryGenreDirecror: HTMLElement = createElem('div', 'list-item__description_secondary');
-  countryGenreDirecror.innerHTML = `${itemData.shortDescription}`;
+  countryGenreDirecror.innerHTML = `${itemData.shortDescription || ''}`;
 
   itemInfo.append(filmTitle, origNameYearLength, countryGenreDirecror);
 
