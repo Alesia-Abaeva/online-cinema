@@ -1,5 +1,6 @@
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
+import { pathResolver } from 'src/router/router';
 import { linkHandler } from 'src/utils/link-handler';
 import { login } from 'src/logic/redux/actions';
 import { store, appDispatch } from 'src/logic/redux';
@@ -86,7 +87,10 @@ export const renderLoginPage = (): HTMLElement => {
     if (loginState.error) {
       errorWrapp.style.visibility = 'visible';
       errorWrapp.innerHTML = loginState.error?.message as string;
-    } else errorWrapp.style.visibility = 'hidden';
+    } else {
+      errorWrapp.style.visibility = 'hidden';
+      pathResolver('/');
+    }
   });
 
   return main;

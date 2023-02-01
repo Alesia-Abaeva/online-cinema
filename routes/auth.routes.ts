@@ -29,7 +29,7 @@ router.post(
         });
       }
 
-      const { email, password } = req.body;
+      const { email, password, name } = req.body;
 
       const candidate = await User.findOne({ email });
       //прoверяем есть ли такой юзер уже
@@ -41,13 +41,11 @@ router.post(
 
       const hashedPassword = await bcrypt.hash(password, 12); //хэшируем пароль
 
-      const user = new User({ email, password: hashedPassword });
+      const user = new User({ email, password: hashedPassword, name });
 
       await user.save();
 
-      res
-        .status(201)
-        .send({ ...user, message: "Пользователь успешно создан!" });
+      res.status(201).send({ user, message: "Пользователь успешно создан!" });
       // .json({ ...user, message: "Пользователь успешно создан!" });
     } catch (e) {
       console.log(e);

@@ -1,6 +1,7 @@
 // import { registerHandler } from 'src/api/back/auth';
 import { appDispatch, store } from 'src/logic/redux';
 import { register } from 'src/logic/redux/actions';
+import { pathResolver } from 'src/router/router';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { createElem } from '../../utils/create-element';
@@ -102,7 +103,10 @@ export const renderRegisterPage = (): HTMLElement => {
     if (regirterState.error) {
       errorWrapp.style.visibility = 'visible';
       errorWrapp.innerHTML = regirterState.error?.message as string;
-    } else errorWrapp.style.visibility = 'hidden';
+    } else {
+      errorWrapp.style.visibility = 'hidden';
+      pathResolver('/');
+    }
   });
 
   return main;
