@@ -1,0 +1,30 @@
+@import '/src/theme/variable';
+
+.list-content {
+  display: flex;
+}
+
+.list-content__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list-content__title {
+  font-family: NetflixSans-Bold;
+  font-size: 6rem;
+  align-self: flex-start;
+  line-height: 120%;
+}
+
+.list-content__img-cont {
+  @include flex-center;
+  justify-content: flex-end;
+}
+
+.list-content__img {
+  border-radius: 10px;
+  height: 80%;
+  width: 80%;
+  object-fit: cover;
+}

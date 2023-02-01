@@ -2,4 +2,23 @@
 
 .list {
   @include default-page-container;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: $header-height;
+}
+
+.list__container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+
+.filters {
+  background-color: $apple-green;
+  height: 100%;
+}
+
+.list-content {
+  // background-color: red;
+  height: 100%;
 }

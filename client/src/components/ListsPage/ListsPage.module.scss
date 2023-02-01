@@ -4,9 +4,10 @@
   min-height: calc(100vh - $footer-height);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   padding: auto 0;
-  padding-top: calc($header-height);
+  padding-top: calc($header-height + 1rem);
 }
 
 .lists-page__lists {
@@ -14,6 +15,7 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 2rem;
+  max-width: $desktop;
 }
 
 .lists-page__title {
