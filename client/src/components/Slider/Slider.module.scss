@@ -1,0 +1,35 @@
+.slider {
+  position: relative;
+  &__header {
+    padding-top: 24px;
+  }
+  &__wrapper {
+    display: flex;
+    position: relative;
+  }
+  &__items {
+    display: flex;
+    transition: transform 0s ease;
+    will-change: transform;
+  }
+
+  &__button {
+    width: calc(2.5% + 15px);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    border: 0;
+    background: none;
+  }
+  .slider-btn-left {
+    left: calc(-2.5% - 15px - 8px);
+  }
+  .slider-btn-right {
+    right: calc(-2.5% - 15px - 8px);
+  }
+}
+
+.slider__wrapper:hover > button svg {
+  fill: white;
+}
