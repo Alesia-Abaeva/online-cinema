@@ -1,4 +1,5 @@
 import { createElem } from 'src/utils/create-element';
+import { renderListItem } from './components/ListItem/ListItem';
 import { renderProgressBar } from './components/ProgressBar/ProgressBar';
 import styles from './ListContent.module.scss';
 
@@ -18,7 +19,15 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
 
   const progressBar: HTMLElement = renderProgressBar(`Вы посмотрели 0 фильмов из ${listItems.item.total}`);
 
-  litsContent.append(listHeader, progressBar);
+  const listItemsContainer: HTMLElement = createElem('div', 'list-content__list-items');
+
+  listItems.item.docs.forEach((el, id) => {
+    // TODO: change id to serial number
+    const listItem: HTMLElement = renderListItem(el, id + 1);
+    listItemsContainer.append(listItem);
+  });
+
+  litsContent.append(listHeader, progressBar, listItemsContainer);
 
   return litsContent;
 };

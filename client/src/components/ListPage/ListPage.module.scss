@@ -1,7 +1,9 @@
 @import '/src/theme/variable';
 
 .list {
-  @include default-page-container;
+  display: flex;
+  flex-direction: column;
+  padding: auto 0;
   justify-content: flex-start;
   align-items: center;
   padding-top: $header-height;
@@ -19,6 +21,5 @@
 }
 
 .list-content {
-  // background-color: red;
   height: 100%;
 }
