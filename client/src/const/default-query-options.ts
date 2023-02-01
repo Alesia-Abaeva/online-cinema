@@ -1,4 +1,4 @@
-export const DEFAULT_OPTIONS: Options = {
+export const DEFAULT_OPTIONS: DefOptions = {
   page: 1,
   limit: 10,
 };

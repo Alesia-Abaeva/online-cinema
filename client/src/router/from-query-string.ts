@@ -1,10 +1,10 @@
 import { DEFAULT_OPTIONS } from 'src/const/default-query-options';
 
-export const fromQueryString = (querystring: string): Options => {
+export const fromQueryString = (querystring: string): Options | DefOptions => {
   if (!querystring) return DEFAULT_OPTIONS;
   const querystringOpt = querystring.slice(1);
   const querystringArr = querystringOpt.split('&');
-  const options = DEFAULT_OPTIONS;
+  const options: Options = {};
 
   querystringArr.forEach((filter) => {
     const filterType = filter.split('=')[0];
@@ -15,6 +15,5 @@ export const fromQueryString = (querystring: string): Options => {
       options[filterType] = +param;
     }
   });
-  console.log(options);
   return options;
 };

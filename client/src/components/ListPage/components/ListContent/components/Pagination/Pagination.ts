@@ -8,21 +8,25 @@ import styles from './Pagination.module.scss';
 export const renderPagination = (updateFunc: () => void): HTMLElement => {
   const pagination: HTMLElement = createElem('div', styles['paginaiton']);
 
-  const prevBtn: HTMLElement = createButton('Назад', undefined, 'pagination__btn');
+  const prevBtn: HTMLElement = createButton(
+    'Назад',
+    () => {
+      paginaitonState.page--;
+      updateFunc();
+    },
+    'pagination__btn'
+  );
   prevBtn.id = 'prev';
 
-  prevBtn.onclick = () => {
-    paginaitonState.page--;
-    updateFunc();
-  };
-
-  const nextBtn: HTMLElement = createButton('Вперед', undefined, 'pagination__btn');
+  const nextBtn: HTMLElement = createButton(
+    'Вперед',
+    () => {
+      paginaitonState.page++;
+      updateFunc();
+    },
+    'pagination__btn'
+  );
   nextBtn.id = 'next';
-
-  nextBtn.onclick = () => {
-    paginaitonState.page++;
-    updateFunc();
-  };
 
   pagination.append(prevBtn, nextBtn);
   const curPageOpt = fromQueryString(window.location.search);

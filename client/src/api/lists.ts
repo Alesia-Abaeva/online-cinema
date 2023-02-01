@@ -4,7 +4,6 @@ import { complexMovieSearch } from './films';
 
 /** Топ 250 фильмов */
 export const getTop250Movies = async (options: Options): Promise<ResponseFindedMovies | ResErrorMes> => {
-  console.log(options);
   return await complexMovieSearch([
     { field: FIELD.TYPE, search: 'movie' },
     { field: FIELD.TYPE, search: 'cartoon' },

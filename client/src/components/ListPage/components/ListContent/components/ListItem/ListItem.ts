@@ -20,7 +20,6 @@ export const renderListItem = (itemData: FindedMovies, num: number): HTMLElement
 
   const filmTitle: HTMLElement = createElem('div', 'list-item__title');
   filmTitle.innerHTML = itemData.name;
-  console.log(itemData);
 
   const origNameYearLength: HTMLElement = createElem('div', 'list-item__description');
   origNameYearLength.innerHTML = `${itemData.alternativeName}, ${itemData.year}, ${itemData.movieLength}&#160;мин`;

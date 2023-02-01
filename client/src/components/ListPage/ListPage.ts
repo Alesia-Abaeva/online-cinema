@@ -18,7 +18,6 @@ export const renderList = (listItems: ListItems, listData: ListCard): HTMLElemen
   listContentCont.append(litsContent);
 
   listContainer.append(filters, listContentCont);
-  console.log(listItems, listData);
 
   mainContent.append(listContainer);
 
