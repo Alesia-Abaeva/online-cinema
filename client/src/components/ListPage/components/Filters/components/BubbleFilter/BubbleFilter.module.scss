@@ -1,0 +1,30 @@
+@import '/src/theme/variable';
+
+
+.bubble-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bubble-filter__item {
+  border-radius: 10px;
+  padding: 1rem;
+  background: $background;
+  cursor: pointer;
+  transition: all $base-transition;
+  &:hover {
+    transform: scale(1.1);
+    background: $copyright-footer;;
+  }
+}
+
+.bubble-filter__item_active {
+  background-color: $white;
+  color: $black;
+
+  &:hover {
+    transform: scale(1);
+    background: $white;;
+  }
+}

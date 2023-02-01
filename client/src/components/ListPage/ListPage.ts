@@ -1,4 +1,5 @@
 import { createElem } from '../../utils/create-element';
+import { renderFilters } from './components/Filters/Filters';
 import { renderListContent } from './components/ListContent/ListContent';
 import styles from './ListPage.module.scss';
 
@@ -9,7 +10,7 @@ export const renderList = (listItems: ListItems, listData: ListCard): HTMLElemen
 
   const listContainer: HTMLElement = createElem('div', 'list__container');
 
-  const filters: HTMLElement = createElem('div', 'filters');
+  const filters: HTMLElement = renderFilters();
 
   const listContentCont: HTMLElement = document.createElement('div');
   listContentCont.id = 'list-content';
