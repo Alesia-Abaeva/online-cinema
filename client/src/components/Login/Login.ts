@@ -1,7 +1,8 @@
-import { registerHandler } from 'src/api/back/auth';
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
+import { login } from 'src/logic/redux/actions';
+import { store, appDispatch } from 'src/logic/redux';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
 import { mailIcon, passwordIcon } from '../../const/icons/icons';
@@ -21,6 +22,8 @@ export const renderLoginPage = (): HTMLElement => {
   const formContainer = createElem('div', 'form_container');
 
   const logo = createElem('div', 'form_logo');
+
+  const errorWrapp = createElem('div', 'form__error');
 
   const wrapperEmail = createElem('form', 'form__wrapp');
   const labelEmail = createElem('label', 'form_label');
@@ -43,7 +46,7 @@ export const renderLoginPage = (): HTMLElement => {
     id: 'password',
     name: 'password',
   });
-  // inputPas.setAttribute('minLength', '6'); Добавить эту проверку при регистрации
+
   inputPas.oninput = () => {
     stateInput.password = inputPas.value;
   };
@@ -53,7 +56,7 @@ export const renderLoginPage = (): HTMLElement => {
   const button = createButton(
     'Войти',
     () => {
-      registerHandler({ email: stateInput.email, password: stateInput.password });
+      appDispatch(login({ email: stateInput.email, password: stateInput.password }));
     },
     'form_button'
   );
@@ -66,10 +69,24 @@ export const renderLoginPage = (): HTMLElement => {
   registrationText.innerHTML = `, если у вас не аккаунта.`;
   registrationContainer.append(registrationLink, registrationText);
 
-  formContainer.append(logo, wrapperEmail, wrapperPas, button, registrationContainer);
+  formContainer.append(logo, errorWrapp, wrapperEmail, wrapperPas, button, registrationContainer);
   mainContent.append(formContainer);
   mainContainer.append(mainContent);
   main.append(mainContainer);
+
+  store.subscribe(() => {
+    const loginState = store.getState().auth.login;
+
+    const loginLoading = loginState.isLoading;
+    button.innerText = loginLoading ? 'Загрузка' : 'Войти';
+
+    if (loginState.error) {
+      errorWrapp.style.visibility = 'visible';
+      errorWrapp.innerHTML = loginState.error?.message as string;
+    } else {
+      errorWrapp.style.visibility = 'hidden';
+    }
+  });
 
   return main;
 };

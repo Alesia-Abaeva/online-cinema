@@ -1,4 +1,3 @@
-import { getMovie } from 'src/api/films';
 import { renderFooter } from '../Footer/Footer';
 import { renderHeader } from '../Header/Header';
 import styles from './App.module.scss';
@@ -14,12 +13,7 @@ export const renderApp = (func: () => HTMLElement): Element => {
   const footer: HTMLElement = renderFooter();
   const main: HTMLElement = func();
 
-  const a = async () => {
-    const b = await getMovie(304);
-    console.log(b);
-  };
-
-  a();
+  // TODO - добавить стор в функцию Init
 
   appContiner.append(header, main, footer);
 

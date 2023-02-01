@@ -9,21 +9,23 @@ class ApiWrapper {
   }
 
   private async fetchWrapper<ResponseBody>(url: string, options: RequestInit) {
-    try {
-      const response = await fetch(url, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', // заголовок для запроса на API
-        },
-        ...options,
-      });
-      console.log(response);
-      const data: ResponseBody = await response.json();
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', // заголовок для запроса на API
+      },
+      ...options,
+    });
 
-      return { data, response };
-    } catch (e) {
-      console.log(e);
-      return { data: e as { message: string } };
+    const data: ResponseBody = await response.json();
+
+    if (!response.ok) {
+      // eslint-disable-next-line no-throw-literal
+      throw data as unknown as ErrorMessage;
     }
+
+    console.log('wtattastas', response);
+
+    return { data, response };
   }
 
   private makeUrl(endpoint: string, options?: RequestData | RequestData[] | null): string {
@@ -36,7 +38,6 @@ class ApiWrapper {
             .join('&')
         )
         .join('&');
-      console.log(queryParams);
     } else {
       queryParams = Object.entries(options ?? {})
         .map(([param, value]) => `${param}=${String(value)}`)
@@ -44,7 +45,6 @@ class ApiWrapper {
     }
 
     const queryString = queryParams && `?${queryParams}`;
-    console.log('queryString', queryString, `${this.baseUrl}/${endpoint}${queryString}`);
     return `${this.baseUrl}/${endpoint}${queryString}`;
   }
 

@@ -45,6 +45,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@redux-devtools/extension": "^3.2.5",
     "@reduxjs/toolkit": "^1.9.2",
     "clean-webpack-plugin": "^4.0.0",
     "eslint-config-prettier": "^8.6.0",

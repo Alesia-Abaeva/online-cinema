@@ -3,3 +3,8 @@ interface AuthRequest {
   password: string;
   name?: string;
 }
+
+interface AuthResponse {
+  userId: string;
+  token: string;
+}

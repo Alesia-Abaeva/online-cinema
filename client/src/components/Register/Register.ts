@@ -1,4 +1,4 @@
-import { authHandler } from 'src/api/back/auth';
+import { registerHandler } from 'src/api/back/auth';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { createElem } from '../../utils/create-element';
@@ -70,7 +70,7 @@ export const renderRegisterPage = (): HTMLElement => {
   const button = createButton(
     `Зарегистрироваться`,
     () => {
-      authHandler({ email: stateInput.email, password: stateInput.password, name: stateInput.name });
+      registerHandler({ email: stateInput.email, password: stateInput.password, name: stateInput.name });
     },
     'form_button'
   );

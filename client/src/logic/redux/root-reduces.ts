@@ -1,26 +1,30 @@
 import { combineReducers } from 'redux';
-import { DISABLE, ENABLE } from './types-redux';
+import { AuthTypes } from './types-redux';
 
-const initialTheme = {
-  value: 'ligth',
-  disabled: false,
-}; // тестовое начальное значение - TODO - изменить и перенести
+interface AuthState {
+  login: ApiResponse<AuthResponse>;
+  register: ApiResponse<AuthResponse>;
+}
 
-function themeReducer(action: TypesRedux, state = initialTheme) {
+const initialState: AuthState = {
+  login: { data: null, error: null, isLoading: false },
+  register: { data: null, error: null, isLoading: false },
+};
+
+// eslint-disable-next-line default-param-last
+const authReducer = (state = initialState, action: TypesRedux) => {
   switch (action.type) {
-    case ENABLE:
-      return { ...state, disabled: false };
-    case DISABLE:
-      return { ...state, disabled: true };
+    case AuthTypes.LOGIN:
+      return { ...state, login: { ...state.login, ...(action.payload as ApiResponse<AuthResponse>) } };
+    case AuthTypes.REGISTER:
+      return { ...state, register: { ...state.register, ...(action.payload as ApiResponse<AuthResponse>) } };
     default:
       return state;
   }
-  return state;
-} // TODO - поменять под наш функционал ТЕСТ
+};
 
 // Должны проверять какой action нам приходит и менять состояние
-
 // rootReducer - изменяет все наши состояния
 export const rootReducer = combineReducers({
-  theme: themeReducer,
+  auth: authReducer,
 });

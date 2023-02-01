@@ -1,3 +1,6 @@
-export const DARK_THEME = 'DARK';
-export const DISABLE = 'DISABLE_BUT';
-export const ENABLE = 'ENABLE_BUT';
+// eslint-disable-next-line no-shadow
+export enum AuthTypes {
+  INIT = 'INIT',
+  LOGIN = 'LOGIN',
+  REGISTER = 'REGISTER',
+}
