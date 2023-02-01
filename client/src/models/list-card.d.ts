@@ -3,7 +3,7 @@ interface ListCard {
   imgUrl: string;
   filmsCount: number;
   url: string;
-  fn: () => Promise<ResponseFindedMovies | ResErrorMes>;
+  fn: (options: Options) => Promise<ResponseFindedMovies | ResErrorMes>;
 }
 
 interface ListItems {

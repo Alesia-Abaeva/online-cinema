@@ -15,7 +15,7 @@ export const renderApp = (func: () => HTMLElement): Element => {
   const main: HTMLElement = func();
 
   const a = async () => {
-    const b = await getMovie(304);
+    const b = await getMovie({ id: 304 });
     console.log(b);
   };
 

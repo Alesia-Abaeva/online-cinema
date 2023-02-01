@@ -51,6 +51,11 @@
   display: none;
 }
 
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 @media (max-width: $phone-width) {
   .main {
     min-height: calc(100vh - $footer-height-mobile);
