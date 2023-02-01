@@ -1,4 +1,5 @@
 import { createElem } from 'src/utils/create-element';
+import { renderProgressBar } from './components/ProgressBar/ProgressBar';
 import styles from './ListContent.module.scss';
 
 export const renderListContent = (listItems: ListItems, listData: ListCard): HTMLElement => {
@@ -15,7 +16,9 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
 
   listHeader.append(listTitle, listImgCont);
 
-  litsContent.append(listHeader);
+  const progressBar: HTMLElement = renderProgressBar(`Вы посмотрели 0 фильмов из ${listItems.item.total}`);
+
+  litsContent.append(listHeader, progressBar);
 
   return litsContent;
 };
