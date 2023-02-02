@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { check } from "express-validator";
 import checkAuth from "../middleware/auth.middelware";
 import { getUserData, login, register } from "../controllers/UserControllers";
 import {
