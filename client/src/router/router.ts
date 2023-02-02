@@ -18,6 +18,7 @@ export const pathResolver = (pathname: string): void => {
     document.title = route.title;
   }
 };
+document.documentElement.setAttribute('data-theme', 'dark');
 
 pathResolver(window.location.pathname);
 

@@ -8,7 +8,8 @@
 
 .form_container {
   margin-top: 4rem;
-  background-color: $tundora-60;
+  // background-color: $tundora-60;
+  background-color: var(--bg-primary);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -78,7 +79,11 @@
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 
-  background-image: $gradient-primary;
+  // background-image: $gradient-primary;
+  background-color: var(--blue);
+  &:hover {
+    background-color: var(--blue);
+  }
 
   @media (max-width: $phone-width) {
     width: 75vw;
@@ -92,5 +97,5 @@
 }
 
 .reg__link {
-  color: white;
+  color: var(--text-primary);
 }

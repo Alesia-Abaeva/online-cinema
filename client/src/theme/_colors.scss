@@ -30,3 +30,19 @@ $black-50: rgba(0, 0, 0, 0.5);
 $black-60: rgba(0, 0, 0, 0.6);
 $black-90: rgba(0, 0, 0, 0.9);
 $gradient-primary: linear-gradient(90deg, #81a9e3 0%, #06153d 100%);
+
+[data-theme='dark'] {
+  // --bg-primary: rgba(0, 0, 0, 0.88);
+  // --bg-primary: #1f1f1f;
+  --bg-primary: #2d2d2d;
+  --bg-secondary: #1e1e1e;
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.64);
+  --text-footer: #b4b4b4;
+  --border-primary: #333333;
+  --blue: #0a84ff;
+}
+
+// [data-theme='light'] {
+
+// }

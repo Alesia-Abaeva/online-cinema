@@ -21,6 +21,8 @@
 
 .list-content {
   height: 100%;
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
 }
 
 @media (max-width: 1040px) {

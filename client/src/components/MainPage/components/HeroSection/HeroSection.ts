@@ -9,7 +9,7 @@ export const renderHeroSection = (): HTMLElement => {
   // TODO: Поменять текст на наш
   const h1: HTMLElement = createElem('h1', 'subs-hero__title');
   h1.innerHTML = 'Фильмы и сериалы по подписке';
-  const subTitle: HTMLElement = createElem('h2', 'subs-hero__subTitle');
+  const subTitle: HTMLElement = createElem('h2', 'subs-hero__sub-title');
   subTitle.innerHTML =
     'Тысячи фильмов и сериалов по цене одного на целый месяц: мировые блокбастеры, культовые сериалы, анимация от Disney';
 

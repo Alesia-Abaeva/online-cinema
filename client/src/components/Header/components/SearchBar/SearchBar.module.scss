@@ -20,7 +20,7 @@
   transition: all $base-transition;
 
   &::placeholder {
-    color: $white;
+    color: var(--text-primary);;
     opacity: 0;
   }
 }

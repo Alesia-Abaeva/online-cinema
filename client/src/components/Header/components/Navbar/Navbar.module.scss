@@ -23,10 +23,11 @@
 }
 
 .nav__list-link_active {
-  color: $white;
-  border-bottom: 2px solid;
-  border-image-slice: 1;
-  border-image-source: $gradient-primary;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--blue);
+  // border-bottom: 2px solid 
+  // border-image-slice: 1;
+  // border-image-source: $gradient-primary;
 }
 
 .search-btn {

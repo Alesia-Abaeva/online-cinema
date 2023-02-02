@@ -36,7 +36,7 @@
 }
 
 .body {
-  background-color: $black;
+  background-color: var(--bg-primary);
   font-family: NetflixSans-Regular;
   font-size: 16px;
   font-weight: 400;
