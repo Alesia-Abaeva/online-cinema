@@ -18,6 +18,8 @@ const authReducer = (state = initialState, action: TypesRedux) => {
       return { ...state, login: { ...state.login, ...(action.payload as ApiResponse<AuthResponse>) } };
     case AuthTypes.REGISTER:
       return { ...state, register: { ...state.register, ...(action.payload as ApiResponse<AuthResponse>) } };
+    case AuthTypes.PERSON:
+      return { ...state, user: { ...state.register, ...(action.payload as ApiResponse<AuthResponse>) } };
     default:
       return state;
   }

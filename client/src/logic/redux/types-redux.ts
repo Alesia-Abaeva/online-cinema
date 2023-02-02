@@ -3,4 +3,5 @@ export enum AuthTypes {
   INIT = 'INIT',
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',
+  PERSON = 'PERSON',
 }

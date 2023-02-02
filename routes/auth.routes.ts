@@ -14,4 +14,5 @@ router.post("/register", checkRegisterData(), register);
 // api/auth/login
 router.post("/login", checkLoginData(), login);
 
-router.get("/me", checkAuth, getUserData);
+// api/auth/pesron
+router.get("/person", checkAuth, getUserData);

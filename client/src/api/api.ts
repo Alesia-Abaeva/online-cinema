@@ -1,5 +1,7 @@
 import { METHODS } from 'src/const/api/methods';
 import { BASE_URL, URL_SERVER } from 'src/const/api/url';
+import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 
 class ApiWrapper {
   private baseUrl: string;
@@ -12,6 +14,7 @@ class ApiWrapper {
     const response = await fetch(url, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', // заголовок для запроса на API
+        Authorization: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN),
       },
       ...options,
     });

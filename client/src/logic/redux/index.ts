@@ -1,11 +1,11 @@
 import { legacy_createStore as createStore, applyMiddleware, Action } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import { composeWithDevTools } from '@redux-devtools/extension';
 
 import { rootReducer } from './root-reduces';
 
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export type RootState = ReturnType<typeof store.getState>;
 

@@ -14,3 +14,4 @@ export const URL_SERVER = 'http://localhost:3000';
 
 export const REGISTER = 'api/auth/register';
 export const LOGIN = 'api/auth/login';
+export const PERSON_DATA = 'api/auth/person';

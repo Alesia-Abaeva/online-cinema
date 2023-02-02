@@ -13,10 +13,10 @@ mongoose.set("strictQuery", true);
 mongoose
   .connect(config.get("mongoUri"))
   .then(() => {
-    console.log("mongoDB OKEY");
+    console.log("mongoDb is running");
   })
   .catch((err) => {
-    console.log("mongoDB error");
+    console.log("mongoDb error");
   });
 
 export const app = express();

@@ -3,6 +3,8 @@ import { createLink } from 'src/utils/create-link-element';
 import { pathResolver } from 'src/router/router';
 import { linkHandler } from 'src/utils/link-handler';
 import { login } from 'src/logic/redux/actions';
+import { setLocalStorage } from 'src/logic/local-storage/local-storage';
+import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { store, appDispatch } from 'src/logic/redux';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
@@ -88,10 +90,17 @@ export const renderLoginPage = (): HTMLElement => {
       errorWrapp.style.visibility = 'visible';
       errorWrapp.innerHTML = loginState.error?.message as string;
     } else {
+      console.log(loginState.error);
       errorWrapp.style.visibility = 'hidden';
-      pathResolver('/');
+      if (loginState.isAuth) {
+        console.log(loginState.data?.token);
+        setLocalStorage(loginState.data?.token as string, LOCAL_STORAGE_KEYS.TOKEN);
+        pathResolver('/');
+      }
     }
   });
 
   return main;
 };
+
+// test@test.tu
