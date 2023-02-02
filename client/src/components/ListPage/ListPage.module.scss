@@ -22,3 +22,13 @@
 .list-content {
   height: 100%;
 }
+
+@media (max-width: 1040px) {
+  .list__container {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    display: none;
+  }
+}

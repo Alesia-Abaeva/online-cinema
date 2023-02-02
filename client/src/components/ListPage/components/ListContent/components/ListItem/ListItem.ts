@@ -1,4 +1,3 @@
-import { createButton } from 'src/components/ui/Button/Button';
 import { createElem } from 'src/utils/create-element';
 import styles from './ListItem.module.scss';
 
@@ -46,11 +45,14 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
   itemRatingCont.append(itemRating);
 
   const itemControls: HTMLElement = createElem('div', 'list-item__controls');
-  const wantToWatchBtn: HTMLElement = createButton('Буду смотреть', undefined, 'list-item__btn');
-  const addToFavBtn: HTMLElement = createButton('•••', undefined, 'list-item__btn');
-  const moreActions: HTMLElement = createButton('•••', undefined, 'list-item__btn');
+  const wantToWatchBtn: HTMLElement = createElem('div', 'list-item__btn');
+  const wtwIcon: HTMLElement = createElem('div', 'wtw-icon');
+  wantToWatchBtn.append(wtwIcon);
+  const moreActions: HTMLElement = createElem('div', 'list-item__btn');
+  const moreActionsIcon: HTMLElement = createElem('div', 'more-actions-icon');
+  moreActions.append(moreActionsIcon);
 
-  itemControls.append(wantToWatchBtn, addToFavBtn, moreActions);
+  itemControls.append(wantToWatchBtn, moreActions);
 
   listItem.append(itemNumCont, itemImgCont, itemInfo, itemRatingCont, itemControls);
 

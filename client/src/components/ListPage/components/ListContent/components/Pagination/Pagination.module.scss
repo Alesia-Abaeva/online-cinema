@@ -13,3 +13,9 @@
     background: $copyright-footer-hover;
   }
 }
+
+@media (max-width: 550px) {
+  .pagination__btn {
+    width: 80px;
+  }
+}
