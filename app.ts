@@ -23,48 +23,12 @@ export const app = express();
 
 export const PORT: string | number = config.get("port") || 3003;
 
-// const storage = multer.diskStorage({
-//   destination: (_, __, cb) => {
-//     cb(null, "uploads");
-//   },
-//   filename: (_, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-
-// const upload = multer({ storage });
-
 app.use(express.json());
 app.use(cors());
 app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", router); //регистрация роутов, для запросов от фронта
-// загрузка изображений на бэк
-app.post(
-  "/upload",
-  checkAuth,
-  upload.single("image"),
-  multerController
 
-  // (req, res) => {
-  //   res.json({
-  //     url: `/uploads/${req.file.originalname}`,
-  //   });
-  // }
-);
-
-// async function start() {
-//   try {
-//     await mongoose.connect(config.get("mongoUri"));
-
-//     app.listen(PORT, () =>
-//       console.log(`Server is running on port PORT:${PORT}`)
-//     );
-//   } catch (e) {
-//     console.log("Server Error", e.message);
-//     process.exit(1); // завершаем процесс, в случае, если что-то пошло не так
-//   }
-// }
-
+app.post("/upload", checkAuth, upload.single("image"), multerController); // загрузка изображений на бэк
 start();
 
 /**
