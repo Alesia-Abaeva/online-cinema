@@ -5,6 +5,7 @@ import bcrypt from "bcryptjs";
 import config from "config";
 import { check, validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
+import checkAuth from "../middleware/auth.middelware";
 
 export const router = Router();
 
@@ -63,7 +64,7 @@ router.post(
     check("email", "Введен неккоректный email").normalizeEmail().isEmail(),
     check("password", "Введите верный пароль").exists(),
   ],
-  async (req, res) => {
+  async (req: express.Request, res: express.Response) => {
     try {
       const errors = validationResult(req);
 
@@ -99,5 +100,20 @@ router.post(
     } catch (e) {
       res.status(500).json({ message: "Ошибка авторизации..." });
     }
+  }
+);
+
+router.get(
+  "/me",
+  checkAuth,
+  async (req: express.Request, res: express.Response) => {
+    try {
+      // console.log("req.body", req.user.userId);
+      const user = await User.findById(req.user.userId);
+      console.log(user);
+      res.json({
+        user,
+      });
+    } catch (e) {}
   }
 );
