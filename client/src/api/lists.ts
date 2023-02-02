@@ -13,6 +13,7 @@ export const getTop250Movies = async (options: Options): Promise<ResponseFindedM
     { sortField: 'top250', sortType: 1 },
     { page: options.page, token: API_KEY },
   ]);
+  console.log(res);
   if (!isError(res)) {
     res.total = 250;
     res.pages = 25;
