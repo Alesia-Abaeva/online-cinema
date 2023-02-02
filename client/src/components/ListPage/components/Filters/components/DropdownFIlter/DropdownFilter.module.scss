@@ -10,10 +10,23 @@
 }
 
 .dropdown-filter__title {
+  position: relative;
   padding: 11px 24px;
   border-radius: 10px;
   pointer-events: none;
   user-select: none;
+
+  &::after {
+    content: '';
+    transition: all $base-transition;
+    display: block;
+    position: absolute;
+    top: calc(50% - 0.5rem);
+    right: 1rem;
+    background-image: url('assets/img/icons/chevron-down-solid.svg');
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 .dropdown-filter__list {
@@ -42,6 +55,10 @@
 
 .dropdown-filter.dropdown-filter_open > .dropdown-filter__list {
   display: block;
+}
+
+.dropdown-filter.dropdown-filter_open > .dropdown-filter__title::after {
+  transform: rotate(180deg);
 }
 
 .dropdown-filter__list-item_active::after {
