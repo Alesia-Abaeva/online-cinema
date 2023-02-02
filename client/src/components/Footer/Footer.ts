@@ -2,11 +2,14 @@ import { projectTitle } from '../../const/project-title';
 import { createElem } from '../../utils/create-element';
 import { createLink } from '../../utils/create-link-element';
 import { rederCredentials } from './components/Credentials/Credentials';
+import { renderThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 import styles from './Footer.module.scss';
 
 export const renderFooter = (): HTMLElement => {
   const footer: HTMLElement = createElem('footer', styles['footer']);
   const footerContainer: HTMLElement = createElem('div', 'footer__container');
+
+  const themeSwitch: HTMLElement = renderThemeSwitcher();
 
   const footerCredentials: HTMLElement = rederCredentials(['Alesia-Abaeva', 'lgklsv', 'gamesam88']);
 
@@ -19,7 +22,7 @@ export const renderFooter = (): HTMLElement => {
 
   footerCopyright.append(rsSchoolLink, copyrightText);
 
-  footerContainer.append(footerCredentials, footerCopyright);
+  footerContainer.append(themeSwitch, footerCredentials, footerCopyright);
   footer.append(footerContainer);
   return footer;
 };

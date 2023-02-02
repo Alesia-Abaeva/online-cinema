@@ -1,0 +1,61 @@
+@import '/src/theme/variable';
+
+.theme-switcher {
+  display: flex;
+  border: 1px solid $conditionalborder;
+  border-radius: 10px;
+  background-color: $background;
+  margin-bottom: 1rem;
+}
+
+.theme-switcher__btn {
+  border: none;
+  background-color: transparent;
+  padding: 0.625rem 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: $white;
+  cursor: pointer;
+
+  &:first-of-type {
+    border-right: 1px solid $conditionalborder;
+    border-radius: 10px 0px 0px 10px;
+  }
+  &:last-of-type {
+    border-left: 1px solid $conditionalborder;
+    border-radius: 0px 10px 10px 0px;
+  }
+  &:hover {
+    background: $copyright-footer;
+  }
+}
+
+.theme-switcher__btn_active {
+  background-color: $white;
+  color: $black;
+
+  &:hover {
+    background-color: $white;
+  }
+  & > .theme-switcher__icon {
+    filter: invert(0);
+  }
+}
+
+.theme-switcher__icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: invert(100%);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sun-icon {
+  background-image: url('assets/img/icons/sun.svg');
+}
+
+.moon-icon {
+  background-image: url('assets/img/icons/moon.svg');
+  transform: scale(1.3);
+}
