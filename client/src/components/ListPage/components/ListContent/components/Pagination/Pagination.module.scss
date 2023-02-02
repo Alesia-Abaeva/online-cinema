@@ -1,0 +1,21 @@
+@import '/src/theme/variable';
+
+.paginaiton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination__btn {
+  background: $copyright-footer;
+  &:hover {
+    background: $copyright-footer-hover;
+  }
+}
+
+@media (max-width: 550px) {
+  .pagination__btn {
+    width: 80px;
+  }
+}

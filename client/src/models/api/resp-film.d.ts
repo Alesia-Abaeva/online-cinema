@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 interface ChildeAttribures {
   [key: string]: string | number | null;
 }
@@ -60,7 +61,6 @@ interface SeasonsInfo {
   number?: number;
   episodesCount?: number;
 }
-
 interface ResponseMovie {
   ageRating: null | string | number;
   alternativeName: string;
@@ -99,7 +99,7 @@ interface ResponseMovie {
   status: string;
   technology: { has3D: boolean; hasImax: boolean };
   ticketsOnSale: boolean;
-  top10: null; //????
+  top10: null; // ????
   top250: null | number;
   type: string;
   typeNumber: number;
@@ -107,10 +107,11 @@ interface ResponseMovie {
   updatedAt: string;
   videos: VideosApi;
   votes: RaitingApi;
-  watchability: null; //??????
+  watchability: null; // ??????
   year: number;
   releaseYears?: { start: number; end: number }[];
 }
+
 type FindedMovies = Pick<
   ResponseMovie,
   | 'alternativeName'
@@ -136,3 +137,7 @@ interface ResponseFindedMovies extends PageLimit {
 }
 
 type SequelsAndPrequels = Pick<ResponseMovie, 'alternativeName' | 'enName' | 'id' | 'name' | 'poster' | 'type'>;
+
+type ResErrorMes = {
+  message: string;
+};
