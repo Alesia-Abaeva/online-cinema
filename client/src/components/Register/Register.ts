@@ -1,13 +1,9 @@
-// import { registerHandler } from 'src/api/back/auth';
 import { appDispatch, store } from 'src/logic/redux';
-import { getDataPerson, register } from 'src/logic/redux/actions';
+import { register } from 'src/logic/redux/actions';
 import { route } from 'src/router/route';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
-// import { dataPersonHandler } from 'src/api/back/auth';
-
 import { createElem } from '../../utils/create-element';
-
 import { mailIcon, passwordIcon, userIcon } from '../../const/icons/icons';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
@@ -84,15 +80,6 @@ export const renderRegisterPage = (): HTMLElement => {
     'form_button'
   );
 
-  const button1 = createButton(
-    `Зарегистрироваться`,
-    () => {
-      appDispatch(getDataPerson());
-      // dataPersonHandler();
-    },
-    'form_button'
-  );
-
   const registrationContainer = createElem('div', 'reg__container');
   const registrationLink = createLink('/login', 'reg__link', true, 'Войти');
   registrationLink.onclick = linkHandler;
@@ -101,7 +88,7 @@ export const renderRegisterPage = (): HTMLElement => {
   registrationText.innerHTML = `Уже есть аккаунт?&nbsp `;
   registrationContainer.append(registrationText, registrationLink);
 
-  formContainer.append(logo, errorWrapp, wrapperEmail, wrapperName, wrapperPas, button, button1, registrationContainer);
+  formContainer.append(logo, errorWrapp, wrapperEmail, wrapperName, wrapperPas, button, registrationContainer);
   mainContent.append(formContainer);
   mainContainer.append(mainContent);
   main.append(mainContainer);

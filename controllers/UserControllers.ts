@@ -73,6 +73,14 @@ export const login = async (req: express.Request, res: express.Response) => {
       expiresIn: "1h", //время существования токена
     });
 
+    const refreshToken = jwt.sign(
+      { userId: user.id },
+      config.get("jwtSecret"),
+      {
+        expiresIn: "1h", //время существования токена
+      }
+    ); // TODO - добавить рефреш токен
+
     res.json({ token, userId: user.id });
   } catch (e) {
     res.status(500).json({ message: "Ошибка авторизации..." });

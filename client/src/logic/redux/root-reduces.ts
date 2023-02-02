@@ -4,11 +4,13 @@ import { AuthTypes } from './types-redux';
 interface AuthState {
   login: ApiResponse<AuthResponse>;
   register: ApiResponse<AuthResponse>;
+  user: ApiResponse<AuthResponse>; // TODO исправить тип! AuthGetPersonToken
 }
 
 const initialState: AuthState = {
   login: { data: null, error: null, isLoading: false },
   register: { data: null, error: null, isLoading: false },
+  user: { data: null, error: null, isLoading: false, isAuth: false },
 };
 
 // eslint-disable-next-line default-param-last
