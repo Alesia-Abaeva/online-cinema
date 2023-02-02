@@ -1,5 +1,6 @@
 import { createElem } from '../../utils/create-element';
 import { renderSliderItem } from './SliderItem/SliderItem';
+import { createSlideDown } from './SlideDownWindow/SlideDownWindow';
 import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';
 
@@ -8,97 +9,133 @@ interface Ifilm {
   img: string;
 }
 
-export const renderSlider = (filmsData: Ifilm[], sliderName: string): HTMLElement => {
+export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
   const header: HTMLElement = createElem('h3', styles.slider__header);
   const wrapper: HTMLElement = createElem('div', styles.slider__wrapper);
   const items: HTMLElement = createElem('div', styles.slider__items);
-
-  const btnLeft: HTMLButtonElement = createSliderBtn('slider-btn-left', 'left');
-  const btnRight: HTMLButtonElement = createSliderBtn('slider-btn-right', 'right');
-  header.innerHTML = sliderName;
-  slider.append(header);
-  slider.append(wrapper);
-  wrapper.append(items);
-  wrapper.append(btnLeft);
-  wrapper.append(btnRight);
-
-  const totalSlides = 11;
-  let itemsSize: number = 5;
-  let slidesBack = 0;
-
+  const btnLeft: HTMLButtonElement = createSliderBtn('slider__btn__left', 'left');
+  const btnRight: HTMLButtonElement = createSliderBtn('slider__btn__right', 'right');
+  const slideDown: HTMLElement = createSlideDown();
   items.style.transform = `transform: translateX(0px);`;
+  header.innerHTML = slaiderName;
+  slider.append(header, wrapper, slideDown);
+  wrapper.append(items, btnLeft, btnRight);
+  btnLeft.disabled = true;
+  btnLeft.classList.add('button-disabled');
 
-  let itemLeftPadding = 8;
+  const totalSlides: number = 11;
+  let itemLeftPadding: number = 8;
+  let position: number = 0;
   let itemWidth: number;
+  let itemsSize: number;
+  let prevSize: number;
 
-  const changeReMove = (): void => {
+  const arr: Ifilm[] = filmsData.length > totalSlides ? filmsData.slice(0, totalSlides) : filmsData;
+  arr.forEach((element, id) => items.append(renderSliderItem(id, element.name, element.img)));
+
+  const changeSize = (): void => {
+    items.classList.remove('translate-speed');
+    if (itemsSize) {
+      prevSize = itemsSize;
+    }
     if (window.innerWidth <= 400) {
       itemsSize = 1;
     } else if (window.innerWidth <= 680) {
       itemsSize = 2;
-    } else if (window.innerWidth <= 1240) {
+    } else if (window.innerWidth <= 1140) {
       itemsSize = 3;
-    } else if (window.innerWidth <= 1640) {
+    } else if (window.innerWidth <= 1540) {
       itemsSize = 4;
     } else {
       itemsSize = 5;
     }
     itemWidth = (wrapper.clientWidth * 100 - itemLeftPadding * (itemsSize - 1) * 100) / 100 / itemsSize;
-    updateOnResize();
+
+    if (position > 0) {
+      if (itemsSize !== prevSize) {
+        position += prevSize - itemsSize;
+      }
+    }
+
+    checkButtons();
+    updateItemsOpacity();
+    updateTranslate();
+    items.classList.add('translate-speed');
   };
 
-  const updateOnResize = () => {
-    if (Math.abs(slidesBack) + itemsSize <= totalSlides) {
-      slidesBack -= totalSlides - (Math.abs(slidesBack) + itemsSize);
-    } else if (Math.abs(slidesBack) + itemsSize > totalSlides) {
-      slidesBack += Math.abs(slidesBack) + itemsSize - totalSlides;
+  const updateItemsOpacity = async (): Promise<void> => {
+    btnLeft.disabled = true;
+    btnRight.disabled = true;
+    const itemsArr = Array.from(items.children);
+    itemsArr.forEach((elem) => elem.classList.remove('item-opacity'));
+    setTimeout(() => {
+      itemsArr.splice(position, itemsSize);
+      itemsArr.forEach((elem) => elem.classList.add('item-opacity'));
+      btnLeft.disabled = false;
+      btnRight.disabled = false;
+    }, 1000);
+  };
+
+  const checkButtons = (): void => {
+    if (position === 0) {
+      btnLeft.disabled = true;
+      btnLeft.classList.add('button-disabled');
+    } else {
+      btnLeft.disabled = false;
+      btnLeft.classList.remove('button-disabled');
+    }
+    if (position + itemsSize >= totalSlides) {
+      btnRight.disabled = true;
+      btnRight.classList.add('button-disabled');
+    } else {
+      btnRight.disabled = false;
+      btnRight.classList.remove('button-disabled');
     }
   };
 
-  const updateSize = () => {
-    const pad = slidesBack !== 0 ? itemLeftPadding : 0;
-    items.style.transform = `translateX(${slidesBack * itemWidth + pad * slidesBack}px)`;
+  const updateTranslate = (): void => {
+    const pad = position !== 0 ? itemLeftPadding : 0;
+    items.style.transform = `translateX(${-position * itemWidth + pad * -position}px)`;
   };
 
   const handleClickBtnLeft = (): void => {
-    if (Math.abs(slidesBack) < itemsSize) {
-      slidesBack = 0;
+    if (position < itemsSize) {
+      position = 0;
     } else {
-      slidesBack += itemsSize;
-      console.log('slidesb', slidesBack);
+      position -= itemsSize;
     }
-    updateSize();
+    console.log('position', position);
+    updateTranslate();
+    checkButtons();
+    updateItemsOpacity();
   };
 
   const handleClickBtnRight = (): void => {
-    const nextSlides = totalSlides - (Math.abs(slidesBack) + itemsSize);
+    const nextSlides = totalSlides - (position + itemsSize);
 
-    if (Math.abs(slidesBack) + itemsSize <= totalSlides) {
+    if (position + itemsSize <= totalSlides) {
       if (nextSlides < itemsSize) {
-        slidesBack -= nextSlides;
+        position += nextSlides;
       } else {
-        slidesBack -= itemsSize;
+        position += itemsSize;
       }
-      console.log('slidesb', slidesBack);
-      updateSize();
+      console.log('position', position);
+      updateTranslate();
+      checkButtons();
+      updateItemsOpacity();
     }
   };
-
-  window.addEventListener('resize', () => {
-    changeReMove();
-    updateSize();
-  });
-
-  const arr: Ifilm[] = filmsData.length > 11 ? filmsData.slice(0, 11) : filmsData;
-  arr.forEach((element, id) => items.append(renderSliderItem(id, element.name, element.img)));
 
   btnLeft.addEventListener('click', handleClickBtnLeft);
   btnRight.addEventListener('click', handleClickBtnRight);
 
-  window.addEventListener('load', () => {
-    changeReMove();
-    updateSize();
+  window.addEventListener('load', (): void => {
+    changeSize();
+  });
+
+  window.addEventListener('resize', (): void => {
+    changeSize();
   });
 
   return slider;

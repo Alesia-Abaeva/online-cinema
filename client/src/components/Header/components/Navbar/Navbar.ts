@@ -1,16 +1,18 @@
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { linkHandler } from '../../../../utils/link-handler';
+import { removeOverlay } from '../../../../utils/remove-overlay';
+import { renderOverlay } from '../../../Overlay/Overlay';
+import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
+import { renderSearchBox } from '../SearchBar/components/SearchBox/SearchBox';
 import styles from './Navbar.module.scss';
 
-export const rednerNavbar = (): HTMLElement => {
-  const navBar: HTMLElement = createElem('nav', styles['nav']);
+export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElement => {
+  const navBar: HTMLElement = createElem('nav', styles[`${navType ? `${navType}-nav` : 'nav'}`]);
   const navUl: HTMLElement = createElem('ul', 'nav__list');
-  const navBtns = [
-    { link: '/', text: 'Главная' },
-    { link: '/personal', text: 'Мое' },
-    { link: '/lists', text: 'Списки' },
-  ];
+
+  if (navType) navUl.classList.add(`nav__list_${navType}`);
+
   navBtns.forEach((el) => {
     const li: HTMLElement = createElem('li', 'nav__list-item');
     const a: HTMLElement = createLink(el.link, 'nav__list-link', false, el.text);
@@ -23,8 +25,22 @@ export const rednerNavbar = (): HTMLElement => {
 
   navUl.onclick = linkHandler;
 
-  const navSearch: HTMLElement = createElem('div', 'search');
-  const searchIcon: HTMLElement = createElem('div', 'search__icon');
+  const navSearch: HTMLElement = createElem('div', 'search-btn');
+  const searchIcon: HTMLElement = createElem('div', 'search-btn__icon');
+
+  navSearch.onclick = async () => {
+    toggleSearchBar();
+    const app = document.getElementById('app') as HTMLElement;
+    const overlay = renderOverlay(() => {
+      toggleSearchBar();
+      removeOverlay('search-overlay');
+    }, 'search-overlay');
+    app.append(overlay);
+    const searchBoxCont = document.getElementById('search-box') as HTMLElement;
+    searchBoxCont.innerHTML = '';
+    const searchBox = await renderSearchBox(null);
+    searchBoxCont.append(searchBox);
+  };
   navSearch.append(searchIcon);
 
   navBar.append(navUl, navSearch);

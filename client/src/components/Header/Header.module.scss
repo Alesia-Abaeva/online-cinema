@@ -1,9 +1,13 @@
 @import '/src/theme/variable';
 
 .header {
-  background-color: $black;
+  position: fixed;
+  width: 100%;
+  top: 0;
   max-width: 100%;
   height: $header-height;
+  z-index: 2;
+  background: linear-gradient(to bottom, $black 0%, $black-50 50%, transparent 100%);
 }
 
 .header__container {

@@ -1,35 +1,49 @@
 .slider {
   position: relative;
+  overflow-x: hidden;
+  padding: 0 calc(2.5% + 15px);
   &__header {
-    padding-top: 24px;
+    padding-top: 1.5rem;
+    font-size: 1.5rem;
   }
   &__wrapper {
     display: flex;
+    align-items: center;
     position: relative;
+    padding: 16px 0px;
+  }
+  &__wrapper:hover > button svg {
+    fill: white;
+  }
+  &__wrapper:hover > .slider__items .item-opacity {
+    opacity: 0.7;
   }
   &__items {
     display: flex;
-    transition: transform 0s ease;
-    will-change: transform;
+    align-items: center;
   }
-
   &__button {
     width: calc(2.5% + 15px);
-    height: 100%;
+    height: calc(100% - 15px * 2);
     position: absolute;
-    top: 0;
+    top: 15px;
     z-index: 10;
     border: 0;
     background: none;
+    cursor: pointer;
   }
-  .slider-btn-left {
+  .slider__btn__left {
     left: calc(-2.5% - 15px - 8px);
   }
-  .slider-btn-right {
+  .slider__btn__right {
     right: calc(-2.5% - 15px - 8px);
   }
 }
 
-.slider__wrapper:hover > button svg {
-  fill: white;
+.translate-speed {
+  transition: transform 1s ease;
+}
+
+.button-disabled {
+  opacity: 0;
 }

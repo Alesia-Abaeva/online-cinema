@@ -9,14 +9,14 @@
   .nav__list_hamburger {
     position: fixed;
     right: -100%;
-    top: 50px;
+    top: 60px;
     gap: 2rem;
     flex-direction: column;
     background-color: $black;
     width: 100%;
     padding: 2rem 0;
     text-align: center;
-    transition: all 0.3s;
+    transition: all $base-transition;
   }
 
   .nav__list_hamburger.menu-active {
@@ -33,6 +33,7 @@
     cursor: pointer;
     @include flex-center;
     flex-direction: column;
+    margin-left: 1rem;
   }
 
   .hamburger-menu__line {
@@ -41,7 +42,7 @@
     width: 100%;
     background-color: $white;
     border-radius: 5px;
-    transition: all 0.3s;
+    transition: all $base-transition;
   }
 
   #bar1 {
@@ -68,5 +69,9 @@
 
   .active-burger #bar3 {
     transform: translateY(-2px) rotateZ(45deg);
+  }
+
+  .search-btn__icon {
+    filter: invert(100%);
   }
 }

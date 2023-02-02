@@ -10,6 +10,7 @@
   display: flex;
   flex: 0 0 var(--item-width);
   max-width: var(--item-width);
+  cursor: pointer;
 
   &__wrapper {
     color: white;
@@ -29,13 +30,13 @@
   scale: 1.07;
 }
 
-@media (max-width: 1640px) {
+@media (max-width: 1540px) {
   :root {
     --item-size: 4;
   }
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1140px) {
   :root {
     --item-size: 3;
   }
