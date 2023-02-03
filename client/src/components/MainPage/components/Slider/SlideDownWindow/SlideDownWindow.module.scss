@@ -1,19 +1,5 @@
-@keyframes show-about {
-  from {
-    height: 0px;
-  }
-  to {
-    height: 608px;
-  }
-}
-
 .show-slidedown {
   height: 608px !important;
-
-  // animation-name: show-about;
-  // animation-duration: 1s;
-  // animation-play-state: forwards;
-  // animation-direction: normal;
 }
 
 .slideDown {

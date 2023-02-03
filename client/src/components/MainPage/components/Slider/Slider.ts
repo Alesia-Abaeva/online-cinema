@@ -1,4 +1,4 @@
-import { createElem } from '../../utils/create-element';
+import { createElem } from '../../../../utils/create-element';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import { createSlideDown } from './SlideDownWindow/SlideDownWindow';
 import styles from './Slider.module.scss';
@@ -10,7 +10,7 @@ interface Ifilm {
   rating: string;
 }
 
-const mok = 'https://avatars.mds.yandex.net/get-ott/200035/2a00000185e887eea5811fe4e8b9220c0058/2016x1134';
+const mock = 'https://avatars.mds.yandex.net/get-ott/200035/2a00000185e887eea5811fe4e8b9220c0058/2016x1134';
 
 export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
@@ -20,7 +20,7 @@ export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLEleme
   const items: HTMLElement = createElem('div', styles.slider__items);
   const btnLeft: HTMLButtonElement = createSliderBtn('slider__btn__left', 'left');
   const btnRight: HTMLButtonElement = createSliderBtn('slider__btn__right', 'right');
-  const slideDown: HTMLElement = createSlideDown(mok);
+  const slideDown: HTMLElement = createSlideDown(mock);
 
   slider.dataset.id = String(Date.now());
   items.style.transform = `transform: translateX(0px);`;

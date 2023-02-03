@@ -1,0 +1,13 @@
+@import '/src/theme/variable';
+@import '/src/theme/colors';
+
+.slider__button {
+  width: calc(2.5% + 15px);
+  height: calc(100% - 15px * 2);
+  position: absolute;
+  top: 15px;
+  z-index: 10;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}

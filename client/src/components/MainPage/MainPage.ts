@@ -1,5 +1,5 @@
 import { createElem } from '../../utils/create-element';
-import { renderSlider } from '../Slider/Slider';
+import { renderSlider } from './components/Slider/Slider';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
 import { mockData } from './mockData';
@@ -14,10 +14,7 @@ export const renderMainPage = (): HTMLElement => {
 
   // TODO: Заменить на компоненты слайдеров
   const section2: HTMLElement = renderSlider(mockData, 'Слайдер 1');
-  // section2.classList.add('hero-black');
-
   const section3: HTMLElement = renderSlider(mockData, 'Слайдер 2');
-  // section3.classList.add('hero-black-black');
 
   main.append(mainContainer, section2, section3);
 

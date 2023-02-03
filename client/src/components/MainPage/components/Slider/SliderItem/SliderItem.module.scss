@@ -1,3 +1,6 @@
+@import '/src/theme/variable';
+@import '/src/theme/colors';
+
 :root {
   --main-padding: calc(2.5% + 15px);
   --main-items-padding: 8px;
@@ -32,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #3bb33b;
+    background: $apple-green;
   }
   &__badget__raiting {
     font-size: 1rem;
