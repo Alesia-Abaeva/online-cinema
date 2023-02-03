@@ -7,7 +7,8 @@
   width: 15vw;
 }
 
-.avatar__wrapper {
+.avatar__wrapper,
+.avatar__wrapper-show {
   display: flex;
   padding: 0;
   background: transparent;
@@ -34,4 +35,53 @@
   background-size: cover;
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.profile-menu__container {
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 2.5%;
+
+  background-color: $mine-shaft;
+  width: 20rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  //   ====
+  z-index: 0;
+  visibility: hidden;
+  transform: translate(-100%, -100%);
+
+  .avatar__wrapper {
+    padding-right: 15px;
+
+    height: 80px;
+  }
+}
+
+.profile-menu__wrapp {
+  list-style-type: none;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.profile-menu__item {
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  height: 2rem;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $tundora;
+  }
+}
+
+.show__menu {
+  transform: translate(0%, 0%);
+  z-index: 2;
+  visibility: visible;
 }

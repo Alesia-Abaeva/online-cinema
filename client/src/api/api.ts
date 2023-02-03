@@ -23,19 +23,9 @@ class ApiWrapper {
       ...(options?.headers ?? {}),
     };
 
-    // if (!this.isBackEnd) {
-    //   delete headers.Authorization;
-    //   // console.log('j'); // TODO !
-    // }
     const response = await fetch(url, {
       ...(options ?? {}),
       headers,
-      // headers: {
-      //   'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', // заголовок для запроса на API
-      //   Authorization: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN),
-      // TODO - если в запросе есть Authorization, апи фильмов не работает
-      // },
-      // ...options,
     });
     console.log(headers);
     const data: ResponseBody = await response.json();
