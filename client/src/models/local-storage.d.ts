@@ -1,0 +1,3 @@
+interface LocalStorageKey {
+  TOKEN: string;
+}

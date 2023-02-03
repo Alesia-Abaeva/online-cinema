@@ -1,6 +1,6 @@
-import { createElem } from '../../../../utils/create-element';
-import { debounce } from '../../../../utils/debounce';
-import { removeOverlay } from '../../../../utils/remove-overlay';
+import { createElem } from 'src/utils/create-element';
+import { debounce } from 'src/utils/debounce';
+import { removeOverlay } from 'src/utils/remove-overlay';
 import { searchFilms } from '../../Handlers/search-films';
 import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
 import styles from './SearchBar.module.scss';

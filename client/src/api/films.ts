@@ -1,5 +1,4 @@
 import { FIELD } from '../const/api/field';
-// import { FILM_TYPE_NUMB } from '../const/api/film-type';
 import { API_KEY, API_REQUEST } from '../const/api/url';
 import { getData } from './get-data-api';
 

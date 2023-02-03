@@ -5,8 +5,10 @@ const schema = new Schema(
   {
     email: { type: String, required: true, unique: true },
     name: { type: String },
+    lastName: { type: String },
     password: { type: String, required: true },
-    links: [{ type: Types.ObjectId, ref: "Link" }],
+    films: [{ type: Types.ObjectId, ref: "Films" }], // TODO - здесь будет отображаться списков избранных фильмов, возможно сделать объект?
+    avatarUrl: String,
   },
   {
     timestamps: true,

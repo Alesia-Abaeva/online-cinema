@@ -1,5 +1,6 @@
 @import '/src/theme/variable';
 
 .input {
-  @include input($silver, $tundora);
+  // @include input($silver, $tundora); // белая тема
+  @include input($tundora, $silver); // темная тема
 }

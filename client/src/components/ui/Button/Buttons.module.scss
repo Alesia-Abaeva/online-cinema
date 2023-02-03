@@ -1,6 +1,7 @@
 @import '/src/theme/variable';
 
 .button {
-  @include btn($white, $orange-intense, $blue-intense);
+  // @include btn($white, $orange-intense, $blue-intense);
+  @include btn-new-style;
   width: 10rem;
 }

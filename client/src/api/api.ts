@@ -1,29 +1,41 @@
 import { METHODS } from 'src/const/api/methods';
 import { BASE_URL, URL_SERVER } from 'src/const/api/url';
+import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 
 class ApiWrapper {
   private baseUrl: string;
 
-  constructor(baseUrl: string) {
+  private isBackEnd: boolean;
+
+  constructor(baseUrl: string, isBackEnd: boolean) {
     this.baseUrl = baseUrl;
+    this.isBackEnd = isBackEnd;
   }
 
   private async fetchWrapper<ResponseBody>(url: string, options: RequestInit) {
-    try {
-      const response = await fetch(url, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', // заголовок для запроса на API
-        },
-        ...options,
-      });
-      console.log(response);
-      const data: ResponseBody = await response.json();
+    const token: string | null = getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN);
+    console.log('token', token);
 
-      return { data, response };
-    } catch (e) {
-      console.log(e);
-      return { data: e as { message: string } };
+    const headers = {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      ...(token && this.isBackEnd ? { Authorization: token } : {}),
+      ...(options?.headers ?? {}),
+    };
+
+    const response = await fetch(url, {
+      ...(options ?? {}),
+      headers,
+    });
+    console.log(headers);
+    const data: ResponseBody = await response.json();
+
+    if (!response.ok) {
+      // eslint-disable-next-line no-throw-literal
+      throw data as unknown as ErrorMessage;
     }
+
+    return { data, response };
   }
 
   private makeUrl(endpoint: string, options?: RequestData | RequestData[] | null): string {
@@ -36,7 +48,6 @@ class ApiWrapper {
             .join('&')
         )
         .join('&');
-      console.log(queryParams);
     } else {
       queryParams = Object.entries(options ?? {})
         .map(([param, value]) => `${param}=${String(value)}`)
@@ -44,7 +55,6 @@ class ApiWrapper {
     }
 
     const queryString = queryParams && `?${queryParams}`;
-    console.log('queryString', queryString, `${this.baseUrl}/${endpoint}${queryString}`);
     return `${this.baseUrl}/${endpoint}${queryString}`;
   }
 
@@ -59,7 +69,7 @@ class ApiWrapper {
   async post<RequestBody, ResponseBody>(endpoint: string, body: RequestBody, options?: RequestInit) {
     const url: string = this.makeUrl(endpoint);
 
-    const headers: HeadersInit = {
+    const headers = {
       'Content-Type': 'application/json',
       ...(options?.headers ?? {}),
     };
@@ -69,7 +79,6 @@ class ApiWrapper {
       body: JSON.stringify(body),
       headers,
       method: METHODS.POST,
-      // mode: 'no-cors',
     });
   }
 
@@ -106,5 +115,5 @@ class ApiWrapper {
   }
 }
 
-export const apiCall = new ApiWrapper(BASE_URL);
-export const backCall = new ApiWrapper(URL_SERVER);
+export const apiCall = new ApiWrapper(BASE_URL, false);
+export const backCall = new ApiWrapper(URL_SERVER, true);
