@@ -12,7 +12,7 @@
     top: 60px;
     gap: 2rem;
     flex-direction: column;
-    background-color: $black;
+    background-color: var(--bg-primary);
     width: 100%;
     padding: 2rem 0;
     text-align: center;
@@ -40,7 +40,7 @@
     display: block;
     height: 3px;
     width: 100%;
-    background-color: $white;
+    background-color: var(--bg-contrast);
     border-radius: 5px;
     transition: all $base-transition;
   }
@@ -72,6 +72,6 @@
   }
 
   .search-btn__icon {
-    filter: invert(100%);
+    filter: var(--inverted-icon);
   }
 }

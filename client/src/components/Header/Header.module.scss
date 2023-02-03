@@ -8,6 +8,7 @@
   height: $header-height;
   z-index: 2;
   // background: linear-gradient(to bottom, var(--bg-primary) 0%, $black-50 50%, transparent 100%);
+  background-color: var(--bg-primary);
 }
 
 .header__container {
@@ -34,6 +35,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  filter: var(--logo);
 }
 
 .header__account {

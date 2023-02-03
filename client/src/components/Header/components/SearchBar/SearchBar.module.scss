@@ -9,7 +9,7 @@
 }
 
 .search__input {
-  background: $white;
+  background: var(--search-box-bg);
   color: $black;
   outline: none;
   border: none;
@@ -85,7 +85,7 @@ input[type='search']::-webkit-search-results-decoration {
   margin-top: 0.3rem 8px;
   max-height: 75vh;
   overflow: scroll;
-  background: $white;
+  background: var(--search-box-bg);
   color: $black;
   outline: none;
   border: none;

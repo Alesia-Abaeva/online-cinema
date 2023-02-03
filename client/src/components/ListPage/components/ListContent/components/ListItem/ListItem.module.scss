@@ -47,7 +47,7 @@
 .list-item__title {
   font-family: NetflixSans-Bold;
   font-size: 1rem;
-  color: var(--text-primary);;
+  color: var(--text-primary);
 }
 
 .list-item__description {
@@ -57,7 +57,7 @@
 .list-item__description_secondary {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: $copyright-footer;
+  color: var(--text-ternary);
 }
 
 .list-item__rating-cont {
@@ -106,7 +106,7 @@
   background-image: url('assets/img/icons/bookmark-add.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  filter: invert(100%);
+  filter: var(--inverted-icon);
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -115,7 +115,7 @@
   background-image: url('assets/img/icons/three-dots-svgrepo-com.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  filter: invert(100%);
+  filter: var(--inverted-icon);
   width: 1.5rem;
   height: 1.5rem;
 }

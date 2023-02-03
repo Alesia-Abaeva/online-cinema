@@ -33,21 +33,21 @@
 }
 
 .theme-switcher__btn_active {
-  background-color: $white;
-  color: $black;
+  background: var(--bg-contrast);
+  color: var(--text-contrast);
 
   &:hover {
-    background-color: $white;
+    background-color: var(--bg-contrast);
   }
   & > .theme-switcher__icon {
-    filter: invert(0);
+    filter: var(--icon);
   }
 }
 
 .theme-switcher__icon {
   background-repeat: no-repeat;
   background-size: cover;
-  filter: invert(100%);
+  filter: var(--inverted-icon);
   width: 1.5rem;
   height: 1.5rem;
 }

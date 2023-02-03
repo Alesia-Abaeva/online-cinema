@@ -8,9 +8,10 @@
 }
 
 .pagination__btn {
-  background: $copyright-footer;
+  background: var(--bg-contrast);
+  color: var(--text-contrast);
   &:hover {
-    background: $copyright-footer-hover;
+    background: var(--bg-contrast);
   }
 }
 

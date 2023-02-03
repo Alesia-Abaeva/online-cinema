@@ -25,6 +25,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   margin-bottom: 2.8rem;
+  filter: var(--logo);
 }
 
 .form__wrapp {
@@ -78,7 +79,7 @@
   width: 20rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-
+  color: var(--text-white);
   // background-image: $gradient-primary;
   background-color: var(--blue);
   &:hover {

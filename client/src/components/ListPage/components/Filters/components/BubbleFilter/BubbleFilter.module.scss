@@ -14,16 +14,17 @@
   transition: all $base-transition;
   &:hover {
     transform: scale(1.1);
-    background: $copyright-footer;;
+    background: var(--bg-contrast);
+    color: var(--text-contrast);
   }
 }
 
 .bubble-filter__item_active {
-  background-color: $white;
-  color: $black;
+  background-color: var(--bg-contrast);
+  color: var(--text-contrast);
 
   &:hover {
     transform: scale(1);
-    background: $white;;
+    background: var(--bg-contrast);
   }
 }
