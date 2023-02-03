@@ -1,6 +1,5 @@
 import { appDispatch, store } from 'src/logic/redux';
 import { register } from 'src/logic/redux/actions';
-import { route } from 'src/router/route';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { createElem } from '../../utils/create-element';
@@ -97,14 +96,14 @@ export const renderRegisterPage = (): HTMLElement => {
     const regirterState = store.getState().auth.register;
 
     const loginLoading = regirterState.isLoading;
-    button.innerText = loginLoading ? 'Загрузка' : 'Войти';
+    button.innerText = loginLoading ? 'Загрузка' : 'Зарегистрироваться';
 
     if (regirterState.error) {
       errorWrapp.style.visibility = 'visible';
       errorWrapp.innerHTML = regirterState.error?.message as string;
     } else {
       errorWrapp.style.visibility = 'hidden';
-      if (regirterState.isAuth) route('/');
+      if (regirterState.isAuth) window.location.href = '/';
     }
   });
 

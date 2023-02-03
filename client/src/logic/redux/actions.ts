@@ -1,4 +1,5 @@
 import { dataPersonHandler, loginHandler, registerHandler } from 'src/api/back/auth';
+// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { AppDispatch } from '.';
 import { AuthTypes } from './types-redux';
 
@@ -58,5 +59,6 @@ export const getDataPerson = () => async (dispatch: AppDispatch) => {
     dispatch(setUserInfo({ error: null, data: data.data, isLoading: false, isAuth: true }));
   } catch (e) {
     dispatch(setUserInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
+    // localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
   }
 };
