@@ -32,6 +32,7 @@ export const renderSearchBox = async (
     films = await complexMovieSearch([
       { field: FIELD.RATING_KP, search: '7-10' },
       { field: FIELD.YEAR, search: '2020-2023' },
+      // { field: 'ageRating', search: 6 },
       { sortField: FIELD.YEAR, sortType: -1 },
       { sortField: FIELD.VOTES_IMDB, sortType: -1, token: API_KEY },
     ]);

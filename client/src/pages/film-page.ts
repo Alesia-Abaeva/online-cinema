@@ -1,6 +1,7 @@
 import { renderApp } from '../components/App/App';
 import { renderFilmPage } from '../components/FilmPage/FilmPage';
 
-export const film = (filmData: TestData): void => {
+export const film = (data: FilmItems): void => {
+  const filmData = data.item;
   renderApp(() => renderFilmPage(filmData));
 };

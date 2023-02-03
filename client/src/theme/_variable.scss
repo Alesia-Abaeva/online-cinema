@@ -1,6 +1,7 @@
 @import '/src/theme/colors';
 
-$desktop: 95vw;
+// $desktop: 95vw;
+$desktop: 1440px;
 $footer-height: 70px;
 $footer-height-mobile: 60px;
 $header-height: 80px;
@@ -10,6 +11,8 @@ $search-input-width: 600px;
 $search-input-width-tablet: 450px;
 $search-input-width-phone: 90vw;
 
+$iphoneSE: 375px;
+$iphoneXR: 414px;
 $phone-width: 768px;
 $tablet-width: 1000px;
 
@@ -30,6 +33,15 @@ $base-transition: 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin default-page-container {
+  height: calc(100vh - $footer-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: auto 0;
 }
 
 // REDO TODO Create generic btn component

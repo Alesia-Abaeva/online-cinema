@@ -1,4 +1,4 @@
-export const extractPathId = (path: string): number | string | -1 => {
+export const extractPathId = (path: string): number | -1 => {
   const splittedPath = path.split('/');
   if (splittedPath.length > 0) {
     const id = splittedPath[splittedPath.length - 1];

@@ -1,0 +1,224 @@
+@import '/src/theme/variable';
+
+.list-item {
+  height: 200px;
+  text-decoration: none;
+  color: $light-text;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 3fr 0.6fr 2.7fr;
+  transition: all $base-transition;
+  border-bottom: 1px solid $conditionalborder;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  &:hover {
+    border-radius: 10px;
+    background-color: $background;
+  }
+}
+.list-item__number-cont {
+  margin-right: 1.3rem;
+}
+
+.list-item__number {
+  width: 30px;
+  padding: 1rem;
+}
+
+.list-item__img-cont {
+  @include flex-center;
+  justify-content: flex-end;
+}
+
+.list-item__img {
+  height: 150px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.list-item__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.list-item__title {
+  font-family: NetflixSans-Bold;
+  font-size: 1rem;
+  color: $white;
+}
+
+.list-item__description {
+  font-size: 0.9rem;
+}
+
+.list-item__description_secondary {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: $copyright-footer;
+}
+
+.list-item__rating-cont {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.list-item__rating {
+  font-size: 2rem;
+  font-family: NetflixSans-Bold;
+}
+
+.list-item__rating_good {
+  color: $apple-green;
+}
+
+.list-item__rating_amazing {
+  background-image: $gold;
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.list-item__controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.list-item__btn {
+  @include btn($white, transparent, $copyright-footer);
+  padding: 0.5rem;
+  border-radius: 50px;
+  transition: all $base-transition;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.wtw-icon {
+  background-image: url('assets/img/icons/bookmark-add.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: invert(100%);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.more-actions-icon {
+  background-image: url('assets/img/icons/three-dots-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: invert(100%);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 1240px) {
+  .list-item__description_secondary {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .list-item {
+    height: 170px;
+    grid-template-columns: 0.6fr 1fr 3fr 0.6fr 2.1fr;
+  }
+
+  .list-item__title {
+    font-size: 0.8rem;
+  }
+
+  .list-item__number-cont {
+    margin-right: 0.5rem;
+  }
+
+  .list-item__number {
+    padding: 0;
+  }
+  .list-item__rating-cont {
+    padding-top: 0;
+    margin-left: 0.5rem;
+    padding-bottom: 0;
+  }
+
+  .list-item__controls {
+    padding: 0;
+  }
+
+  .list-item__description {
+    display: none;
+  }
+
+  .list-item__info {
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-width: 130px;
+  }
+
+  .list-item__img {
+    align-self: flex-start;
+    height: 100px;
+    width: 60px;
+  }
+
+  .list-item__rating-cont {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .list-item__rating {
+    font-size: 1.5rem;
+  }
+
+  .list-item__controls {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: $iphoneSE) {
+  .list-item {
+    height: 150px;
+  }
+
+  .list-item__img {
+    align-self: flex-start;
+    height: 90px;
+    width: 55px;
+  }
+
+  .list-item__rating-cont {
+    padding-top: 0.25rem;
+  }
+
+  .list-item {
+    padding-right: 0.1rem;
+    padding-left: 0.1rem;
+  }
+
+  .list-item__title {
+    font-size: 0.7rem;
+  }
+
+  .list-item__rating {
+    font-size: 1rem;
+  }
+
+  .wtw-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .more-actions-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+}

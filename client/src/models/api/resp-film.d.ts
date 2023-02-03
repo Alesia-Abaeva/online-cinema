@@ -61,7 +61,6 @@ interface SeasonsInfo {
   number?: number;
   episodesCount?: number;
 }
-
 interface ResponseMovie {
   ageRating: null | string | number;
   alternativeName: string;
@@ -112,6 +111,7 @@ interface ResponseMovie {
   year: number;
   releaseYears?: { start: number; end: number }[];
 }
+
 type FindedMovies = Pick<
   ResponseMovie,
   | 'alternativeName'
