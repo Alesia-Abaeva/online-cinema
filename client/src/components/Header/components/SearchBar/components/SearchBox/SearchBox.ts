@@ -5,10 +5,6 @@ import { createElem } from 'src/utils/create-element';
 import { renderSearchBoxCard } from './components/SearchBoxCard/SearchBoxCard';
 import styles from './SearchBox.module.scss';
 
-// function isError(obj: ErrorMessage | ResponseFindedMovies) {
-//   return 'error' in obj;
-// }
-
 function isError(obj: { data?: ResponseFindedMovies; error?: ErrorMessage }) {
   return !!obj.error;
 }

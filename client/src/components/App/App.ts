@@ -17,10 +17,6 @@ export const renderApp = (func: () => HTMLElement): Element => {
   const footer: HTMLElement = renderFooter();
   const main: HTMLElement = func();
 
-
-  // TODO - добавить стор в функцию Init
-
-
   appContiner.append(header, main, footer);
 
   return appContiner;

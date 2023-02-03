@@ -28,16 +28,10 @@ const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
 
 export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
   try {
-    // оформляем загрузку
     dispatch(setLoginInfo({ isLoading: true }));
-    // получить данные
     const { data } = await loginHandler(body);
-    // оформляем ответ успешный
-    // оформляем конец загрузки
     dispatch(setLoginInfo({ error: null, data, isLoading: false, isAuth: true }));
   } catch (e) {
-    // оформляем ошибку
-    // оформляем конец загрузки
     dispatch(setLoginInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
 };
