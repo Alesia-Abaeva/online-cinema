@@ -29,15 +29,14 @@ export const renderAccountSectionHead = (): HTMLElement => {
 
   //   авторизованный
   const avatarCnt: HTMLElement = createElem('div', 'avatar__container');
-  const personalData: HTMLElement = createElem('div', 'profile-menu__data');
-  const personalName: HTMLElement = createElem('div', 'profile-menu__data-name');
-
   const avatarWrapperHeader: HTMLElement = avatar();
-  personalData.append(personalName, avatarWrapperHeader);
 
   const profileContainer: HTMLElement = createElem('div', 'profile-menu__container');
+  const personalData: HTMLElement = createElem('div', 'profile-menu__data');
+  const personalName: HTMLElement = createElem('div', 'profile-menu__data-name');
   const profileMenu: HTMLElement = createElem('ul', 'profile-menu__wrapp');
   const profileOut: HTMLElement = createElem('li', 'profile-menu__item');
+  const avatarWrapperMenu: HTMLElement = avatar();
 
   profileOut.innerHTML = 'Выйти';
 
@@ -46,17 +45,13 @@ export const renderAccountSectionHead = (): HTMLElement => {
     window.location.reload();
     // вышли из аккаунта
     // TODO - сделать всплывающее окно
-    // TODO - сделать через redux?
   };
 
   profileMenu.append(profileOut);
-  const avatarWrapperMenu: HTMLElement = avatar();
-
-  profileContainer.append(avatarWrapperMenu, profileMenu);
-
+  personalData.append(personalName, avatarWrapperMenu);
+  profileContainer.append(personalData, profileMenu);
   avatarCnt.append(avatarWrapperHeader, profileContainer);
 
-  //   TODO - сделать через redux?
   avatarCnt.onmouseover = () => {
     profileContainer.classList.add('show__menu');
   };
@@ -71,6 +66,7 @@ export const renderAccountSectionHead = (): HTMLElement => {
     if (userState.data === null) {
       accoutSection.append(loginBtn);
     } else {
+      personalName.innerHTML = userState.data?.name as string;
       accoutSection.append(avatarCnt);
     }
   });

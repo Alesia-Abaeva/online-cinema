@@ -99,7 +99,7 @@ export const getUserData = async (
     }
 
     console.log(user);
-    res.json({ user });
+    res.json(user);
   } catch (e) {
     res.status(500).json({ message: "Нет доступа" });
   }

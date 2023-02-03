@@ -67,6 +67,16 @@
   margin-bottom: 2rem;
 }
 
+.profile-menu__data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile-menu__data-name {
+  padding-left: 2rem;
+}
+
 .profile-menu__item {
   display: flex;
   align-items: center;
