@@ -18,7 +18,9 @@ export const pathResolver = (pathname: string): void => {
     document.title = route.title;
   }
 };
-document.documentElement.setAttribute('data-theme', 'dark');
+
+const theme = localStorage.getItem('theme');
+if (theme) document.documentElement.setAttribute('data-theme', theme);
 
 pathResolver(window.location.pathname);
 

@@ -15,7 +15,6 @@ export const renderThemeSwitcher = (): HTMLElement => {
 
   const darkBtn: HTMLElement = createElem('button', 'theme-switcher__btn');
   darkBtn.id = 'dark';
-  darkBtn.classList.add('theme-switcher__btn_active');
   const moonIcon: HTMLElement = createElem('div', 'theme-switcher__icon');
   moonIcon.classList.add('moon-icon');
   const darkBtnText: HTMLElement = createElem('span', 'theme-switcher__text');
@@ -23,11 +22,19 @@ export const renderThemeSwitcher = (): HTMLElement => {
 
   darkBtn.append(moonIcon, darkBtnText);
 
+  const activeBtn = localStorage.getItem('theme') === 'light' ? lightBtn : darkBtn;
+  activeBtn.classList.add('theme-switcher__btn_active');
+
   themeSwitcher.append(lightBtn, darkBtn);
 
   themeSwitcher.onclick = (e: Event) => {
     const target = e.target as HTMLElement;
     document.documentElement.setAttribute('data-theme', target.id);
+    const btnPar = target.parentElement as HTMLElement;
+    const btns = Array.from(btnPar.children);
+    btns.forEach((el) => el.classList.remove('theme-switcher__btn_active'));
+    target.classList.add('theme-switcher__btn_active');
+    localStorage.setItem('theme', target.id);
   };
 
   return themeSwitcher;

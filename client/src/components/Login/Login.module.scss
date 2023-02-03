@@ -7,9 +7,8 @@
 }
 
 .form_container {
+  @include crystalline-blur;
   margin-top: 4rem;
-  // background-color: $tundora-60;
-  background-color: var(--bg-primary);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -25,7 +24,6 @@
   background-repeat: no-repeat;
   background-size: contain;
   margin-bottom: 2.8rem;
-  filter: var(--logo);
 }
 
 .form__wrapp {

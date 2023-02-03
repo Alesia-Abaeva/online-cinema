@@ -42,14 +42,14 @@
 
 // TODO: Убарать эти стили в компоненты слайдеров, использовать только свойство background с градиентами, переименовать
 .hero-black {
-  background: linear-gradient(to top, var(--bg-primary) 0%, var(--bg-primary) 20%, transparent 100%);
+  background: linear-gradient(to top, var(--always-black) 0%, var(--always-black) 20%, transparent 100%);
   height: 250px;
   width: 100%;
   @include flex-center;
 }
 
 .hero-black-black {
-  background-color: var(--bg-primary);
+  background-color: var(--always-black);
   height: 250px;
   @include flex-center;
 }

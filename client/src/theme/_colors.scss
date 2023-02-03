@@ -32,9 +32,7 @@ $black-90: rgba(0, 0, 0, 0.9);
 $gradient-primary: linear-gradient(90deg, #81a9e3 0%, #06153d 100%);
 
 [data-theme='dark'] {
-  // --bg-primary: rgba(0, 0, 0, 0.88);
-  // --bg-primary: #1f1f1f;
-  --bg-primary: #2d2d2d;
+  --bg-primary: #000;
   --bg-secondary: #1e1e1e;
   --bg-contrast: #fff;
   --text-primary: rgba(255, 255, 255, 0.92);
@@ -47,6 +45,8 @@ $gradient-primary: linear-gradient(90deg, #81a9e3 0%, #06153d 100%);
   --blue: #0a84ff;
   --search-box-bg: #fff;
   --progress-lin-bg: hsla(0, 0%, 100%, 0.3);
+  --crystalline-blur: rgba(68, 68, 68, 0.6);
+  --always-black: #000;
 
   --logo: invert(0%);
   --search-icon: invert(100%) brightness(60%);
@@ -56,8 +56,8 @@ $gradient-primary: linear-gradient(90deg, #81a9e3 0%, #06153d 100%);
 }
 
 [data-theme='light'] {
-  --bg-primary: #fff;
-  --bg-secondary: #f0f0f3;
+  --bg-primary: #F5F5F7;
+  --bg-secondary: #EBEBF0;
   --bg-contrast: #1f1f1f;
   --header-primary: #000;
   --text-primary: #1f1f1f;
@@ -68,8 +68,10 @@ $gradient-primary: linear-gradient(90deg, #81a9e3 0%, #06153d 100%);
   --text-footer: #b4b4b4;
   --border-primary: #d9d9d9;
   --blue: #0a84ff;
-  --search-box-bg: #f0f0f3;
+  --search-box-bg: #EBEBF0;
   --progress-lin-bg: #fff;
+  --crystalline-blur: rgba(255, 255, 255, 0.5);
+  --always-black: #000;
 
   --logo: invert(100%);
   --search-icon: invert(100%) brightness(60%);
@@ -77,3 +79,29 @@ $gradient-primary: linear-gradient(90deg, #81a9e3 0%, #06153d 100%);
   --inverted-icon: invert(0%);
   --search-icon-hover: invert(0%) brightness(100%);
 }
+
+// Kinda grey
+
+// [data-theme='dark'] {
+//   // --bg-primary: rgba(0, 0, 0, 0.88);
+//   // --bg-primary: #1f1f1f;
+//   --bg-primary: #2d2d2d;
+//   --bg-secondary: #1e1e1e;
+//   --bg-contrast: #fff;
+//   --text-primary: rgba(255, 255, 255, 0.92);
+//   --text-secondary: rgba(255, 255, 255, 0.64);
+//   --text-ternary: hsla(0, 0%, 100%, 0.3);
+//   --text-white: rgba(255, 255, 255, 0.92);
+//   --text-contrast: #000;
+//   --text-footer: #b4b4b4;
+//   --border-primary: #333333;
+//   --blue: #0a84ff;
+//   --search-box-bg: #fff;
+//   --progress-lin-bg: hsla(0, 0%, 100%, 0.3);
+
+//   --logo: invert(0%);
+//   --search-icon: invert(100%) brightness(60%);
+//   --icon: invert(0%);
+//   --inverted-icon: invert(100%);
+//   --search-icon-hover: invert(100%);
+// }

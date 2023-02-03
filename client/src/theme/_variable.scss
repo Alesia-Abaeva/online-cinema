@@ -16,7 +16,6 @@ $iphoneXR: 414px;
 $phone-width: 768px;
 $tablet-width: 1000px;
 
-
 @mixin header-link {
   font-size: 1.3rem;
   text-decoration: none;
@@ -70,4 +69,10 @@ $tablet-width: 1000px;
     border: 1px solid transparent;
     box-shadow: 0 0 0 1px $box-shadow;
   }
+}
+
+@mixin crystalline-blur {
+  background-color: var(--crystalline-blur);
+  backdrop-filter: blur(33px);
+  background-blend-mode: overlay;
 }
