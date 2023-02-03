@@ -7,13 +7,13 @@ import { renderSearchBoxCard } from './components/SearchBoxCard/SearchBoxCard';
 import styles from './SearchBox.module.scss';
 
 export const renderSearchBox = async (res: ResponseFindedMovies | ResErrorMes | null): Promise<HTMLElement> => {
-  const searchBox: HTMLElement = createElem('div', styles['search-box']);
+  const searchBox: HTMLElement = createElem('div', 'search-box');
   let films;
   if (res) {
     films = res;
   } else {
     // USE STATE HERE ???
-    const suggestionsTitle: HTMLElement = createElem('div', 'seach-box__suggestions');
+    const suggestionsTitle: HTMLElement = createElem('div', styles['seach-box__suggestions']);
     suggestionsTitle.innerHTML = 'Возможно вам понравится';
     searchBox.append(suggestionsTitle);
 

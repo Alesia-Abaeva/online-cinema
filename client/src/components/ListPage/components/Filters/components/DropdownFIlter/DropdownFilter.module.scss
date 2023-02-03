@@ -18,7 +18,6 @@
 
   &::after {
     content: '';
-    transition: all $base-transition;
     display: block;
     position: absolute;
     top: calc(50% - 0.5rem);

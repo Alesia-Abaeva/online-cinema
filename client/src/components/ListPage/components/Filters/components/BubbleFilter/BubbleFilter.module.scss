@@ -11,7 +11,7 @@
   padding: 1rem;
   background: var(--bg-secondary);
   cursor: pointer;
-  transition: all $base-transition;
+  
   &:hover {
     transform: scale(1.1);
     background: var(--bg-contrast);

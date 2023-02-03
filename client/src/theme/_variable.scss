@@ -16,13 +16,11 @@ $iphoneXR: 414px;
 $phone-width: 768px;
 $tablet-width: 1000px;
 
-$base-transition: 0.3s ease;
 
 @mixin header-link {
   font-size: 1.3rem;
   text-decoration: none;
   color: var(--text-secondary);
-  transition: all $base-transition;
 
   &:hover {
     color: var(--text-primary);
@@ -54,7 +52,6 @@ $base-transition: 0.3s ease;
   padding: 1rem;
   font-size: 0.9rem;
   background-color: $background-color;
-  transition: background-color $base-transition;
 
   &:hover {
     background-color: $hover-background-color;
