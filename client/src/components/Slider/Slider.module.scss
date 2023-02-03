@@ -1,10 +1,12 @@
 .slider {
   position: relative;
-  overflow-x: hidden;
-  padding: 0 calc(2.5% + 15px);
+  overflow: hidden;
   &__header {
-    padding-top: 1.5rem;
+    padding: 1.5rem calc(2.5% + 15px) 0.1rem;
     font-size: 1.5rem;
+  }
+  &__container {
+    padding: 0 calc(2.5% + 15px);
   }
   &__wrapper {
     display: flex;
@@ -12,7 +14,7 @@
     position: relative;
     padding: 16px 0px;
   }
-  &__wrapper:hover > button svg {
+  &__wrapper:hover > button > svg {
     fill: white;
   }
   &__wrapper:hover > .slider__items .item-opacity {
@@ -40,10 +42,33 @@
   }
 }
 
+// .sliderItem__button {
+//   width: 60px;
+//   height: 60px;
+//   border-radius: 50%;
+//   background: rgba(31, 31, 31, 0.95);
+//   cursor: pointer;
+//   justify-content: center;
+//   align-items: center;
+//   display: flex;
+// }
+
 .translate-speed {
   transition: transform 1s ease;
 }
 
 .button-disabled {
   opacity: 0;
+}
+
+@media (max-width: 1140px) {
+  .slider__button svg {
+    height: 28px;
+  }
+}
+
+@media (max-width: 680px) {
+  .slider__button svg {
+    height: 20px;
+  }
 }
