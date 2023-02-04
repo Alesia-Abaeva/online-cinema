@@ -33,7 +33,18 @@ export const register = async (req: express.Request, res: express.Response) => {
 
     await user.save();
 
-    res.status(201).send({ user, message: "Пользователь успешно создан!" });
+    const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
+      expiresIn: "1h", //время существования токена
+    });
+
+    // res.json({ token, userId: user.id });
+
+    res.status(201).send({
+      token,
+      user,
+      userId: user.id,
+      message: "Пользователь успешно создан!",
+    });
   } catch (e) {
     console.log(e);
     res

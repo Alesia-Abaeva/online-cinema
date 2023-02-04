@@ -1,6 +1,6 @@
+import { renderPersonalAccountPage } from 'src/components/PersonalAccount/PersonalAccount';
 import { renderApp } from '../components/App/App';
-import { renderNotFoundPage } from '../components/NotFoundPage/NotFoundPage';
 
 export const personal = (): void => {
-  renderApp(renderNotFoundPage);
+  renderApp(renderPersonalAccountPage);
 };
