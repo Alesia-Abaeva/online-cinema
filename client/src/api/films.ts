@@ -3,7 +3,7 @@ import { API_KEY, API_REQUEST } from '../const/api/url';
 import { getData } from './get-data-api';
 
 /** Получаем данные о фильме по id */
-export const getMovie = (options: Options): Promise<ResponseMovie | ResErrorMes> =>
+export const getMovie = (options: Options): Promise<{ data: ResponseMovie }> =>
   getData<ResponseMovie>({ search: options.id, field: FIELD.ID, token: API_KEY }, API_REQUEST.MOVIE);
 
 /** Поиск по фильмaм по году(FIELD.YEAR), жанру(FIELD.TYPENUMBER), названию(FIELD.NAME) */

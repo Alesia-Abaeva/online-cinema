@@ -2,8 +2,8 @@
 
 // $desktop: 95vw;
 $desktop: 1440px;
-$footer-height: 70px;
-$footer-height-mobile: 60px;
+$footer-height: 130px;
+$footer-height-mobile: 130px;
 $header-height: 80px;
 $header-height-mobile: 80px;
 
@@ -16,16 +16,13 @@ $iphoneXR: 414px;
 $phone-width: 768px;
 $tablet-width: 1000px;
 
-$base-transition: 0.3s ease;
-
 @mixin header-link {
   font-size: 1.3rem;
   text-decoration: none;
-  color: $light-text;
-  transition: all $base-transition;
+  color: var(--text-secondary);
 
   &:hover {
-    color: $white;
+    color: var(--text-primary);
   }
 }
 
@@ -54,7 +51,6 @@ $base-transition: 0.3s ease;
   padding: 1rem;
   font-size: 0.9rem;
   background-color: $background-color;
-  transition: background-color $base-transition;
 
   &:hover {
     background-color: $hover-background-color;
@@ -75,8 +71,14 @@ $base-transition: 0.3s ease;
   }
 }
 
+@mixin crystalline-blur {
+  background-color: var(--crystalline-blur);
+  backdrop-filter: blur(33px);
+  background-blend-mode: overlay;
+}
+
 @mixin btn-new-style {
-  background-image: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
+  background-image: var(--gradient-primary);
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;
@@ -86,7 +88,7 @@ $base-transition: 0.3s ease;
   padding: 1rem;
   font-size: 0.9rem;
   border: none;
-
+  cursor: pointer;
   display: block;
 
   &:hover {

@@ -1,8 +1,7 @@
 @import '/src/theme/variable';
 
 .main {
-  color: $white;
-  background-color: $black;
+  color: var(--text-primary);
 }
 
 .main__container {

@@ -7,9 +7,8 @@
 }
 
 .form_container {
+  @include crystalline-blur;
   margin-top: 4rem;
-  // background-color: $tundora-60; белая тема
-  background-color: $black-60;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -36,8 +35,8 @@
   input {
     padding: 1rem;
     padding-left: 2.7rem;
-    background-color: $tundora-60; // dark
-    color: $white; // dark
+    background-color: var(--crystalline-blur);
+    color: var(--text-constast);
 
     @media (max-width: $phone-width) {
       width: 75vw;
@@ -81,8 +80,12 @@
   width: 20rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-
-  background-image: $gradient-primary;
+  color: var(--text-white);
+  // background-image: $gradient-primary;
+  background-color: var(--blue);
+  &:hover {
+    background-color: var(--blue);
+  }
 
   @media (max-width: $phone-width) {
     width: 75vw;
@@ -96,7 +99,7 @@
 }
 
 .reg__link {
-  color: white;
+  color: var(--text-primary);
 }
 
 .form__error {
@@ -114,7 +117,6 @@
   background-color: $yandex-red;
   font-size: 0.7rem;
   text-align: center;
-  transition: ease visibility $base-transition;
   @media (max-width: $phone-width) {
     width: 15rem;
   }

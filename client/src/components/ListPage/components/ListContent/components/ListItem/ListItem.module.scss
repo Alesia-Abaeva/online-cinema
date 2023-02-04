@@ -1,18 +1,17 @@
 @import '/src/theme/variable';
 
 .list-item {
-  height: 200px;
+  height: 220px;
   text-decoration: none;
-  color: $light-text;
+  color: var(--text-secondary);
   display: grid;
   grid-template-columns: 0.2fr 1fr 3fr 0.6fr 2.7fr;
-  transition: all $base-transition;
-  border-bottom: 1px solid $conditionalborder;
+  border-bottom: 1px solid var(--border-primary);
   padding-top: 1rem;
   padding-bottom: 1rem;
   &:hover {
     border-radius: 10px;
-    background-color: $background;
+    background-color: var(--bg-primary);
   }
 }
 .list-item__number-cont {
@@ -30,6 +29,7 @@
 }
 
 .list-item__img {
+  border-radius: 10px;
   height: 150px;
   width: 100px;
   object-fit: cover;
@@ -46,7 +46,7 @@
 .list-item__title {
   font-family: NetflixSans-Bold;
   font-size: 1rem;
-  color: $white;
+  color: var(--text-primary);
 }
 
 .list-item__description {
@@ -56,7 +56,7 @@
 .list-item__description_secondary {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: $copyright-footer;
+  color: var(--text-ternary);
 }
 
 .list-item__rating-cont {
@@ -92,10 +92,9 @@
 }
 
 .list-item__btn {
-  @include btn($white, transparent, $copyright-footer);
+  @include btn(var(--text-primary), transparent, $copyright-footer);
   padding: 0.5rem;
   border-radius: 50px;
-  transition: all $base-transition;
   &:hover {
     transform: scale(1.1);
   }
@@ -105,7 +104,7 @@
   background-image: url('assets/img/icons/bookmark-add.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  filter: invert(100%);
+  filter: var(--inverted-icon);
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -114,7 +113,7 @@
   background-image: url('assets/img/icons/three-dots-svgrepo-com.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  filter: invert(100%);
+  filter: var(--inverted-icon);
   width: 1.5rem;
   height: 1.5rem;
 }
