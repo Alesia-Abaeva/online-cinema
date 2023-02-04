@@ -1,5 +1,6 @@
 import { createButton } from 'src/components/ui/Button/Button';
 import { createElem } from 'src/utils/create-element';
+import { toggleModal } from '../CheckoutModal/components/ToggleModal';
 import styles from './TariffCard.module.scss';
 
 export const renderTariffCard = (data: SubsctiptionsPlan, id: number): HTMLElement => {
@@ -43,7 +44,15 @@ export const renderTariffCard = (data: SubsctiptionsPlan, id: number): HTMLEleme
   tariffCard.append(cardHeader, cardBody);
 
   if (id === 1) {
-    const cardBtn: HTMLElement = createButton('Оформить подиску', undefined, 'tariff-card__btn');
+    const cardBtn: HTMLElement = createButton(
+      'Оформить подиску',
+      (): void => {
+        const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
+        const modal = document.querySelector('.checkout-modal') as HTMLElement;
+        toggleModal(modal, overlay);
+      },
+      'tariff-card__btn'
+    );
     tariffCard.append(cardBtn);
   }
 

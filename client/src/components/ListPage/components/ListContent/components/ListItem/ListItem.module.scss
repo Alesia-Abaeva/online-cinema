@@ -76,11 +76,7 @@
 }
 
 .list-item__rating_amazing {
-  background-image: $gold;
-  background-size: 100%;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @include gradinent-text(var(--gold-gradient));
 }
 
 .list-item__controls {
