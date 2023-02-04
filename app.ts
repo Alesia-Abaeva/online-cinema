@@ -22,9 +22,12 @@ mongoose
 export const app = express();
 
 export const PORT: string | number = config.get("port") || 3003;
-
-app.use(express.json());
 app.use(cors());
+
+app.use(express.json({ limit: "50mb" }));
+app.use(
+  express.urlencoded({ limit: "50mb", parameterLimit: 100000, extended: true })
+);
 app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", router); //регистрация роутов, для запросов от фронта
 

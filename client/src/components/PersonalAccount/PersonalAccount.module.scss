@@ -1,0 +1,10 @@
+@import '/src/theme/variable';
+.personal-account {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: auto 0;
+  padding-top: calc(80px + 1rem);
+}

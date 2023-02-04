@@ -6,3 +6,5 @@ export const passwordIcon = `<svg fill="none" height="20" viewBox="0 0 26 26" wi
 <path d="M13 21C12.1 21 11.4 20.3 11.4 19.4V15.4C11.4 14.5 12.1 13.8 13 13.8C13.9 13.8 14.6 14.5 14.6 15.4V19.4C14.6 20.3 13.9 21 13 21Z" fill="#4F4F4F"/></svg>`;
 
 export const userIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 26 26" fill="none"><path fill="#4F4F4F" d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2a9.985 9.985 0 0 0-8 4 9.985 9.985 0 0 0 8 4 9.985 9.985 0 0 0 8-4 9.985 9.985 0 0 0-8-4z"/></svg>`;
+
+export const fotoIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="s3j"><path fill="currentColor" d="M12 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-2a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm-6-6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path><path fill="currentColor" d="M7.871 2.89A2 2 0 0 1 9.535 2h4.93a2 2 0 0 1 1.664.89L17.535 5H19a4 4 0 0 1 4 4v9a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h1.465L7.87 2.89ZM21 9a2 2 0 0 0-2-2h-2a1 1 0 0 1-.832-.445L14.465 4h-4.93L7.832 6.555A1 1 0 0 1 7 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9Z"></path></svg>`;

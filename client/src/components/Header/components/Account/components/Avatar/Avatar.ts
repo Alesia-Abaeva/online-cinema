@@ -1,3 +1,4 @@
+import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import styles from './Avatar.module.scss';
 
@@ -11,5 +12,10 @@ export const renderAvatar = (): HTMLElement => {
 
   avatarCircle.append(avatarImg);
   avatarWrap.append(avatarCircle);
+
+  store.subscribe(() => {
+    const userState = store.getState().auth.user;
+    userState.data?.avatarUrl && (avatarImg.style.backgroundImage = userState.data?.avatarUrl);
+  });
   return avatarWrap;
 };

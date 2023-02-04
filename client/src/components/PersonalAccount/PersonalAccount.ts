@@ -6,7 +6,7 @@ export const renderPersonalAccountPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
   //   main.classList.add('main_backdrop');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
-  const mainContent: HTMLElement = createElem('div', styles['reg-page']);
+  const mainContent: HTMLElement = createElem('div', styles['personal-account']);
 
   const profileSideBar: HTMLElement = renderPersonSidebar();
   const profileInformContainer: HTMLElement = createElem('div', styles['profile-info__cnt']);

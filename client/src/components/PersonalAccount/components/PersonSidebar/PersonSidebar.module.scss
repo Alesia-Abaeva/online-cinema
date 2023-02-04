@@ -1,0 +1,41 @@
+@import '/src/theme/variable';
+
+.profile-sidebar__cnt {
+  //   background-color: $copyright-footer;
+}
+
+.user-avatar__ctn {
+  &:hover {
+    .user-avatar__svg-cnt {
+      z-index: 2;
+      opacity: 0.9;
+    }
+  }
+}
+
+.user-avatar__ctn {
+  position: relative;
+  .avatar__circle {
+    background-size: 7rem;
+  }
+  .avatar__profile {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+}
+
+.user-avatar__svg-cnt {
+  align-items: center;
+  background-color: $tundora-60;
+  border-radius: 100%;
+  bottom: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.2s ease-out;
+}
