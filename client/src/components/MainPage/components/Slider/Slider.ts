@@ -5,12 +5,10 @@ import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';
 
 interface Ifilm {
-  name: string;
+  id: string;
   img: string;
   rating: string;
 }
-
-const mock = 'https://avatars.mds.yandex.net/get-ott/200035/2a00000185e887eea5811fe4e8b9220c0058/2016x1134';
 
 export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
@@ -20,7 +18,7 @@ export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLEleme
   const items: HTMLElement = createElem('div', styles.slider__items);
   const btnLeft: HTMLButtonElement = createSliderBtn('slider__btn__left', 'left');
   const btnRight: HTMLButtonElement = createSliderBtn('slider__btn__right', 'right');
-  const slideDown: HTMLElement = createSlideDown(mock);
+  const slideDown: HTMLElement = createSlideDown();
 
   slider.dataset.id = String(Date.now());
   items.style.transform = `transform: translateX(0px);`;
@@ -37,7 +35,7 @@ export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLEleme
   let prevSize: number;
 
   const arr: Ifilm[] = filmsData.length > totalSlides ? filmsData.slice(0, totalSlides) : filmsData;
-  arr.forEach((element, id) => items.append(renderSliderItem(id, element.name, element.img, element.rating)));
+  arr.forEach((element) => items.append(renderSliderItem(element.id, element.img, element.rating)));
 
   const changeSize = (): void => {
     items.classList.remove('translate-speed');
@@ -154,7 +152,7 @@ export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLEleme
 
   slider.addEventListener('click', (event: Event): void => {
     event.stopPropagation();
-    const target = event.target as Element;
+    const target = event.target as HTMLElement;
     const currentTarget = event.currentTarget as HTMLElement;
 
     if (target.classList.contains('sliderItem__image')) {
@@ -162,6 +160,14 @@ export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLEleme
       allSliders.forEach((elem) => elem.querySelector('.slideDown')?.classList.remove('show-slidedown'));
       currentTarget.querySelector('.slideDown')?.classList.add('show-slidedown');
       currentTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      const item = target.closest('.sliderItem') as HTMLElement;
+
+      currentTarget.querySelector('.slideDown')?.dispatchEvent(
+        new CustomEvent('showFilmInfo', {
+          detail: { id: item.dataset.id },
+        })
+      );
     }
   });
 

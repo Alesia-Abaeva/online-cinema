@@ -1,0 +1,33 @@
+@import '/src/theme/variable';
+@import '/src/theme/colors';
+
+.mainBanner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  &__wrapper {
+    border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+    width: 100%;
+    height: 100%;
+    background: none;
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: cover;
+  }
+
+  &__container {
+    padding: 30px;
+  }
+  &__background {
+    background-position: center;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tabs {
+    position: absolute;
+  }
+}
