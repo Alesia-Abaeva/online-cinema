@@ -1,11 +1,11 @@
-import { createElem } from '../../utils/create-element';
-import { createLink } from '../../utils/create-link-element';
-import styles from './Header.module.scss';
-import { linkHandler } from '../../utils/link-handler';
-import { rednerNavbar } from './components/Navbar/Navbar';
+import { NAVBAR_BTNS } from 'src/const/nav-bar-btns';
+import { createElem } from 'src/utils/create-element';
+import { linkHandler } from 'src/utils/link-handler';
+import { renderAccountSectionHead } from './components/Account/Account';
 import { rednerHamburgerNavbar } from './components/HamburgerNavbar/HamburgerNavbar';
+import { rednerNavbar } from './components/Navbar/Navbar';
 import { renderSearchBar } from './components/SearchBar/SearchBar';
-import { NAVBAR_BTNS } from '../../const/nav-bar-btns';
+import styles from './Header.module.scss';
 
 export const renderHeader = (): HTMLElement => {
   const header: HTMLElement = createElem('header', 'header');
@@ -21,14 +21,7 @@ export const renderHeader = (): HTMLElement => {
 
   const navBar: HTMLElement = rednerNavbar(NAVBAR_BTNS, '');
 
-  const accoutSection: HTMLElement = createElem('div', 'header__account');
-  const loginBtn: HTMLElement = createElem('div', 'header__login');
-  const loginLink: HTMLElement = createLink('/login', 'header__login-link', false, 'Войти');
-  loginBtn.append(loginLink);
-
-  loginLink.onclick = linkHandler;
-
-  accoutSection.append(loginBtn);
+  const accoutSection: HTMLElement = renderAccountSectionHead();
 
   const hamburger: HTMLElement = rednerHamburgerNavbar();
 

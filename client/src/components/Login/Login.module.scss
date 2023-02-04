@@ -23,7 +23,7 @@
   background-position: left;
   background-repeat: no-repeat;
   background-size: contain;
-  margin-bottom: 2.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .form__wrapp {
@@ -35,28 +35,31 @@
   input {
     padding: 1rem;
     padding-left: 2.7rem;
+    background-color: var(--crystalline-blur);
+    color: var(--text-constast);
 
     @media (max-width: $phone-width) {
       width: 75vw;
     }
   }
 
-  &:invalid {
-    svg {
-      path {
-        stroke: $yandex-red;
-        fill: rgba(95, 158, 160, 0);
-      }
-    }
-    input {
-      border: 2px solid $yandex-red;
-      outline: none;
+  // &:invalid {
+  //   svg {
+  //     path {
+  //       stroke: $yandex-red;
+  //       fill: rgba(95, 158, 160, 0);
+  //     }
+  //   }
+  //   input {
+  //     border: 1px solid $yandex-red;
+  //     box-shadow: 0 0 0 1px $yandex-red;
+  //     outline: none;
 
-      &:focus {
-        color: $yandex-red;
-      }
-    }
-  }
+  //     &:focus {
+  //       color: $yandex-red;
+  //     }
+  //   }
+  // }
 }
 
 .icon__container {
@@ -69,9 +72,9 @@
   padding-left: 0.75rem;
 }
 
-.form__email_input {
-  @include input($silver, $tundora);
-}
+// .form__email_input {
+//   @include input($silver, $tundora);
+// }
 
 .form_button {
   width: 20rem;
@@ -97,4 +100,24 @@
 
 .reg__link {
   color: var(--text-primary);
+}
+
+.form__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  margin-bottom: 1rem;
+  width: 20rem;
+  height: 2rem;
+  padding: 0.1rem;
+  outline: none;
+  border: 1px solid $yandex-red;
+  border-radius: 5px;
+  background-color: $yandex-red;
+  font-size: 0.7rem;
+  text-align: center;
+  @media (max-width: $phone-width) {
+    width: 15rem;
+  }
 }

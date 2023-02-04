@@ -10,8 +10,10 @@
 .pagination__btn {
   background: var(--bg-contrast);
   color: var(--text-contrast);
+  border-radius: 10px;
   &:hover {
     background: var(--bg-contrast);
+    color: var(--text-contrast);;
   }
 }
 

@@ -1,6 +1,6 @@
-import { projectTitle } from '../../const/project-title';
-import { createElem } from '../../utils/create-element';
-import { createLink } from '../../utils/create-link-element';
+import { projectTitle } from 'src/const/project-title';
+import { createElem } from 'src/utils/create-element';
+import { createLink } from 'src/utils/create-link-element';
 import { rederCredentials } from './components/Credentials/Credentials';
 import { renderThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 import styles from './Footer.module.scss';

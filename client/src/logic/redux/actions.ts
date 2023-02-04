@@ -1,15 +1,64 @@
-import { DISABLE, ENABLE } from './types-redux';
+import { dataPersonHandler, loginHandler, registerHandler } from 'src/api/back/auth';
+// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+import { AppDispatch } from '.';
+import { AuthTypes } from './types-redux';
 
 // Здесь будут храниться функции, которые создают определенные action
 
-export const enableBtn = () => {
+const setLoginInfo = (payload: ApiResponse<AuthResponse>) => {
   return {
-    type: ENABLE,
+    type: AuthTypes.LOGIN,
+    payload,
   };
 };
 
-export const disableBtn = () => {
+const setRegisterInfo = (payload: ApiResponse<AuthResponse>) => {
   return {
-    type: DISABLE,
+    type: AuthTypes.REGISTER,
+    payload,
   };
+};
+
+const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
+  return {
+    type: AuthTypes.PERSON,
+    payload,
+  };
+};
+
+export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
+  try {
+    // оформляем загрузку
+    dispatch(setLoginInfo({ isLoading: true }));
+    // получить данные
+    const { data } = await loginHandler(body);
+    // оформляем ответ успешный
+    // оформляем конец загрузки
+    dispatch(setLoginInfo({ error: null, data, isLoading: false, isAuth: true }));
+  } catch (e) {
+    // оформляем ошибку
+    // оформляем конец загрузки
+    dispatch(setLoginInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
+  }
+};
+
+export const register = (body: AuthRequest) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(setRegisterInfo({ isLoading: true }));
+    const { data } = await registerHandler(body);
+    dispatch(setRegisterInfo({ error: null, data, isLoading: false, isAuth: true }));
+  } catch (e) {
+    dispatch(setRegisterInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
+  }
+};
+
+export const getDataPerson = () => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(setUserInfo({ isLoading: true }));
+    const data = await dataPersonHandler();
+    dispatch(setUserInfo({ error: null, data: data.data, isLoading: false, isAuth: true }));
+  } catch (e) {
+    dispatch(setUserInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
+    // localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
+  }
 };

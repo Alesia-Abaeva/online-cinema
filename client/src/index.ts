@@ -1,10 +1,11 @@
 import './style.scss';
-import './router/router';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-import { rootReducer } from './logic/redux/root-reduces';
+import { pathResolver } from './router/router';
 
-// TODO - добавить стор в функцию Init
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
-console.log(store);
+const theme = localStorage.getItem('theme');
+if (theme) document.documentElement.setAttribute('data-theme', theme);
+// инициализация приложения
+pathResolver(window.location.pathname);
+
+window.addEventListener('popstate', (): void => {
+  pathResolver(window.location.pathname);
+});

@@ -53,6 +53,7 @@ $gradient-primary: linear-gradient(90deg, #81a9e3 0%, #06153d 100%);
   --icon: invert(0%);
   --inverted-icon: invert(100%);
   --search-icon-hover: invert(100%);
+  --gradient-primary: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
 }
 
 [data-theme='light'] {
@@ -78,6 +79,7 @@ $gradient-primary: linear-gradient(90deg, #81a9e3 0%, #06153d 100%);
   --icon: invert(100%);
   --inverted-icon: invert(0%);
   --search-icon-hover: invert(0%) brightness(100%);
+  --gradient-primary: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
 }
 
 // Kinda grey
