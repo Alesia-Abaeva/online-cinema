@@ -1,6 +1,8 @@
 import { createElem } from '../../utils/create-element';
+import { renderSlider } from './components/Slider/Slider';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
+import { mockData } from './mockData';
 
 export const renderMainPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', styles['main']);
@@ -11,18 +13,10 @@ export const renderMainPage = (): HTMLElement => {
   mainContainer.append(subsHero);
 
   // TODO: Заменить на компоненты слайдеров
-  const section2: HTMLElement = createElem('section', styles['subs-hero']);
-  section2.classList.add('hero-black');
-  const title2: HTMLElement = createElem('h1', 'subs-hero__title');
-  title2.innerHTML = 'Слайдер 1';
-  section2.append(title2);
-
-  const section3: HTMLElement = createElem('section', styles['subs-hero']);
-  section3.classList.add('hero-black-black');
-  const title3: HTMLElement = createElem('h1', 'subs-hero__title');
-  title3.innerHTML = 'Слайдер 2';
-  section3.append(title3);
+  const section2: HTMLElement = renderSlider(mockData, 'Слайдер 1');
+  const section3: HTMLElement = renderSlider(mockData, 'Слайдер 2');
 
   main.append(mainContainer, section2, section3);
+
   return main;
 };

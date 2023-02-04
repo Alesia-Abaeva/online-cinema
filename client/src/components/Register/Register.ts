@@ -16,8 +16,16 @@ export const renderRegisterPage = (): HTMLElement => {
   };
 
   const main: HTMLElement = createElem('main', 'main');
-  main.classList.add('main_backdrop');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
+<<<<<<< HEAD
+  const mainContent: HTMLElement = createElem('div', styles['register-page']);
+  const header: HTMLElement = document.createElement('h1');
+  main.classList.add('main_backdrop');
+  header.innerHTML = 'REGISTER';
+  mainContent.append(header);
+  mainContainer.append(mainContent);
+  main.append(mainContainer);
+=======
   const mainContent: HTMLElement = createElem('div', styles['reg-page']);
 
   const formContainer = createElem('div', 'form_container');
@@ -107,5 +115,6 @@ export const renderRegisterPage = (): HTMLElement => {
     }
   });
 
+>>>>>>> develop
   return main;
 };
