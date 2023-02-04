@@ -2,8 +2,16 @@
 
 .subscriptions {
   @include default-page-container;
+  gap: 3rem;
 }
 
 .subscriptions__title {
-  font-size: 5rem;
+  font-family: NetflixSans-Bold;
+  font-size: 3rem;
+  color: var(--text-white);
+}
+
+.subscriptions__body {
+  @include flex-center;
+  gap: 3rem;
 }
