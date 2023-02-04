@@ -28,8 +28,6 @@ export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLEleme
   container.append(wrapper);
   wrapper.append(items, btnLeft, btnRight);
   slider.append(header, container, slideDown);
-  btnLeft.disabled = true;
-  btnLeft.classList.add('button-disabled');
 
   const totalSlides: number = 11;
   let itemLeftPadding: number = 8;
@@ -46,17 +44,27 @@ export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLEleme
     if (itemsSize) {
       prevSize = itemsSize;
     }
-    if (window.innerWidth <= 400) {
-      itemsSize = 1;
-    } else if (window.innerWidth <= 680) {
-      itemsSize = 2;
-    } else if (window.innerWidth <= 1140) {
-      itemsSize = 3;
-    } else if (window.innerWidth <= 1540) {
-      itemsSize = 4;
-    } else {
-      itemsSize = 5;
+
+    const width: number = window.innerWidth;
+
+    switch (true) {
+      case width <= 400:
+        itemsSize = 1;
+        break;
+      case width <= 680:
+        itemsSize = 2;
+        break;
+      case width <= 1140:
+        itemsSize = 3;
+        break;
+      case width <= 1540:
+        itemsSize = 4;
+        break;
+      default:
+        itemsSize = 5;
+        break;
     }
+
     itemWidth = (wrapper.clientWidth * 100 - itemLeftPadding * (itemsSize - 1) * 100) / 100 / itemsSize;
 
     if (position > 0) {
