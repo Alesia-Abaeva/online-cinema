@@ -2,7 +2,9 @@
 
 .subscriptions {
   @include default-page-container;
+  height: 100%;
   gap: 3rem;
+  padding-top: calc($header-height * 1.5);
 }
 
 .subscriptions__title {
@@ -14,4 +16,22 @@
 .subscriptions__body {
   @include flex-center;
   gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-height: 1080px) {
+  .subscriptions {
+    @include default-page-container;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .subscriptions {
+    gap: 1rem;
+  }
+
+  .subscriptions__body {
+    gap: 1rem;
+    flex-direction: column;
+  }
 }
