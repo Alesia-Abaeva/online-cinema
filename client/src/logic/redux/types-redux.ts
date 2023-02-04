@@ -5,3 +5,5 @@ export enum AuthTypes {
   REGISTER = 'REGISTER',
   PERSON = 'PERSON',
 }
+
+// тип для редакса

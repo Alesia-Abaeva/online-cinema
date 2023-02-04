@@ -79,7 +79,7 @@ export const login = async (req: express.Request, res: express.Response) => {
       {
         expiresIn: "1h", //время существования токена
       }
-    ); // TODO - добавить рефреш токен
+    ); // TODO: добавить рефреш токен
 
     res.json({ token, userId: user.id });
   } catch (e) {

@@ -1,0 +1,61 @@
+@import '/src/theme/variable';
+.profile-menu__container {
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0.01%;
+
+  background-color: $mine-shaft;
+  width: 20rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+
+  z-index: 0;
+  visibility: hidden;
+  transform: translate(-100%, -100%);
+
+  .avatar__wrapper {
+    padding-right: 12px;
+    height: 80px;
+  }
+}
+
+.profile-menu__wrapp {
+  list-style-type: none;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.profile-menu__data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile-menu__data-name {
+  padding-left: 2rem;
+}
+
+.profile-menu__item {
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  height: 2rem;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $tundora;
+  }
+
+  &:last-child {
+    color: $yandex-red;
+  }
+}
+.show__menu {
+  transform: translate(0%, 0%);
+  z-index: 2;
+  visibility: visible;
+}

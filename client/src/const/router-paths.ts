@@ -1,5 +1,6 @@
 import { lists } from 'src/pages/lists';
 import { list } from 'src/pages/list';
+import { personal } from 'src/pages/personal';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
@@ -36,5 +37,9 @@ export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.list]: {
     template: list,
     title: `list | ${projectTitle}`,
+  },
+  [PATH_NAMES.personal]: {
+    template: personal,
+    title: `personal | ${projectTitle}`,
   },
 };

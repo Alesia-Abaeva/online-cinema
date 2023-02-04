@@ -13,7 +13,7 @@ const utilsPath = path.resolve(__dirname, 'src', 'utils');
 
 const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
-// const faviconPath = path.join(__dirname, 'src', 'assets', 'favicon.png'); //TODO
+// const faviconPath = path.join(__dirname, 'src', 'assets', 'favicon.png'); // TODO:
 
 const config: Configuration = {
   entry: entryPath,
@@ -29,7 +29,7 @@ const config: Configuration = {
       alwaysWriteToDisk: true,
       template: htmlTemplatePath,
       inject: 'body',
-      // favicon: faviconPath, //TODO
+      // favicon: faviconPath, //TODO:
       clean: true,
     }),
     new CleanWebpackPlugin(),
