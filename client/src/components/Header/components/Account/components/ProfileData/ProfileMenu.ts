@@ -8,7 +8,12 @@ import styles from './ProfileMenu.module.scss';
 export const renderProfileMenu = (): HTMLElement => {
   const profileContainer: HTMLElement = createElem('div', styles['profile-menu__container']);
   const personalData: HTMLElement = createElem('div', 'profile-menu__data');
+
+  const personalDataWpar: HTMLElement = createElem('div', 'profile-menu__data-wrap');
+
   const personalName: HTMLElement = createElem('div', 'profile-menu__data-name');
+  const personalEmail: HTMLElement = createElem('div', 'profile-menu__data-email');
+
   const profileMenu: HTMLElement = createElem('ul', 'profile-menu__wrapp');
   const profileOut: HTMLElement = createElem('li', 'profile-menu__item');
   profileOut.innerHTML = 'Выйти';
@@ -34,8 +39,9 @@ export const renderProfileMenu = (): HTMLElement => {
     // TODO: сделать всплывающее окно
   };
 
+  personalDataWpar.append(personalName, personalEmail);
   profileMenu.append(profileAccount, profileHistory, profileSet, profileOut);
-  personalData.append(personalName, avatarWrapperMenu);
+  personalData.append(personalDataWpar, avatarWrapperMenu);
   profileContainer.append(personalData, profileMenu);
 
   store.subscribe(() => {
@@ -43,6 +49,7 @@ export const renderProfileMenu = (): HTMLElement => {
 
     if (userState.data !== null) {
       personalName.innerHTML = userState.data?.name as string;
+      personalEmail.innerHTML = userState.data?.email as string;
     }
   });
 
