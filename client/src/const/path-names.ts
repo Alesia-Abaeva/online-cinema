@@ -3,5 +3,8 @@ export const PATH_NAMES: PathNames = {
   main: '/',
   login: '/login',
   register: '/register',
-  films: '/films',
+  films: '/films', // dynamic
+  list: '/list', // dynamic
+  lists: '/all-lists',
+  subscriptions: '/subscriptions',
 };

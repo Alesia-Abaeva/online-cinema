@@ -1,6 +1,7 @@
 @import '/src/theme/colors';
 
-$desktop: 95vw;
+// $desktop: 95vw;
+$desktop: 1440px;
 $footer-height: 70px;
 $footer-height-mobile: 60px;
 $header-height: 80px;
@@ -10,6 +11,8 @@ $search-input-width: 600px;
 $search-input-width-tablet: 450px;
 $search-input-width-phone: 90vw;
 
+$iphoneSE: 375px;
+$iphoneXR: 414px;
 $phone-width: 768px;
 $tablet-width: 1000px;
 
@@ -32,6 +35,15 @@ $base-transition: 0.3s ease;
   align-items: center;
 }
 
+@mixin default-page-container {
+  height: calc(100vh - $footer-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: auto 0;
+}
+
 // REDO TODO Create generic btn component
 @mixin btn($color, $background-color, $hover-background-color) {
   cursor: pointer;
@@ -46,5 +58,40 @@ $base-transition: 0.3s ease;
 
   &:hover {
     background-color: $hover-background-color;
+  }
+}
+
+@mixin input($border-color, $box-shadow) {
+  width: 20rem;
+  height: 3rem;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+
+  &:focus {
+    border: 1px solid transparent;
+    box-shadow: 0 0 0 1px $box-shadow;
+  }
+}
+
+@mixin btn-new-style {
+  background-image: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 1px #eee;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border: none;
+
+  display: block;
+
+  &:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
   }
 }

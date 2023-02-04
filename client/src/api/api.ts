@@ -1,28 +1,45 @@
-import { METHODS } from '../const/api/methods';
-import { API_KEY, BASE_URL } from '../const/api/url';
+import { METHODS } from 'src/const/api/methods';
+import { BASE_URL, URL_SERVER } from 'src/const/api/url';
+import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 
 class ApiWrapper {
   private baseUrl: string;
 
-  constructor(baseUrl: string, apiKey: string) {
+  private isBackEnd: boolean;
+
+  constructor(baseUrl: string, isBackEnd: boolean) {
     this.baseUrl = baseUrl;
+    this.isBackEnd = isBackEnd;
   }
 
   private async fetchWrapper<ResponseBody>(url: string, options: RequestInit) {
-    const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      },
-      ...options,
-    });
+    const token: string | null = getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN);
+    console.log('token', token);
 
+    const headers = {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      ...(token && this.isBackEnd ? { Authorization: token } : {}),
+      ...(options?.headers ?? {}),
+    };
+
+    const response = await fetch(url, {
+      ...(options ?? {}),
+      headers,
+    });
+    console.log(headers);
     const data: ResponseBody = await response.json();
+
+    if (!response.ok) {
+      // eslint-disable-next-line no-throw-literal
+      throw data as unknown as ErrorMessage;
+    }
 
     return { data, response };
   }
 
   private makeUrl(endpoint: string, options?: RequestData | RequestData[] | null): string {
-    let queryParams: string = '';
+    let queryParams = '';
     if (Array.isArray(options)) {
       queryParams = options
         .map((params) =>
@@ -31,7 +48,6 @@ class ApiWrapper {
             .join('&')
         )
         .join('&');
-      console.log(queryParams);
     } else {
       queryParams = Object.entries(options ?? {})
         .map(([param, value]) => `${param}=${String(value)}`)
@@ -39,11 +55,10 @@ class ApiWrapper {
     }
 
     const queryString = queryParams && `?${queryParams}`;
-    console.log('queryString', queryString);
     return `${this.baseUrl}/${endpoint}${queryString}`;
   }
 
-  async get<ResponseBody>(endpoint: string, options: RequestData | RequestData[]) {
+  async get<ResponseBody>(endpoint: string, options?: RequestData | RequestData[]) {
     const url: string = this.makeUrl(endpoint, options);
 
     return await this.fetchWrapper<ResponseBody>(url, {
@@ -54,7 +69,7 @@ class ApiWrapper {
   async post<RequestBody, ResponseBody>(endpoint: string, body: RequestBody, options?: RequestInit) {
     const url: string = this.makeUrl(endpoint);
 
-    const headers: HeadersInit = {
+    const headers = {
       'Content-Type': 'application/json',
       ...(options?.headers ?? {}),
     };
@@ -100,4 +115,5 @@ class ApiWrapper {
   }
 }
 
-export const apiCall = new ApiWrapper(BASE_URL, API_KEY);
+export const apiCall = new ApiWrapper(BASE_URL, false);
+export const backCall = new ApiWrapper(URL_SERVER, true);

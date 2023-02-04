@@ -1,7 +1,13 @@
 {
   "exclude": ["node_modules"],
-  "include": ["src", "webpack.config.ts", "jest-setup.ts"],
+  "include": ["src", "webpack.config.ts", "jest-setup.ts", "src/models/api/.d.ts"],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "src": ["./src"],
+      "assets": ["./src/assets"],
+      "utils": ["./src/utils"]
+    },
     "strict": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,

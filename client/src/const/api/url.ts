@@ -8,3 +8,10 @@ export const API_REQUEST = {
   REVIEW: 'review',
   IMAGE: 'image',
 } as const;
+
+// export const URL_SERVER: string = 'http://127.0.0.1:3000';
+export const URL_SERVER = 'http://localhost:3000';
+
+export const REGISTER = 'api/auth/register';
+export const LOGIN = 'api/auth/login';
+export const PERSON_DATA = 'api/auth/person';

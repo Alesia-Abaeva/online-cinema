@@ -22,12 +22,17 @@
 .main_backdrop {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url('https://authors.appadvice.com/wp-content/appadvice-v2-media/2016/11/Netflix-background_860c8ece6b34fb4f43af02255ca8f225.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .main_banner {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url('https://authors.appadvice.com/wp-content/appadvice-v2-media/2016/11/Netflix-background_860c8ece6b34fb4f43af02255ca8f225.jpg');
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .body {
@@ -44,6 +49,11 @@
 
 .hidden {
   display: none;
+}
+
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 @media (max-width: $phone-width) {

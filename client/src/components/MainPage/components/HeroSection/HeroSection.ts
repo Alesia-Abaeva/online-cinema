@@ -1,3 +1,5 @@
+import { createButton } from 'src/components/ui/Button/Button';
+import { route } from 'src/router/route';
 import { createElem } from '../../../../utils/create-element';
 import styles from './HeroSection.module.scss';
 
@@ -8,10 +10,17 @@ export const renderHeroSection = (): HTMLElement => {
   const h1: HTMLElement = createElem('h1', 'subs-hero__title');
   h1.innerHTML = 'Фильмы и сериалы по подписке';
   const subTitle: HTMLElement = createElem('h2', 'subs-hero__subTitle');
-  subTitle.innerHTML = 'Отменяйте в любой момент, напишем за 3 дня до первого списания';
+  subTitle.innerHTML =
+    'Тысячи фильмов и сериалов по цене одного на целый месяц: мировые блокбастеры, культовые сериалы, анимация от Disney';
 
-  // TODO: Заменить кнопку на компонент кнопки
-  const subsBtn: HTMLElement = createElem('button', 'subs-hero__btn');
+  // TODO: Если авторизован, ссылка на страницу выбора подписки, если нет, ссылка на логин
+  const subsBtn: HTMLElement = createButton(
+    'Оформить подписку',
+    () => {
+      route('/subscriptions');
+    },
+    'subs-hero__btn'
+  );
   subsBtn.textContent = 'Оформить подписку';
 
   heroSection.append(h1, subTitle, subsBtn);

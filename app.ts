@@ -1,53 +1,35 @@
-const jsonServer = require("json-server");
-const dotenv = require("dotenv");
+import express from "express";
+import config from "config";
+import mongoose from "mongoose"; // позволяет подключаться к базе данных
+import { router } from "./routes/auth.routes";
+import cors from "cors";
+import checkAuth from "./middleware/auth.middelware";
+import { upload } from "./cors/multer";
+import { multerController } from "./controllers/MulterController";
+import { start } from "./cors/start";
 
-// считать переменные из .env
-dotenv.config();
+mongoose.set("strictQuery", true);
 
-const PORT: string | number = process.env.PORT || 3003;
+mongoose
+  .connect(config.get("mongoUri"))
+  .then(() => {
+    console.log("mongoDb is running");
+  })
+  .catch((err) => {
+    console.log("mongoDb error");
+  });
 
-const db = {
-  garage: [
-    {
-      name: "Tesla",
-      color: "#e6e6fa",
-      id: 1,
-    },
-    {
-      name: "BMW",
-      color: "#fede00",
-      id: 2,
-    },
-    {
-      name: "Mersedes",
-      color: "#6c779f",
-      id: 3,
-    },
-    {
-      name: "Ford",
-      color: "#ef3c40",
-      id: 4,
-    },
-  ],
-  winners: [
-    {
-      id: 1,
-      wins: 1,
-      time: 10,
-    },
-  ],
-};
+export const app = express();
 
-const server = jsonServer.create();
-const router = jsonServer.router(db);
-const middlewares = jsonServer.defaults();
+export const PORT: string | number = config.get("port") || 3003;
 
-server.use(middlewares);
+app.use(express.json());
+app.use(cors());
+app.use("/uploads", express.static("uploads"));
+app.use("/api/auth", router); //регистрация роутов, для запросов от фронта
 
-server.use(router);
-server.listen(PORT, () => {
-  console.log("Server is running on port", PORT);
-});
+app.post("/upload", checkAuth, upload.single("image"), multerController); // загрузка изображений на бэк
+start();
 
 /**
  * 

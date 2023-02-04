@@ -1,1 +1,121 @@
 @import '/src/theme/variable';
+
+.login-page {
+  @include flex-center;
+  flex-direction: column;
+  min-height: calc(100vh - $footer-height);
+}
+
+.form_container {
+  margin-top: 4rem;
+  // background-color: $tundora-60; белая тема
+  background-color: $black-60;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.form_logo {
+  width: 14rem;
+  height: 5rem;
+  background-image: url('../../assets/img/rs-films-logo.png');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 0.5rem;
+}
+
+.form__wrapp {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  position: relative;
+
+  input {
+    padding: 1rem;
+    padding-left: 2.7rem;
+    background-color: $tundora-60; // dark
+    color: $white; // dark
+
+    @media (max-width: $phone-width) {
+      width: 75vw;
+    }
+  }
+
+  // &:invalid {
+  //   svg {
+  //     path {
+  //       stroke: $yandex-red;
+  //       fill: rgba(95, 158, 160, 0);
+  //     }
+  //   }
+  //   input {
+  //     border: 1px solid $yandex-red;
+  //     box-shadow: 0 0 0 1px $yandex-red;
+  //     outline: none;
+
+  //     &:focus {
+  //       color: $yandex-red;
+  //     }
+  //   }
+  // }
+}
+
+.icon__container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding-left: 0.75rem;
+}
+
+// .form__email_input {
+//   @include input($silver, $tundora);
+// }
+
+.form_button {
+  width: 20rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  background-image: $gradient-primary;
+
+  @media (max-width: $phone-width) {
+    width: 75vw;
+  }
+}
+
+.reg__container {
+  font-size: 0.7rem;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.reg__link {
+  color: white;
+}
+
+.form__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  margin-bottom: 1rem;
+  width: 20rem;
+  height: 2rem;
+  padding: 0.1rem;
+  outline: none;
+  border: 1px solid $yandex-red;
+  border-radius: 5px;
+  background-color: $yandex-red;
+  font-size: 0.7rem;
+  text-align: center;
+  transition: ease visibility $base-transition;
+  @media (max-width: $phone-width) {
+    width: 15rem;
+  }
+}
