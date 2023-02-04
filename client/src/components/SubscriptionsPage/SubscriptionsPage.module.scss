@@ -3,3 +3,7 @@
 .subscriptions {
   @include default-page-container;
 }
+
+.subscriptions__title {
+  font-size: 5rem;
+}

@@ -6,12 +6,11 @@ export const renderSubscriptions = (): HTMLElement => {
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['subscriptions']);
 
-  const errorCode: HTMLElement = createElem('h1', 'not-found__error-code');
-  errorCode.innerHTML = '200';
-  const errorMessage: HTMLElement = createElem('p', 'not-found__message');
-  errorMessage.innerHTML = 'здесь будут подписки';
+  const subsTitle: HTMLElement = createElem('h1', 'subscriptions__title');
+  subsTitle.innerHTML = 'Выберите тариф';
+  const subsTable: HTMLElement = createElem('div', 'subscriptions__body');
 
-  mainContent.append(errorCode, errorMessage);
+  mainContent.append(subsTitle, subsTable);
 
   mainContainer.append(mainContent);
   main.append(mainContainer);
