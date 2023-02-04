@@ -4,9 +4,9 @@
   @include crystalline-blur;
   border-radius: 10px;
   padding: 2rem;
-  box-shadow: $shadow-primary;
   @include flex-center;
   flex-direction: column;
+  color: var(--text-contrast-reverse);
 }
 
 .tariff-card__header {
@@ -18,7 +18,7 @@
 .tariff-card__title {
   font-family: NetflixSans-Bold;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .tariff-card__line {
@@ -26,6 +26,7 @@
   width: 100%;
   background-image: var(--gradient-primary);
   border-radius: 50px;
+  margin-bottom: 1rem;
 }
 
 .tariff-card__cost {
@@ -80,6 +81,7 @@
 .tariff-card__btn {
   border-radius: 50px;
   box-shadow: none;
+  margin-top: 0.7rem;
   &:hover {
     transform: scale(1.05);
   }

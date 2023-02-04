@@ -28,7 +28,7 @@ export const renderTariffCard = (data: SubsctiptionsPlan, id: number): HTMLEleme
 
   cardCost.append(cardCostAmount, cardCostAmountDet);
 
-  cardHeader.append(cardTitle, cardLine, cardCost);
+  cardHeader.append(cardTitle, cardLine);
 
   const cardBody: HTMLElement = createElem('div', 'tariff-card__body');
   const cardList: HTMLElement = createElem('ul', 'tariff-card__list');
@@ -41,7 +41,7 @@ export const renderTariffCard = (data: SubsctiptionsPlan, id: number): HTMLEleme
     cardBenefit.innerHTML = el.title;
     cardList.append(cardBenefit);
   });
-  tariffCard.append(cardHeader, cardBody);
+  tariffCard.append(cardHeader, cardBody, cardCost);
 
   if (id === 1) {
     const cardBtn: HTMLElement = createButton(

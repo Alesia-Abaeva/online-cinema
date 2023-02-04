@@ -54,6 +54,7 @@
   font-family: NetflixSans-Bold;
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .checkout-modal__details {
@@ -81,4 +82,25 @@
   width: 320px;
   margin-top: 1.5rem;
   box-shadow: none;
+}
+
+@media (max-width: 430px) {
+  .checkout-modal {
+    padding: 2rem;
+  }
+
+  .checkout-modal__details {
+    margin-bottom: 1rem;
+  }
+
+  .checkout-modal__heading {
+    margin-bottom: 0.5rem;
+    line-height: 120%;
+  }
+}
+
+@media (max-width: 400px) {
+  .checkout-modal {
+    padding: 1rem;
+  }
 }
