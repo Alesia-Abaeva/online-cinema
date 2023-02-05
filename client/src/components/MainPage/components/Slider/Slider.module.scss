@@ -9,6 +9,7 @@
   }
   &__container {
     padding: 0 calc(2.5% + 15px);
+    position: relative;
   }
   &__wrapper {
     display: flex;
@@ -20,7 +21,7 @@
     fill: white;
   }
   &__wrapper:hover > .slider__items .item-opacity {
-    opacity: 0.7;
+    filter: brightness(0.4);
   }
   &__items {
     display: flex;
