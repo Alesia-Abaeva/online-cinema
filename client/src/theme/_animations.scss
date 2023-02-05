@@ -1,0 +1,38 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBlack {
+  0% {
+    background-color: $black;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes shake {
+  0% {
+    left: 0px;
+  }
+  20% {
+    left: 15px;
+  }
+  40% {
+    left: -15px;
+  }
+  60% {
+    left: 15px;
+  }
+  80% {
+    left: -15px;
+  }
+  100% {
+    left: 0px;
+  }
+}
