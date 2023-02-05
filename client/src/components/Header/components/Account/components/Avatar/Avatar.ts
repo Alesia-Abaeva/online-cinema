@@ -5,17 +5,23 @@ import styles from './Avatar.module.scss';
 export const renderAvatar = (): HTMLElement => {
   const avatarWrap: HTMLElement = createElem('div', 'avatar__wrapper');
   const avatarCircle: HTMLElement = createElem('div', 'avatar__circle');
-  const avatarImg: HTMLElement = createElem('div', styles['avatar__profile']);
+  const avatar: HTMLElement = createElem('div', styles['avatar__profile']);
 
   //   avatarImg.style.backgroundImage = `url(${avatarUrl})`;
   //   TODO: загрузка изображений!
 
-  avatarCircle.append(avatarImg);
+  avatarCircle.append(avatar);
   avatarWrap.append(avatarCircle);
 
   store.subscribe(() => {
     const userState = store.getState().auth.user;
-    userState.data?.avatarUrl && (avatarImg.style.backgroundImage = userState.data?.avatarUrl);
+    userState.data?.avatarUrl &&
+      (avatar.style.backgroundImage = `url(http://localhost:3000${userState.data?.avatarUrl})`);
   });
   return avatarWrap;
 };
+
+// interface ReturnAvatar {
+//   avatarWrap: HTMLElement;
+//   avatar: HTMLElement;
+// }

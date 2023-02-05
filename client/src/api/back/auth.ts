@@ -8,11 +8,6 @@ export const registerHandler = (body: AuthRequest) => backCall.post<AuthRequest,
 export const dataPersonHandler = () => backCall.get<AuthGetPersonToken>(PERSON_DATA);
 
 export const uploadHandler = (body: FormData) =>
-  backCall.post<FormData, UploadResponse>(
-    UPLOAD_IMG,
-    body,
-    {
-      //   headers: { 'Content-Type': 'multipart/form-data' },
-    },
-    true
-  );
+  backCall.post<FormData, AuthGetPersonToken>(UPLOAD_IMG, body, {}, true);
+
+export const updateUser = async (body: AuthGetPersonToken) => backCall.put(PERSON_DATA, body);

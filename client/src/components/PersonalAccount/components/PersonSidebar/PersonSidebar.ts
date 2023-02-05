@@ -2,7 +2,8 @@ import { uploadHandler } from 'src/api/back/auth';
 import { renderAvatar } from 'src/components/Header/components/Account/components/Avatar/Avatar';
 import { createInputElement } from 'src/components/ui/Input/Input';
 import { fotoIcon } from 'src/const/icons/icons';
-import { store } from 'src/logic/redux';
+import { appDispatch, store } from 'src/logic/redux';
+import { setUserInfo } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
 import styles from './PersonSidebar.module.scss';
 
@@ -15,11 +16,12 @@ export const handleChangeFile = async (e: Event) => {
     const formData = new FormData();
     formData.append('image', file);
 
-    console.log('formData', formData);
+    // загрузжаем файл - получаем ответ с обновленными данными о юзере
     const { data } = await uploadHandler(formData);
     console.log(data);
+    appDispatch(setUserInfo({ data }));
   } catch (err) {
-    // console.warn(err);
+    console.warn(err);
     alert('Ошибка при загрузке изображения');
   }
 };
@@ -43,11 +45,11 @@ export const renderPersonSidebar = (): HTMLElement => {
   input.onchange = handleChangeFile;
 
   imgInputCnt.append(avatar, svgCnt);
-  // контейнер для инпута и для лого // контейнер для инпута и для лого
-  // контейнер для инпута и для лого
 
   store.subscribe(() => {
+    console.log('d');
     const userState = store.getState().auth.user;
+    console.log(userState.data?.avatarUrl);
     userState.data?.avatarUrl && (avatar.style.backgroundImage = userState.data?.avatarUrl);
   });
 

@@ -19,7 +19,7 @@ const setRegisterInfo = (payload: ApiResponse<AuthResponse>) => {
   };
 };
 
-const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
+export const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
   return {
     type: AuthTypes.PERSON,
     payload,

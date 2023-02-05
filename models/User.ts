@@ -8,7 +8,7 @@ const schema = new Schema(
     lastName: { type: String },
     password: { type: String, required: true },
     films: [{ type: Types.ObjectId, ref: "Films" }], // TODO: здесь будет отображаться списков избранных фильмов, возможно сделать объект?
-    avatarUrl: String,
+    avatarUrl: { type: String },
   },
   {
     timestamps: true,

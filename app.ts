@@ -5,8 +5,9 @@ import { router } from "./routes/auth.routes";
 import cors from "cors";
 import checkAuth from "./middleware/auth.middelware";
 import { upload } from "./cors/multer";
-import { multerController } from "./controllers/MulterController";
 import { start } from "./cors/start";
+import uploadFiles from "./controllers/UploadController";
+import { multerController } from "./middleware/multer.middleware";
 
 mongoose.set("strictQuery", true);
 
@@ -31,7 +32,14 @@ app.use(
 app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", router); //регистрация роутов, для запросов от фронта
 
-app.post("/upload", checkAuth, upload.single("image"), multerController); // загрузка изображений на бэк
+app.post(
+  "/upload",
+  checkAuth,
+  upload.single("image"),
+  multerController,
+  uploadFiles
+); // загрузка изображений на бэк
+
 start();
 
 /**

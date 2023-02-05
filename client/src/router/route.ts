@@ -10,7 +10,7 @@ export const route = (pathname: string): void => {
 
   token && (path = pathname === PATH_NAMES.login || pathname === PATH_NAMES.register ? PATH_NAMES.main : pathname);
 
-  console.log(token, path);
+  // console.log(token, path);
 
   window.history.pushState({}, '', window.location.origin + path);
   pathResolver(path);

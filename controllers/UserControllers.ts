@@ -46,7 +46,7 @@ export const register = async (req: express.Request, res: express.Response) => {
       message: "Пользователь успешно создан!",
     });
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     res
       .status(500) // добавляем стандартную серверную ошибку
       .json({ message: "Не удалось зарегистрироваться." });
@@ -109,7 +109,21 @@ export const getUserData = async (
       return res.status(401).json({ message: "Пользователь не найден" });
     }
 
-    console.log(user);
+    res.json(user);
+  } catch (e) {
+    res.status(500).json({ message: "Нет доступа" });
+  }
+};
+
+export const updateUser = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { avatarUrl } = req.body;
+    // TODO: отредактировать для изменения данных пользователя
+    const user = await User.findByIdAndUpdate(req.user.userId, { avatarUrl });
+
     res.json(user);
   } catch (e) {
     res.status(500).json({ message: "Нет доступа" });
