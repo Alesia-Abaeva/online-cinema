@@ -1,0 +1,113 @@
+@import '/src/theme/variable';
+
+.card {
+  width: 320px;
+  height: 200px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  background-image: var(--silver-gradient);
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  padding: 1rem 1rem 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  box-shadow: 0 15px 24px rgb(37 44 65 / 32%);
+  gap: 1rem;
+}
+
+.card__logo {
+  background-image: url('assets/img/default.svg');
+  position: absolute;
+  width: 90px;
+  background-size: cover;
+  height: 56px;
+  top: 1rem;
+  right: 1rem;
+}
+
+.card__logo_mastercard {
+  background-image: url('assets/img/mastercard.svg');
+}
+
+.card__logo_visa {
+  background-image: url('assets/img/visa.svg');
+}
+
+.card__logo_amex {
+  background-image: url('assets/img/amex.svg');
+}
+
+.card__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__input-label {
+  font-size: 11px;
+  color: var(--always-black);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding-left: 0.5rem;
+}
+
+.card__input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card__input {
+  font-family: 'PT Mono';
+  word-spacing: -3px;
+  font-size: 1rem;
+  color: #594b45;
+  text-transform: uppercase;
+  line-height: 1.8;
+  width: 55%;
+  padding-left: 0.5rem;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+#card-number {
+  width: 100%;
+}
+
+.card__error-ani {
+  animation: shake 0.45s;
+}
+
+@keyframes shake {
+  0% {
+    left: 0px;
+  }
+  20% {
+    left: 15px;
+  }
+  40% {
+    left: -15px;
+  }
+  60% {
+    left: 15px;
+  }
+  80% {
+    left: -15px;
+  }
+  100% {
+    left: 0px;
+  }
+}
