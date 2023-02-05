@@ -28,30 +28,13 @@
 .subs-hero__btn {
   width: 11rem;
   margin-top: 1rem;
-  // background-image: $gradient-primary;
-  background-color: var(--blue);
   border-radius: 50px;
   transform: scale(1.2);
   color: var(--text-white);
 
   &:hover {
-    background-color: var(--blue);
     transform: scale(1.3);
   }
-}
-
-// TODO: Убарать эти стили в компоненты слайдеров, использовать только свойство background с градиентами, переименовать
-.hero-black {
-  background: linear-gradient(to top, var(--always-black) 0%, var(--always-black) 20%, transparent 100%);
-  height: 250px;
-  width: 100%;
-  @include flex-center;
-}
-
-.hero-black-black {
-  background-color: var(--always-black);
-  height: 250px;
-  @include flex-center;
 }
 
 @media (max-width: 1120px) {

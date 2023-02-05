@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { createElem } from '../../../../utils/create-element';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import { createSlideDown } from './SlideDownWindow/SlideDownWindow';
@@ -29,9 +30,9 @@ export const renderSlider = (filmsData: Ifilm[], slaiderName: string): HTMLEleme
   wrapper.append(items, btnLeft, btnRight);
   slider.append(header, container, slideDown);
 
-  const totalSlides: number = 11;
-  let itemLeftPadding: number = 8;
-  let position: number = 0;
+  const totalSlides = 11;
+  const itemLeftPadding = 8;
+  let position = 0;
   let itemWidth: number;
   let itemsSize: number;
   let prevSize: number;
