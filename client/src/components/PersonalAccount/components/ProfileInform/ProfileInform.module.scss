@@ -47,6 +47,16 @@
     color: $white;
     font-size: 1rem;
   }
+
+  &:invalid {
+    border: 1px solid $yandex-red;
+    box-shadow: 0 0 0 1px $yandex-red;
+    outline: none;
+    color: $yandex-red;
+    &::placeholder {
+      color: $yandex-red;
+    }
+  }
 }
 
 .profile__btn-save {

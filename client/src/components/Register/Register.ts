@@ -35,6 +35,7 @@ export const renderRegisterPage = (): HTMLElement => {
   const iconEmail = createElem('div', 'icon__container');
   iconEmail.innerHTML = mailIcon;
   const inputEmail = createInputElement({ type: 'email', placeholder: '* email', id: 'email', name: 'email' });
+
   inputEmail.oninput = () => {
     stateInput.email = inputEmail.value;
   };

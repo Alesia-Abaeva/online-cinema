@@ -7,7 +7,7 @@ import { handleChangeUserData } from '../../../Handlers/handlersChangeUserData';
 export const renderProfileData = (): ReturnElements => {
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Мой профиль';
-  const data: HTMLElement = createElem('div', 'profile-info__data');
+  const data: HTMLElement = createElem('form', 'profile-info__data');
 
   const dataPerson = {
     name: '',
@@ -33,6 +33,8 @@ export const renderProfileData = (): ReturnElements => {
     },
   });
 
+  nameInput.setAttribute('minLength', '3');
+
   const { container: lastname, input: lastnameInput } = createInputComponent({
     label: 'Фамилия',
     attribute: {
@@ -48,19 +50,23 @@ export const renderProfileData = (): ReturnElements => {
   bntCtn.append(bntSaveData);
 
   nameInput.oninput = () => {
-    dataPerson.name = nameInput.value;
-    console.log(nameInput.value);
-    bntSaveData.removeAttribute('disabled');
+    if (nameInput.value.length > 3) {
+      dataPerson.name = nameInput.value;
+      bntSaveData.removeAttribute('disabled');
+    } else bntSaveData.setAttribute('disabled', 'true');
+    // console.log(nameInput.value);
   };
 
   lastnameInput.oninput = () => {
-    dataPerson.lastName = lastnameInput.value;
-    bntSaveData.removeAttribute('disabled');
+    if (lastnameInput.value.length > 3) {
+      dataPerson.lastName = lastnameInput.value;
+      bntSaveData.removeAttribute('disabled');
+    } else bntSaveData.setAttribute('disabled', 'true');
   };
 
-  data.append(email, name, lastname, bntCtn);
+  lastnameInput.setAttribute('minLength', '3');
 
-  //   ======
+  data.append(email, name, lastname, bntCtn);
 
   store.subscribe(() => {
     const userState = store.getState().auth.user;
@@ -71,7 +77,6 @@ export const renderProfileData = (): ReturnElements => {
       userState.data?.lastName && lastnameInput.setAttribute('value', `${userState.data?.lastName}`);
     }
   });
-  console.log(dataPerson);
 
   return { title, data };
 };

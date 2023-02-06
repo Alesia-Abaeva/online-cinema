@@ -43,24 +43,6 @@
       width: 75vw;
     }
   }
-
-  // &:invalid {
-  //   svg {
-  //     path {
-  //       stroke: $yandex-red;
-  //       fill: rgba(95, 158, 160, 0);
-  //     }
-  //   }
-  //   input {
-  //     border: 1px solid $yandex-red;
-  //     box-shadow: 0 0 0 1px $yandex-red;
-  //     outline: none;
-
-  //     &:focus {
-  //       color: $yandex-red;
-  //     }
-  //   }
-  // }
 }
 
 .icon__container {
@@ -72,10 +54,6 @@
   bottom: 0;
   padding-left: 0.75rem;
 }
-
-// .form__email_input {
-//   @include input($silver, $tundora);
-// }
 
 .form_button {
   width: 20rem;
