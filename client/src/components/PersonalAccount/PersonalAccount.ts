@@ -1,5 +1,6 @@
 import { createElem } from 'src/utils/create-element';
 import { renderPersonSidebar } from './components/PersonSidebar/PersonSidebar';
+import { renderAccountUserData } from './components/ProfileInform/ProfileInform';
 import styles from './PersonalAccount.module.scss';
 
 export const renderPersonalAccountPage = (): HTMLElement => {
@@ -9,7 +10,8 @@ export const renderPersonalAccountPage = (): HTMLElement => {
   const mainContent: HTMLElement = createElem('div', styles['personal-account']);
 
   const profileSideBar: HTMLElement = renderPersonSidebar();
-  const profileInformContainer: HTMLElement = createElem('div', styles['profile-info__cnt']);
+  const profileInformContainer: HTMLElement = renderAccountUserData();
+  // createElem('div', styles['profile-info__cnt']);
 
   mainContent.append(profileSideBar, profileInformContainer);
   mainContainer.append(mainContent);

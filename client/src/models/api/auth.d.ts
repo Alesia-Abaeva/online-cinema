@@ -19,6 +19,7 @@ interface AuthGetPersonToken {
   createdAt: string;
   avatarUrl?: string;
   lastName?: string;
+  tarrif?: string;
 }
 
 interface UploadResponse {

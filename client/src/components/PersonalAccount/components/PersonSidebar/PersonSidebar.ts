@@ -1,10 +1,8 @@
 import { uploadHandler } from 'src/api/back/auth';
-import { renderAvatar } from 'src/components/Header/components/Account/components/Avatar/Avatar';
-import { createInputElement } from 'src/components/ui/Input/Input';
-import { fotoIcon } from 'src/const/icons/icons';
-import { appDispatch, store } from 'src/logic/redux';
+import { appDispatch } from 'src/logic/redux';
 import { setUserInfo } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
+import { renderUserAvatarBlock } from './components/UserAvatarData/UserAvatarData';
 import styles from './PersonSidebar.module.scss';
 
 export const handleChangeFile = async (e: Event) => {
@@ -18,42 +16,48 @@ export const handleChangeFile = async (e: Event) => {
 
     // загрузжаем файл - получаем ответ с обновленными данными о юзере
     const { data } = await uploadHandler(formData);
-    console.log(data);
     appDispatch(setUserInfo({ data }));
   } catch (err) {
     console.warn(err);
-    alert('Ошибка при загрузке изображения');
   }
 };
 
 export const renderPersonSidebar = (): HTMLElement => {
   const profileSideBar: HTMLElement = createElem('div', styles['profile-sidebar__cnt']);
-  const userAvatarCnt: HTMLElement = createElem('div', 'profile-sidebar__user-avatar'); // будет еще ФИО
-  const imgInputCnt: HTMLElement = createElem('div', 'user-avatar__ctn'); // контейнер для инпута и для лого
-  const avatar: HTMLElement = renderAvatar();
 
-  const svgCnt: HTMLElement = createElem('div', 'user-avatar__svg-cnt');
-  svgCnt.innerHTML = fotoIcon;
+  // Аватар имя и почта
+  const userAvatarCnt: HTMLElement = renderUserAvatarBlock();
 
-  const input = createInputElement({ type: 'file', name: 'photo', style: 'user-avatar__input' });
-  input.setAttribute('accept', '.jpg, .jpeg, .png');
-  input.setAttribute('hidden', 'true');
+  // TODO: Рендерить через цикл, после того как определмся, что здесь остается
+  const menuCtn: HTMLElement = createElem('div', 'profile-sidebar__menu');
+  const item1: HTMLElement = createElem('div', 'profile-sidebar__item');
+  item1.innerHTML = 'Учетная запись';
 
-  svgCnt.append(input);
+  const item2: HTMLElement = createElem('div', 'profile-sidebar__item');
+  item2.innerHTML = 'Учетная запись';
 
-  svgCnt.onclick = () => input.click();
-  input.onchange = handleChangeFile;
+  const item3: HTMLElement = createElem('div', 'profile-sidebar__item');
+  item3.innerHTML = 'Буду смотреть';
 
-  imgInputCnt.append(avatar, svgCnt);
+  const item4: HTMLElement = createElem('div', 'profile-sidebar__item');
+  item4.innerHTML = 'Подписки';
 
-  store.subscribe(() => {
-    console.log('d');
-    const userState = store.getState().auth.user;
-    console.log(userState.data?.avatarUrl);
-    userState.data?.avatarUrl && (avatar.style.backgroundImage = userState.data?.avatarUrl);
-  });
+  const item5: HTMLElement = createElem('div', 'profile-sidebar__item');
+  item5.innerHTML = 'Промокод';
 
-  userAvatarCnt.append(imgInputCnt);
-  profileSideBar.append(userAvatarCnt);
+  const item6: HTMLElement = createElem('div', 'profile-sidebar__item');
+  item6.innerHTML = 'Настройки';
+
+  const item7: HTMLElement = createElem('div', 'profile-sidebar__item');
+  item7.innerHTML = 'Справка';
+
+  menuCtn.append(item1, item2, item3, item4, item5, item6, item7);
+
+  // Тариф
+
+  const tariff = createElem('div', 'profile-sidebar__tariff');
+  tariff.innerHTML = 'Для всех';
+
+  profileSideBar.append(userAvatarCnt, tariff, menuCtn);
   return profileSideBar;
 };

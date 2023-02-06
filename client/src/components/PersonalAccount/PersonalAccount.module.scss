@@ -2,9 +2,10 @@
 .personal-account {
   min-height: calc(100vh - 70px);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   padding: auto 0;
   padding-top: calc(80px + 1rem);
+  gap: 2rem;
 }

@@ -5,3 +5,8 @@ interface AttributeInput {
   id?: string;
   name?: string;
 }
+
+interface InputComponent {
+  attribute: AttributeInput;
+  label: string;
+}
