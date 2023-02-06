@@ -4,7 +4,7 @@ export const showCover = (filmData: ResponseMovie, backdrop: HTMLElement) => {
     if (filmData.backdrop) {
       backdrop.classList.add('film-page__backdrop_img');
       // linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      backdrop.style.background = `top / cover no-repeat url(${filmData.backdrop.url})`;
+      backdrop.style.background = `50% 25% / cover no-repeat url(${filmData.backdrop.url})`;
     }
   };
 };

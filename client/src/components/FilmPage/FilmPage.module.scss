@@ -2,6 +2,13 @@
 
 .film-page {
   width: 100%;
+  padding: 2rem;
+  @include crystalline-blur;
+  margin-top: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 2rem;
+  border-radius: 10px;
 }
 
 #video-player {
@@ -15,12 +22,110 @@
   transform: scale(1.15);
 }
 
-.film-page__backdrop_img {
-  height: 700px;
-  width: 100vw;
+.film-page__backdrop {
   position: absolute;
+  height: 500px;
+  width: 100vw;
   left: 0;
   top: $header-height;
   z-index: -99;
-  animation: fadeIn 1s;
+}
+
+.film-page__backdrop_img {
+  animation: fadeIn 2s;
+}
+
+.film-page__poster {
+  width: 100%;
+  height: auto;
+}
+
+.film-page__description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.film-page__title {
+  font-family: NetflixSans-Bold;
+  font-size: 3rem;
+  line-height: 120%;
+}
+
+.film-page__sub-title {
+  font-size: 2rem;
+  color: var(--text-secondary);
+}
+
+.film-page__action {
+  display: flex;
+  gap: 1rem;
+}
+
+.film-page__action-want-to-watch {
+  position: relative;
+  border-radius: 50px;
+  padding-left: 2rem;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 0.8rem;
+    background-image: url('assets/img/icons/bookmark-add.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: invert(100%);
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+.film-page__action-more {
+  position: relative;
+  width: auto;
+  border-radius: 50px;
+  padding: 1.5rem;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 26%;
+    left: 0.8rem;
+    background-image: url('assets/img/icons/three-dots-svgrepo-com.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: invert(100%);
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+.film-page__about {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.film-page__about-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-table__row {
+  font-size: 0.9rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
 }

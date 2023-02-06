@@ -9,7 +9,12 @@ export const renderYouTubePlayer = (
   onEnd?: <T>(...args: T[]) => void,
   onError?: <T>(...args: T[]) => void
 ): void => {
-  const player = YouTubePlayer(name);
+  const player = YouTubePlayer(name, {
+    playerVars: {
+      controls: 0,
+      autoplay: 1,
+    },
+  });
 
   player.loadVideoByUrl({
     mediaContentUrl: url,
