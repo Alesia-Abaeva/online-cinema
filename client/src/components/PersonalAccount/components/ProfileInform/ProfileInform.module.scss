@@ -1,5 +1,8 @@
 @import '/src/theme/variable';
 
+.profile-info__wparr {
+}
+
 .profile-info__title {
   padding: 0 0 1rem 2rem;
 }
@@ -9,7 +12,6 @@
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
-  // background-color: $background;
   background-color: $background;
   border: 1px solid $conditionalborder;
   border-radius: 10px;

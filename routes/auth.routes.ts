@@ -19,8 +19,8 @@ router.post("/register", checkRegisterData(), register);
 // api/auth/login
 router.post("/login", checkLoginData(), login);
 
-// api/auth/pesron
+// api/auth/pesron - получаем данные
 router.get("/person", checkAuth, getUserData);
 
-// api/auth/pesron
+// api/auth/pesron - изменяем данные
 router.put("/person", checkAuth, updateUser);

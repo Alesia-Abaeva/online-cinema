@@ -10,4 +10,5 @@ export const dataPersonHandler = () => backCall.get<AuthGetPersonToken>(PERSON_D
 export const uploadHandler = (body: FormData) =>
   backCall.post<FormData, AuthGetPersonToken>(UPLOAD_IMG, body, {}, true);
 
-export const updateUser = async (body: AuthGetPersonToken) => backCall.put(PERSON_DATA, body);
+export const updateUser = async (body: Partial<AuthGetPersonToken>) =>
+  backCall.put<Partial<AuthGetPersonToken>, AuthGetPersonToken>(PERSON_DATA, body);

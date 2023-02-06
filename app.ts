@@ -32,6 +32,7 @@ app.use(
 app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", router); //регистрация роутов, для запросов от фронта
 
+// TODO: вынести в роуты
 app.post(
   "/upload",
   checkAuth,

@@ -120,12 +120,21 @@ export const updateUser = async (
   res: express.Response
 ) => {
   try {
-    const { avatarUrl } = req.body;
+    const { name, lastName } = req.body;
     // TODO: отредактировать для изменения данных пользователя
-    const user = await User.findByIdAndUpdate(req.user.userId, { avatarUrl });
+    const user = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        name,
+        lastName,
+      },
+      {
+        new: true,
+      }
+    );
 
     res.json(user);
   } catch (e) {
-    res.status(500).json({ message: "Нет доступа" });
+    res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
   }
 };
