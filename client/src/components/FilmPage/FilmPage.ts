@@ -1,11 +1,12 @@
 import { createElem } from 'src/utils/create-element';
 import { createButton } from '../ui/Button/Button';
-import styles from './FilmPage.module.scss';
 import { renderPersons } from './components/Persons/Persons';
 import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
 import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
 import { renderRating } from './components/Rating/Rating';
 import { getPersons } from './Handlers/film-data-formaters';
+import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
+import styles from './FilmPage.module.scss';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -64,6 +65,12 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
     longDescText.innerHTML = longDescription;
     filmLongDesc.append(longDescTitle, longDescText);
     filmDescription.append(filmLongDesc);
+  }
+
+  const { similarMovies } = filmData;
+  if (similarMovies) {
+    const simiralMoviesSection: HTMLElement = renderSimilarMovies(similarMovies);
+    filmDescription.append(simiralMoviesSection);
   }
 
   // 3 column - actors and rating

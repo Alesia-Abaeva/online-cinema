@@ -11,11 +11,14 @@ export const formatGenres = (genres: ChildeAttribures[]): string => {
 };
 
 export const formatBudget = (budget: { currency: string; value: number }): string => {
-  return budget.currency && budget.value ? `${budget.currency}${formatPriceNum(budget.value)}` : '';
+  return 'currency' in budget && 'value' in budget ? `${budget.currency}${formatPriceNum(budget.value)}` : '';
 };
 
 export const formatWorldFees = (fees: FeesApi): string => {
-  return fees.world.currency && fees.world.value ? `${fees.world.currency}${formatPriceNum(fees.world.value)}` : '';
+  if ('world' in fees && 'currency' in fees.world && 'value' in fees.world) {
+    return fees.world.currency && fees.world.value ? `${fees.world.currency}${formatPriceNum(fees.world.value)}` : '';
+  }
+  return '';
 };
 
 export const formatAge = (age: string | number | null): string => {
