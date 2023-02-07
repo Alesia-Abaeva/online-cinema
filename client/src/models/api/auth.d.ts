@@ -20,6 +20,8 @@ interface AuthGetPersonToken {
   avatarUrl?: string;
   lastName?: string;
   tarrif?: string;
+  newPassword?: string;
+  repeatPassword?: string;
 }
 
 interface UploadResponse {

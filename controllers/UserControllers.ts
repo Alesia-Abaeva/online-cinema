@@ -84,13 +84,13 @@ export const login = async (req: express.Request, res: express.Response) => {
       expiresIn: "3h", //время существования токена
     });
 
-    const refreshToken = jwt.sign(
-      { userId: user.id },
-      config.get("jwtSecret"),
-      {
-        expiresIn: "1h", //время существования токена
-      }
-    ); // TODO: добавить рефреш токен
+    // const refreshToken = jwt.sign(
+    //   { userId: user.id },
+    //   config.get("jwtSecret"),
+    //   {
+    //     expiresIn: "1h", //время существования токена
+    //   }
+    // ); // TODO: добавить рефреш токен
 
     res.json({ token, userId: user.id });
   } catch (e) {
@@ -134,6 +134,54 @@ export const updateUser = async (
     );
 
     res.json(user);
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
+  }
+};
+
+export const updateUserPassword = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        errors: errors.array(),
+        message: "Попробуйте еще раз. В данных ошибка.",
+      });
+    }
+
+    const { password, newPassword } = req.body;
+
+    if (!newPassword) {
+      return res.status(400).json({
+        message: "Введите новый пароль",
+      });
+    }
+
+    if (password === newPassword) {
+      return res.status(400).json({
+        message: "Новый пароль не может быть равен старому паролю",
+      });
+    }
+
+    const user = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        password: await bcrypt.hash(newPassword, 12),
+      }
+      // {
+      //   new: true,
+      // }
+    );
+
+    // TODO: отредактировать для изменения данных пользователя
+
+    res.json({
+      message: "Данные успешно обновлены!",
+    });
   } catch (e) {
     res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
   }

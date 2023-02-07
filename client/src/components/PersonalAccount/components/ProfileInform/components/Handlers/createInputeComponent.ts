@@ -12,7 +12,7 @@ export const createInputComponent = (data: InputComponent, hasIcon?: boolean, sv
     icon.innerHTML = svg as string;
     container.append(label, icon, input);
 
-    return { container, input, icon };
+    return { container, input, icon, label };
   }
 
   container.append(label, input);

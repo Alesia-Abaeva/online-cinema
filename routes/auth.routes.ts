@@ -5,6 +5,7 @@ import {
   login,
   register,
   updateUser,
+  updateUserPassword,
 } from "../controllers/UserControllers";
 import {
   checkLoginData,
@@ -24,3 +25,6 @@ router.get("/person", checkAuth, getUserData);
 
 // api/auth/pesron - изменяем данные
 router.put("/person", checkAuth, updateUser);
+
+// api/auth/pesron/pass
+router.put("/person/pass", checkAuth, updateUserPassword);

@@ -74,7 +74,7 @@
 
   &:invalid {
     border: 0.5px solid $yandex-red;
-    box-shadow: 0 0 0 1px $yandex-red;
+    box-shadow: 0 0 0 0.5px $yandex-red;
     outline: none;
     color: $yandex-red;
     &::placeholder {
@@ -85,7 +85,6 @@
 
 .profile__btn-save {
   margin-bottom: 1rem;
-
   display: flex;
   align-items: flex-end;
 
@@ -99,6 +98,27 @@
     &:disabled {
       background-image: none;
       background-color: $tundora-60;
+    }
+  }
+}
+
+.invalide-data {
+  .profile__form-input {
+    border: 0.5px solid $yandex-red;
+    box-shadow: 0 0 0 0.5px $yandex-red;
+    outline: none;
+    color: $yandex-red;
+    &::placeholder {
+      color: $yandex-red;
+    }
+  }
+  .profile__form-label {
+    color: $yandex-red;
+  }
+
+  svg {
+    path {
+      fill: $yandex-red;
     }
   }
 }
