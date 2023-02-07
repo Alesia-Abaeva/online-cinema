@@ -1,11 +1,15 @@
 import { createElem } from 'src/utils/create-element';
 import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-data';
-import { btnWatch, btnTrailer, btnBookmark, btnInterest } from '../buttons/buttons';
-import styles from './ContentWrapper.module.scss';
+import { createBtnTrailer, createBtnBookmark, createBtnInterest, createBtnWatch } from '../buttons/buttons';
+import styles from './AboutFilm.module.scss';
 
-export const renderContentWrapper = async (res: ResponseMovie): Promise<HTMLElement> => {
+export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
   const buttons: HTMLElement = createElem('div', styles.contentWrapper__actions);
   const content: HTMLElement = createElem('div', styles.contentWrapper);
+  const btnWatch = createBtnWatch() as HTMLButtonElement;
+  const btnTrailer = createBtnTrailer() as HTMLButtonElement;
+  const btnBookmark = createBtnBookmark() as HTMLButtonElement;
+  const btnInterest = createBtnInterest() as HTMLButtonElement;
 
   const description = res.shortDescription ? res.shortDescription : res.description;
   const title = res.logo.url ? `<img src="${res.logo.url}" alt="${res.name}" />` : res.name;
@@ -13,7 +17,7 @@ export const renderContentWrapper = async (res: ResponseMovie): Promise<HTMLElem
   const votes = res.votes.kp ? getReadableVotes(res.votes.kp) : 0;
   const ageRating = res.ageRating ? `${res.ageRating}+` : '';
 
-  const contentTemplate = `
+  const aboutFilmTemplate = `
   <div class=${styles.contentWrapper__title}>
     <h1>${title}</h1>
   </div>
@@ -25,7 +29,7 @@ export const renderContentWrapper = async (res: ResponseMovie): Promise<HTMLElem
           ${raiting}
         </div>
         <div class=${styles.contentWrapper__rating__votes}>
-        ${votes}K
+          ${votes}
         </div>
       </div>
       <div class=${styles.contentWrapper__meta__main}>
@@ -42,7 +46,7 @@ export const renderContentWrapper = async (res: ResponseMovie): Promise<HTMLElem
   </div>
   `;
 
-  content.innerHTML = contentTemplate;
+  content.innerHTML = aboutFilmTemplate;
   buttons.append(btnWatch, btnTrailer, btnBookmark, btnInterest);
   content.append(buttons);
 

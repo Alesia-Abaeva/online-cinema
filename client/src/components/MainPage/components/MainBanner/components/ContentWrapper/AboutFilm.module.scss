@@ -7,9 +7,17 @@
   padding: 72px 60px;
 
   &__title {
+    position: relative;
+    z-index: 1;
     margin-bottom: 20px;
+    transition: transform 0.2s ease;
+    transform-origin: bottom left;
 
     h1 {
+      display: flex;
+      max-width: 520px;
+      align-items: flex-end;
+      max-height: 134px;
       height: 134px;
     }
 
@@ -35,12 +43,6 @@
     align-items: center;
     flex-wrap: wrap;
   }
-  &__meta__features {
-    flex: 1 1 100%;
-    display: flex;
-    align-items: center;
-    margin-top: 7px;
-  }
   &__short__description {
     display: -webkit-box;
     -webkit-line-clamp: 4;
@@ -53,7 +55,7 @@
     display: flex;
     align-items: center;
   }
-  &__content__meta-main {
+  &__meta__main {
     display: flex;
     align-items: center;
   }

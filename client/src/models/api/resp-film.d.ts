@@ -53,7 +53,7 @@ interface PersonDataApi {
   name: string;
   enName: string;
   photo: string;
-  enProfesson: string;
+  enProfession: string;
   description: string;
 }
 
