@@ -5,6 +5,7 @@ import { showCover } from './Handlers/showCover';
 import { createButton } from '../ui/Button/Button';
 import styles from './FilmPage.module.scss';
 import { setRatingColor } from '../ui/RatingColor/RatingColor';
+import { getPersons } from './Handlers/film-data-formaters';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -90,7 +91,9 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   filmDescription.append(filmHeader, actionBtns, shortDescription, filmAbout);
 
+  // 3 column - actors and rating
   const filmRatingAndActors = createElem('div', 'film-page__desc-aside');
+
   const ratingValue = filmData.rating.kp;
   const itemRatingCont: HTMLElement = createElem('div', 'film-page__rating-cont');
   const itemRating: HTMLElement = createElem('p', 'rating');
@@ -98,9 +101,33 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   itemRating.innerHTML = ratingValue.toFixed(1);
 
   setRatingColor(itemRating, ratingValue);
-
   itemRatingCont.append(itemRating);
-  filmRatingAndActors.append(itemRatingCont);
+
+  const actorsSection: HTMLElement = createElem('div', 'film-page__actors');
+  const actorsTitle: HTMLElement = createElem('p', 'film-page__actors-title');
+  actorsTitle.innerHTML = 'В главных ролях:';
+  const actorsList: HTMLElement = createElem('ul', 'film-page__actors-list');
+  const persons = getPersons(filmData.persons, 'actor', 10);
+  persons.forEach((el) => {
+    const actor: HTMLElement = createElem('li', 'film-page__actor');
+    actor.innerHTML = el;
+    actorsList.append(actor);
+  });
+  actorsSection.append(actorsTitle, actorsList);
+
+  const voiceActorsSection: HTMLElement = createElem('div', 'film-page__actors');
+  const voiceActorsTitle: HTMLElement = createElem('p', 'film-page__actors-title');
+  voiceActorsTitle.innerHTML = 'Роли дублировали:';
+  const voiceActorsList: HTMLElement = createElem('ul', 'film-page__actors-list');
+  const voicePersons = getPersons(filmData.persons, 'voice_actor', 10);
+  voicePersons.forEach((el) => {
+    const voiceActor: HTMLElement = createElem('li', 'film-page__actor');
+    voiceActor.innerHTML = el;
+    voiceActorsList.append(voiceActor);
+  });
+  voiceActorsSection.append(voiceActorsTitle, voiceActorsList);
+
+  filmRatingAndActors.append(itemRatingCont, actorsSection, voiceActorsSection);
 
   mainContent.append(filmPoster, filmDescription, filmRatingAndActors);
   mainContainer.append(backdrop, mainContent);

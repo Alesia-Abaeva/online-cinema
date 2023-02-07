@@ -6,8 +6,8 @@
   @include crystalline-blur;
   margin-top: 400px;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 2fr 0.6fr;
+  gap: 2.5rem;
   border-radius: 10px;
 }
 
@@ -133,4 +133,23 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.film-page__desc-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.film-page__actors-title {
+  font-family: NetflixSans-Bold;
+  margin-bottom: 0.5rem;
+}
+
+.film-page__actors-list {
+  list-style: none;
+}
+
+.film-page__actor:last-of-type {
+  @include gradinent-text(var(--gradient-primary));
 }
