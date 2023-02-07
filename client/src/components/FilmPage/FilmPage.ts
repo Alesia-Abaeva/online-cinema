@@ -15,6 +15,8 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   renderBackgroundPlayer(filmData, backdrop, mainContent);
 
+  console.log(filmData);
+
   // 1 column - poster
   const filmPoster: HTMLElement = createElem('img', 'film-page__poster');
   const url = `${
@@ -46,13 +48,23 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   actionBtns.append(wantToWatchBtn, moreActionsBtn);
 
   const shortDescription: HTMLElement = createElem('div', 'film-page__short-desc');
-  const shortDescriptionText: HTMLElement = createElem('p', 'film-page__short-desc-text');
+  const shortDescriptionText: HTMLElement = createElem('p', 'film-page__desc-text');
   shortDescriptionText.innerHTML = filmData.shortDescription;
   shortDescription.append(shortDescriptionText);
 
   const filmAbout: HTMLElement = renderFilmDataTable(filmData);
-
   filmDescription.append(filmHeader, actionBtns, shortDescription, filmAbout);
+
+  const longDescription = filmData.description;
+  if (longDescription) {
+    const filmLongDesc: HTMLElement = createElem('div', 'film-page__long-desc');
+    const longDescTitle: HTMLElement = createElem('h2', 'film-page__about-title');
+    longDescTitle.innerHTML = 'Описание';
+    const longDescText: HTMLElement = createElem('p', 'film-page__desc-text');
+    longDescText.innerHTML = longDescription;
+    filmLongDesc.append(longDescTitle, longDescText);
+    filmDescription.append(filmLongDesc);
+  }
 
   // 3 column - actors and rating
   const filmRatingAndActors = createElem('div', 'film-page__desc-aside');
