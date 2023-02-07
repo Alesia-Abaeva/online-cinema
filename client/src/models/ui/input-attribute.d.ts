@@ -10,3 +10,7 @@ interface InputComponent {
   attribute: AttributeInput;
   label: string;
 }
+
+interface Commons {
+  [key: string]: string;
+}

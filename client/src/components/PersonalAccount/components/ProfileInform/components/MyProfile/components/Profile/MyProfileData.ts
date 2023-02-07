@@ -3,17 +3,16 @@ import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { createInputComponent } from '../../../Handlers/createInputeComponent';
 import { handleChangeUserData } from '../../../Handlers/handlersChangeUserData';
+// import { validationTextType } from '../../../Handlers/inputValidation';
 
 export const renderProfileData = (): ReturnElements => {
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Мой профиль';
   const data: HTMLElement = createElem('form', 'profile-info__data');
 
-  const dataPerson = {
+  const dataPerson: Commons = {
     name: '',
-    // store.getState().auth.user.data?.name,
     lastName: '',
-    //  store.getState().auth.user.data?.lastName,
   };
 
   const { container: email, input: emailInput } = createInputComponent({
@@ -25,46 +24,58 @@ export const renderProfileData = (): ReturnElements => {
   });
   emailInput.setAttribute('disabled', 'true'); // почту менять нельзя!
 
-  const { container: name, input: nameInput } = createInputComponent({
+  const {
+    container: name,
+    input: nameInput,
+    label: nameLabel,
+  } = createInputComponent({
     label: 'Имя',
     attribute: {
       type: 'text',
       style: 'profile__form-input',
     },
   });
+  nameInput.setAttribute('minLength', '2');
 
-  nameInput.setAttribute('minLength', '3');
-
-  const { container: lastname, input: lastnameInput } = createInputComponent({
+  const {
+    container: lastname,
+    input: lastnameInput,
+    label: lastnameLabel,
+  } = createInputComponent({
     label: 'Фамилия',
     attribute: {
       type: 'text',
       style: 'profile__form-input',
     },
   });
+  lastnameInput.setAttribute('minLength', '2');
 
   const bntCtn: HTMLElement = createElem('div', 'profile__btn-save');
-
   const bntSaveData: HTMLElement = createButton('сохранить', () => handleChangeUserData(dataPerson));
   bntSaveData.setAttribute('disabled', 'true');
   bntCtn.append(bntSaveData);
 
   nameInput.oninput = () => {
-    if (nameInput.value.length > 3) {
+    if (nameInput.value.length >= 2) {
       dataPerson.name = nameInput.value;
       bntSaveData.removeAttribute('disabled');
-    } else bntSaveData.setAttribute('disabled', 'true');
-    // console.log(nameInput.value);
+      (nameLabel as HTMLElement).innerHTML = 'Имя';
+    } else {
+      bntSaveData.setAttribute('disabled', 'true');
+      (nameLabel as HTMLElement).innerHTML = 'Имя должно быть не меньше 2 символов';
+    }
   };
 
   lastnameInput.oninput = () => {
-    if (lastnameInput.value.length > 3) {
+    if (lastnameInput.value.length >= 2) {
       dataPerson.lastName = lastnameInput.value;
       bntSaveData.removeAttribute('disabled');
-    } else bntSaveData.setAttribute('disabled', 'true');
+      (lastnameLabel as HTMLElement).innerHTML = 'Фамилия';
+    } else {
+      bntSaveData.setAttribute('disabled', 'true');
+      (lastnameLabel as HTMLElement).innerHTML = 'Фамилия должна быть не меньше 2 символов';
+    }
   };
-
-  lastnameInput.setAttribute('minLength', '3');
 
   data.append(email, name, lastname, bntCtn);
 
