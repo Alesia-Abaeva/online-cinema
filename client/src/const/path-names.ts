@@ -7,5 +7,10 @@ export const PATH_NAMES: PathNames = {
   list: '/list', // dynamic
   lists: '/all-lists',
   subscriptions: '/subscriptions',
-  personal: '/personal',
+  user: '/user',
+  userAccount: '/user/aboutme',
+  userWatch: '/user/watch',
+  userSubscribe: '/user/subscribeme',
+  userSettings: '/user/settings',
+  userReference: 'user/reference',
 };

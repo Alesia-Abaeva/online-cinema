@@ -23,7 +23,7 @@ export const renderAccountSectionHead = (): HTMLElement => {
   avatarCnt.append(avatarWrapperHeader, profileContainer);
 
   avatarCnt.onmouseover = () => {
-    console.log('fjsdlk');
+    // console.log('fjsdlk');
     profileContainer.classList.add('show__menu');
   };
 

@@ -1,6 +1,7 @@
 import { lists } from 'src/pages/lists';
+import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
-import { personal } from 'src/pages/personal';
+import { user } from 'src/pages/user-account';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
@@ -8,6 +9,7 @@ import { register } from '../pages/register';
 import { film } from '../pages/film-page';
 import { PATH_NAMES } from './path-names';
 import { projectTitle } from './project-title';
+import { LOCAL_STORAGE_KEYS } from './local-storage';
 
 export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.notFound]: {
@@ -23,7 +25,7 @@ export const ROUTER_PATHS: Paths = {
     title: `login | ${projectTitle}`,
   },
   [PATH_NAMES.register]: {
-    template: register,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? notFound : register,
     title: `register | ${projectTitle}`,
   },
   [PATH_NAMES.films]: {
@@ -38,8 +40,8 @@ export const ROUTER_PATHS: Paths = {
     template: list,
     title: `list | ${projectTitle}`,
   },
-  [PATH_NAMES.personal]: {
-    template: personal,
-    title: `personal | ${projectTitle}`,
+  [PATH_NAMES.user]: {
+    template: user,
+    title: `user | ${projectTitle}`,
   },
 };

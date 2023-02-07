@@ -28,7 +28,7 @@ export const renderProfileMenu = (): HTMLElement => {
 
   const profileAccount: HTMLElement = createElem('li', 'profile-menu__item');
   profileAccount.innerHTML = 'Личный кабинет';
-  profileAccount.onclick = () => route('/personal');
+  profileAccount.onclick = () => route('/user');
 
   const avatarWrapperMenu: HTMLElement = renderAvatar();
 

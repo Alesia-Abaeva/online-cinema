@@ -3,15 +3,16 @@ import { renderPersonSidebar } from './components/PersonSidebar/PersonSidebar';
 import { renderAccountUserData } from './components/ProfileInform/ProfileInform';
 import styles from './PersonalAccount.module.scss';
 
-export const renderPersonalAccountPage = (): HTMLElement => {
+export const renderPersonalAccountPage = (func?: () => HTMLElement): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
   //   main.classList.add('main_backdrop');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['personal-account']);
 
   const profileSideBar: HTMLElement = renderPersonSidebar();
-  const profileInformContainer: HTMLElement = renderAccountUserData();
-  // createElem('div', styles['profile-info__cnt']);
+  // const profileInformContainer: HTMLElement = renderAccountUserData();
+
+  const profileInformContainer = func ? func() : renderAccountUserData();
 
   mainContent.append(profileSideBar, profileInformContainer);
   mainContainer.append(mainContent);

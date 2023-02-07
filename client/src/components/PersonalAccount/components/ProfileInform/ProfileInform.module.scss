@@ -48,6 +48,8 @@
 
   &:invalid {
     .profile__form-label {
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
       color: $yandex-red;
     }
   }
