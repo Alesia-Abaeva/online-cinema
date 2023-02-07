@@ -1,6 +1,6 @@
 import { updateUser, updateUserPass } from 'src/api/back/auth';
 import { appDispatch } from 'src/logic/redux';
-import { setUserInfo } from 'src/logic/redux/actions';
+import { setPasswordError, setUserInfo } from 'src/logic/redux/actions';
 
 export const handleChangeUserData = async (body: AuthGetPersonToken) => {
   try {
@@ -16,13 +16,11 @@ export const handleChangeUserData = async (body: AuthGetPersonToken) => {
 
 export const handleChangeUserPassword = async (body: AuthGetPersonToken) => {
   try {
-    // const newBody = Object.fromEntries(Object.entries(body).filter((el) => el[1] !== ''));
-    // удаляем пустые строчки
-
-    // загрузжаем файл - получаем ответ с обновленными данными о юзере
     const { data } = await updateUserPass(body);
-    appDispatch(setUserInfo({ data }));
+    console.log('data', data);
+    // appDispatch(setUserInfo());
   } catch (err) {
     console.warn(err);
+    appDispatch(setPasswordError(err as ErrorMessage));
   }
 };

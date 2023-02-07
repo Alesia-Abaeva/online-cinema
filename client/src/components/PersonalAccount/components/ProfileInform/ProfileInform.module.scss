@@ -7,7 +7,7 @@
 .profile-info__data {
   padding: 2rem;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   background-color: $background;
   border: 1px solid $conditionalborder;
@@ -68,7 +68,7 @@
   width: 25rem;
 
   &::placeholder {
-    color: $white;
+    color: $copyright-footer;
     font-size: 1rem;
   }
 
@@ -113,6 +113,8 @@
     }
   }
   .profile__form-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
     color: $yandex-red;
   }
 

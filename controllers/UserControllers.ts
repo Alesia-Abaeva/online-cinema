@@ -122,6 +122,7 @@ export const updateUser = async (
   try {
     const { name, lastName } = req.body;
     // TODO: отредактировать для изменения данных пользователя
+
     const user = await User.findByIdAndUpdate(
       req.user.userId,
       {
@@ -132,6 +133,8 @@ export const updateUser = async (
         new: true,
       }
     );
+
+    console.log(user);
 
     res.json(user);
   } catch (e) {
@@ -144,15 +147,6 @@ export const updateUserPassword = async (
   res: express.Response
 ) => {
   try {
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-      return res.status(400).json({
-        errors: errors.array(),
-        message: "Попробуйте еще раз. В данных ошибка.",
-      });
-    }
-
     const { password, newPassword } = req.body;
 
     if (!newPassword) {
@@ -167,7 +161,18 @@ export const updateUserPassword = async (
       });
     }
 
-    const user = await User.findByIdAndUpdate(
+    const user = await User.findById(req.user.userId);
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    console.log(isMatch);
+
+    if (!isMatch) {
+      return res
+        .status(400)
+        .json({ message: "Неверный пароль, данные не обновлены" });
+    }
+
+    const userUpdate = await User.findOneAndUpdate(
       req.user.userId,
       {
         password: await bcrypt.hash(newPassword, 12),

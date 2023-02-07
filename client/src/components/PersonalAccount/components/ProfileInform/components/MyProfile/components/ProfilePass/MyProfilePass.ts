@@ -1,5 +1,6 @@
 import { createButton } from 'src/components/ui/Button/Button';
 import { showPass } from 'src/const/icons/icons';
+import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { changeInputType } from '../../../Handlers/changeTypesInput';
 import { createInputComponent } from '../../../Handlers/createInputeComponent';
@@ -21,6 +22,7 @@ export const renderProfileDataPass = (): ReturnElements => {
     container: pass,
     input: passInput,
     icon: passIcon,
+    label: passLabel,
   } = createInputComponent(
     {
       label: 'Текущий пароль',
@@ -117,6 +119,16 @@ export const renderProfileDataPass = (): ReturnElements => {
   };
 
   data.append(pass, newPass, newPassRepet, bntCtnPass);
+
+  store.subscribe(() => {
+    const userState = store.getState().auth.user.error;
+    console.log(userState?.message);
+
+    if (userState?.message) {
+      passLabel.innerHTML = (userState as ErrorMessage).message;
+      pass.classList.add('invalide-data');
+    }
+  });
 
   return { title, data };
 };

@@ -56,3 +56,10 @@ export const getDataPerson = () => async (dispatch: AppDispatch) => {
     // localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
   }
 };
+
+export const setPasswordError = (payload: ErrorMessage) => {
+  return {
+    type: AuthTypes.ERROR_PASS,
+    payload,
+  };
+};
