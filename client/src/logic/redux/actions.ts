@@ -57,7 +57,7 @@ export const getDataPerson = () => async (dispatch: AppDispatch) => {
   }
 };
 
-export const setPasswordError = (payload: ErrorMessage) => {
+export const setPasswordError = (payload: Nullable<ErrorMessage>) => {
   return {
     type: AuthTypes.ERROR_PASS,
     payload,

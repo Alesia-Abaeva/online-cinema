@@ -3,7 +3,6 @@
 .profile-sidebar__cnt {
   width: 35%;
   background-color: $background;
-  background-color: $background;
   border: 1px solid $conditionalborder;
   border-radius: 10px;
   padding: 2rem;
@@ -20,12 +19,17 @@
 }
 
 .profile-sidebar__item {
-  padding: 0.6rem;
-  // font-weight: 600;
   transition: all $base-transition;
   border: 1px solid $conditionalborder;
   border-radius: 10px;
   cursor: pointer;
+
+  a {
+    padding: 0.6rem;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 
   &:hover {
     background-color: $tundora;
@@ -36,12 +40,45 @@
 }
 
 .profile-sidebar__tariff {
-  @include btn-new-style;
-  box-shadow: 0 0 20px #eee;
+  // @include btn-new-style;
+
+  // text-align: center;
+  transition: 0.5s;
+  // background-size: 200% auto;
+  color: white;
+  // box-shadow: 0 0 1px #eee;
+  border-radius: 10px;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  border: none;
+  display: block;
   width: 70%;
-  margin-left: auto;
+  // margin-left: auto;
   margin-right: auto;
   text-transform: uppercase;
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tariff_icon {
+  height: 40px;
+  width: 40px;
+  background-image: url('../../../../assets/img/icons/tariff-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tariff_name {
+  @include gradinent-text((linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%)));
+}
+
+.active-block {
+  background-color: $tundora;
+  color: $white;
+  border: 1px solid $light-text;
+  transform: scale(1.05);
+  border-radius: 10px;
 }

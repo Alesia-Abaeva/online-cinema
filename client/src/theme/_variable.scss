@@ -95,3 +95,11 @@ $base-transition: 0.3s ease;
     text-decoration: none;
   }
 }
+
+@mixin gradinent-text($gradient) {
+  background-image: $gradient;
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

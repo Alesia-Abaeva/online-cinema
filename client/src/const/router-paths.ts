@@ -1,7 +1,7 @@
 import { lists } from 'src/pages/lists';
 import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
-import { user } from 'src/pages/user-account';
+import { user, userWatch } from 'src/pages/user-account';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
@@ -39,6 +39,14 @@ export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.list]: {
     template: list,
     title: `list | ${projectTitle}`,
+  },
+  [PATH_NAMES.user]: {
+    template: user,
+    title: `user | ${projectTitle}`,
+  },
+  [PATH_NAMES.userWatch]: {
+    template: userWatch,
+    title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.user]: {
     template: user,

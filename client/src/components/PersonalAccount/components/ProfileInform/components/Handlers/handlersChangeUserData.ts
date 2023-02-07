@@ -16,9 +16,8 @@ export const handleChangeUserData = async (body: AuthGetPersonToken) => {
 
 export const handleChangeUserPassword = async (body: AuthGetPersonToken) => {
   try {
-    const { data } = await updateUserPass(body);
-    console.log('data', data);
-    // appDispatch(setUserInfo());
+    await updateUserPass(body);
+    appDispatch(setPasswordError(null));
   } catch (err) {
     console.warn(err);
     appDispatch(setPasswordError(err as ErrorMessage));

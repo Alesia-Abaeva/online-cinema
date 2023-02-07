@@ -1,5 +1,10 @@
 @import '/src/theme/variable';
 
+.profile-info__wparr {
+  background-color: transparent;
+  width: 65%;
+}
+
 .profile-info__title {
   padding: 0 0 1rem 2rem;
 }

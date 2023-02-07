@@ -127,6 +127,9 @@ export const renderProfileDataPass = (): ReturnElements => {
     if (userState?.message) {
       passLabel.innerHTML = (userState as ErrorMessage).message;
       pass.classList.add('invalide-data');
+    } else {
+      passLabel.innerHTML = 'Текущий пароль';
+      pass.classList.remove('invalide-data');
     }
   });
 
