@@ -5,6 +5,7 @@ import { renderPersons } from './components/Persons/Persons';
 import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
 import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
 import { renderRating } from './components/Rating/Rating';
+import { getPersons } from './Handlers/film-data-formaters';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -14,10 +15,14 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   renderBackgroundPlayer(filmData, backdrop, mainContent);
 
-  // TODO: ADD placeholders
   // 1 column - poster
   const filmPoster: HTMLElement = createElem('img', 'film-page__poster');
-  filmPoster.setAttribute('src', filmData.poster.url);
+  const url = `${
+    filmData.poster
+      ? filmData.poster.url
+      : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
+  }`;
+  filmPoster.setAttribute('src', url);
 
   // 2 column - film data
   const filmDescription: HTMLElement = createElem('div', 'film-page__description');
@@ -53,10 +58,18 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const filmRatingAndActors = createElem('div', 'film-page__desc-aside');
 
   const rating: HTMLElement = renderRating(filmData.rating.kp);
-  const actorsSection = renderPersons('В главных ролях:', filmData.persons, 'actor');
-  const voiceActorsSection = renderPersons('Роли дублировали:', filmData.persons, 'voice_actor');
+  filmRatingAndActors.append(rating);
 
-  filmRatingAndActors.append(rating, actorsSection, voiceActorsSection);
+  const actors = getPersons(filmData.persons, 'actor', 10);
+  if (actors.length !== 0) {
+    const actorsSection = renderPersons('В главных ролях:', actors);
+    filmRatingAndActors.append(actorsSection);
+  }
+  const voiceActors = getPersons(filmData.persons, 'voice_actor', 10);
+  if (voiceActors.length !== 0) {
+    const voiceActorsSection = renderPersons('Роли дублировали:', voiceActors);
+    filmRatingAndActors.append(voiceActorsSection);
+  }
 
   mainContent.append(filmPoster, filmDescription, filmRatingAndActors);
   mainContainer.append(backdrop, mainContent);

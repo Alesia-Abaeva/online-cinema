@@ -63,6 +63,10 @@
   pointer-events: none;
 }
 
+.gradient-text {
+  @include gradinent-text(var(--gradient-primary));
+}
+
 @media (max-width: $phone-width) {
   .main {
     min-height: calc(100vh - $footer-height-mobile);

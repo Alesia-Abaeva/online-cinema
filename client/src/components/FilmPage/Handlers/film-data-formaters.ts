@@ -1,4 +1,5 @@
 import { formatPriceNum } from 'src/utils/format-price';
+import { toHoursAndMinutes } from 'src/utils/to-hours-and-minutes';
 
 export const formatCountry = (countries: ChildeAttribures[]): string => {
   return countries.map((el) => el.name).join(', ');
@@ -22,7 +23,10 @@ export const formatAge = (age: string | number | null): string => {
 };
 
 export const formatMovieLength = (movieLength: number): string => {
-  return movieLength ? `${movieLength} мин` : '';
+  const { hours, minutes } = toHoursAndMinutes(movieLength);
+  const hoursStr = hours.toString().padStart(2, '0');
+  const minStr = minutes.toString().padStart(2, '0');
+  return movieLength ? `${movieLength} мин. / ${hoursStr}:${minStr}` : '';
 };
 
 export const formatSlogan = (slogan: string): string => {
@@ -30,7 +34,7 @@ export const formatSlogan = (slogan: string): string => {
 };
 
 export const formatPersons = (persons: PersonDataApi[], profession: string, limit = 3): string => {
-  const resPersons = persons.filter((el) => el['enProfession'] === profession).map((el) => el.name);
+  const resPersons = persons.filter((el) => el['enProfession'] === profession && el.name).map((el) => el.name);
   if (resPersons.length > limit) {
     const shortRes = resPersons.slice(0, limit + 1);
     shortRes[3] = '...';

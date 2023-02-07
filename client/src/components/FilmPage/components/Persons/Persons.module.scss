@@ -7,8 +7,5 @@
 
 .film-page__persons-list {
   list-style: none;
-}
-
-.film-page__person:last-of-type {
-  @include gradinent-text(var(--gradient-primary));
+  font-size: 0.9rem;
 }
