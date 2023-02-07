@@ -54,7 +54,7 @@
 
 .film-page__sub-title {
   font-size: 2rem;
-  color: var(--text-secondary);
+  color: var(--film-page-secondary-text);
 }
 
 .film-page__action {
@@ -110,7 +110,6 @@
 }
 
 .film-page__about {
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -128,4 +127,10 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1rem;
+}
+
+.film-page__rating-cont {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }

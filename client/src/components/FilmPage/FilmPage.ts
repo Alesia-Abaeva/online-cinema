@@ -4,6 +4,7 @@ import { renderYouTubePlayer } from '../YouTubePlayer/YouTubePlayer';
 import { showCover } from './Handlers/showCover';
 import { createButton } from '../ui/Button/Button';
 import styles from './FilmPage.module.scss';
+import { setRatingColor } from '../ui/RatingColor/RatingColor';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -11,16 +12,23 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
   const backdrop: HTMLElement = createElem('div', 'film-page__backdrop');
 
-  const trailer = filmData.videos.trailers;
-  if (trailer && trailer.length !== 0) {
-    renderYouTubePlayer(
-      'video-player',
-      `${trailer[0].url}?autoplay=1&mute=1&controls=0&showinfo=0&autohide=1`,
-      10,
-      25,
-      showCover(filmData, backdrop),
-      showCover(filmData, backdrop)
-    );
+  const { videos } = filmData;
+  if (videos) {
+    const trailer = filmData.videos.trailers;
+    if (trailer && trailer.length !== 0) {
+      renderYouTubePlayer(
+        'video-player',
+        `${trailer[0].url}?autoplay=1&mute=1&controls=0&showinfo=0&autohide=1`,
+        10,
+        11,
+        showCover(filmData, backdrop, mainContent),
+        showCover(filmData, backdrop, mainContent)
+      );
+    } else {
+      showCover(filmData, backdrop, mainContent)();
+    }
+  } else {
+    showCover(filmData, backdrop, mainContent)();
   }
 
   console.log(filmData);
@@ -51,6 +59,11 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   actionBtns.append(wantToWatchBtn, moreActionsBtn);
 
+  const shortDescription: HTMLElement = createElem('div', 'film-page__short-desc');
+  const shortDescriptionText: HTMLElement = createElem('p', 'film-page__short-desc-text');
+  shortDescriptionText.innerHTML = filmData.shortDescription;
+  shortDescription.append(shortDescriptionText);
+
   const filmAbout: HTMLElement = createElem('div', 'film-page__about');
   const aboutTitle: HTMLElement = createElem('h2', 'film-page__about-title');
   aboutTitle.innerHTML = 'О фильме';
@@ -75,9 +88,21 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   filmAbout.append(aboutTitle, aboutTable);
 
-  filmDescription.append(filmHeader, actionBtns, filmAbout);
+  filmDescription.append(filmHeader, actionBtns, shortDescription, filmAbout);
 
-  mainContent.append(filmPoster, filmDescription);
+  const filmRatingAndActors = createElem('div', 'film-page__desc-aside');
+  const ratingValue = filmData.rating.kp;
+  const itemRatingCont: HTMLElement = createElem('div', 'film-page__rating-cont');
+  const itemRating: HTMLElement = createElem('p', 'rating');
+  itemRating.classList.add('rating_bg');
+  itemRating.innerHTML = ratingValue.toFixed(1);
+
+  setRatingColor(itemRating, ratingValue);
+
+  itemRatingCont.append(itemRating);
+  filmRatingAndActors.append(itemRatingCont);
+
+  mainContent.append(filmPoster, filmDescription, filmRatingAndActors);
   mainContainer.append(backdrop, mainContent);
   main.append(mainContainer);
 

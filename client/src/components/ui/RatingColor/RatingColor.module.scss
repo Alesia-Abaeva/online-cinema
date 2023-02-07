@@ -1,0 +1,17 @@
+@import '/src/theme/variable';
+
+.rating_ok {
+  color: var(--always-black);
+}
+
+.rating_bad {
+  color: $yandex-red;
+}
+
+.rating_good {
+  color: $apple-green;
+}
+
+.rating_amazing {
+  @include gradinent-text(var(--gold-gradient));
+}

@@ -37,11 +37,11 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
   itemInfo.append(filmTitle, origNameYearLength, countryGenreDirecror);
 
   const ratingValue = itemData.rating.kp;
-  const itemRatingCont: HTMLElement = createElem('div', 'list-item__rating-cont');
-  const itemRating: HTMLElement = createElem('p', 'list-item__rating');
+  const itemRatingCont: HTMLElement = createElem('div', 'rating-cont');
+  const itemRating: HTMLElement = createElem('p', 'rating');
   itemRating.innerHTML = ratingValue.toFixed(1);
-  if (ratingValue > 5) itemRating.classList.add('list-item__rating_good');
-  if (ratingValue > 9) itemRating.classList.add('list-item__rating_amazing');
+  if (ratingValue > 5) itemRating.classList.add('rating_good');
+  if (ratingValue > 9) itemRating.classList.add('rating_amazing');
   itemRatingCont.append(itemRating);
 
   const itemControls: HTMLElement = createElem('div', 'list-item__controls');

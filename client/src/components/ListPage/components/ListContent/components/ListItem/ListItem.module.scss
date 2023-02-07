@@ -66,17 +66,13 @@
   padding: 1rem;
 }
 
-.list-item__rating {
+.rating {
   font-size: 2rem;
   font-family: NetflixSans-Bold;
 }
 
-.list-item__rating_good {
-  color: $apple-green;
-}
-
-.list-item__rating_amazing {
-  @include gradinent-text(var(--gold-gradient));
+.rating_bg {
+  font-size: 4rem;
 }
 
 .list-item__controls {
