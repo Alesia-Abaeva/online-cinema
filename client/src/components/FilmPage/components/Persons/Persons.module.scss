@@ -1,0 +1,14 @@
+@import '/src/theme/variable';
+
+.film-page__persons-title {
+  font-family: NetflixSans-Bold;
+  margin-bottom: 0.5rem;
+}
+
+.film-page__persons-list {
+  list-style: none;
+}
+
+.film-page__person:last-of-type {
+  @include gradinent-text(var(--gradient-primary));
+}

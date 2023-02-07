@@ -1,11 +1,10 @@
 import { createElem } from 'src/utils/create-element';
-import { getFilmFields } from 'src/components/FilmPage/Handlers/film-data';
-import { renderYouTubePlayer } from '../YouTubePlayer/YouTubePlayer';
-import { showCover } from './Handlers/showCover';
 import { createButton } from '../ui/Button/Button';
 import styles from './FilmPage.module.scss';
-import { setRatingColor } from '../ui/RatingColor/RatingColor';
-import { getPersons } from './Handlers/film-data-formaters';
+import { renderPersons } from './components/Persons/Persons';
+import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
+import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
+import { renderRating } from './components/Rating/Rating';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -13,26 +12,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
   const backdrop: HTMLElement = createElem('div', 'film-page__backdrop');
 
-  const { videos } = filmData;
-  if (videos) {
-    const trailer = filmData.videos.trailers;
-    if (trailer && trailer.length !== 0) {
-      renderYouTubePlayer(
-        'video-player',
-        `${trailer[0].url}?autoplay=1&mute=1&controls=0&showinfo=0&autohide=1`,
-        10,
-        11,
-        showCover(filmData, backdrop, mainContent),
-        showCover(filmData, backdrop, mainContent)
-      );
-    } else {
-      showCover(filmData, backdrop, mainContent)();
-    }
-  } else {
-    showCover(filmData, backdrop, mainContent)();
-  }
-
-  console.log(filmData);
+  renderBackgroundPlayer(filmData, backdrop, mainContent);
 
   // TODO: ADD placeholders
   // 1 column - poster
@@ -65,69 +45,18 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   shortDescriptionText.innerHTML = filmData.shortDescription;
   shortDescription.append(shortDescriptionText);
 
-  const filmAbout: HTMLElement = createElem('div', 'film-page__about');
-  const aboutTitle: HTMLElement = createElem('h2', 'film-page__about-title');
-  aboutTitle.innerHTML = 'О фильме';
-
-  const aboutTable: HTMLElement = createElem('div', 'film-page__about-table');
-  aboutTable.classList.add('about-table');
-
-  const formatedData = getFilmFields(filmData);
-  formatedData.forEach((el) => {
-    if (el.fieldName) {
-      const row: HTMLElement = createElem('div', 'about-table__row');
-      const rowTitle: HTMLElement = createElem('div', 'about-table__row-title');
-      rowTitle.innerHTML = el.title;
-
-      const rowContent: HTMLElement = createElem('div', 'about-table__row-content');
-      rowContent.innerHTML = el.fieldName.toString();
-      row.append(rowTitle, rowContent);
-
-      aboutTable.append(row);
-    }
-  });
-
-  filmAbout.append(aboutTitle, aboutTable);
+  const filmAbout: HTMLElement = renderFilmDataTable(filmData);
 
   filmDescription.append(filmHeader, actionBtns, shortDescription, filmAbout);
 
   // 3 column - actors and rating
   const filmRatingAndActors = createElem('div', 'film-page__desc-aside');
 
-  const ratingValue = filmData.rating.kp;
-  const itemRatingCont: HTMLElement = createElem('div', 'film-page__rating-cont');
-  const itemRating: HTMLElement = createElem('p', 'rating');
-  itemRating.classList.add('rating_bg');
-  itemRating.innerHTML = ratingValue.toFixed(1);
+  const rating: HTMLElement = renderRating(filmData.rating.kp);
+  const actorsSection = renderPersons('В главных ролях:', filmData.persons, 'actor');
+  const voiceActorsSection = renderPersons('Роли дублировали:', filmData.persons, 'voice_actor');
 
-  setRatingColor(itemRating, ratingValue);
-  itemRatingCont.append(itemRating);
-
-  const actorsSection: HTMLElement = createElem('div', 'film-page__actors');
-  const actorsTitle: HTMLElement = createElem('p', 'film-page__actors-title');
-  actorsTitle.innerHTML = 'В главных ролях:';
-  const actorsList: HTMLElement = createElem('ul', 'film-page__actors-list');
-  const persons = getPersons(filmData.persons, 'actor', 10);
-  persons.forEach((el) => {
-    const actor: HTMLElement = createElem('li', 'film-page__actor');
-    actor.innerHTML = el;
-    actorsList.append(actor);
-  });
-  actorsSection.append(actorsTitle, actorsList);
-
-  const voiceActorsSection: HTMLElement = createElem('div', 'film-page__actors');
-  const voiceActorsTitle: HTMLElement = createElem('p', 'film-page__actors-title');
-  voiceActorsTitle.innerHTML = 'Роли дублировали:';
-  const voiceActorsList: HTMLElement = createElem('ul', 'film-page__actors-list');
-  const voicePersons = getPersons(filmData.persons, 'voice_actor', 10);
-  voicePersons.forEach((el) => {
-    const voiceActor: HTMLElement = createElem('li', 'film-page__actor');
-    voiceActor.innerHTML = el;
-    voiceActorsList.append(voiceActor);
-  });
-  voiceActorsSection.append(voiceActorsTitle, voiceActorsList);
-
-  filmRatingAndActors.append(itemRatingCont, actorsSection, voiceActorsSection);
+  filmRatingAndActors.append(rating, actorsSection, voiceActorsSection);
 
   mainContent.append(filmPoster, filmDescription, filmRatingAndActors);
   mainContainer.append(backdrop, mainContent);

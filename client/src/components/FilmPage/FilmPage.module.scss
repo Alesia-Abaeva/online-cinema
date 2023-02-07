@@ -109,26 +109,6 @@
   }
 }
 
-.film-page__about {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.film-page__about-table {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.about-table__row {
-  font-size: 0.9rem;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 1rem;
-}
-
 .film-page__rating-cont {
   display: flex;
   justify-content: flex-start;
@@ -139,17 +119,4 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-}
-
-.film-page__actors-title {
-  font-family: NetflixSans-Bold;
-  margin-bottom: 0.5rem;
-}
-
-.film-page__actors-list {
-  list-style: none;
-}
-
-.film-page__actor:last-of-type {
-  @include gradinent-text(var(--gradient-primary));
 }
