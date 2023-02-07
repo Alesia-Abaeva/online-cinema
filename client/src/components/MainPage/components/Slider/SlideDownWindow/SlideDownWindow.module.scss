@@ -1,7 +1,3 @@
-.show-slidedown {
-  height: 608px !important;
-}
-
 .slideDown {
   height: 0px;
   width: 100%;
@@ -9,27 +5,8 @@
   position: relative;
 
   &__wrapper {
-    border-top: 1px solid hsla(0, 0%, 100%, 0.1);
-    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
     width: 100%;
     height: 100%;
-    background: none;
-    background-repeat: no-repeat;
-    background-position: 100% 0;
-    background-size: cover;
-  }
-  &__container {
-    padding: 0.5rem 0;
-    height: 100%;
-  }
-
-  &__card__nav {
-    position: absolute;
-    top: 0;
-    display: flex;
-    width: 100%;
-    padding: 1rem 0;
-    justify-content: center;
   }
 
   &__close {
@@ -47,4 +24,8 @@
     width: 24px;
     height: 24px;
   }
+}
+
+.show-slidedown {
+  height: 608px !important;
 }

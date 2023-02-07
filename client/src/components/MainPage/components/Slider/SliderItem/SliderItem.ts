@@ -1,7 +1,7 @@
 import { createElem } from '../../../../../utils/create-element';
 import styles from './SliderItem.module.scss';
 
-export const renderSliderItem = (id: number, name: string, img: string, rating: string): HTMLElement => {
+export const renderSliderItem = (id: string, img: string, rating: string): HTMLElement => {
   const item: HTMLElement = createElem('div', styles.sliderItem);
   const wrapper: HTMLElement = createElem('div', styles.sliderItem__wrapper);
   const badget: HTMLElement = createElem('div', styles.sliderItem__badget);
@@ -12,7 +12,7 @@ export const renderSliderItem = (id: number, name: string, img: string, rating: 
   badget.append(badgetSpan);
   image.classList.add('sliderItem__image');
   image.src = img;
-  item.dataset.id = String(id);
+  item.dataset.id = id;
   wrapper.append(image, badget);
   item.append(wrapper);
 
