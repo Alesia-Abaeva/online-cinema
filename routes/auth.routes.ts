@@ -5,6 +5,7 @@ import {
   login,
   register,
   updateUser,
+  updateUserParentsContr,
   updateUserPassword,
 } from "../controllers/UserControllers";
 import {
@@ -28,3 +29,6 @@ router.put("/person", checkAuth, updateUser);
 
 // api/auth/pesron/pass
 router.put("/person/pass", checkAuth, updateUserPassword);
+
+// api/auth/pesron/parents
+router.put("/person/parents", checkAuth, updateUserParentsContr);

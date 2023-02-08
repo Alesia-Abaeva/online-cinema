@@ -4,6 +4,7 @@ import { parentControl } from 'src/const/filters-data';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { arrowBtn } from '../Handlers/arrow-but';
+import { handleChangeParentControl } from '../Handlers/handlersChangeUserData';
 import styles from './UserSettings.module.scss';
 
 export const renderUserSettings = () => {
@@ -18,6 +19,11 @@ export const renderUserSettings = () => {
   const ageFilter: HTMLElement = renderDropdownFilter(parentControl);
 
   const bntCtn: HTMLElement = createElem('div', 'profile__btn-save');
+  bntCtn.onclick = () => {
+    const number = ageFilter.firstChild?.textContent as string;
+    console.log(number);
+    handleChangeParentControl({ parentControls: number });
+  };
   const bntSaveData: HTMLElement = createButton('сохранить');
   bntCtn.append(bntSaveData);
 
@@ -31,10 +37,13 @@ export const renderUserSettings = () => {
 
   themeCnt.append(themeFilter);
 
+  console.log(ageFilter.lastChild?.childNodes);
+
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
-    console.log(userState);
+    // const userState = store.getState().auth.user;
+    // TODO: подписаться на изменение компонента, возможно в самом компоненте
   });
+
   userProfile.append(title, ageCnt, titleTheme, themeCnt);
   return userProfile;
 };

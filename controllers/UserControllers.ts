@@ -37,8 +37,6 @@ export const register = async (req: express.Request, res: express.Response) => {
       expiresIn: "3h", //время существования токена
     });
 
-    // res.json({ token, userId: user.id });
-
     res.status(201).send({
       token,
       user,
@@ -46,7 +44,6 @@ export const register = async (req: express.Request, res: express.Response) => {
       message: "Пользователь успешно создан!",
     });
   } catch (e) {
-    // console.log(e);
     res
       .status(500) // добавляем стандартную серверную ошибку
       .json({ message: "Не удалось зарегистрироваться." });
@@ -172,21 +169,42 @@ export const updateUserPassword = async (
         .json({ message: "Неверный пароль, данные не обновлены" });
     }
 
-    const userUpdate = await User.findOneAndUpdate(
-      req.user.userId,
-      {
-        password: await bcrypt.hash(newPassword, 12),
-      }
-      // {
-      //   new: true,
-      // }
-    );
+    const userUpdate = await User.findOneAndUpdate(req.user.userId, {
+      password: await bcrypt.hash(newPassword, 12),
+    });
 
     // TODO: отредактировать для изменения данных пользователя
 
     res.json({
       message: "Данные успешно обновлены!",
     });
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
+  }
+};
+
+export const updateUserParentsContr = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { parentControls } = req.body;
+
+    console.log(parentControls);
+    // TODO: отредактировать для изменения данных пользователя
+
+    const user = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        parentControls,
+      },
+      {
+        new: true,
+      }
+    );
+
+    console.log(user);
+    res.json(user);
   } catch (e) {
     res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
   }
