@@ -6,6 +6,9 @@ import { getData } from './get-data-api';
 export const getMovie = (options: Options): Promise<{ data: ResponseMovie }> =>
   getData<ResponseMovie>({ search: options.id, field: FIELD.ID, token: API_KEY }, API_REQUEST.MOVIE);
 
+export const getPerson = (options: Options): Promise<{ data: ResponsePerson }> => {
+  return getData<ResponsePerson>({ search: options.id, field: FIELD.ID, token: API_KEY }, API_REQUEST.PERSON);
+};
 /** Поиск по фильмaм по году(FIELD.YEAR), жанру(FIELD.TYPENUMBER), названию(FIELD.NAME) */
 export const findedMovies = (inputData: number | string, fieldData: string, isStrict = true) =>
   getData<ResponseFindedMovies>({ search: inputData, field: fieldData, token: API_KEY, isStrict }, API_REQUEST.MOVIE);

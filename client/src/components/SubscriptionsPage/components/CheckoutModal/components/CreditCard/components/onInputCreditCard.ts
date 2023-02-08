@@ -5,7 +5,6 @@ import { validateExpDate } from '../../Validators/validateExpDate';
 
 export const onCardNumberInput = (e: Event): void => {
   const target = e.target as HTMLInputElement;
-  console.log(e.target);
   const card = document.querySelector('.card') as HTMLElement;
   const logo = document.querySelector('.card__logo') as HTMLElement;
   target.classList.remove('error');

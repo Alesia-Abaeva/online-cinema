@@ -3,7 +3,7 @@ import styles from './Popover.module.scss';
 
 export const renderPopover = (item: PersonDataApi): HTMLElement => {
   const popover = createElem('a', styles['popover__content']) as HTMLLinkElement;
-  popover.setAttribute('href', `/person/${item.id}`);
+  popover.setAttribute('href', `/name/${item.id}`);
 
   const popoverImg: HTMLElement = createElem('img', 'popover__img');
   const url = `${

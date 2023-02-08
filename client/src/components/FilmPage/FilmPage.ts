@@ -13,13 +13,14 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
-  const backdrop: HTMLElement = createElem('div', 'film-page__backdrop');
+  mainContent.classList.add('id-page');
+  const backdrop: HTMLElement = createElem('div', 'id-page__backdrop');
 
   if (window.screen.width > 1000) renderBackgroundPlayer(filmData, backdrop, mainContent);
   else showCover(filmData, backdrop, mainContent)();
 
   // 1 column - poster
-  const filmPoster: HTMLElement = createElem('img', 'film-page__poster');
+  const filmPoster: HTMLElement = createElem('img', 'id-page__poster');
   const url = `${
     filmData.poster
       ? filmData.poster.url
@@ -28,28 +29,28 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   filmPoster.setAttribute('src', url);
 
   // 2 column - film data
-  const filmDescription: HTMLElement = createElem('div', 'film-page__description');
-  const filmHeader: HTMLElement = createElem('div', 'film-page__header');
-  const filmTitle: HTMLElement = createElem('h1', 'film-page__title');
+  const filmDescription: HTMLElement = createElem('div', 'id-page__description');
+  const filmHeader: HTMLElement = createElem('div', 'id-page__header');
+  const filmTitle: HTMLElement = createElem('h1', 'id-page__title');
 
   const year = filmData.year ? `(${filmData.year})` : '';
   filmTitle.innerHTML = `${filmData.name} ${year}`;
 
   const enName = filmData.alternativeName ? `${filmData.alternativeName}` : '';
-  const filmEnTitle: HTMLElement = createElem('div', 'film-page__sub-title');
+  const filmEnTitle: HTMLElement = createElem('div', 'id-page__sub-title');
   const age = filmData.ageRating;
   filmEnTitle.innerHTML = `${enName} ${age ? `${age}+` : ''}`;
 
   filmHeader.append(filmTitle, filmEnTitle);
 
-  const actionBtns: HTMLElement = createElem('div', 'film-page__action');
-  const wantToWatchBtn: HTMLElement = createButton('Буду смотреть', undefined, 'film-page__action-want-to-watch');
-  const moreActionsBtn: HTMLElement = createButton('', undefined, 'film-page__action-more');
+  const actionBtns: HTMLElement = createElem('div', 'id-page__action');
+  const wantToWatchBtn: HTMLElement = createButton('Буду смотреть', undefined, 'id-page__action-want-to-watch');
+  const moreActionsBtn: HTMLElement = createButton('', undefined, 'id-page__action-more');
 
   actionBtns.append(wantToWatchBtn, moreActionsBtn);
 
-  const shortDescription: HTMLElement = createElem('div', 'film-page__short-desc');
-  const shortDescriptionText: HTMLElement = createElem('p', 'film-page__desc-text');
+  const shortDescription: HTMLElement = createElem('div', 'id-page__short-desc');
+  const shortDescriptionText: HTMLElement = createElem('p', 'id-page__desc-text');
   shortDescriptionText.innerHTML = filmData.shortDescription;
   shortDescription.append(shortDescriptionText);
 
@@ -58,10 +59,10 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   const longDescription = filmData.description;
   if (longDescription) {
-    const filmLongDesc: HTMLElement = createElem('div', 'film-page__long-desc');
-    const longDescTitle: HTMLElement = createElem('h2', 'film-page__about-title');
+    const filmLongDesc: HTMLElement = createElem('div', 'id-page__long-desc');
+    const longDescTitle: HTMLElement = createElem('h2', 'id-page__about-title');
     longDescTitle.innerHTML = 'Описание';
-    const longDescText: HTMLElement = createElem('p', 'film-page__desc-text');
+    const longDescText: HTMLElement = createElem('p', 'id-page__desc-text');
     longDescText.innerHTML = longDescription;
     filmLongDesc.append(longDescTitle, longDescText);
     filmDescription.append(filmLongDesc);
@@ -74,7 +75,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   }
 
   // 3 column - actors and rating
-  const filmRatingAndActors = createElem('div', 'film-page__desc-aside');
+  const filmRatingAndActors = createElem('div', 'id-page__desc-aside');
 
   const rating: HTMLElement = renderRating(filmData.rating.kp);
   filmRatingAndActors.append(rating);

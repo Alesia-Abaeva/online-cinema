@@ -4,7 +4,7 @@
   position: relative;
   display: inline-block;
 
-  &:hover .film-page__person_link {
+  &:hover .id-page__person_link {
     @include gradinent-text(var(--gradient-primary));
   }
 

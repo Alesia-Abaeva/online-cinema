@@ -15,3 +15,8 @@ interface FilmItems {
   item: { data: ResponseMovie };
   pathname: string;
 }
+
+interface PersonItems {
+  item: { data: ResponsePerson };
+  pathname: string;
+}
