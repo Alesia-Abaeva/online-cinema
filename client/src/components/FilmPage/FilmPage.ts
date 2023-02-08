@@ -18,8 +18,6 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   if (window.screen.width > 1000) renderBackgroundPlayer(filmData, backdrop, mainContent);
   else showCover(filmData, backdrop, mainContent)();
 
-  console.log(filmData);
-
   // 1 column - poster
   const filmPoster: HTMLElement = createElem('img', 'film-page__poster');
   const url = `${

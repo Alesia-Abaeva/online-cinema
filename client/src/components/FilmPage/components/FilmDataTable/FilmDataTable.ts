@@ -19,10 +19,12 @@ export const renderFilmDataTable = (filmData: ResponseMovie): HTMLElement => {
       rowTitle.innerHTML = el.title;
       const rowContent: HTMLElement = createElem('div', 'about-table__row-content');
 
-      el.fieldData.forEach((item, idx) => {
+      const shortData = el.fieldData.slice(0, 4);
+      shortData.forEach((item, idx) => {
         const rowContentItem = createElem('a', 'about-table__row-content-item') as HTMLLinkElement;
         if (el.type === 'person' && typeof item !== 'string') {
-          if (idx === el.fieldData.length - 1 && el.fieldData.length > 3) {
+          if (!item.name) return;
+          if (idx === 3) {
             rowContentItem.innerHTML = '...';
             rowContent.append(rowContentItem);
             return;
@@ -34,13 +36,7 @@ export const renderFilmDataTable = (filmData: ResponseMovie): HTMLElement => {
 
           const popover: HTMLElement = renderPopover(item);
 
-          let text: string;
-          if (idx === el.fieldData.length - 1 && el.fieldData.length < 3) {
-            text = item.name;
-          } else {
-            text = `${item.name},`;
-          }
-          rowContentItem.innerHTML = text;
+          rowContentItem.innerHTML = idx < 2 && idx !== shortData.length - 1 ? `${item.name},` : item.name;
 
           popoverWrapper.append(rowContentItem, popover);
           rowContent.append(popoverWrapper);
