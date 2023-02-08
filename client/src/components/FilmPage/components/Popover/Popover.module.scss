@@ -85,3 +85,9 @@
     @include gradinent-text(var(--gradient-primary));
   }
 }
+
+@media (max-width: $tablet-width) {
+  .popover__content {
+    display: none;
+  }
+}

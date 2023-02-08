@@ -28,3 +28,18 @@
   text-decoration: none;
   color: var(--text-primary);
 }
+
+@media(max-width: 500px) {
+  .film-page__about-table {
+    gap: 0.5rem;
+  }
+
+  .about-table__row {
+    grid-template-columns: 1fr 2.5fr;
+  }
+}
+@media(max-width: 450px) {
+  .about-table__row {
+    grid-template-columns: 1fr 2fr;
+  }
+}

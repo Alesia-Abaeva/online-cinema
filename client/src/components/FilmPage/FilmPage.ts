@@ -7,6 +7,7 @@ import { renderRating } from './components/Rating/Rating';
 import { getPersonsWithJob } from './Handlers/film-data-formaters';
 import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
 import styles from './FilmPage.module.scss';
+import { showCover } from './Handlers/showCover';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -14,7 +15,10 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
   const backdrop: HTMLElement = createElem('div', 'film-page__backdrop');
 
-  renderBackgroundPlayer(filmData, backdrop, mainContent);
+  if (window.screen.width > 1000) renderBackgroundPlayer(filmData, backdrop, mainContent);
+  else showCover(filmData, backdrop, mainContent)();
+
+  console.log(filmData);
 
   // 1 column - poster
   const filmPoster: HTMLElement = createElem('img', 'film-page__poster');
