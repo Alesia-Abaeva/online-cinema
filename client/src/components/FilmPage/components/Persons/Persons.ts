@@ -1,4 +1,5 @@
 import { createElem } from 'src/utils/create-element';
+import { renderPopover } from '../Popover/Popover';
 import styles from './Persons.module.scss';
 
 export const renderPersons = (title: string, personsData: PersonDataApi[]): HTMLElement => {
@@ -11,12 +12,17 @@ export const renderPersons = (title: string, personsData: PersonDataApi[]): HTML
 
   shortData.forEach((el) => {
     const actor: HTMLElement = createElem('li', 'film-page__person');
+    const popoverWrapper: HTMLElement = createElem('div', 'popover__wrapper');
     const actorLink = createElem('a', 'film-page__person_link') as HTMLLinkElement;
     actorLink.setAttribute('href', `/person/${el.id}`);
     actorLink.dataset.personId = el.id.toString();
     actorLink.innerHTML = el.name;
 
-    actor.append(actorLink);
+    const popover: HTMLElement = renderPopover(el);
+
+    popoverWrapper.append(actorLink, popover);
+
+    actor.append(popoverWrapper);
     personsList.append(actor);
   });
 

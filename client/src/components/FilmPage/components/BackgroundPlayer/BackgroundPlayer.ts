@@ -14,7 +14,7 @@ export const renderBackgroundPlayer = (
         'video-player',
         `${trailer[0].url}?autoplay=1&mute=1&controls=0&showinfo=0&autohide=1`,
         10,
-        11,
+        25,
         showCover(filmData, backdrop, mainContent),
         showCover(filmData, backdrop, mainContent)
       );

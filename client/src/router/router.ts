@@ -8,8 +8,6 @@ import { dynamicRouteHandler } from './dynamic-route-handler';
 export const pathResolver = (pathname: string): void => {
   const route = ROUTER_PATHS[pathname] || ROUTER_PATHS[PATH_NAMES.notFound];
 
-  // If any dynamic cases else all handle all static routes
-
   if (pathname.startsWith(PATH_NAMES.films)) {
     dynamicRouteHandler(pathname, PATH_NAMES.films, getMovie);
   } else if (pathname.startsWith(PATH_NAMES.list)) {

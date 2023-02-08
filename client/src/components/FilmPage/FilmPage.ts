@@ -16,8 +16,6 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   renderBackgroundPlayer(filmData, backdrop, mainContent);
 
-  console.log(filmData);
-
   // 1 column - poster
   const filmPoster: HTMLElement = createElem('img', 'film-page__poster');
   const url = `${

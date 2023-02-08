@@ -12,6 +12,10 @@
   gap: 1rem;
 }
 
+.about-table__row-content-item {
+  margin-right: 5px;
+}
+
 .about-table__row {
   font-size: 0.9rem;
   width: 100%;
@@ -23,7 +27,4 @@
 .film-page__person_link {
   text-decoration: none;
   color: var(--text-primary);
-  &:hover {
-    @include gradinent-text(var(--gradient-primary));
-  }
 }
