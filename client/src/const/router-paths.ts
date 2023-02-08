@@ -1,7 +1,7 @@
 import { lists } from 'src/pages/lists';
 import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
-import { user, userPromo, userSettings, userWatch } from 'src/pages/user-account';
+import { user, userPromo, userReference, userSettings, userWatch } from 'src/pages/user-account';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
@@ -54,6 +54,10 @@ export const ROUTER_PATHS: Paths = {
   },
   [PATH_NAMES.userPromo]: {
     template: userPromo,
+    title: `user | ${projectTitle}`,
+  },
+  [PATH_NAMES.userReference]: {
+    template: userReference,
     title: `user | ${projectTitle}`,
   },
 };

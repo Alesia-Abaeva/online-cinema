@@ -35,5 +35,7 @@ export const renderUserPromo = () => {
   container.append(label, formCnt);
   data.append(dataTitle, dataDescroption, container);
   userProfile.append(title, data);
+
+  // TODO:  подписка на событие! и вывод результата в label
   return userProfile;
 };

@@ -1,4 +1,5 @@
 import { renderUserWatch } from 'src/components/PersonalAccount/components/ProfileInform/components/MyWatch/UserWatch';
+import { renderUserReferens } from 'src/components/PersonalAccount/components/ProfileInform/components/Reference/Reference';
 import { renderUserPromo } from 'src/components/PersonalAccount/components/ProfileInform/components/UserPromo/UserPromo';
 import { renderUserSettings } from 'src/components/PersonalAccount/components/ProfileInform/components/UserSettings/UserSettings';
 import { renderPersonalAccountPage } from 'src/components/PersonalAccount/PersonalAccount';
@@ -25,6 +26,7 @@ export const userSettings = (): void => {
 export const userPromo = (): void => {
   renderApp(() => renderPersonalAccountPage(renderUserPromo));
 };
-// export const userSettings = (): void => {
-//   renderApp(() => renderPersonalAccountPage(renderUserWatch));
-// };
+
+export const userReference = (): void => {
+  renderApp(() => renderPersonalAccountPage(renderUserReferens));
+};
