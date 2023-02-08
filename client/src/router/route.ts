@@ -16,8 +16,6 @@ export const route = (pathname: string): void => {
     path = PATH_NAMES.main;
   }
 
-  // console.log(token, path);
-
   window.history.pushState({}, '', window.location.origin + path);
   pathResolver(path);
 };
