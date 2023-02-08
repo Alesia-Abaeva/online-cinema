@@ -7,6 +7,7 @@ import styles from './PersonPage.module.scss';
 export const renderPersonPage = (personData: ResponsePerson): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
+  mainContainer.classList.add('main__container_p');
   const mainContent: HTMLElement = createElem('div', styles['person-page']);
   mainContent.classList.add('id-page');
 
