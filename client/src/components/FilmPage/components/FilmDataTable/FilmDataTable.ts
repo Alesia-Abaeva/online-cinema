@@ -13,7 +13,7 @@ export const renderFilmDataTable = (filmData: ResponseMovie): HTMLElement => {
 
   const formatedData = getFilmFields(filmData);
   formatedData.forEach((el) => {
-    if (el.fieldData) {
+    if (el.fieldData[0]) {
       const row: HTMLElement = createElem('div', 'about-table__row');
       const rowTitle: HTMLElement = createElem('div', 'about-table__row-title');
       rowTitle.innerHTML = el.title;

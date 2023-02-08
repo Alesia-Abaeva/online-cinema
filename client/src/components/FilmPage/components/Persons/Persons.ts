@@ -11,19 +11,21 @@ export const renderPersons = (title: string, personsData: PersonDataApi[]): HTML
   const shortData = personsData.slice(0, 10);
 
   shortData.forEach((el) => {
-    const actor: HTMLElement = createElem('li', 'film-page__person');
-    const popoverWrapper: HTMLElement = createElem('div', 'popover__wrapper');
-    const actorLink = createElem('a', 'film-page__person_link') as HTMLLinkElement;
-    actorLink.setAttribute('href', `/person/${el.id}`);
-    actorLink.dataset.personId = el.id.toString();
-    actorLink.innerHTML = el.name;
+    if (el.name) {
+      const actor: HTMLElement = createElem('li', 'film-page__person');
+      const popoverWrapper: HTMLElement = createElem('div', 'popover__wrapper');
+      const actorLink = createElem('a', 'film-page__person_link') as HTMLLinkElement;
+      actorLink.setAttribute('href', `/person/${el.id}`);
+      actorLink.dataset.personId = el.id.toString();
+      actorLink.innerHTML = el.name;
 
-    const popover: HTMLElement = renderPopover(el);
+      const popover: HTMLElement = renderPopover(el);
 
-    popoverWrapper.append(actorLink, popover);
+      popoverWrapper.append(actorLink, popover);
 
-    actor.append(popoverWrapper);
-    personsList.append(actor);
+      actor.append(popoverWrapper);
+      personsList.append(actor);
+    }
   });
 
   if (personsData.length > 10) {
