@@ -44,11 +44,10 @@ export const yearsFilterData: DropdownFiltersData = {
 export const parentControl: DropdownFiltersData = {
   title: 'Родительский контроль',
   opt: [
-    { title: 'До 6 лет', active: false },
-    { title: 'До 12 лет', active: false },
-    { title: 'До 16 лет', active: false },
-    { title: 'До 18 лет', active: false },
-    { title: 'Кроме контента для взрослых', active: true },
-    { title: 'Контроль отключен', active: false },
+    { title: 'До 6 лет', active: false, backId: '6' },
+    { title: 'До 12 лет', active: false, backId: '12' },
+    { title: 'До 16 лет', active: false, backId: '16' },
+    { title: 'До 18 лет', active: false, backId: '18' },
+    { title: 'Контроль отключен', active: true, backId: null },
   ],
 };

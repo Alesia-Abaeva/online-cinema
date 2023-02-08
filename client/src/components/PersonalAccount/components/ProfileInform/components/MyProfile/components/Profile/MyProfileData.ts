@@ -1,13 +1,16 @@
 import { createButton } from 'src/components/ui/Button/Button';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
+import { arrowBtn } from '../../../Handlers/arrow-but';
 import { createInputComponent } from '../../../Handlers/createInputeComponent';
 import { handleChangeUserData } from '../../../Handlers/handlersChangeUserData';
-// import { validationTextType } from '../../../Handlers/inputValidation';
 
 export const renderProfileData = (): ReturnElements => {
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Мой профиль';
+  const btn = arrowBtn();
+
+  title.append(btn);
   const data: HTMLElement = createElem('form', 'profile-info__data');
 
   const dataPerson: Commons = {

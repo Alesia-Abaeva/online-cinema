@@ -3,6 +3,7 @@ import { createButton } from 'src/components/ui/Button/Button';
 import { parentControl } from 'src/const/filters-data';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
+import { arrowBtn } from '../Handlers/arrow-but';
 import styles from './UserSettings.module.scss';
 
 export const renderUserSettings = () => {
@@ -10,12 +11,14 @@ export const renderUserSettings = () => {
 
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Ограничение контента';
+  const btn = arrowBtn();
+  title.append(btn);
+
   const ageCnt: HTMLElement = createElem('div', 'profile-info__data');
   const ageFilter: HTMLElement = renderDropdownFilter(parentControl);
 
   const bntCtn: HTMLElement = createElem('div', 'profile__btn-save');
   const bntSaveData: HTMLElement = createButton('сохранить');
-  //   bntSaveData.setAttribute('disabled', 'true');
   bntCtn.append(bntSaveData);
 
   ageCnt.append(ageFilter, bntCtn);

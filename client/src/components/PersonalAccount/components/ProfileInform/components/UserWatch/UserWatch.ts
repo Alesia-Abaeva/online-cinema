@@ -1,5 +1,6 @@
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
+import { arrowBtn } from '../Handlers/arrow-but';
 import styles from './UserWatch.module.scss';
 
 // пустой контейнер
@@ -35,6 +36,9 @@ export const renderUserWatch = () => {
 
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Избранное';
+
+  const btn = arrowBtn();
+  title.append(btn);
 
   const empty: HTMLElement = renderUserWatchEmpty();
   const film: HTMLElement = renderUserWatchFilms();

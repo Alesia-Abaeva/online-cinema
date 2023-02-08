@@ -43,7 +43,7 @@
     transform: rotate(-90deg);
     width: 13px;
     height: 1px;
-    background-color: #c4c4c4;
+    background-color: $light-text;
     content: '';
     position: absolute;
     right: 0;
@@ -54,7 +54,7 @@
   &::before {
     width: 13px;
     height: 1px;
-    background-color: #c4c4c4;
+    background-color: $light-text;
     content: '';
     position: absolute;
     right: 0;
@@ -68,6 +68,7 @@
     transform: rotate(0deg);
   }
 }
+
 .referens__data-item-body {
   overflow: hidden;
   height: 0px;

@@ -1,12 +1,17 @@
 @import '/src/theme/variable';
 
 .profile-info__wparr {
-  background-color: transparent;
   width: 65%;
 }
 
 .profile-info__title {
   padding: 0 0 1rem 2rem;
+
+  @media (max-width: $phone-width) {
+    position: relative;
+    padding: 0 0 1rem 3rem;
+    z-index: 0;
+  }
 }
 
 .profile-info__data {
@@ -23,6 +28,11 @@
   pointer-events: all;
   transition: all $base-transition;
   margin-bottom: 1.5rem;
+
+  @media (max-width: $iphoneXR) {
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .profile__form-cnt {
@@ -86,6 +96,19 @@
     color: $yandex-red;
     &::placeholder {
       color: $yandex-red;
+    }
+  }
+
+  @media (max-width: $phone-width) {
+    width: 20rem;
+  }
+
+  @media (max-width: $iphoneXR) {
+    width: 18rem;
+
+    &::placeholder {
+      color: $copyright-footer;
+      font-size: 0.8rem;
     }
   }
 }

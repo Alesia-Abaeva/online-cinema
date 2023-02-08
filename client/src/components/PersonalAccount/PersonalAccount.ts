@@ -8,6 +8,7 @@ export const renderPersonalAccountPage = (func?: () => HTMLElement) => {
   //   main.classList.add('main_backdrop');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['personal-account']);
+  mainContent.classList.add('show-personal');
 
   const profileSideBar: HTMLElement = renderPersonSidebar();
   const profileInformContainer: HTMLElement = renderAccountUserData(func);

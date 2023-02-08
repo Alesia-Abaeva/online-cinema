@@ -1,7 +1,7 @@
 import { createElem } from 'src/utils/create-element';
 import styles from './DropdownFilter.module.scss';
 
-export const renderDropdownFilter = (data: DropdownFiltersData): HTMLElement => {
+export const renderDropdownFilter = (data: DropdownFiltersData, func?: () => void): HTMLElement => {
   const dropdownFilter: HTMLElement = createElem('div', styles['dropdown-filter']);
   const caption: HTMLElement = createElem('div', 'dropdown-filter__title');
   caption.innerHTML = data.title;
@@ -24,6 +24,8 @@ export const renderDropdownFilter = (data: DropdownFiltersData): HTMLElement => 
 
     dropdownItem.onclick = (e: Event) => {
       const target = e.target as HTMLElement;
+
+      console.log(target.textContent);
 
       const list = target.parentElement as HTMLElement;
       const itemsArr = Array.from(list.children);

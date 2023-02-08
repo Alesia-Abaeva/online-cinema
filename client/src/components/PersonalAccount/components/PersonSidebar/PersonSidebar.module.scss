@@ -12,6 +12,14 @@
   transition: all $base-transition;
 }
 
+.show-personal-data-mob {
+  @media (max-width: $phone-width) {
+    position: absolute;
+    width: 100%;
+    // z-index: 2;
+  }
+}
+
 .profile-sidebar__menu {
   display: flex;
   flex-direction: column;
@@ -37,6 +45,10 @@
     border: 1px solid $light-text;
     transform: scale(1.05);
   }
+
+  &:last-child {
+    margin-bottom: 2rem;
+  }
 }
 
 .profile-sidebar__tariff {
@@ -55,6 +67,11 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: $tablet-width) {
+    width: 15rem;
+    margin-right: 0;
+  }
 }
 
 .tariff_icon {

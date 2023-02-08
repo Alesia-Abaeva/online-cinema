@@ -1,6 +1,5 @@
 import { createElem } from 'src/utils/create-element';
 import { renderProfileSet } from './components/MyProfile/MyProfile';
-// import { renderUserWatch } from './components/MyWatch/UserWatch';
 import styles from './ProfileInform.module.scss';
 
 export const renderAccountUserData = (func?: () => HTMLElement) => {

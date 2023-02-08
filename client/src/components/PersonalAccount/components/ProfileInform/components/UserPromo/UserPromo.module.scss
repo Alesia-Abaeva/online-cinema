@@ -31,6 +31,11 @@
   .profile__form-label {
     height: 20px;
   }
+
+  @media (max-width: $iphoneXR) {
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 
 .profile__promo-cnt {
@@ -56,6 +61,22 @@
     &:disabled {
       background-image: none;
       background-color: $tundora-60;
+    }
+  }
+
+  @media (max-width: $phone-width) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    input {
+      width: 20rem;
+    }
+  }
+
+  @media (max-width: $iphoneXR) {
+    input {
+      width: 16rem;
     }
   }
 }

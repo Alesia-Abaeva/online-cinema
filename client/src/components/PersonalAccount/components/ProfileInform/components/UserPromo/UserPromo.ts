@@ -1,6 +1,7 @@
 import { createButton } from 'src/components/ui/Button/Button';
 import { createInputElement } from 'src/components/ui/Input/Input';
 import { createElem } from 'src/utils/create-element';
+import { arrowBtn } from '../Handlers/arrow-but';
 // import { createInputComponent } from '../Handlers/createInputeComponent';
 import styles from './UserPromo.module.scss';
 
@@ -9,6 +10,9 @@ export const renderUserPromo = () => {
 
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Промокоды';
+
+  const btn = arrowBtn();
+  title.append(btn);
 
   const data: HTMLElement = createElem('div', 'profile-info__data');
   const dataTitle: HTMLElement = createElem('h2', 'profile-promo__title');
