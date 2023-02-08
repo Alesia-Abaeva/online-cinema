@@ -1,0 +1,19 @@
+.profile-settings {
+  .profile-info__data {
+    display: flex;
+
+    .profile__btn-save {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.profile-info__data {
+  .dropdown-filter {
+    width: 70%;
+  }
+  .dropdown-filter__list {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+}

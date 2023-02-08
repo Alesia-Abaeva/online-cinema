@@ -40,3 +40,15 @@ export const yearsFilterData: DropdownFiltersData = {
     { title: '1950-1970', active: false },
   ],
 };
+
+export const parentControl: DropdownFiltersData = {
+  title: 'Родительский контроль',
+  opt: [
+    { title: 'До 6 лет', active: false },
+    { title: 'До 12 лет', active: false },
+    { title: 'До 16 лет', active: false },
+    { title: 'До 18 лет', active: false },
+    { title: 'Кроме контента для взрослых', active: true },
+    { title: 'Контроль отключен', active: false },
+  ],
+};
