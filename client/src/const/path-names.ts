@@ -12,5 +12,6 @@ export const PATH_NAMES: PathNames = {
   userWatch: '/user/watch',
   userSubscribe: '/user/subscribeme',
   userSettings: '/user/settings',
-  userReference: 'user/reference',
+  userReference: '/user/reference',
+  userPromo: '/user/promo',
 };

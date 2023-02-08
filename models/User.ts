@@ -10,6 +10,8 @@ const schema = new Schema(
     films: [{ type: Types.ObjectId, ref: "Films" }], // TODO: здесь будет отображаться списков избранных фильмов, возможно сделать объект?
     avatarUrl: { type: String },
     tarrif: { type: String },
+    promocode: [{ type: String }],
+    parentControls: { type: String },
   },
   {
     timestamps: true,

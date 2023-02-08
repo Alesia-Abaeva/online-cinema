@@ -22,6 +22,8 @@ interface AuthGetPersonToken {
   tarrif?: string;
   newPassword?: string;
   repeatPassword?: string;
+  promocode?: string[];
+  parentControls?: string;
 }
 
 interface UploadResponse {
