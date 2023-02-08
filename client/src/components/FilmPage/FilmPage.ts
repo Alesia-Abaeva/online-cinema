@@ -4,7 +4,7 @@ import { renderPersons } from './components/Persons/Persons';
 import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
 import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
 import { renderRating } from './components/Rating/Rating';
-import { getPersons } from './Handlers/film-data-formaters';
+import { getPersonsWithJob } from './Handlers/film-data-formaters';
 import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
 import styles from './FilmPage.module.scss';
 
@@ -68,7 +68,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   }
 
   const { similarMovies } = filmData;
-  if (similarMovies) {
+  if (similarMovies.length !== 0) {
     const simiralMoviesSection: HTMLElement = renderSimilarMovies(similarMovies);
     filmDescription.append(simiralMoviesSection);
   }
@@ -79,12 +79,12 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const rating: HTMLElement = renderRating(filmData.rating.kp);
   filmRatingAndActors.append(rating);
 
-  const actors = getPersons(filmData.persons, 'actor', 10);
+  const actors = getPersonsWithJob(filmData.persons, 'actor');
   if (actors.length !== 0) {
     const actorsSection = renderPersons('В главных ролях:', actors);
     filmRatingAndActors.append(actorsSection);
   }
-  const voiceActors = getPersons(filmData.persons, 'voice_actor', 10);
+  const voiceActors = getPersonsWithJob(filmData.persons, 'voice_actor');
   if (voiceActors.length !== 0) {
     const voiceActorsSection = renderPersons('Роли дублировали:', voiceActors);
     filmRatingAndActors.append(voiceActorsSection);

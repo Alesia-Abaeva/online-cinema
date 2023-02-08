@@ -2,10 +2,16 @@
 
 .film-page__persons-title {
   font-family: NetflixSans-Bold;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
 .film-page__persons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
   list-style: none;
   font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--text-primary);
 }

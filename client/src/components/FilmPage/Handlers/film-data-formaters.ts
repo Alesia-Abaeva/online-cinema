@@ -36,22 +36,6 @@ export const formatSlogan = (slogan: string): string => {
   return slogan ? `"${slogan}"` : '';
 };
 
-export const formatPersons = (persons: PersonDataApi[], profession: string, limit = 3): string => {
-  const resPersons = persons.filter((el) => el['enProfession'] === profession && el.name).map((el) => el.name);
-  if (resPersons.length > limit) {
-    const shortRes = resPersons.slice(0, limit + 1);
-    shortRes[3] = '...';
-    return shortRes.join(', ');
-  }
-  return resPersons.join(', ');
-};
-
-export const getPersons = (persons: PersonDataApi[], profession: string, limit = 3): string[] => {
-  const resPersons = persons.filter((el) => el['enProfession'] === profession).map((el) => el.name);
-  if (resPersons.length > limit) {
-    const shortRes = resPersons.slice(0, limit);
-    shortRes.push(`Еще ${resPersons.length - limit}`);
-    return shortRes;
-  }
-  return resPersons;
+export const getPersonsWithJob = (persons: PersonDataApi[], profession: string): PersonDataApi[] => {
+  return persons.filter((el) => el['enProfession'] === profession);
 };
