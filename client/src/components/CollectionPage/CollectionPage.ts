@@ -2,7 +2,7 @@ import { createElem } from 'src/utils/create-element';
 import { Iitem } from '../MainPage/mockData';
 import styles from './CollectionPage.module.scss';
 
-export const renderCollection = (data: Iitem[], name: string): HTMLElement => {
+export const renderCollection = (data: Iitem[], name?: string): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['collection']);
@@ -13,7 +13,7 @@ export const renderCollection = (data: Iitem[], name: string): HTMLElement => {
 
   window.scrollTo(0, 0);
 
-  title.innerHTML = name;
+  name && (title.innerHTML = name);
 
   data.forEach((elem) => {
     const img = createElem('img', 'collection__item__img') as HTMLImageElement;

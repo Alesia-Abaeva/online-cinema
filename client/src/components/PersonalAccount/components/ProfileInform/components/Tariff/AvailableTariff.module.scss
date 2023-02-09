@@ -1,0 +1,45 @@
+.profile-info__data {
+  .main {
+    min-height: auto;
+    width: 100%;
+  }
+  .main__container {
+    max-width: inherit;
+
+    .subscriptions {
+      padding-top: 2rem;
+      height: auto;
+
+      .subscriptions__title {
+        display: none;
+      }
+
+      .subscriptions__body {
+        // flex-direction: column;
+        width: 100%;
+
+        .tariff-card {
+          width: 100%;
+          font-size: 0.9rem;
+          text-align: left;
+          height: 100%;
+          height: 32rem;
+          justify-content: flex-start;
+
+          .tariff-card__title {
+            font-size: 1.6rem;
+          }
+
+          .tariff-card__line {
+            height: 0.2rem;
+          }
+
+          //   @media (max-width: $tablet-width-100) {
+          //     justify-content: center;
+          //     flex-direction: column;
+          //   }
+        }
+      }
+    }
+  }
+}

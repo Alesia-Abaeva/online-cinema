@@ -1,7 +1,7 @@
 import { lists } from 'src/pages/lists';
 import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
-import { user, userPromo, userReference, userSettings, userWatch } from 'src/pages/user-account';
+import { user, userPromo, userReference, userSettings, userSubscribe, userWatch } from 'src/pages/user-account';
 import { subscriptions } from 'src/pages/subscriptions';
 import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
@@ -28,7 +28,7 @@ export const ROUTER_PATHS: Paths = {
     title: `login | ${projectTitle}`,
   },
   [PATH_NAMES.register]: {
-    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? notFound : register,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? notFound : register, // TODO: поставить страницу заглушки
     title: `register | ${projectTitle}`,
   },
   [PATH_NAMES.films]: {
@@ -73,6 +73,10 @@ export const ROUTER_PATHS: Paths = {
   },
   [PATH_NAMES.collection]: {
     template: collection,
+    title: `collection | ${projectTitle}`,
+  },
+  [PATH_NAMES.userSubscribe]: {
+    template: userSubscribe,
     title: `collection | ${projectTitle}`,
   },
 };
