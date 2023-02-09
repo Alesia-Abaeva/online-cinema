@@ -16,9 +16,10 @@ export const renderMainBanner = async (movieId: number): Promise<HTMLElement> =>
   const backgroundGradient: HTMLElement = createElem('div', styles.mainBanner__background__gradient);
   background.append(backgroundGradient);
 
-  const res: ResponseMovie = await getMovie({ id: movieId }).then((response) => response.data);
+  const res: ResponseMovie = await getMovie({ id: movieId });
 
   const contentWrapper: HTMLElement = renderAboutFilm(res);
+
   background.style.backgroundImage = `url(${res.backdrop?.url})`;
   background.append(content, tabs);
   container.append(background);
