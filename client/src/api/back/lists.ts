@@ -5,6 +5,8 @@ export const getList = async (options: Options): Promise<ResponseFindedMovies | 
   const res = await backCall.get<ResponseFindedMovies>(`${GET_LISTS}/${options.id}`, {
     page: options.page,
     limit: options.limit,
+    sort: options.sort,
   });
+  console.log(res.data);
   return res.data;
 };

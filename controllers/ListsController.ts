@@ -1,5 +1,8 @@
 import express from 'express';
 import * as fs from 'fs';
+import { LISTS_SORT } from '../filters/lists-sort';
+import { FindedMoviesBack } from '../types/films/res-film';
+import { SortTypes } from '../types/sort/sort-types';
 
 const filePath = './collections/lists.json';
 
@@ -11,10 +14,15 @@ export const getListData = async (
     const list = req.params.list;
     const page = +req.query.page;
     const limit = +req.query.limit;
-    
+    const sortType = req.query.sort as SortTypes;
+
     const data = JSON.parse(await fs.promises.readFile(filePath, 'utf-8'));
 
-    const listData = data[list];
+    let listData = data[list] as FindedMoviesBack[];
+    if (sortType !== 'DEFAULT') {
+      const sortFn = LISTS_SORT.find((el) => el.sort === sortType).fn;
+      listData = listData.sort(sortFn);
+    }
 
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;

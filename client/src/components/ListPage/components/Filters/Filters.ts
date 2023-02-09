@@ -1,4 +1,4 @@
-import { countriesFilterData, generesFilterData, yearsFilterData } from 'src/const/filters-data';
+import { yearsFilterData } from 'src/const/filters-data';
 import { createElem } from 'src/utils/create-element';
 import { renderBubbleFilter } from './components/BubbleFilter/BubbleFilter';
 import { renderDropdownFilter } from './components/DropdownFIlter/DropdownFilter';
@@ -9,11 +9,11 @@ export const renderFilters = (): HTMLElement => {
 
   const bubbleFilter: HTMLElement = renderBubbleFilter();
 
-  const countriesFilter: HTMLElement = renderDropdownFilter(countriesFilterData);
-  const genreFilter: HTMLElement = renderDropdownFilter(generesFilterData);
+  // const countriesFilter: HTMLElement = renderDropdownFilter(countriesFilterData);
+  // const genreFilter: HTMLElement = renderDropdownFilter(generesFilterData);
   const yearsFilter: HTMLElement = renderDropdownFilter(yearsFilterData);
 
-  filters.append(bubbleFilter, countriesFilter, genreFilter, yearsFilter);
+  filters.append(bubbleFilter, yearsFilter);
 
   return filters;
 };

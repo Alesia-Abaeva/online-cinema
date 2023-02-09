@@ -2,12 +2,13 @@ interface Options {
   id?: string;
   limit?: number;
   page?: number;
-  // listName?: string;
+  sort?: SortTypes;
   // Опции для функций запросов
 }
 interface DefOptions {
   limit: number;
   page: number;
+  sort: SortTypes;
   // Опции для функций запросов
 }
 
