@@ -19,7 +19,6 @@ export const renderHeroSectionNewUser = (): HTMLElement => {
     },
     'subs-hero__btn'
   );
-  subsBtn.textContent = 'Оформить подписку';
 
   container.append(h1, subTitle, subsBtn);
 

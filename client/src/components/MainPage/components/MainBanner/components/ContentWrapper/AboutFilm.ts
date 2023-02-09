@@ -6,6 +6,7 @@ import styles from './AboutFilm.module.scss';
 export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
   const buttons: HTMLElement = createElem('div', styles.contentWrapper__actions);
   const content: HTMLElement = createElem('div', styles.contentWrapper);
+
   const btnWatch = createBtnWatch() as HTMLButtonElement;
   const btnTrailer = createBtnTrailer() as HTMLButtonElement;
   const btnBookmark = createBtnBookmark() as HTMLButtonElement;
@@ -34,7 +35,7 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
       </div>
       <div class=${styles.contentWrapper__meta__main}>
         <div class=${styles.contentWrapper__year__genres}>
-          <span>${res.year ? res.year : ''},${res.genres[0].name ? res.genres[0].name : ''},${
+          <span>${res.year ? res.year : ''} ${res.genres[0].name ? res.genres[0].name : ''}, ${
     res.genres[1].name ? res.genres[1].name : ''
   }</span>
           <span>${res.countries[0].name ? res.countries[0].name : ''}</span>
