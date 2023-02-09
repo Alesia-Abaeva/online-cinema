@@ -15,11 +15,14 @@ class ApiWrapper {
 
   private async fetchWrapper<ResponseBody>(url: string, options: RequestInit) {
     const token: string | null = getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN);
-    console.log('token', token);
 
     const headers = {
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      ...(token && this.isBackEnd ? { Authorization: token } : {}),
+      //
+      ...(token && this.isBackEnd
+        ? // если есть токен и это бэк, добавляется заголовок Authorization
+          { Authorization: token }
+        : // иначе этот заголовок для API
+          { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }),
       ...(options?.headers ?? {}),
     };
 
@@ -27,7 +30,7 @@ class ApiWrapper {
       ...(options ?? {}),
       headers,
     });
-    console.log(headers);
+
     const data: ResponseBody = await response.json();
 
     if (!response.ok) {
@@ -66,7 +69,7 @@ class ApiWrapper {
     });
   }
 
-  async post<RequestBody, ResponseBody>(endpoint: string, body: RequestBody, options?: RequestInit) {
+  async post<RequestBody, ResponseBody>(endpoint: string, body: RequestBody, options?: RequestInit, isFile?: boolean) {
     const url: string = this.makeUrl(endpoint);
 
     const headers = {
@@ -76,8 +79,9 @@ class ApiWrapper {
 
     return await this.fetchWrapper<ResponseBody>(url, {
       ...(options ?? {}),
-      body: JSON.stringify(body),
-      headers,
+      body: isFile ? (body as unknown as FormData) : JSON.stringify(body),
+      // если передаем файл, то не делаем JSON.stringify и не передаем заголовки
+      headers: isFile ? {} : headers,
       method: METHODS.POST,
     });
   }

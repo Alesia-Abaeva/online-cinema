@@ -4,7 +4,7 @@ import { AuthTypes } from './types-redux';
 interface AuthState {
   login: ApiResponse<AuthResponse>;
   register: ApiResponse<AuthResponse>;
-  user: ApiResponse<AuthGetPersonToken>; // TODO исправить тип! AuthGetPersonToken
+  user: ApiResponse<AuthGetPersonToken>;
 }
 
 const initialState: AuthState = {
@@ -22,6 +22,8 @@ const authReducer = (state = initialState, action: TypesRedux) => {
       return { ...state, register: { ...state.register, ...(action.payload as ApiResponse<AuthResponse>) } };
     case AuthTypes.PERSON:
       return { ...state, user: { ...state.user, ...(action.payload as ApiResponse<AuthGetPersonToken>) } };
+    case AuthTypes.ERROR_PASS:
+      return { ...state, user: { ...state.user, error: action.payload as ErrorMessage } };
     default:
       return state;
   }

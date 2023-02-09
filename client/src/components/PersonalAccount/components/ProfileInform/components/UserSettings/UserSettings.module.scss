@@ -1,0 +1,27 @@
+@import '/src/theme/variable';
+
+.profile-settings {
+  .profile-info__data {
+    display: flex;
+
+    .profile__btn-save {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $phone-width) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.profile-info__data {
+  .dropdown-filter {
+    width: 70%;
+  }
+  .dropdown-filter__list {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+}

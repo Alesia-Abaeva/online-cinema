@@ -4,4 +4,7 @@ export enum AuthTypes {
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',
   PERSON = 'PERSON',
+  ERROR_PASS = 'ERROR_PASS',
 }
+
+// тип для редакса

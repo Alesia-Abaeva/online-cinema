@@ -33,9 +33,17 @@ export const register = async (req: express.Request, res: express.Response) => {
 
     await user.save();
 
-    res.status(201).send({ user, message: "Пользователь успешно создан!" });
+    const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
+      expiresIn: "3h", //время существования токена
+    });
+
+    res.status(201).send({
+      token,
+      user,
+      userId: user.id,
+      message: "Пользователь успешно создан!",
+    });
   } catch (e) {
-    console.log(e);
     res
       .status(500) // добавляем стандартную серверную ошибку
       .json({ message: "Не удалось зарегистрироваться." });
@@ -70,16 +78,16 @@ export const login = async (req: express.Request, res: express.Response) => {
 
     //   создаем токен для авторизованного пользователя
     const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
-      expiresIn: "1h", //время существования токена
+      expiresIn: "3h", //время существования токена
     });
 
-    const refreshToken = jwt.sign(
-      { userId: user.id },
-      config.get("jwtSecret"),
-      {
-        expiresIn: "1h", //время существования токена
-      }
-    ); // TODO - добавить рефреш токен
+    // const refreshToken = jwt.sign(
+    //   { userId: user.id },
+    //   config.get("jwtSecret"),
+    //   {
+    //     expiresIn: "1h", //время существования токена
+    //   }
+    // ); // TODO: добавить рефреш токен
 
     res.json({ token, userId: user.id });
   } catch (e) {
@@ -98,9 +106,106 @@ export const getUserData = async (
       return res.status(401).json({ message: "Пользователь не найден" });
     }
 
-    console.log(user);
     res.json(user);
   } catch (e) {
     res.status(500).json({ message: "Нет доступа" });
+  }
+};
+
+export const updateUser = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { name, lastName } = req.body;
+    // TODO: отредактировать для изменения данных пользователя
+
+    const user = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        name,
+        lastName,
+      },
+      {
+        new: true,
+      }
+    );
+
+    console.log(user);
+
+    res.json(user);
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
+  }
+};
+
+export const updateUserPassword = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { password, newPassword } = req.body;
+
+    if (!newPassword) {
+      return res.status(400).json({
+        message: "Введите новый пароль",
+      });
+    }
+
+    if (password === newPassword) {
+      return res.status(400).json({
+        message: "Новый пароль не может быть равен старому паролю",
+      });
+    }
+
+    const user = await User.findById(req.user.userId);
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    console.log(isMatch);
+
+    if (!isMatch) {
+      return res
+        .status(400)
+        .json({ message: "Неверный пароль, данные не обновлены" });
+    }
+
+    const userUpdate = await User.findOneAndUpdate(req.user.userId, {
+      password: await bcrypt.hash(newPassword, 12),
+    });
+
+    // TODO: отредактировать для изменения данных пользователя
+
+    res.json({
+      message: "Данные успешно обновлены!",
+    });
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
+  }
+};
+
+export const updateUserParentsContr = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { parentControls } = req.body;
+
+    console.log(parentControls);
+    // TODO: отредактировать для изменения данных пользователя
+
+    const user = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        parentControls,
+      },
+      {
+        new: true,
+      }
+    );
+
+    console.log(user);
+    res.json(user);
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
   }
 };

@@ -8,4 +8,11 @@ export const PATH_NAMES: PathNames = {
   name: '/name', // dynamic
   lists: '/all-lists',
   subscriptions: '/subscriptions',
+  user: '/user', // dinamyc
+  userAccount: '/user/aboutme',
+  userWatch: '/user/watch',
+  userSubscribe: '/user/subscribeme',
+  userSettings: '/user/settings',
+  userReference: '/user/reference',
+  userPromo: '/user/promo',
 };

@@ -7,8 +7,11 @@ const schema = new Schema(
     name: { type: String },
     lastName: { type: String },
     password: { type: String, required: true },
-    films: [{ type: Types.ObjectId, ref: "Films" }], // TODO - здесь будет отображаться списков избранных фильмов, возможно сделать объект?
-    avatarUrl: String,
+    films: [{ type: Types.ObjectId, ref: "Films" }], // TODO: здесь будет отображаться списков избранных фильмов, возможно сделать объект?
+    avatarUrl: { type: String },
+    tarrif: { type: String },
+    promocode: [{ type: String }],
+    parentControls: { type: String },
   },
   {
     timestamps: true,

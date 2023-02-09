@@ -1,7 +1,14 @@
 @import '/src/theme/variable';
 
 .reg-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
   @include default-page-container;
+  // TODO: ! 
+
 }
 
 .form__wrapp-reg {

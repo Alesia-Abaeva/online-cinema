@@ -6,3 +6,12 @@ interface AttributeInput {
   name?: string;
   spellcheck?: string;
 }
+
+interface InputComponent {
+  attribute: AttributeInput;
+  label: string;
+}
+
+interface Commons {
+  [key: string]: string;
+}

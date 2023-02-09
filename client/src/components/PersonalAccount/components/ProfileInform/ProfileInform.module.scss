@@ -1,0 +1,156 @@
+@import '/src/theme/variable';
+
+.profile-info__wparr {
+  width: 65%;
+}
+
+.profile-info__title {
+  padding: 0 0 1rem 2rem;
+
+  @media (max-width: $phone-width) {
+    position: relative;
+    padding: 0 0 1rem 3rem;
+    z-index: 0;
+  }
+}
+
+.profile-info__data {
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background-color: $background;
+  border: 1px solid $conditionalborder;
+  border-radius: 10px;
+  padding: 2rem;
+  text-decoration: none;
+  color: $white;
+  pointer-events: all;
+  transition: all $base-transition;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: $iphoneXR) {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.profile__form-cnt {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  position: relative;
+
+  .icon__container {
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    padding-left: 0.75rem;
+    padding-right: 0.9rem;
+    padding-bottom: 0.75rem;
+    z-index: 2;
+    cursor: pointer;
+
+    &:hover {
+      svg {
+        path {
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  &:invalid {
+    .profile__form-label {
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+      color: $yandex-red;
+    }
+  }
+}
+
+.profile__form-label {
+  font-size: 1rem;
+  color: $light-text;
+  padding: 0.5rem;
+}
+
+.profile__form-input {
+  background-color: $conditionalborder;
+  border: none;
+  color: $white;
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  width: 25rem;
+
+  &::placeholder {
+    color: $copyright-footer;
+    font-size: 1rem;
+  }
+
+  &:invalid {
+    border: 0.5px solid $yandex-red;
+    box-shadow: 0 0 0 0.5px $yandex-red;
+    outline: none;
+    color: $yandex-red;
+    &::placeholder {
+      color: $yandex-red;
+    }
+  }
+
+  @media (max-width: $phone-width) {
+    width: 20rem;
+  }
+
+  @media (max-width: $iphoneXR) {
+    width: 18rem;
+
+    &::placeholder {
+      color: $copyright-footer;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.profile__btn-save {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-end;
+
+  .button {
+    height: 3rem;
+    color: $light-text;
+    font-size: 1rem;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &:disabled {
+      background-image: none;
+      background-color: $tundora-60;
+    }
+  }
+}
+
+.invalide-data {
+  .profile__form-input {
+    border: 0.5px solid $yandex-red;
+    box-shadow: 0 0 0 0.5px $yandex-red;
+    outline: none;
+    color: $yandex-red;
+    &::placeholder {
+      color: $yandex-red;
+    }
+  }
+  .profile__form-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    color: $yandex-red;
+  }
+
+  svg {
+    path {
+      fill: $yandex-red;
+    }
+  }
+}

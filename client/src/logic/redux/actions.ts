@@ -19,7 +19,7 @@ const setRegisterInfo = (payload: ApiResponse<AuthResponse>) => {
   };
 };
 
-const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
+export const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
   return {
     type: AuthTypes.PERSON,
     payload,
@@ -28,16 +28,10 @@ const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
 
 export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
   try {
-    // оформляем загрузку
     dispatch(setLoginInfo({ isLoading: true }));
-    // получить данные
     const { data } = await loginHandler(body);
-    // оформляем ответ успешный
-    // оформляем конец загрузки
     dispatch(setLoginInfo({ error: null, data, isLoading: false, isAuth: true }));
   } catch (e) {
-    // оформляем ошибку
-    // оформляем конец загрузки
     dispatch(setLoginInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
 };
@@ -61,4 +55,11 @@ export const getDataPerson = () => async (dispatch: AppDispatch) => {
     dispatch(setUserInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
     // localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
   }
+};
+
+export const setPasswordError = (payload: Nullable<ErrorMessage>) => {
+  return {
+    type: AuthTypes.ERROR_PASS,
+    payload,
+  };
 };

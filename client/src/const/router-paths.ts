@@ -1,5 +1,7 @@
 import { lists } from 'src/pages/lists';
+import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
+import { user, userPromo, userReference, userSettings, userWatch } from 'src/pages/user-account';
 import { subscriptions } from 'src/pages/subscriptions';
 import { name } from 'src/pages/person-page';
 import { notFound } from '../pages/404';
@@ -9,6 +11,7 @@ import { register } from '../pages/register';
 import { film } from '../pages/film-page';
 import { PATH_NAMES } from './path-names';
 import { projectTitle } from './project-title';
+import { LOCAL_STORAGE_KEYS } from './local-storage';
 
 export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.notFound]: {
@@ -24,7 +27,7 @@ export const ROUTER_PATHS: Paths = {
     title: `login | ${projectTitle}`,
   },
   [PATH_NAMES.register]: {
-    template: register,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? notFound : register,
     title: `register | ${projectTitle}`,
   },
   [PATH_NAMES.films]: {
@@ -43,8 +46,29 @@ export const ROUTER_PATHS: Paths = {
     template: list,
     title: `list | ${projectTitle}`,
   },
+  [PATH_NAMES.user]: {
+    template: user,
+    title: `user | ${projectTitle}`,
+  },
+  [PATH_NAMES.userWatch]: {
+    template: userWatch,
+    title: `user | ${projectTitle}`,
+  },
+  [PATH_NAMES.userSettings]: {
+    template: userSettings,
+    title: `user | ${projectTitle}`,
+  },
+  [PATH_NAMES.userPromo]: {
+    template: userPromo,
+    title: `user | ${projectTitle}`,
+  },
+  [PATH_NAMES.userReference]: {
+    template: userReference,
+    title: `user | ${projectTitle}`,
+
   [PATH_NAMES.subscriptions]: {
     template: subscriptions,
     title: `subscriptions | ${projectTitle}`,
+
   },
 };
