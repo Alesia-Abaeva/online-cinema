@@ -13,8 +13,8 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
 
   const description = res.shortDescription ? res.shortDescription : res.description;
   const title = res.logo.url ? `<img src="${res.logo.url}" alt="${res.name}" />` : res.name;
-  const raiting = res.rating.kp ? res.rating.kp.toFixed(1) : 0;
-  const votes = res.votes.kp ? getReadableVotes(res.votes.kp) : 0;
+  const raiting = res.rating.kp ? res.rating.kp.toFixed(1) : '';
+  const votes = res.votes.kp ? getReadableVotes(res.votes.kp) : '';
   const ageRating = res.ageRating ? `${res.ageRating}+` : '';
 
   const aboutFilmTemplate = `
@@ -34,9 +34,11 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
       </div>
       <div class=${styles.contentWrapper__meta__main}>
         <div class=${styles.contentWrapper__year__genres}>
-          <span>${res.year},${res.genres[0].name},${res.genres[1].name}</span>
-          <span>${res.countries[0].name}</span>
-          <span>${getReadableDuration(res.movieLength)}</span>
+          <span>${res.year ? res.year : ''},${res.genres[0].name ? res.genres[0].name : ''},${
+    res.genres[1].name ? res.genres[1].name : ''
+  }</span>
+          <span>${res.countries[0].name ? res.countries[0].name : ''}</span>
+          <span>${res.movieLength ? getReadableDuration(res.movieLength) : ''}</span>
           <span>${ageRating}</span>
         </div>
       </div>

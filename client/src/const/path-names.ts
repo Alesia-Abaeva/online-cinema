@@ -7,4 +7,5 @@ export const PATH_NAMES: PathNames = {
   list: '/list', // dynamic
   lists: '/all-lists',
   subscriptions: '/subscriptions',
+  collection: '/collection', // TODO dynamic
 };

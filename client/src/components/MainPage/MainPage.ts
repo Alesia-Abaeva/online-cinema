@@ -2,7 +2,8 @@ import { createElem } from '../../utils/create-element';
 import { renderSlider } from './components/Slider/Slider';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
-import { mockData } from './mockData';
+import { genresData, mockData } from './mockData';
+import { addListenerCollection, addListenerSlideDown } from './sliderActions';
 
 export const renderMainPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', styles['main']);
@@ -13,10 +14,11 @@ export const renderMainPage = (): HTMLElement => {
   mainContainer.append(subsHero);
 
   // TODO: Заменить на компоненты слайдеров
-  const section2: HTMLElement = renderSlider(mockData, 'Слайдер 1');
-  const section3: HTMLElement = renderSlider(mockData, 'Слайдер 2');
+  const section1: HTMLElement = addListenerSlideDown(renderSlider(mockData, 'Слайдер 1'));
+  const section2: HTMLElement = addListenerCollection(renderSlider(genresData, 'Слайдер 2'));
+  const section3: HTMLElement = addListenerSlideDown(renderSlider(mockData, 'Слайдер 3'));
 
-  main.append(mainContainer, section2, section3);
+  main.append(mainContainer, section1, section2, section3);
 
   return main;
 };

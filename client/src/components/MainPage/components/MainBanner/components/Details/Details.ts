@@ -5,12 +5,11 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
   const details: HTMLElement = createElem('div', styles.filmDetails);
   const description = res.description ? res.description : 'Нет описания';
   const title = res.logo.url ? `<img src="${res.logo.url}" alt="${res.name}" />` : res.name;
-  const raiting = res.rating.kp ? res.rating.kp.toFixed(1) : 0;
+  const raiting = res.rating.kp ? res.rating.kp.toFixed(1) : '';
   const votes = res.votes.kp ? res.votes.kp : 0;
 
   const createListItem = (text: string) => {
     const listItem = `<li  class=${styles.body__right__item}>${text}</li>`;
-
     return listItem;
   };
 
@@ -23,14 +22,11 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
     .slice(0, 2)
     .map((el) => el.name);
 
-  console.log(actors, directors);
-
   const detailsTemplate = `
   <div class=${styles.filmDetails__title}>
     <h1>${title}</h1>
   </div>
   <div class=${styles.filmDetails__body}>
-
   <div class=${styles.filmDetails__body__left}>
   <div class=${styles.filmDetails__meta}>
   <div class=${styles.filmDetails__meta__base}>
@@ -46,7 +42,6 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
 </div>
 <p class=${styles.filmDetails__description}>${description}</p>
   </div>
-
 <div class=${styles.filmDetails__body__right}>
   <div  class=${styles.body__right__container}>
     <div  class=${styles.body__right__block}>
