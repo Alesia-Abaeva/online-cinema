@@ -15,7 +15,7 @@
   justify-content: space-between;
   cursor: pointer;
   padding: 0 1.6rem;
-  border-bottom: 1px solid $light-text;
+  border-bottom: 1px solid var(--text-secondary);
   font-size: 1rem;
   line-height: 1.7rem;
   font-weight: 400;
@@ -32,7 +32,7 @@
 }
 
 .referens__data-item-title {
-  color: $copyright-footer-hover;
+  color: var(--text-secondary);
   position: relative;
 }
 
@@ -43,7 +43,7 @@
     transform: rotate(-90deg);
     width: 13px;
     height: 1px;
-    background-color: $light-text;
+    background-color: var(--text-secondary);
     content: '';
     position: absolute;
     right: 0;
@@ -54,7 +54,7 @@
   &::before {
     width: 13px;
     height: 1px;
-    background-color: $light-text;
+    background-color: var(--text-secondary);
     content: '';
     position: absolute;
     right: 0;

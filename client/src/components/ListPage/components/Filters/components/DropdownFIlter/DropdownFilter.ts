@@ -33,7 +33,7 @@ export const renderDropdownFilter = (data: DropdownFiltersData): HTMLElement => 
         item.classList.remove('dropdown-filter__list-item_active');
         targetElement.push(item);
       });
-      console.log(targetElement);
+
       target.classList.add('dropdown-filter__list-item_active');
 
       const filterEl = target.closest('.dropdown-filter') as HTMLElement;

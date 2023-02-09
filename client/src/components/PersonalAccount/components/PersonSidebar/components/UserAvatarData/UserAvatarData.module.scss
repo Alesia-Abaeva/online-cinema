@@ -22,7 +22,7 @@
     &:last-child {
       font-size: 0.8rem;
       margin-top: 0.3rem;
-      color: $copyright-footer;
+      color: var(--text-ternary);
     }
   }
 }
@@ -49,6 +49,7 @@
 
 .user-avatar__svg-cnt {
   align-items: center;
+  color: var(--always-white);
   background-color: $tundora-60;
   border-radius: 100%;
   bottom: 0;

@@ -19,7 +19,7 @@
   background-image: url('assets/img/icons/bookmark-add.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  filter: invert(100%);
+  filter: var(--inverted-icon);
   width: 4rem;
   height: 4rem;
   margin-left: auto;

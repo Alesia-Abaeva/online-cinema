@@ -7,7 +7,7 @@
     gap: 0.4rem;
 
     .profile-promo__title {
-      @include gradinent-text((linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%)));
+      @include gradinent-text(var(--gradient-primary));
     }
   }
 }
@@ -18,7 +18,7 @@
 }
 
 .profile-promo__description {
-  color: $copyright-footer;
+  color: var(--text-ternary);
   margin-bottom: 1.5rem;
 }
 
@@ -45,14 +45,14 @@
   justify-content: center;
 
   input {
-    background-color: $conditionalborder;
-    border: none;
-    color: $white;
+    background-color: var(--bg-ternary);
+    border: 1px solid transparent;
+    color: var(--text-primary);
     font-size: 1.2rem;
     padding-left: 1rem;
     width: 25rem;
     &::placeholder {
-      color: $copyright-footer;
+      color: var(--text-ternary);
       font-size: 1rem;
     }
   }

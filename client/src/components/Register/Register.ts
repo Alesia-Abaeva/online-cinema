@@ -18,6 +18,7 @@ export const renderRegisterPage = (): HTMLElement => {
   };
 
   const main: HTMLElement = createElem('main', 'main');
+  main.classList.add('main_backdrop');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['reg-page']);
 

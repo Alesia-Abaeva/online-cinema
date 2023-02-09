@@ -20,16 +20,16 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
 
   listHeader.append(listTitle, listImgCont);
 
-  const progressBar: HTMLElement = renderProgressBar(`Вы посмотрели 0 фильмов из ${listItems.item.data.total}`);
+  const progressBar: HTMLElement = renderProgressBar(`Вы посмотрели 0 фильмов из ${listItems.item.total}`);
 
   const listItemsContainer: HTMLElement = createElem('div', 'list-content__list-items');
 
-  listItems.item.data.docs.forEach((el, id) => {
-    const listItem: HTMLElement = renderListItem(el, id, listItems.item.data.page, listItems.item.data.limit);
+  listItems.item.docs.forEach((el, id) => {
+    const listItem: HTMLElement = renderListItem(el, id, listItems.item.page, listItems.item.limit);
     listItemsContainer.append(listItem);
   });
 
-  paginaitonState.total = listItems.item.data.total;
+  paginaitonState.total = listItems.item.total;
   const pagination: HTMLElement = renderPagination(updateListPageUI);
 
   litsContent.append(listHeader, progressBar, listItemsContainer, pagination);

@@ -2,14 +2,13 @@
 
 .profile-sidebar__cnt {
   width: 35%;
-  background-color: $background;
-  border: 1px solid $conditionalborder;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
   border-radius: 10px;
   padding: 2rem;
   text-decoration: none;
-  color: $white;
+  color: var(--text-primary);
   pointer-events: all;
-  transition: all $base-transition;
 }
 
 .show-personal-data-mob {
@@ -27,8 +26,7 @@
 }
 
 .profile-sidebar__item {
-  transition: all $base-transition;
-  border: 1px solid $conditionalborder;
+  border: 1px solid var(--border-primary);
   border-radius: 10px;
   cursor: pointer;
 
@@ -40,9 +38,9 @@
   }
 
   &:hover {
-    background-color: $tundora;
-    color: $white;
-    border: 1px solid $light-text;
+    background-color: var(--bg-ternary);
+    color: var(--text-primary);
+    border: 1px solid var(--text-secondary);
     transform: scale(1.05);
   }
 
@@ -83,13 +81,13 @@
 }
 
 .tariff_name {
-  @include gradinent-text((linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%)));
+  @include gradinent-text(var(--gradient-primary));
 }
 
 .active-block {
-  background-color: $tundora;
-  color: $white;
-  border: 1px solid $light-text;
+  background-color: var(--bg-ternary);
+  color: var(--text-primary);
+  border: 1px solid var(--text-secondary);
   transform: scale(1.05);
   border-radius: 10px;
 }

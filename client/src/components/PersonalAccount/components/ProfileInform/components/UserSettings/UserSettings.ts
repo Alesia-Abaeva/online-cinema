@@ -21,7 +21,6 @@ export const renderUserSettings = () => {
   const bntCtn: HTMLElement = createElem('div', 'profile__btn-save');
   bntCtn.onclick = () => {
     const number = ageFilter.firstChild?.textContent as string;
-    console.log(number);
     handleChangeParentControl({ parentControls: number });
   };
   const bntSaveData: HTMLElement = createButton('сохранить');
