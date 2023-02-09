@@ -27,9 +27,16 @@ export const renderHeader = (): HTMLElement => {
   store.subscribe(() => {
     const userState = store.getState().auth.user;
 
+    if (userState.isLoading) {
+      headerContainer.innerHTML = '';
+      headerContainer.append(logo, accoutSection, hamburger, searchInput);
+    }
+
     if (userState.data === null) {
+      headerContainer.innerHTML = '';
       headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS, ''), accoutSection, hamburger, searchInput);
     } else {
+      headerContainer.innerHTML = '';
       headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS_AUTH, ''), accoutSection, hamburger, searchInput);
     }
   });

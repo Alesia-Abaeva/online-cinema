@@ -161,7 +161,8 @@ export const updateUserPassword = async (
     const user = await User.findById(req.user.userId);
 
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log(isMatch);
+    console.log("isMatch", isMatch);
+    console.log("user", user);
 
     if (!isMatch) {
       return res
@@ -169,9 +170,17 @@ export const updateUserPassword = async (
         .json({ message: "Неверный пароль, данные не обновлены" });
     }
 
-    const userUpdate = await User.findOneAndUpdate(req.user.userId, {
-      password: await bcrypt.hash(newPassword, 12),
-    });
+    const userUpdate = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        password: await bcrypt.hash(newPassword, 12),
+      },
+      {
+        new: true,
+      }
+    );
+
+    console.log("userUpdate", userUpdate);
 
     // TODO: отредактировать для изменения данных пользователя
 
