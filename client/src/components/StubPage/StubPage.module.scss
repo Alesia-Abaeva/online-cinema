@@ -1,0 +1,13 @@
+@import '/src/theme/variable';
+
+.stub {
+  @include default-page-container;
+
+  &__message {
+    margin-bottom: 2.4rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 400;
+    max-width: 600px;
+  }
+}
