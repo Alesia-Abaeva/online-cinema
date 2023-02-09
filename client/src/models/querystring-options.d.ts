@@ -1,7 +1,8 @@
 interface Options {
-  id?: number;
+  id?: string;
   limit?: number;
   page?: number;
+  // listName?: string;
   // Опции для функций запросов
 }
 interface DefOptions {

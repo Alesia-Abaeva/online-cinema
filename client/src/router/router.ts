@@ -1,5 +1,5 @@
 import { getMovie, getPerson } from 'src/api/films';
-import { getListFucntion } from 'src/utils/get-list-function';
+import { getList } from 'src/api/back/lists';
 import { ROUTER_PATHS } from '../const/router-paths';
 import { PATH_NAMES } from '../const/path-names';
 import { dynamicRouteHandler } from './dynamic-route-handler';
@@ -11,7 +11,7 @@ export const pathResolver = (pathname: string): void => {
   if (pathname.startsWith(PATH_NAMES.films)) {
     dynamicRouteHandler(pathname, PATH_NAMES.films, getMovie);
   } else if (pathname.startsWith(PATH_NAMES.list)) {
-    dynamicRouteHandler(pathname, PATH_NAMES.list, getListFucntion(pathname));
+    dynamicRouteHandler(pathname, PATH_NAMES.list, getList);
   } else if (pathname.startsWith(PATH_NAMES.name)) {
     dynamicRouteHandler(pathname, PATH_NAMES.name, getPerson);
   } else {
