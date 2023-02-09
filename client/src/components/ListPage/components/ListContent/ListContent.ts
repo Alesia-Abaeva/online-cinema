@@ -24,7 +24,6 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
 
   const listItemsContainer: HTMLElement = createElem('div', 'list-content__list-items');
 
-  console.log(listItems);
   listItems.item.data.docs.forEach((el, id) => {
     const listItem: HTMLElement = renderListItem(el, id, listItems.item.data.page, listItems.item.data.limit);
     listItemsContainer.append(listItem);

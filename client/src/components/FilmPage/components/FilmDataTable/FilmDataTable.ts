@@ -4,11 +4,11 @@ import { renderPopover } from '../Popover/Popover';
 import styles from './FilmDataTable.module.scss';
 
 export const renderFilmDataTable = (filmData: ResponseMovie): HTMLElement => {
-  const filmAbout: HTMLElement = createElem('div', styles['film-page__about']);
-  const aboutTitle: HTMLElement = createElem('h2', 'film-page__about-title');
+  const filmAbout: HTMLElement = createElem('div', styles['id-page__about']);
+  const aboutTitle: HTMLElement = createElem('h2', 'id-page__about-title');
   aboutTitle.innerHTML = 'О фильме';
 
-  const aboutTable: HTMLElement = createElem('div', 'film-page__about-table');
+  const aboutTable: HTMLElement = createElem('div', 'id-page__about-table');
   aboutTable.classList.add('about-table');
 
   const formatedData = getFilmFields(filmData);
@@ -30,8 +30,8 @@ export const renderFilmDataTable = (filmData: ResponseMovie): HTMLElement => {
             return;
           }
           const popoverWrapper: HTMLElement = createElem('div', 'popover__wrapper');
-          rowContentItem.classList.add('film-page__person_link');
-          rowContentItem.setAttribute('href', `/person/${item.id}`);
+          rowContentItem.classList.add('id-page__person_link');
+          rowContentItem.setAttribute('href', `/name/${item.id}`);
           rowContentItem.dataset.personId = item.id.toString();
 
           const popover: HTMLElement = renderPopover(item);

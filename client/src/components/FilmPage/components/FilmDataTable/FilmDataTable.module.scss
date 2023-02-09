@@ -1,12 +1,12 @@
 @import '/src/theme/variable';
 
-.film-page__about {
+.id-page__about {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.film-page__about-table {
+.id-page__about-table {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -24,13 +24,22 @@
   gap: 1rem;
 }
 
-.film-page__person_link {
+.id-page__person_link {
   text-decoration: none;
   color: var(--text-primary);
+
+  &:hover {
+    @include gradinent-text(var(--gradient-primary));
+  }
 }
 
-@media(max-width: 500px) {
-  .film-page__about-table {
+@media (max-width: 500px) {
+
+  .id-page__about {
+    gap: 0.5rem;
+  }
+
+  .id-page__about-table {
     gap: 0.5rem;
   }
 
@@ -38,7 +47,7 @@
     grid-template-columns: 1fr 2.5fr;
   }
 }
-@media(max-width: 450px) {
+@media (max-width: 450px) {
   .about-table__row {
     grid-template-columns: 1fr 2fr;
   }
