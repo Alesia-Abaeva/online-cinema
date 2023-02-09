@@ -12,6 +12,6 @@ interface ListItems {
 }
 
 interface FilmItems {
-  item: ResponseMovie;
+  item: { data: ResponseMovie };
   pathname: string;
 }

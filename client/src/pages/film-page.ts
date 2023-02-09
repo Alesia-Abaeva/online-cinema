@@ -3,5 +3,5 @@ import { renderFilmPage } from '../components/FilmPage/FilmPage';
 
 export const film = (data: FilmItems): void => {
   const filmData = data.item;
-  renderApp(() => renderFilmPage(filmData));
+  renderApp(() => renderFilmPage(filmData.data));
 };

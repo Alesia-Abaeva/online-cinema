@@ -1,4 +1,5 @@
 @import '/src/theme/colors';
+@import '/src/theme/animations';
 
 // $desktop: 95vw;
 $desktop: 1440px;
@@ -85,7 +86,6 @@ $shadow-primary: 0 4px 7px rgb(0 0 0 / 25%);
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 1px #eee;
   border-radius: 5px;
   padding: 1rem;
   font-size: 0.9rem;

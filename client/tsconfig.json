@@ -16,6 +16,5 @@
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true
-  },
-  "types": ["webpack-env"]
+  }
 }
