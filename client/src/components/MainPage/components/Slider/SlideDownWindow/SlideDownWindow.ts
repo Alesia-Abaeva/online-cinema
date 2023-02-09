@@ -1,4 +1,4 @@
-import { createElem } from '../../../../../utils/create-element';
+import { createElem } from 'src/utils/create-element';
 import { renderMainBanner } from '../../MainBanner/MainBanner';
 import styles from './SlideDownWindow.module.scss';
 

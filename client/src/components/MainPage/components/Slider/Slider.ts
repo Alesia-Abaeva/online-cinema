@@ -1,4 +1,4 @@
-import { createElem } from '../../../../utils/create-element';
+import { createElem } from 'src/utils/create-element';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';

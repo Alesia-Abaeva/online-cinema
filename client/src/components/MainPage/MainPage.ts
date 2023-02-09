@@ -1,4 +1,4 @@
-import { createElem } from '../../utils/create-element';
+import { createElem } from 'src/utils/create-element';
 import { renderSlider } from './components/Slider/Slider';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';

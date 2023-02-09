@@ -1,7 +1,7 @@
+import { createElem } from 'src/utils/create-element';
+import { getMovie } from 'src/api/films';
 import { renderTabs } from './components/tabs/tabs';
 import { renderAboutFilm } from './components/ContentWrapper/AboutFilm';
-import { getMovie } from '../../../../api/films';
-import { createElem } from '../../../../utils/create-element';
 import styles from './MainBanner.module.scss';
 import { renderDetails } from './components/Details/Details';
 

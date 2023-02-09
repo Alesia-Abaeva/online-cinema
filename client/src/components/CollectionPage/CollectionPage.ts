@@ -1,4 +1,4 @@
-import { createElem } from '../../utils/create-element';
+import { createElem } from 'src/utils/create-element';
 import { Iitem } from '../MainPage/mockData';
 import styles from './CollectionPage.module.scss';
 

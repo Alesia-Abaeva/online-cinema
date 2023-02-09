@@ -1,4 +1,4 @@
-import { createElem } from '../../../../../utils/create-element';
+import { createElem } from 'src/utils/create-element';
 import styles from './SliderItem.module.scss';
 
 export const renderSliderItem = (id: number, img: string, rating?: string): HTMLElement => {

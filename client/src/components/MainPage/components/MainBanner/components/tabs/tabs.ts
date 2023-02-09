@@ -1,5 +1,5 @@
+import { createElem } from 'src/utils/create-element';
 import { createBtnTabAboutFilm, createBtnTabDetails } from '../buttons/buttons';
-import { createElem } from '../../../../../../utils/create-element';
 import styles from './tabs.module.scss';
 
 export const renderTabs = (): HTMLElement => {
