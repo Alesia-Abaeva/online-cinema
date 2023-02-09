@@ -18,13 +18,15 @@ export const renderCollection = (data: Iitem[], name: string): HTMLElement => {
   data.forEach((elem) => {
     const img = createElem('img', 'collection__item__img') as HTMLImageElement;
     img.src = elem.img;
-    const item = createElem('div', 'collection__item') as HTMLElement;
+    const item = createElem('a', 'collection__item') as HTMLElement;
+
     if (elem.rating) {
       const raiting = createElem('span', 'collection__item__raiting') as HTMLElement;
       raiting.innerHTML = elem.rating;
       item.append(raiting);
     }
 
+    item.setAttribute('href', `/films/${elem.id}`);
     item.append(img);
     list.append(item);
   });
