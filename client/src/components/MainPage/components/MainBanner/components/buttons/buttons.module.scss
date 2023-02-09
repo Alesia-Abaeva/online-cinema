@@ -1,0 +1,68 @@
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  border-radius: 50px;
+  padding: 0 26px 0 22px;
+  height: 52px;
+  font-size: 16px;
+  line-height: 18px;
+  white-space: nowrap;
+  width: min-content;
+  box-shadow: none;
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
+
+  &__film {
+    svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+  }
+  &__trailer {
+    background: rgba(31, 31, 31, 0.95);
+    &:hover {
+      background: rgba(41, 41, 41, 0.95);
+    }
+  }
+  &__round {
+    height: 52px;
+    padding: 0 14px;
+    background: rgba(31, 31, 31, 0.95);
+    svg {
+      fill: white;
+      width: 24px;
+      height: 24px;
+    }
+    &:hover {
+      background: rgba(41, 41, 41, 0.95);
+    }
+  }
+}
+
+.tabBtn {
+  width: auto;
+  background: transparent;
+  display: inline-flex;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  color: hsla(0, 0%, 100%, 0.6);
+  border-radius: 8px;
+  transition: 300ms;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  border: none;
+
+  &__active {
+    color: white;
+    background: rgba(31, 31, 31, 0.95);
+  }
+}

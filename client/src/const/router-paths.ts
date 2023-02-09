@@ -3,6 +3,7 @@ import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
 import { user, userPromo, userReference, userSettings, userWatch } from 'src/pages/user-account';
 import { subscriptions } from 'src/pages/subscriptions';
+import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
@@ -69,5 +70,9 @@ export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.subscriptions]: {
     template: subscriptions,
     title: `subscriptions | ${projectTitle}`,
+  },
+  [PATH_NAMES.collection]: {
+    template: collection,
+    title: `collection | ${projectTitle}`,
   },
 };
