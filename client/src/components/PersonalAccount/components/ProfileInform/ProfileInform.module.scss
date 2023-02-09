@@ -19,14 +19,13 @@
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-  background-color: $background;
-  border: 1px solid $conditionalborder;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
   border-radius: 10px;
   padding: 2rem;
   text-decoration: none;
-  color: $white;
+  color: var(--text-primary);
   pointer-events: all;
-  transition: all $base-transition;
   margin-bottom: 1.5rem;
 
   @media (max-width: $iphoneXR) {
@@ -55,7 +54,7 @@
     &:hover {
       svg {
         path {
-          fill: $white;
+          fill: var(--bg-contrast);
         }
       }
     }
@@ -72,20 +71,20 @@
 
 .profile__form-label {
   font-size: 1rem;
-  color: $light-text;
+  color: var(--text-secondary);
   padding: 0.5rem;
 }
 
 .profile__form-input {
-  background-color: $conditionalborder;
-  border: none;
-  color: $white;
+  background-color: var(--bg-ternary);
+  border: 1px solid transparent;
+  color: var(--text-primary);
   font-size: 1.2rem;
   padding-left: 1rem;
   width: 25rem;
 
   &::placeholder {
-    color: $copyright-footer;
+    color: var(--text-ternary);
     font-size: 1rem;
   }
 
@@ -107,7 +106,7 @@
     width: 18rem;
 
     &::placeholder {
-      color: $copyright-footer;
+      color: var(--text-ternary);
       font-size: 0.8rem;
     }
   }
@@ -120,7 +119,7 @@
 
   .button {
     height: 3rem;
-    color: $light-text;
+    color: var(--always-white);
     font-size: 1rem;
     text-transform: capitalize;
     cursor: pointer;

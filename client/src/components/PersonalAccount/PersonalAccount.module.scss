@@ -44,7 +44,6 @@
       z-index: 0;
       visibility: hidden;
       transform: translateX(200rem);
-      transition: all $base-transition;
       overflow: hidden;
     }
   }
@@ -56,7 +55,6 @@
     border-radius: 10px;
     left: 0.5rem;
     top: 0.2rem;
-    transition: all $base-transition;
     display: block;
     position: absolute;
     transform: rotate(90deg);

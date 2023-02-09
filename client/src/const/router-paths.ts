@@ -65,10 +65,9 @@ export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.userReference]: {
     template: userReference,
     title: `user | ${projectTitle}`,
-
+  },
   [PATH_NAMES.subscriptions]: {
     template: subscriptions,
     title: `subscriptions | ${projectTitle}`,
-
   },
 };
