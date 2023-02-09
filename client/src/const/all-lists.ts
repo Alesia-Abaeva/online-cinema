@@ -22,4 +22,18 @@ export const ALL_LISTS: ListCard[] = [
     url: '/list/top250shows',
     fn: getTop250Movies, // CHANGE
   },
+  {
+    title: '250 лучших фильмов',
+    imgUrl: 'https://avatars.mds.yandex.net/get-bunker/56833/3ee361778f24483f04a6819bc6d84bcfba9030e4/384x384',
+    filmsCount: 250,
+    url: '/list/top250movies',
+    fn: getTop250Movies,
+  },
+  {
+    title: 'Лучшие фильмы 2022 года',
+    imgUrl: 'https://avatars.mds.yandex.net/get-bunker/50064/8130010df7b5c468194db5e34110e573ca9d446f/384x384',
+    filmsCount: 25,
+    url: '/list/best2022',
+    fn: getTop250Movies, // CHANGE
+  },
 ];

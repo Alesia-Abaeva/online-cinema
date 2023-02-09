@@ -4,6 +4,7 @@ interface AttributeInput {
   style?: string;
   id?: string;
   name?: string;
+  spellcheck?: string;
 }
 
 interface InputComponent {

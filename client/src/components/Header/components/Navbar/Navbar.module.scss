@@ -23,10 +23,10 @@
 }
 
 .nav__list-link_active {
-  color: $white;
+  color: var(--text-primary);
   border-bottom: 2px solid;
   border-image-slice: 1;
-  border-image-source: $gradient-primary;
+  border-image-source: var(--gradient-primary);
 }
 
 .search-btn {
@@ -37,7 +37,7 @@
   cursor: pointer;
 
   &:hover > .search-btn__icon {
-    filter: invert(100%);
+    filter: var(--search-icon-hover);
   }
 }
 
@@ -50,7 +50,7 @@
   height: 1.5rem;
   background-image: url('assets/img/icons/search.png');
   background-size: cover;
-  filter: invert(100%) brightness(60%);
+  filter: var(--search-icon);
   pointer-events: none;
 }
 

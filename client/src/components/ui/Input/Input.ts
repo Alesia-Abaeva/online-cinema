@@ -8,6 +8,7 @@ export const createInputElement = (attribute: AttributeInput): HTMLInputElement 
   attribute.placeholder && input.setAttribute('placeholder', attribute.placeholder);
   attribute.name && input.setAttribute('name', attribute.name);
   attribute.id && input.setAttribute('id', attribute.id);
+  attribute.spellcheck && input.setAttribute('spellcheck', attribute.spellcheck);
 
   attribute.style && input.classList.add(attribute.style);
 

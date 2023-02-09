@@ -3,15 +3,20 @@ interface ListCard {
   imgUrl: string;
   filmsCount: number;
   url: string;
-  fn: (options: Options) => Promise<ResponseFindedMovies | ResErrorMes>;
+  fn: (options: Options) => Promise<{ data: ResponseFindedMovies }>;
 }
 
 interface ListItems {
-  item: ResponseFindedMovies;
+  item: { data: ResponseFindedMovies };
   pathname: string;
 }
 
 interface FilmItems {
-  item: ResponseMovie;
+  item: { data: ResponseMovie };
+  pathname: string;
+}
+
+interface PersonItems {
+  item: { data: ResponsePerson };
   pathname: string;
 }

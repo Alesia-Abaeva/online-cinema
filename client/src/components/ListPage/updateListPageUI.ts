@@ -16,18 +16,18 @@ export const updateListPageUI = async () => {
     const res = await listFn({ page: paginaitonState.page, limit: paginaitonState.limit });
     const listData = ALL_LISTS.find((el) => el.url === pathname);
 
-    if (!isError(res) && listData) {
+    if (!isError(res.data) && listData) {
       const listItems: ListItems = {
         item: res,
         pathname,
       };
-      if (res.docs.length === 0 && paginaitonState.page !== 1) {
+      if (res.data.docs.length === 0 && paginaitonState.page !== 1) {
         paginaitonState.page--;
         updateListPageUI();
         return;
       }
 
-      paginaitonState.total = res.total;
+      paginaitonState.total = res.data.total;
 
       const listCont = document.getElementById('list-content') as HTMLElement;
       listCont.innerHTML = '';

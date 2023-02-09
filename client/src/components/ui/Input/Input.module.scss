@@ -7,4 +7,7 @@
   @media (max-width: $phone-width) {
     width: 15rem;
   }
+  
+  @include input(var(--border-primary), $silver);
+
 }

@@ -1,0 +1,88 @@
+@import '/src/theme/variable';
+
+.tariff-card {
+  @include crystalline-blur;
+  border-radius: 10px;
+  padding: 2rem;
+  @include flex-center;
+  flex-direction: column;
+  color: var(--text-contrast-reverse);
+}
+
+.tariff-card__header {
+  @include flex-center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tariff-card__title {
+  font-family: NetflixSans-Bold;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.tariff-card__line {
+  height: 5px;
+  width: 100%;
+  background-image: var(--gradient-primary);
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.tariff-card__cost {
+  @include flex-center;
+  gap: 0.5rem;
+}
+
+.tariff-card__cost-amount {
+  font-size: 2rem;
+}
+
+.tariff-card__cost-det {
+  align-self: flex-end;
+  padding-bottom: 0.5rem;
+}
+
+.tariff-card__list {
+  list-style: none;
+}
+
+.tariff-card__list-item {
+  position: relative;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tariff-card__list-item_included::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0.3rem;
+  left: -1.5rem;
+  background-image: url('assets/img/icons/tick.svg');
+  background-size: cover;
+  height: 1rem;
+  width: 1rem;
+}
+
+.tariff-card__list-item_notincluded::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0.3rem;
+  left: -1.5rem;
+  background-image: url('assets/img/icons/cross.svg');
+  background-size: cover;
+  height: 1rem;
+  width: 1rem;
+  filter: var(--inverted-icon);
+}
+
+.tariff-card__btn {
+  border-radius: 50px;
+  margin-top: 0.7rem;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}

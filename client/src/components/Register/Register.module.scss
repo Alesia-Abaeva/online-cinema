@@ -6,6 +6,9 @@
   align-items: center;
   flex-direction: column;
   min-height: calc(100vh - 70px);
+  @include default-page-container;
+  // TODO: ! 
+
 }
 
 .form__wrapp-reg {
@@ -17,8 +20,8 @@
   input {
     padding: 1rem;
     padding-left: 2.7rem;
-    background-color: $tundora-60; // dark
-    color: $white; // dark
+    background-color: var(--crystalline-blur);
+    color: var(--text-constast);
 
     @media (max-width: $phone-width) {
       width: 15rem;

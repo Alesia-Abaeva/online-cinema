@@ -53,7 +53,7 @@ interface PersonDataApi {
   name: string;
   enName: string;
   photo: string;
-  enProfesson: string;
+  enProfession: string;
   description: string;
 }
 
@@ -75,7 +75,7 @@ interface ResponseMovie {
   externalId: ExternalId;
   facts: ChildeAttribures | null;
   fees: FeesApi;
-  genres: ChildeAttribures;
+  genres: ChildeAttribures[];
   id: number;
   images: ImagesApi;
   imagesInfo: ImagesApi;

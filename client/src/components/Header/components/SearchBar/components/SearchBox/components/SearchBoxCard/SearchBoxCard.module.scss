@@ -8,7 +8,6 @@
   padding: 0 1.2rem;
   text-decoration: none;
   cursor: pointer;
-  transition: all $base-transition;
   &:hover {
     background-color: $black-10;
   }
@@ -48,7 +47,6 @@
   font-size: 0.9rem;
   font-family: NetflixSans-Bold;;
   font-weight: 900;
-  color: $apple-green;
 }
 
 .search-box__card-year {

@@ -17,6 +17,7 @@
   font-size: 6rem;
   align-self: flex-start;
   line-height: 120%;
+  color: var(--bg-contrast)
 }
 
 .list-content__img-cont {
@@ -59,12 +60,6 @@
   }
 }
 @media (max-width: 550px) {
-  .list-content {
-    padding-top: 0;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
   .list-content__header {
     display: flex;
     flex-direction: column;
@@ -79,6 +74,7 @@
     width: 100%;
     text-align: center;
   }
+  
   .list-content__img {
     height: 150px;
     width: 150px;

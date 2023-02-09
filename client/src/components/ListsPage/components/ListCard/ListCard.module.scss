@@ -1,8 +1,8 @@
 @import '/src/theme/variable';
 
 .list-card {
-  background-color: $background;
-  border: 1px solid $conditionalborder;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
   border-radius: 10px;
   height: 200px;
   display: flex;
@@ -10,12 +10,11 @@
   align-items: center;
   padding: 2rem;
   text-decoration: none;
-  color: $white;
+  color: var(--text-primary);
   pointer-events: all;
+  box-shadow: $shadow-primary;
 
-  transition: all $base-transition;
   &:hover {
-    border: 1px solid $light-text;
     transform: scale(1.05);
   }
 
@@ -51,7 +50,7 @@
 
 .list-card__films-count {
   font-size: 0.9rem;
-  color: $light-text;
+  color: var(--text-secondary);
 }
 
 @media (max-width: $tablet-width) {
