@@ -11,3 +11,20 @@
   padding-right: 15px;
   padding-left: 15px;
 }
+
+.accordion-section {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--bg-primary);
+  padding: 4rem 4rem 6rem;
+
+  @media (max-width: $phone-width) {
+    width: 80%;
+    padding: 2rem 2rem 4rem;
+  }
+
+  @media (max-width: $iphoneXR) {
+    width: 100%;
+  }
+}
