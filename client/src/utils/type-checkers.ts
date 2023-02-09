@@ -1,3 +1,3 @@
-export const isError = (obj: ResErrorMes | ResponseFindedMovies | ResponseMovie): obj is ResErrorMes => {
+export const isError = (obj: ErrorMessage | ResponseFindedMovies | ResponseMovie): obj is ErrorMessage => {
   return 'message' in obj;
 };

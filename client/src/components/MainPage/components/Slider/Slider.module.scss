@@ -3,36 +3,53 @@
 .slider {
   position: relative;
   overflow: hidden;
+
   &__header {
     padding: 1.5rem calc(2.5% + 15px) 0.1rem;
     font-size: 1.5rem;
+    color: var(--always-white);
   }
+
   &__container {
     padding: 0 calc(2.5% + 15px);
     position: relative;
   }
+
   &__wrapper {
     display: flex;
     align-items: center;
     position: relative;
     padding: 16px 0px;
   }
+
   &__wrapper:hover > button > svg {
-    fill: white;
+    fill: var(--always-white);
   }
+
   &__wrapper:hover > .slider__items .item-opacity {
     filter: brightness(0.4);
   }
+
   &__items {
     display: flex;
     align-items: center;
   }
+
   .slider__btn__left {
     left: calc(-2.5% - 15px - 8px);
   }
+
   .slider__btn__right {
     right: calc(-2.5% - 15px - 8px);
   }
+}
+
+.main > .slider {
+  background: linear-gradient(to top, var(--always-black) 0%, var(--always-black) 20%, transparent 100%);
+}
+
+.main > .slider ~ .slider {
+  background-color: var(--always-black);
 }
 
 .translate-speed {

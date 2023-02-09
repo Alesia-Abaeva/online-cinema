@@ -42,24 +42,6 @@
       width: 75vw;
     }
   }
-
-  // &:invalid {
-  //   svg {
-  //     path {
-  //       stroke: $yandex-red;
-  //       fill: rgba(95, 158, 160, 0);
-  //     }
-  //   }
-  //   input {
-  //     border: 1px solid $yandex-red;
-  //     box-shadow: 0 0 0 1px $yandex-red;
-  //     outline: none;
-
-  //     &:focus {
-  //       color: $yandex-red;
-  //     }
-  //   }
-  // }
 }
 
 .icon__container {
@@ -72,20 +54,18 @@
   padding-left: 0.75rem;
 }
 
-// .form__email_input {
-//   @include input($silver, $tundora);
-// }
-
 .form_button {
   width: 20rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+// TODO: проверить что здесь будет выводиться
   color: var(--text-white);
   // background-image: $gradient-primary;
   background-color: var(--blue);
   &:hover {
     background-color: var(--blue);
   }
+
 
   @media (max-width: $phone-width) {
     width: 75vw;

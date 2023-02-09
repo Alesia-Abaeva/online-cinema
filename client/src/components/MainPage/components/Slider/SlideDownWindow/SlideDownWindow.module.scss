@@ -19,8 +19,9 @@
     align-items: center;
     justify-content: center;
   }
+
   &__close__img {
-    fill: white;
+    fill: var(--always-white);
     width: 24px;
     height: 24px;
   }

@@ -13,15 +13,17 @@ export const renderApp = (func: () => HTMLElement): Element => {
   const appContiner: Element = document.querySelector('#app') as Element;
   appContiner.innerHTML = '';
 
+  // Элемент куда рендерится плеер из ютубовской апишки (на бэкграунд страница фильмов)
+  const player: HTMLElement = document.createElement('div');
+  player.id = 'video-player';
+  player.style.display = 'none';
+  appContiner.append(player);
+
   const header: HTMLElement = renderHeader();
   const footer: HTMLElement = renderFooter();
   const main: HTMLElement = func();
 
-
-  // TODO - добавить стор в функцию Init
-
-
-  appContiner.append(header, main, footer);
+ appContiner.append(header, main, footer);
 
   return appContiner;
 };

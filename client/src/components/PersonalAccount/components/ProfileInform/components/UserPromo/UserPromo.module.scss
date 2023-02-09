@@ -1,0 +1,82 @@
+@import '/src/theme/variable';
+
+.profile-promo {
+  .profile-info__data {
+    padding-bottom: 3rem;
+    text-align: center;
+    gap: 0.4rem;
+
+    .profile-promo__title {
+      @include gradinent-text(var(--gradient-primary));
+    }
+  }
+}
+
+.profile-promo__description,
+.profile-promo__title {
+  width: 100%;
+}
+
+.profile-promo__description {
+  color: var(--text-ternary);
+  margin-bottom: 1.5rem;
+}
+
+.promo-cnt {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+
+  .profile__form-label {
+    height: 20px;
+  }
+
+  @media (max-width: $iphoneXR) {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.profile__promo-cnt {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    background-color: var(--bg-ternary);
+    border: 1px solid transparent;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    width: 25rem;
+    &::placeholder {
+      color: var(--text-ternary);
+      font-size: 1rem;
+    }
+  }
+
+  .button {
+    &:disabled {
+      background-image: none;
+      background-color: $tundora-60;
+    }
+  }
+
+  @media (max-width: $phone-width) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    input {
+      width: 20rem;
+    }
+  }
+
+  @media (max-width: $iphoneXR) {
+    input {
+      width: 16rem;
+    }
+  }
+}

@@ -75,7 +75,7 @@ interface ResponseMovie {
   externalId: ExternalId;
   facts: ChildeAttribures | null;
   fees: FeesApi;
-  genres: ChildeAttribures[]; // исправил на массив
+  genres: ChildeAttribures[];
   id: number;
   images: ImagesApi;
   imagesInfo: ImagesApi;

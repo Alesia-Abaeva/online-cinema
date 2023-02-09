@@ -1,0 +1,93 @@
+@import '/src/theme/variable';
+
+.popover__wrapper {
+  position: relative;
+  display: inline-block;
+
+  &:hover .id-page__person_link {
+    @include gradinent-text(var(--gradient-primary));
+  }
+
+  &:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 6px);
+    transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+  }
+
+  & .popover__message {
+    text-align: center;
+  }
+}
+
+.popover__content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: -150px;
+  transform: translate(0, 0px);
+  background-color: #bfbfbf;
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  width: auto;
+  height: 200px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    right: calc(30% - 10px);
+    top: -8px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #bfbfbf transparent;
+    transition-duration: 0.3s;
+    transition-property: transform;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    right: calc(15%);
+    top: -10px;
+    width: 100px;
+    height: 20px;
+  }
+}
+
+.popover__img {
+  width: auto;
+  height: 100%;
+}
+
+.popover__title {
+  font-family: NetflixSans-Bold;
+  font-size: 1.5rem;
+  color: var(--always-black);
+  line-height: 120%;
+}
+
+.popover__sub-title {
+  font-size: 1rem;
+  color: var(--always-black);
+  line-height: 120%;
+}
+
+.popover__more {
+  color: var(--always-grey);
+  &:hover {
+    @include gradinent-text(var(--gradient-primary));
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .popover__content {
+    display: none;
+  }
+}

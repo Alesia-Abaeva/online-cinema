@@ -3,6 +3,7 @@ $black: #000;
 $background: #141414;
 $conditionalborder: #222;
 $orange: #f50;
+$orange-light: #F99540;
 $orange-intense: #f25900;
 $blue: #4434ff;
 $blue-intense: #3d2ae4;
@@ -28,7 +29,8 @@ $black-90: rgba(0, 0, 0, 0.9);
 
 [data-theme='dark'] {
   --bg-primary: #000;
-  --bg-secondary: #1e1e1e;
+  --bg-secondary: #141414;
+  --bg-ternary: #222;
   --bg-contrast: #fff;
   --text-primary: rgba(255, 255, 255, 0.92);
   --text-secondary: rgba(255, 255, 255, 0.64);
@@ -42,6 +44,10 @@ $black-90: rgba(0, 0, 0, 0.9);
   --progress-lin-bg: hsla(0, 0%, 100%, 0.3);
   --crystalline-blur: rgba(68, 68, 68, 0.6);
   --always-black: #000;
+  --always-white: #fff;
+  --always-grey: #444;
+
+  --film-page-secondary-text: rgba(255, 255, 255, 0.64);
 
   --logo: invert(0%);
   --search-icon: invert(100%) brightness(60%);
@@ -56,6 +62,7 @@ $black-90: rgba(0, 0, 0, 0.9);
 [data-theme='light'] {
   --bg-primary: #f5f5f7;
   --bg-secondary: #ebebf0;
+  --bg-ternary: #d9d9d9;
   --bg-contrast: #1f1f1f;
   --text-primary: #1f1f1f;
   --text-secondary: #999;
@@ -69,6 +76,10 @@ $black-90: rgba(0, 0, 0, 0.9);
   --progress-lin-bg: #fff;
   --crystalline-blur: rgba(255, 255, 255, 0.5);
   --always-black: #000;
+  --always-white: #fff;
+  --always-grey: #444;
+
+  --film-page-secondary-text: #1f1f1f;
 
   --logo: invert(100%);
   --search-icon: invert(100%) brightness(60%);

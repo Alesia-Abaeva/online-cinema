@@ -1,6 +1,8 @@
 import { appDispatch, store } from 'src/logic/redux';
 import { register } from 'src/logic/redux/actions';
 import { createLink } from 'src/utils/create-link-element';
+import { setLocalStorage } from 'src/logic/local-storage/local-storage';
+import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { linkHandler } from 'src/utils/link-handler';
 import { createElem } from '../../utils/create-element';
 import { mailIcon, passwordIcon, userIcon } from '../../const/icons/icons';
@@ -16,6 +18,8 @@ export const renderRegisterPage = (): HTMLElement => {
   };
 
   const main: HTMLElement = createElem('main', 'main');
+
+  main.classList.add('main_backdrop');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['reg-page']);
 
@@ -32,6 +36,7 @@ export const renderRegisterPage = (): HTMLElement => {
   const iconEmail = createElem('div', 'icon__container');
   iconEmail.innerHTML = mailIcon;
   const inputEmail = createInputElement({ type: 'email', placeholder: '* email', id: 'email', name: 'email' });
+
   inputEmail.oninput = () => {
     stateInput.email = inputEmail.value;
   };
@@ -102,7 +107,10 @@ export const renderRegisterPage = (): HTMLElement => {
       errorWrapp.innerHTML = regirterState.error?.message as string;
     } else {
       errorWrapp.style.visibility = 'hidden';
-      if (regirterState.isAuth) window.location.href = '/';
+      if (regirterState.isAuth) {
+        setLocalStorage(regirterState.data?.token as string, LOCAL_STORAGE_KEYS.TOKEN);
+        window.location.href = '/';
+      }
     }
   });
 

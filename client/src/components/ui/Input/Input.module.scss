@@ -1,5 +1,13 @@
 @import '/src/theme/variable';
 
 .input {
+  // @include input($silver, $tundora); // белая тема
+  @include input($tundora, $silver); // темная тема
+
+  @media (max-width: $phone-width) {
+    width: 15rem;
+  }
+  
   @include input(var(--border-primary), $silver);
+
 }

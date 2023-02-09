@@ -18,7 +18,7 @@
   align-items: center;
 
   &__wrapper {
-    color: white;
+    color: var(--always-white);
   }
 
   &__image {
@@ -27,6 +27,7 @@
     z-index: 12;
     max-height: 200px;
   }
+
   &__badget {
     position: absolute;
     top: 0.5rem;
@@ -38,6 +39,7 @@
     justify-content: center;
     background: $apple-green;
   }
+
   &__badget__raiting {
     font-size: 1rem;
     line-height: 1.3rem;

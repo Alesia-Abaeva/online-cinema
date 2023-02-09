@@ -1,0 +1,72 @@
+@import '/src/theme/variable';
+
+.personal-account {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: auto 0;
+  padding-top: calc(80px + 1rem);
+  gap: 2rem;
+
+  @media (max-width: $phone-width) {
+    position: relative;
+  }
+}
+
+.show-personal {
+  @media (max-width: $phone-width) {
+    .profile-sidebar__cnt {
+      visibility: hidden;
+      z-index: 0;
+      width: 0;
+    }
+
+    .profile-info__wparr {
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+}
+
+.hide-personal {
+  @media (max-width: $phone-width) {
+    .profile-sidebar__cnt {
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .profile-info__wparr {
+      width: 0;
+      z-index: 0;
+      visibility: hidden;
+      transform: translateX(200rem);
+      overflow: hidden;
+    }
+  }
+}
+
+.profile-button {
+  @media (max-width: $phone-width) {
+    position: relative;
+    border-radius: 10px;
+    left: 0.5rem;
+    top: 0.2rem;
+    display: block;
+    position: absolute;
+    transform: rotate(90deg);
+    background-image: url('assets/img/icons/chevron-down-solid.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1rem;
+    height: 1rem;
+    filter: invert(100%);
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    z-index: 2;
+  }
+}

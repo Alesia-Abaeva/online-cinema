@@ -1,0 +1,30 @@
+@import '/src/theme/variable';
+
+.avatar__wrapper,
+.avatar__wrapper-show {
+  display: flex;
+  padding: 0;
+  background: transparent;
+  align-items: center;
+}
+.avatar__circle {
+  position: relative;
+  padding: 0.4rem;
+  background-image: url('assets/img/border-plus.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 3rem;
+}
+
+.avatar__profile {
+  background-image: url('assets/img/user.svg');
+
+  margin-left: 0;
+  padding: 0;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  width: 2.5rem;
+  height: 2.5rem;
+}

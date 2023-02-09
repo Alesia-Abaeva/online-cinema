@@ -1,3 +1,4 @@
+// import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import styles from './DropdownFilter.module.scss';
 
@@ -17,6 +18,8 @@ export const renderDropdownFilter = (data: DropdownFiltersData): HTMLElement => 
 
   const dropdownList: HTMLElement = createElem('div', 'dropdown-filter__list');
 
+  const targetElement: Element[] = [];
+
   data.opt.forEach((el) => {
     const dropdownItem: HTMLElement = createElem('div', 'dropdown-filter__list-item');
     if (el.active) dropdownItem.classList.add('dropdown-filter__list-item_active');
@@ -24,10 +27,12 @@ export const renderDropdownFilter = (data: DropdownFiltersData): HTMLElement => 
 
     dropdownItem.onclick = (e: Event) => {
       const target = e.target as HTMLElement;
-
       const list = target.parentElement as HTMLElement;
       const itemsArr = Array.from(list.children);
-      itemsArr.forEach((item) => item.classList.remove('dropdown-filter__list-item_active'));
+      itemsArr.forEach((item) => {
+        item.classList.remove('dropdown-filter__list-item_active');
+        targetElement.push(item);
+      });
 
       target.classList.add('dropdown-filter__list-item_active');
 
@@ -41,6 +46,19 @@ export const renderDropdownFilter = (data: DropdownFiltersData): HTMLElement => 
   });
 
   dropdownFilter.append(caption, dropdownList);
+
+  // store.subscribe(() => {
+  //   const userState = store.getState().auth.user;
+
+  //   if (userState.data?.parentControls) {
+  //     targetElement.forEach((item) => {
+  //       item.classList.remove('dropdown-filter__list-item_active');
+  //       if (userState.data?.parentControls === item.textContent) {
+  //         item.classList.add('dropdown-filter__list-item_active');
+  //       }
+  //     });
+  //   }
+  // }); TODO: подписаться на изменения стейта, чтобы при выборе возраста, отображалось верно
 
   return dropdownFilter;
 };

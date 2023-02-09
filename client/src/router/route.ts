@@ -8,9 +8,13 @@ export const route = (pathname: string): void => {
   const token = getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN);
   let path = pathname;
 
-  token && (path = pathname === PATH_NAMES.login || pathname === PATH_NAMES.register ? PATH_NAMES.main : pathname);
+  if (token && (pathname === PATH_NAMES.login || pathname === PATH_NAMES.register)) {
+    path = PATH_NAMES.main;
+  }
 
-  console.log(token, path);
+  if (!token && pathname === PATH_NAMES.user) {
+    path = PATH_NAMES.main;
+  }
 
   window.history.pushState({}, '', window.location.origin + path);
   pathResolver(path);

@@ -38,6 +38,7 @@ export const renderLoginPage = (): HTMLElement => {
   inputEmail.oninput = () => {
     stateInput.email = inputEmail.value;
   };
+  inputEmail.setAttribute('value', 'test@test.tu'); // TODO: убрать перед релизом
 
   wrapperEmail.append(labelEmail, iconEmail, inputEmail);
 
@@ -52,6 +53,7 @@ export const renderLoginPage = (): HTMLElement => {
     id: 'password',
     name: 'password',
   });
+  iconPass.setAttribute('value', '123456'); // TODO: убрать перед релизом
 
   inputPas.oninput = () => {
     stateInput.password = inputPas.value;
