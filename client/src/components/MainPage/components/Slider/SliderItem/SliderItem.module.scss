@@ -24,6 +24,8 @@
   &__image {
     width: 100%;
     height: 100%;
+    z-index: 12;
+    max-height: 200px;
   }
 
   &__badget {
@@ -58,7 +60,7 @@
   }
 }
 
-@media (max-width: 1140px) {
+@media (max-width: 1240px) {
   :root {
     --item-size: 3;
   }
