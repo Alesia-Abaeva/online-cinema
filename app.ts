@@ -3,6 +3,9 @@ import config from 'config';
 import mongoose from 'mongoose'; // позволяет подключаться к базе данных
 import { router as authRouter } from './routes/auth.routes';
 import { router as listsRouter } from './routes/lists.routes';
+import { router as slidersRouter } from './routes/slider.routes';
+import { router as collectionsRouter } from './routes/collections.routes';
+
 import cors from 'cors';
 import checkAuth from './middleware/auth.middelware';
 import { upload } from './cors/multer';
@@ -33,7 +36,8 @@ app.use(
 app.use('/uploads', express.static('uploads'));
 app.use('/api/auth', authRouter); // регистрация роутов, для запросов от фронта
 app.use('/api/lists', listsRouter); // пути для получения данных о списках
-// app.use('/api/collections', router); // пути для получения данных о подборках
+app.use('/api/collections', collectionsRouter); // пути для получения данных о подборках
+app.use('/api/sliders', slidersRouter); // пути для получения данных для слайдеров на главной
 
 // TODO: вынести в роуты
 app.post(

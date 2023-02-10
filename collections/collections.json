@@ -1,0 +1,14 @@
+{
+  "collection1": [
+    {
+      "name": 1,
+      "age": 2
+    }
+  ],
+  "collection2": [
+    {
+      "name": 3,
+      "age": 4
+    }
+  ]
+}
