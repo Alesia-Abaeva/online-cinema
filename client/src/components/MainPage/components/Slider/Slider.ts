@@ -3,8 +3,9 @@ import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';
 import { Iitem } from '../../mockData';
+// import { Iitem } from '../../mockData';
 
-export const renderSlider = (filmsData: Iitem[], slaiderName: string): HTMLElement => {
+export const renderSlider = (filmsData: ResponseMovie[] | Iitem[], slaiderName: string): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
   const header: HTMLElement = createElem('h3', styles.slider__header);
   const container: HTMLElement = createElem('div', styles.slider__container);
@@ -19,7 +20,7 @@ export const renderSlider = (filmsData: Iitem[], slaiderName: string): HTMLEleme
   container.append(wrapper);
   wrapper.append(items, btnLeft, btnRight);
   slider.append(header, container);
-  
+
   const totalSlides = filmsData.length;
   const itemLeftPadding = 8;
   let position = 0;
@@ -27,8 +28,8 @@ export const renderSlider = (filmsData: Iitem[], slaiderName: string): HTMLEleme
   let itemsSize: number;
   let prevSize: number;
 
-  const arr: Iitem[] = filmsData.slice(0);
-  arr.forEach((element) => items.append(renderSliderItem(element.id, element.img, element?.rating)));
+  const arr: ResponseMovie[] | Iitem[] = filmsData.slice(0);
+  arr.forEach((element) => items.append(renderSliderItem(element)));
 
   const updateItemsOpacity = async (): Promise<void> => {
     btnLeft.disabled = true;

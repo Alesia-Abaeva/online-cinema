@@ -18,4 +18,6 @@ export const PERSON_DATA = 'api/auth/person';
 export const PERSON_DATA_PASS = 'api/auth/person/pass';
 export const PERSON_DATA_PARENT = 'api/auth/person/parents';
 export const GET_LISTS = 'api/lists';
+export const GET_SLIDER = 'api/sliders';
+export const GET_COLLECTION = 'api/collections';
 export const UPLOAD_IMG = 'upload';

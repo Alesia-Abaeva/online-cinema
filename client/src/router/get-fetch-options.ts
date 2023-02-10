@@ -5,7 +5,6 @@ export const getFetchOptions = (): Options => {
   const options: Options = {};
   const id = extractAfterLastSlash(window.location.pathname);
   const queryOptions = fromQueryString(window.location.search);
-  console.log(queryOptions);
 
   options.page = queryOptions.page;
   options.limit = queryOptions.limit;

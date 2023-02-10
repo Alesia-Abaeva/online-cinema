@@ -24,8 +24,8 @@ export const addListenerSlideDown = (slider: HTMLElement): HTMLElement => {
       );
 
       setTimeout(() => {
-        const slide = target.closest('.slider') as HTMLElement;
-        slide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // const slide = target.closest('.slider') as HTMLElement;
+        slideDown.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 300);
     }
   });
@@ -40,7 +40,8 @@ export const addListenerCollection = (slider: HTMLElement): HTMLElement => {
     const target = event.target as HTMLElement;
 
     if (target.classList.contains('sliderItem__image')) {
-      route('/collection');
+      const parent = target.closest('.sliderItem') as HTMLElement;
+      route(`/collection/${parent.dataset.id}`);
     }
   });
 

@@ -1,8 +1,2848 @@
 {
-  "collection1": [
+  "anime": [
     {
-      "name": 1,
-      "age": 2
+      "externalId": {
+        "kpHD": "4e408995ea402cafb36eaab1d1b9ba0a",
+        "imdb": "tt0307901",
+        "tmdb": 1429,
+        "_id": "6376ba457ad98299ff9ecbaf"
+      },
+      "logo": {
+        "_id": "62eda550b252103987020e3c",
+        "url": "https://avatars.mds.yandex.net/get-ott/224348/2a00000180c1eed0533fb1a60aacaa399403/orig"
+      },
+      "poster": {
+        "_id": "6339e170c22d011bb566917e",
+        "url": "https://st.kp.yandex.net/images/film_big/749374.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_749374.jpg"
+      },
+      "rating": {
+        "kp": 8.651,
+        "imdb": 9,
+        "filmCritics": 0,
+        "russianFilmCritics": 100,
+        "await": 0,
+        "_id": "63d5d6cff38219e94fa3485b"
+      },
+      "votes": {
+        "kp": 320140,
+        "imdb": 379638,
+        "filmCritics": 0,
+        "russianFilmCritics": 4,
+        "await": 13,
+        "_id": "63d9cee96b3288b2451e6523"
+      },
+      "watchability": {
+        "_id": "6339e170c22d011bb566928c",
+        "items": null
+      },
+      "id": 749374,
+      "type": "anime",
+      "name": "Атака титанов",
+      "description": "Уже многие годы человечество ведёт борьбу с титанами — огромными существами, которые не обладают особым интеллектом, зато едят людей и получают от этого удовольствие. После продолжительной борьбы остатки человечества построили высокую стену, окружившую страну людей, через которую титаны пройти не могли. С тех пор прошло сто лет, люди мирно живут под защитой стены. Но однажды подросток Эрэн и его сводная сестра Микаса становятся свидетелями страшного события — участок стены разрушается супертитаном, появившимся прямо из воздуха. Титаны нападают на город, и дети в ужасе видят, как один из монстров заживо съедает их мать. Эрэн клянётся, что убьёт всех титанов и отомстит за человечество.",
+      "year": 2013,
+      "alternativeName": "Shingeki no kyojin",
+      "enName": null,
+      "movieLength": 24,
+      "names": [
+        {
+          "_id": "6339e170c22d011bb566917a",
+          "name": "Атака титанов"
+        },
+        {
+          "_id": "6339e170c22d011bb566917b",
+          "name": "Shingeki no kyojin"
+        }
+      ],
+      "shortDescription": "Подросток мстит гуманоидам-людоедам за убийство матери. Культовый аниме-сериал по постапокалиптической манге",
+      "releaseYears": [
+        {
+          "_id": "6359ae7a9f6a011dbf62ea26",
+          "start": 2013,
+          "end": null
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4726854ee2be6d928a2d852281fa18f9",
+        "imdb": "tt0245429",
+        "tmdb": 129,
+        "_id": "6376b9b87ad98299ff9651a3"
+      },
+      "logo": {
+        "_id": "62f051b90f5be412460547a1",
+        "url": "https://avatars.mds.yandex.net/get-ott/1531675/2a00000173947e70f5a7e9d4ab80cf554ade/orig"
+      },
+      "poster": {
+        "_id": "6339eb5d89ae969da213dafa",
+        "url": "https://st.kp.yandex.net/images/film_big/370.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_370.jpg"
+      },
+      "rating": {
+        "kp": 8.475,
+        "imdb": 8.6,
+        "filmCritics": 8.6,
+        "russianFilmCritics": 100,
+        "await": 0,
+        "_id": "63cf39d057101ffd397053d6"
+      },
+      "votes": {
+        "kp": 496320,
+        "imdb": 770383,
+        "filmCritics": 195,
+        "russianFilmCritics": 5,
+        "await": 0,
+        "_id": "63da3ea53c24dea80e20a690"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "636c3c33a788fd3074bb5e83"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/movie/sen-to-chihiro-no-kamikakushi?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "636c3c33a788fd3074bb5e82"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "636c3c33a788fd3074bb5e85"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/100076?utm_source=yandex&utm_medium=wizard",
+            "_id": "636c3c33a788fd3074bb5e84"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/daeb142e-3ecc-4bb2-9bff-4827996643ab/orig",
+              "_id": "636c3c33a788fd3074bb5e87"
+            },
+            "name": "KION",
+            "url": "https://kion.ru/video/movie/601879570?utm_source=yandex&utm_medium=organic&utm_campaign=wizard",
+            "_id": "636c3c33a788fd3074bb5e86"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "636c3c33a788fd3074bb5e89"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/146708518?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "636c3c33a788fd3074bb5e88"
+          }
+        ],
+        "_id": "636c3c33a788fd3074bb5e81"
+      },
+      "movieLength": 125,
+      "id": 370,
+      "type": "anime",
+      "name": "Унесённые призраками",
+      "description": "Тихиро с мамой и папой переезжает в новый дом. Заблудившись по дороге, они оказываются в странном пустынном городе, где их ждет великолепный пир. Родители с жадностью набрасываются на еду и к ужасу девочки превращаются в свиней, став пленниками злой колдуньи Юбабы. Теперь, оказавшись одна среди волшебных существ и загадочных видений, Тихиро должна придумать, как избавить своих родителей от чар коварной старухи.",
+      "year": 2001,
+      "alternativeName": "Sen to Chihiro no kamikakushi",
+      "enName": null,
+      "names": [
+        {
+          "_id": "6339eb5d89ae969da213daf6",
+          "name": "Унесённые призраками"
+        },
+        {
+          "_id": "6339eb5d89ae969da213daf7",
+          "name": "Sen to Chihiro no kamikakushi"
+        }
+      ],
+      "shortDescription": "Девочка должна спасти своих родителей в мире духов. Шедевр Хаяо Миядзаки, фаворит анимационных рейтингов мира",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": "4466a2c48eecf4f5882334c5ab9b3092",
+        "imdb": "tt0054653",
+        "tmdb": 43017,
+        "_id": "6376c865d8baf23311e5c7f0"
+      },
+      "logo": {
+        "_id": "62e2c6d2028619ccafc9c68a",
+        "url": "https://avatars.mds.yandex.net/get-ott/2439731/2a000001702e3e3e30e942efb66a89faacc0/orig"
+      },
+      "poster": {
+        "_id": "6339793bc22d011bb56ef897",
+        "url": "https://st.kp.yandex.net/images/film_big/408596.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_408596.jpg"
+      },
+      "rating": {
+        "kp": 8.688,
+        "imdb": 8.5,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63c5f1642b1609d66920b60e"
+      },
+      "votes": {
+        "kp": 56403,
+        "imdb": 9684,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d61b5af38219e94fb40c8c"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "63d61b5af38219e94fb40c91"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/serial/gto?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "63d61b5af38219e94fb40c90"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "63d61b5af38219e94fb40c93"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/krutoy-uchitel-onidzuka?utm_source=yandex&utm_medium=wizard",
+            "_id": "63d61b5af38219e94fb40c92"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/0f86e907-9531-47e9-87bd-5101a08d4e30/orig",
+              "_id": "63d61b5af38219e94fb40c95"
+            },
+            "name": "PREMIER",
+            "url": "https://premier.one/show/11091?utm_source=yandex&utm_medium=yandex_feed_search&utm_campaign=yandex_feed",
+            "_id": "63d61b5af38219e94fb40c94"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "63d61b5af38219e94fb40c97"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/94740843?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "63d61b5af38219e94fb40c96"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/223007/c6b9b3d8-3258-4394-9cae-c86fdb56a0c6/orig",
+              "_id": "63d61b5af38219e94fb40c99"
+            },
+            "name": "НТВ-ПЛЮС Онлайн ТВ",
+            "url": "https://ntvplus.tv/watch/23415-krutoj-uchitel-onidzuka?utm_source=kinopoisk",
+            "_id": "63d61b5af38219e94fb40c98"
+          }
+        ],
+        "_id": "63d61b5af38219e94fb40c8f"
+      },
+      "id": 408596,
+      "type": "anime",
+      "name": "Крутой учитель Онидзука",
+      "description": "Частная «Академия Священного Леса» впервые сталкивается с таким учителем как Эйкити Онидзука, а он, кажется, не очень-то хорошо знаком со своими непосредственными обязанностями и готов продемонстрировать на практике весьма радикальные педагогические методики.",
+      "year": 1999,
+      "alternativeName": "GTO",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "6339793bc22d011bb56ef893",
+          "name": "Крутой учитель Онидзука"
+        },
+        {
+          "_id": "6339793bc22d011bb56ef894",
+          "name": "GTO"
+        }
+      ],
+      "shortDescription": "Байкер из уличной банды устраивается работать в школу. Смешной и глубокий аниме-сериал по манге Тору Фудзисавы",
+      "releaseYears": [
+        {
+          "start": 1999,
+          "end": 2000,
+          "_id": "6361476411f1fd7ff1fa81ea"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4206cc713e9df10286cc2227b9246ea2",
+        "imdb": null,
+        "_id": "6361476e11f1fd7ff1fb0e4b"
+      },
+      "logo": {
+        "_id": "62f2ff31252c8469ef08b08c",
+        "url": "https://avatars.mds.yandex.net/get-ott/224348/2a0000017ea291bee8a8114bc6ed0b816e9b/orig"
+      },
+      "poster": {
+        "_id": "63397971c22d011bb5700927",
+        "url": "https://st.kp.yandex.net/images/film_big/1162606.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1162606.jpg"
+      },
+      "rating": {
+        "kp": 8.602,
+        "imdb": 0,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9c7807297da0b6bf58fca"
+      },
+      "votes": {
+        "kp": 51158,
+        "imdb": 0,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9c7807297da0b6bf58fcb"
+      },
+      "watchability": {
+        "_id": "63397971c22d011bb5700950",
+        "items": null
+      },
+      "id": 1162606,
+      "type": "anime",
+      "name": "Атака титанов: Выбор без сожалений",
+      "description": "В подземном городе, где люди рождаются, живут и умирают, ни разу не увидев солнечного света, действует банда под руководством Леви Аккермана. Прохвостам удалось раздобыть устройства для пространственных манёвров и научиться умело ими пользоваться, чтобы шустро уходить от преследований. Однажды богатый и влиятельный человек предлагает банде Леви сделку — в обмен на гражданство на поверхности они должны провернуть одно грязное дело.",
+      "year": 2014,
+      "alternativeName": "Shingeki no Kyojin: Kuinaki Sentaku",
+      "enName": null,
+      "names": [
+        {
+          "_id": "63397971c22d011bb5700923",
+          "name": "Атака титанов: Выбор без сожалений"
+        },
+        {
+          "_id": "63397971c22d011bb5700924",
+          "name": "Shingeki no Kyojin: Kuinaki Sentaku"
+        }
+      ],
+      "movieLength": 25,
+      "shortDescription": "Шайка юного Леви идет на дело, которое изменит их жизнь. Предыстория самого популярного героя «Атаки титанов»",
+      "releaseYears": [
+        {
+          "start": 2014,
+          "end": 2014,
+          "_id": "6361476e11f1fd7ff1fb0e4d"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0057985",
+        "tmdb": 30991,
+        "_id": "6376cbe2d8baf23311002d48"
+      },
+      "logo": {
+        "_id": "62f57696252c8469ef95f030",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397b47c22d011bb57a3472",
+        "url": "https://st.kp.yandex.net/images/film_big/229653.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_229653.jpg"
+      },
+      "rating": {
+        "kp": 8.662,
+        "imdb": 8.9,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63c913bd2b1609d66985afd0"
+      },
+      "votes": {
+        "kp": 38258,
+        "imdb": 122084,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d61499f38219e94f6bf7e5"
+      },
+      "watchability": {
+        "_id": "63397b47c22d011bb57a3503",
+        "items": null
+      },
+      "id": 229653,
+      "type": "anime",
+      "name": "Ковбой Бибоп",
+      "description": "Бывший полицейский Джет Блэк и человек с тёмным прошлым Спайк Шпигель совершенно не планировали увеличивать экипаж космического корабля «Бибоп», являющегося для них домом и средством передвижения. Но сети, раскинутые для поимки дорогостоящих отбросов общества, принесли им Фэй Валентайн — очаровательную картёжницу с колоссальным долгом, Эд — потерявшуюся компьютерную умницу и Эйн — предположительно, самую умную собаку на свете. Именно в таком составе экипаж «Бибопа» и продолжает своё дело — охоту за головами.",
+      "year": 1998,
+      "alternativeName": "Cowboy Bebop",
+      "enName": null,
+      "movieLength": 24,
+      "names": [
+        {
+          "_id": "63397b47c22d011bb57a346e",
+          "name": "Ковбой Бибоп"
+        },
+        {
+          "_id": "63397b47c22d011bb57a346f",
+          "name": "Cowboy Bebop"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 1998,
+          "end": 1999,
+          "_id": "6361478511f1fd7ff1fc76ad"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0251174",
+        "tmdb": 31910,
+        "_id": "6376c816d8baf23311e37401"
+      },
+      "logo": {
+        "_id": "62de8731028619ccaffd635c",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397918c22d011bb56e5b42",
+        "url": "https://st.kp.yandex.net/images/film_big/281884.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_281884.jpg"
+      },
+      "rating": {
+        "kp": 8.243,
+        "imdb": 8.7,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d717f6f38219e94fc16330"
+      },
+      "votes": {
+        "kp": 57266,
+        "imdb": 130147,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d717f6f38219e94fc16331"
+      },
+      "watchability": {
+        "_id": "63397918c22d011bb56e5d5f",
+        "items": null
+      },
+      "id": 281884,
+      "type": "anime",
+      "name": "Наруто: Ураганные хроники",
+      "description": "В мире Наруто незаметно пролетели два года. Бывшие новички пополнили ряды опытных синоби в ранге тюнин и дзёнин. Главные герои не сидели на месте – каждый стал учеником одного из легендарных Саннин – трех великих ниндзя Конохи. Парень в оранжевом продолжил обучение у мудрого, но эксцентричного Дзирайи, постепенно восходя на новую ступень боевого мастерства. Сакура выдвинулась в помощницы и доверенные лица целительницы Цунадэ – нового вождя Деревни Листвы. Ну а Саскэ, чья гордыня привела к изгнанию из Конохи, вступил во временный союз со зловещим Оротимару, причем каждый считает, что лишь использует другого до поры до времени.",
+      "year": 2007,
+      "alternativeName": "Naruto: Shippûden",
+      "enName": null,
+      "names": [
+        {
+          "_id": "63397918c22d011bb56e5b3e",
+          "name": "Наруто: Ураганные хроники"
+        },
+        {
+          "_id": "63397918c22d011bb56e5b3f",
+          "name": "Naruto: Shippûden"
+        }
+      ],
+      "movieLength": 24,
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2007,
+          "end": 2017,
+          "_id": "6361476111f1fd7ff1fa4676"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4c4086bb916d4d01b984e2d5a8a63005",
+        "imdb": "tt0347149",
+        "tmdb": 4935,
+        "_id": "6376ba137ad98299ff9bfa7d"
+      },
+      "logo": {
+        "_id": "62f1ad1b0f5be41246dc7f85",
+        "url": "https://avatars.mds.yandex.net/get-ott/223007/2a000001739479cbe711a4bd9dbe4e816ae7/orig"
+      },
+      "poster": {
+        "_id": "6339eb4a89ae969da21363a4",
+        "url": "https://st.kp.yandex.net/images/film_big/49684.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_49684.jpg"
+      },
+      "rating": {
+        "kp": 8.314,
+        "imdb": 8.2,
+        "filmCritics": 7.5,
+        "russianFilmCritics": 100,
+        "await": 0,
+        "_id": "63ccc2c2956e06bfe76b95df"
+      },
+      "votes": {
+        "kp": 355422,
+        "imdb": 400683,
+        "filmCritics": 182,
+        "russianFilmCritics": 6,
+        "await": 0,
+        "_id": "63da3a5f20997f5a30fddb4b"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "636c3c37a788fd3074bbec91"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/movie/hauru-no-ugoku-shiro?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "636c3c37a788fd3074bbec90"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "636c3c37a788fd3074bbec93"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/100072?utm_source=yandex&utm_medium=wizard",
+            "_id": "636c3c37a788fd3074bbec92"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/daeb142e-3ecc-4bb2-9bff-4827996643ab/orig",
+              "_id": "636c3c37a788fd3074bbec95"
+            },
+            "name": "KION",
+            "url": "https://kion.ru/video/movie/601634946?utm_source=yandex&utm_medium=organic&utm_campaign=wizard",
+            "_id": "636c3c37a788fd3074bbec94"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "636c3c37a788fd3074bbec97"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/146708270?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "636c3c37a788fd3074bbec96"
+          }
+        ],
+        "_id": "636c3c37a788fd3074bbec8f"
+      },
+      "movieLength": 119,
+      "id": 49684,
+      "type": "anime",
+      "name": "Ходячий замок",
+      "description": "Злая ведьма заточила 18-летнюю Софи в тело старухи. Девушка-бабушка бежит из города куда глаза глядят и встречает удивительный дом на ножках, где знакомится с могущественным волшебником Хаулом и демоном Кальцифером. Кальцифер должен служить Хаулу по договору, условия которого он не может разглашать. Девушка и демон решают помочь друг другу избавиться от злых чар.",
+      "year": 2004,
+      "alternativeName": "Howl no Ugoku Shiro",
+      "enName": null,
+      "names": [
+        {
+          "_id": "63400b762b9ffcca5add6899",
+          "name": "Ходячий замок"
+        },
+        {
+          "_id": "63400b762b9ffcca5add689a",
+          "name": "Howl no Ugoku Shiro"
+        }
+      ],
+      "shortDescription": "Злая колдунья превращает юную Софи в старушку. Волшебная сказка о силе любви по мотивам книги Дианы Уинн Джонс",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0107613",
+        "tmdb": 31911,
+        "_id": "6376cac0d8baf23311f7c36c"
+      },
+      "logo": {
+        "_id": "62e93c79b2521039872d93ed",
+        "url": null
+      },
+      "poster": {
+        "_id": "633978e9c22d011bb56d82d6",
+        "url": "https://st.kp.yandex.net/images/film_big/452838.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_452838.jpg"
+      },
+      "rating": {
+        "kp": 8.6,
+        "imdb": 9.1,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63cae353956e06bfe78994b1"
+      },
+      "votes": {
+        "kp": 42420,
+        "imdb": 171462,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d84e61f38219e94ff6afd3"
+      },
+      "watchability": {
+        "_id": "633978e9c22d011bb56d8378",
+        "items": null
+      },
+      "id": 452838,
+      "type": "anime",
+      "name": "Стальной алхимик: Братство",
+      "description": "Нарушив главный запрет Алхимии и попытавшись воскресить маму, талантливые братья Элрики заплатили высокую цену: младший, Альфонс, потерял тело, и теперь его душа прикреплена к стальным доспехам, а старший, Эдвард, лишился руки и ноги, поэтому ему приходится пользоваться протезами — автобронёй. Благодаря проявленным способностям Эд получил звание государственного алхимика и, таким образом, стал частью военной машины государства. Теперь у него есть шанс вернуть Альфонсу прежнее тело.",
+      "year": 2009,
+      "alternativeName": "Fullmetal Alchemist: Brotherhood",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "633978e9c22d011bb56d82d2",
+          "name": "Стальной алхимик: Братство"
+        },
+        {
+          "_id": "633978e9c22d011bb56d82d3",
+          "name": "Fullmetal Alchemist: Brotherhood"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2009,
+          "end": 2010,
+          "_id": "6361477a11f1fd7ff1fbbf89"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0303326",
+        "tmdb": 35935,
+        "_id": "6376ccbad8baf23311061f26"
+      },
+      "logo": {
+        "_id": "62f43ac4252c8469ef55d7fd",
+        "url": null
+      },
+      "poster": {
+        "_id": "633978fec22d011bb56dd701",
+        "url": "https://st.kp.yandex.net/images/film_big/257376.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_257376.jpg"
+      },
+      "rating": {
+        "kp": 8.587,
+        "imdb": 8.7,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63c915ec2b1609d6699b1f61"
+      },
+      "votes": {
+        "kp": 35476,
+        "imdb": 40955,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63c915ec2b1609d6699b1f62"
+      },
+      "watchability": {
+        "_id": "633978fec22d011bb56dd762",
+        "items": null
+      },
+      "id": 257376,
+      "type": "anime",
+      "name": "Берсерк",
+      "description": "Через предательство и кровь к власти пришел новый король. Его демоны-подручные чинят несправедливости до тех пор, пока в город однажды ночью не приходит тяжело вооруженный воин. Весь покрытый оружием, броней и шрамами он называет себя Чёрным Мечником. Размеры его меча могут сравниться только с его ненавистью к королю и его демонам.",
+      "year": 1997,
+      "alternativeName": "Kenpu denki baruseruku",
+      "enName": null,
+      "names": [
+        {
+          "_id": "633978fec22d011bb56dd6fd",
+          "name": "Берсерк"
+        },
+        {
+          "_id": "633978fec22d011bb56dd6fe",
+          "name": "Kenpu denki baruseruku"
+        }
+      ],
+      "movieLength": 25,
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 1997,
+          "end": 1998,
+          "_id": "6361478f11f1fd7ff1fd1853"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0339526",
+        "tmdb": 13916,
+        "_id": "6376c154d8baf23311a2a778"
+      },
+      "logo": {
+        "_id": "62f7a806252c8469ef087388",
+        "url": null
+      },
+      "poster": {
+        "_id": "6339793bc22d011bb56ef6d4",
+        "url": "https://st.kp.yandex.net/images/film_big/406148.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_406148.jpg"
+      },
+      "rating": {
+        "kp": 8.593,
+        "imdb": 9,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63c3a7df2b1609d669e056c1"
+      },
+      "votes": {
+        "kp": 159517,
+        "imdb": 328269,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63c8f3762b1609d6693f9cae"
+      },
+      "watchability": {
+        "_id": "6339793bc22d011bb56ef756",
+        "items": null
+      },
+      "id": 406148,
+      "type": "anime",
+      "name": "Тетрадь смерти",
+      "description": "Старшекласснику Лайту Ягами в руки попадает тетрадь синигами Рюка. Каждый человек, чьё имя записать в эту тетрадку, умрёт, поэтому Лайт решает бороться со злом на земле.",
+      "year": 2006,
+      "alternativeName": "Desu noto",
+      "enName": null,
+      "movieLength": 22,
+      "names": [
+        {
+          "_id": "6339793bc22d011bb56ef6d0",
+          "name": "Тетрадь смерти"
+        },
+        {
+          "_id": "6339793bc22d011bb56ef6d1",
+          "name": "Desu noto"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "_id": "6359ae889f6a011dbf62fb7d",
+          "start": 2006,
+          "end": 2007
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4bb6840913d08f678d53d6446b87785f",
+        "imdb": "tt0036356",
+        "tmdb": 88803,
+        "_id": "6376cef6d8baf2331115b45c"
+      },
+      "logo": {
+        "_id": "62f66826252c8469efc6e6a7",
+        "url": null
+      },
+      "poster": {
+        "_id": "6339781ac22d011bb56a048b",
+        "url": "https://st.kp.yandex.net/images/film_big/1274280.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1274280.jpg"
+      },
+      "rating": {
+        "kp": 8.403,
+        "imdb": 8.8,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63e663c768d824d6ca0b486d"
+      },
+      "votes": {
+        "kp": 32390,
+        "imdb": 43094,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 13,
+        "_id": "63e663c768d824d6ca0b486e"
+      },
+      "watchability": {
+        "_id": "6339781ac22d011bb56a04f0",
+        "items": null
+      },
+      "id": 1274280,
+      "type": "anime",
+      "name": "Сага о Винланде",
+      "description": "Времена господства викингов. Людей, известных своими жестокими обычаями. Торфинн — сын одного из величайших викингов. Вот только вырос мальчик без отца, так как тот погиб на поле боя. Желая отомстить, Торфинн поклялся убить виновного, однако юноше ещё только предстоит овладеть искусством боя.",
+      "year": 2019,
+      "alternativeName": "Vinland Saga",
+      "enName": null,
+      "movieLength": 24,
+      "names": [
+        {
+          "_id": "6339781ac22d011bb56a0487",
+          "name": "Сага о Винланде"
+        },
+        {
+          "_id": "6339781ac22d011bb56a0488",
+          "name": "Vinland Saga"
+        }
+      ],
+      "shortDescription": "Юноша вступает в отряд своего врага, чтобы отомстить за гибель отца. Экшен-аниме о суровой эпохе викингов ",
+      "releaseYears": [
+        {
+          "start": 2019,
+          "end": null,
+          "_id": "636147a811f1fd7ff1fe9ff9"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt1668198",
+        "tmdb": 46298,
+        "_id": "6376d3c0d8baf233113479cd"
+      },
+      "logo": {
+        "_id": "62f6bbfd252c8469efd808b6",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397919c22d011bb56e6226",
+        "url": "https://st.kp.yandex.net/images/film_big/647602.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_647602.jpg"
+      },
+      "rating": {
+        "kp": 8.581,
+        "imdb": 9,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9eb29a6b88e0a41325bcc"
+      },
+      "votes": {
+        "kp": 17871,
+        "imdb": 104021,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 1,
+        "_id": "63d9eb29a6b88e0a41325bcd"
+      },
+      "watchability": {
+        "_id": "63397919c22d011bb56e62a3",
+        "items": null
+      },
+      "id": 647602,
+      "type": "anime",
+      "name": "Охотник х Охотник",
+      "description": "Действие происходит в мире, где существует некая организация Охотников. Их лицензия дает им множество привилегий — возможность бесплатно путешествовать первыми классами различных видов транспорта, доступ к закрытой для других людей информации и право брать крупные суммы денег в банках. Из-за этого довольно много желающих стать Охотниками. Поэтому ежегодно проводится экзамен, на котором выбираются те немногие, кто действительно достоин быть Охотником. Главный герой, Гон Фрикс, отправляется на экзамен с целью стать Охотником и найти своего отца. Ему предстоит преодолеть много трудностей на своем пути и встретить замечательных друзей, у каждого из которых свои причины стать Охотником.",
+      "year": 2011,
+      "alternativeName": "Hunter x Hunter",
+      "enName": null,
+      "movieLength": 23,
+      "names": [
+        {
+          "_id": "63397919c22d011bb56e6222",
+          "name": "Охотник х Охотник"
+        },
+        {
+          "_id": "63397919c22d011bb56e6223",
+          "name": "Hunter x Hunter"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2011,
+          "end": 2014,
+          "_id": "636147e111f1fd7ff1019f85"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4274a6e34cc5c6fd8beb9de557d327be",
+        "imdb": "tt5311514",
+        "tmdb": 372058,
+        "_id": "6376bacd7ad98299ffa570c8"
+      },
+      "logo": {
+        "_id": "62f30f40252c8469ef1232c4",
+        "url": "https://avatars.mds.yandex.net/get-ott/224348/2a000001722748afd22b6cd005ea5059c8a4/orig"
+      },
+      "poster": {
+        "_id": "63397813c22d011bb569ea88",
+        "url": "https://st.kp.yandex.net/images/film_big/958722.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_958722.jpg"
+      },
+      "rating": {
+        "kp": 8.371,
+        "imdb": 8.4,
+        "filmCritics": 8.2,
+        "russianFilmCritics": 75,
+        "await": 100,
+        "_id": "63b8d1550b7d940e83423d59"
+      },
+      "votes": {
+        "kp": 236224,
+        "imdb": 273425,
+        "filmCritics": 116,
+        "russianFilmCritics": 4,
+        "await": 335,
+        "_id": "63d9982af38219e94f08e2b1"
+      },
+      "watchability": {
+        "_id": "63397813c22d011bb569eadc",
+        "items": null
+      },
+      "id": 958722,
+      "type": "anime",
+      "name": "Твоё имя",
+      "description": "Токийский парень Таки и провинциальная девушка Мицуха обнаруживают, что между ними существует странная связь. Во сне они меняются телами и проживают жизни друг друга. Но однажды эта способность исчезает так же внезапно, как появилась. Таки решает во что бы то ни стало отыскать Мицуху.",
+      "year": 2016,
+      "alternativeName": "Kimi no na wa.",
+      "enName": null,
+      "movieLength": 110,
+      "names": [
+        {
+          "_id": "63397813c22d011bb569ea84",
+          "name": "Твоё имя"
+        },
+        {
+          "_id": "63397813c22d011bb569ea85",
+          "name": "Kimi no na wa."
+        }
+      ],
+      "shortDescription": "Нежная сказка о первой любви, которая преодолевает пространство и время. Аниме — рекордсмен бокс-офиса",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": "4601a2625f7e8c6191a1eb01e1bbc24c",
+        "imdb": "tt0046998",
+        "tmdb": 45213,
+        "_id": "6376d2e9d8baf233112f524c"
+      },
+      "logo": {
+        "_id": "62f67bcc252c8469efcad0bb",
+        "url": "https://avatars.mds.yandex.net/get-ott/2385704/2a000001702e34784f48f9d491f488eac708/orig"
+      },
+      "poster": {
+        "_id": "63397931c22d011bb56ec480",
+        "url": "https://st.kp.yandex.net/images/film_big/629591.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_629591.jpg"
+      },
+      "rating": {
+        "kp": 8.476,
+        "imdb": 8.3,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d4984d57101ffd39b5edb3"
+      },
+      "votes": {
+        "kp": 19035,
+        "imdb": 3533,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9ebd0a6b88e0a4135fe30"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "63d9ebd0a6b88e0a4135fe34"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/serial/usagi-doroppu?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "63d9ebd0a6b88e0a4135fe33"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "63d9ebd0a6b88e0a4135fe36"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/broshennyij-krolik?utm_source=yandex&utm_medium=wizard",
+            "_id": "63d9ebd0a6b88e0a4135fe35"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/0f86e907-9531-47e9-87bd-5101a08d4e30/orig",
+              "_id": "63d9ebd0a6b88e0a4135fe38"
+            },
+            "name": "PREMIER",
+            "url": "https://premier.one/show/13305?utm_source=yandex&utm_medium=yandex_feed_search&utm_campaign=yandex_feed",
+            "_id": "63d9ebd0a6b88e0a4135fe37"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "63d9ebd0a6b88e0a4135fe3a"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/94688256?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "63d9ebd0a6b88e0a4135fe39"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/223007/c6b9b3d8-3258-4394-9cae-c86fdb56a0c6/orig",
+              "_id": "63d9ebd0a6b88e0a4135fe3c"
+            },
+            "name": "НТВ-ПЛЮС Онлайн ТВ",
+            "url": "https://ntvplus.tv/watch/24733-broshennyj-krolik?utm_source=kinopoisk",
+            "_id": "63d9ebd0a6b88e0a4135fe3b"
+          }
+        ],
+        "_id": "63d9ebd0a6b88e0a4135fe32"
+      },
+      "id": 629591,
+      "type": "anime",
+      "name": "Брошенный кролик",
+      "description": "30-летний Дайкити Кавати, холостяк и трудоголик, получает известие о смерти деда. А на похоронах выясняется, что у старика осталась внебрачная 6-летняя дочь, которую родня собирается отослать в приют. Дайкити решает взять брошенку себе и таким образом становится отчимом собственной тёте.",
+      "year": 2011,
+      "alternativeName": "Usagi doroppu",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "63397931c22d011bb56ec47c",
+          "name": "Брошенный кролик"
+        },
+        {
+          "_id": "63397931c22d011bb56ec47d",
+          "name": "Usagi doroppu"
+        }
+      ],
+      "shortDescription": "30-летний холостяк Дайкити берет под опеку маленькую девочку. Светлое аниме о буднях родителя-одиночки",
+      "releaseYears": [
+        {
+          "start": 2011,
+          "end": 2012,
+          "_id": "636147d711f1fd7ff1012a6a"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt1371633",
+        "tmdb": 45790,
+        "_id": "6376cc11d8baf233110160da"
+      },
+      "logo": {
+        "_id": "62f7d3f1252c8469ef1183fa",
+        "url": null
+      },
+      "poster": {
+        "_id": "6339782cc22d011bb56a3ac0",
+        "url": "https://st.kp.yandex.net/images/film_big/707636.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_707636.jpg"
+      },
+      "rating": {
+        "kp": 8.585,
+        "imdb": 8.5,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9dd34794cbd41d033196f"
+      },
+      "votes": {
+        "kp": 38335,
+        "imdb": 25957,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 3,
+        "_id": "63d9dd34794cbd41d0331970"
+      },
+      "watchability": {
+        "_id": "6339782cc22d011bb56a3b9b",
+        "items": null
+      },
+      "id": 707636,
+      "type": "anime",
+      "name": "Невероятные приключения ДжоДжо",
+      "description": "Англия, конец XIX века. Богатый аристократ Джордж Джостар, верный некогда данному слову, принимает в семью осиротевшего бедного парня Дио и теперь относится к нему как к сыну. Родной же сын Джорджа Джонатан совсем не рад новому «брату», ведь тот превосходит его во всём, но вскоре благородство отца обернётся для него настоящей трагедией. Внимание Дио привлекает Каменная маска — семейная реликвия, украв которую он высвобождает древние силы, способные превратить его в неуязвимого вампира. На протяжении многих десятилетий против зла будут сражаться представители разных поколений семьи Джостар: Джонатан Джостар, Джозеф Джостар, Джотаро Куджо, Джосукэ Хигасиката, Джорно Джованна, Джолин Куджо.",
+      "year": 2012,
+      "alternativeName": "JoJo no Kimyou na Bouken",
+      "enName": null,
+      "names": [
+        {
+          "_id": "6339782cc22d011bb56a3abc",
+          "name": "Невероятные приключения ДжоДжо"
+        },
+        {
+          "_id": "6339782cc22d011bb56a3abd",
+          "name": "JoJo no Kimyou na Bouken"
+        }
+      ],
+      "movieLength": 24,
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2012,
+          "end": 2022,
+          "_id": "638a0f6fead58d1db7a4d24e"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4feb68a74da879cfbf963a8d58c3ab95",
+        "imdb": "tt9458304",
+        "tmdb": 83100,
+        "_id": "6376cb9fd8baf23311fe535c"
+      },
+      "logo": {
+        "_id": "62f450ce252c8469ef5a4e91",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397891c22d011bb56bdcb9",
+        "url": "https://st.kp.yandex.net/images/film_big/1226631.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1226631.jpg"
+      },
+      "rating": {
+        "kp": 8.273,
+        "imdb": 8.3,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63e63fb868d824d6ca49f189"
+      },
+      "votes": {
+        "kp": 44252,
+        "imdb": 14883,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63e63fb868d824d6ca49f18a"
+      },
+      "watchability": {
+        "_id": "63397891c22d011bb56bdcfd",
+        "items": null
+      },
+      "id": 1226631,
+      "type": "anime",
+      "name": "Дороро",
+      "description": "Чтобы победить голод, болезни и прочие бедствия на своих землях, а также стать правителем страны, лорд Даиго заключает сделку с демонами: в обмен на благополучие они могут забрать у него что угодно. Хитрые демоны выбирают органы и части тела только что рождённого первенца лорда, и от малыша практически ничего не остаётся. Даиго приказывает избавиться от останков, однако мальчик обладает чудесной выживаемостью и попадает в руки к невероятному врачу. \n\n16 лет спустя юноша по имени Хяккимару путешествует по стране. У него нет ни зрения, ни слуха, ни обоняния, ни осязания, зато он способен распознавать демонов, для которых встреча с парнем не сулит ничего хорошего — убивая их, Хяккимару возращает себе когда-то отобранные части тела. Однажды он случайно спасает из лап речного монстра малолетнего прохвоста Дороро, и тот увязывается за необычным путником.",
+      "year": 2019,
+      "alternativeName": "Dororo",
+      "enName": null,
+      "movieLength": 24,
+      "names": [
+        {
+          "_id": "63397891c22d011bb56bdcb5",
+          "name": "Дороро"
+        },
+        {
+          "_id": "63397891c22d011bb56bdcb6",
+          "name": "Dororo"
+        }
+      ],
+      "shortDescription": "Безжалостный отец готов пожертвовать жизнью сына ради власти и богатства. Новый взгляд на классическую мангу",
+      "releaseYears": [
+        {
+          "start": 2019,
+          "end": 2019,
+          "_id": "6361478511f1fd7ff1fc6a42"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "47c92cded6e021d28f0ec1cbe1ca6ff8",
+        "imdb": "tt0119698",
+        "tmdb": 128,
+        "_id": "6376c1a0d8baf23311a5b992"
+      },
+      "logo": {
+        "_id": "62f58a09252c8469ef99e53c",
+        "url": "https://avatars.mds.yandex.net/get-ott/236744/2a00000173947daba25a2156e8af43dbb41b/orig"
+      },
+      "poster": {
+        "_id": "6339eb5c89ae969da213d25f",
+        "url": "https://st.kp.yandex.net/images/film_big/441.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_441.jpg"
+      },
+      "rating": {
+        "kp": 8.195,
+        "imdb": 8.4,
+        "filmCritics": 8,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d63111f38219e94f97cc16"
+      },
+      "votes": {
+        "kp": 149307,
+        "imdb": 398833,
+        "filmCritics": 114,
+        "russianFilmCritics": 2,
+        "await": 0,
+        "_id": "63da50ae4efe32e9aaaea4cf"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "636c3dde9a69adeb3fa0cf7c"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/movie/mononoke-hime?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "636c3dde9a69adeb3fa0cf7b"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "636c3dde9a69adeb3fa0cf7e"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/100073?utm_source=yandex&utm_medium=wizard",
+            "_id": "636c3dde9a69adeb3fa0cf7d"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/daeb142e-3ecc-4bb2-9bff-4827996643ab/orig",
+              "_id": "636c3dde9a69adeb3fa0cf80"
+            },
+            "name": "KION",
+            "url": "https://kion.ru/video/movie/601635018?utm_source=yandex&utm_medium=organic&utm_campaign=wizard",
+            "_id": "636c3dde9a69adeb3fa0cf7f"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "636c3dde9a69adeb3fa0cf82"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/146709111?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "636c3dde9a69adeb3fa0cf81"
+          }
+        ],
+        "_id": "636c3dde9a69adeb3fa0cf7a"
+      },
+      "movieLength": 134,
+      "id": 441,
+      "type": "anime",
+      "name": "Принцесса Мононоке",
+      "description": "Убив вепря, юный принц Аситака навлек на себя смертельное проклятие. Старая знахарка предсказала, что только он сам способен изменить свою судьбу, и отважный воин отправился в опасное путешествие. Так он оказался в загадочной стране, где люди под предводительством злой госпожи Эбоси воевали с обитателями леса: духами, демонами и гигантскими существами, каких Аситака раньше никогда не видел. \n\nИ была с ними принцесса Мононоке - повелительница зверей и дочь волчицы. Теперь судьба всех зависит только от одного воина - принца Аситаки.",
+      "year": 1997,
+      "alternativeName": "Mononoke-hime",
+      "enName": null,
+      "names": [
+        {
+          "_id": "6339eb5c89ae969da213d25b",
+          "name": "Принцесса Мононоке"
+        },
+        {
+          "_id": "6339eb5c89ae969da213d25c",
+          "name": "Mononoke-hime"
+        }
+      ],
+      "shortDescription": "Заколдованный принц и лесная принцесса борются с древним демоном и его рабами. Аниме-блокбастер Хаяо Миядзаки",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": "430d58d3b063b340824ff7ec7df330b8",
+        "imdb": "tt0096283",
+        "tmdb": 8392,
+        "_id": "6376bb5a7ad98299ffabbbc5"
+      },
+      "logo": {
+        "_id": "62f3c4c5252c8469ef3da931",
+        "url": "https://avatars.mds.yandex.net/get-ott/1672343/2a00000173947a879571090c7ef4e5e197de/orig"
+      },
+      "poster": {
+        "_id": "6339eb4f89ae969da21380d4",
+        "url": "https://st.kp.yandex.net/images/film_big/8221.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_8221.jpg"
+      },
+      "rating": {
+        "kp": 8.215,
+        "imdb": 8.1,
+        "filmCritics": 8.4,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d108f257101ffd391b1e74"
+      },
+      "votes": {
+        "kp": 185226,
+        "imdb": 344011,
+        "filmCritics": 55,
+        "russianFilmCritics": 2,
+        "await": 0,
+        "_id": "63d8b427f38219e94f0f0065"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "636c3dd59a69adeb3f9fd27c"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/movie/tonari-no-totoro?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "636c3dd59a69adeb3f9fd27b"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "636c3dd59a69adeb3f9fd27e"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/100075?utm_source=yandex&utm_medium=wizard",
+            "_id": "636c3dd59a69adeb3f9fd27d"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/daeb142e-3ecc-4bb2-9bff-4827996643ab/orig",
+              "_id": "636c3dd59a69adeb3f9fd280"
+            },
+            "name": "KION",
+            "url": "https://kion.ru/video/movie/601879520?utm_source=yandex&utm_medium=organic&utm_campaign=wizard",
+            "_id": "636c3dd59a69adeb3f9fd27f"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "636c3dd59a69adeb3f9fd282"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/146684950?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "636c3dd59a69adeb3f9fd281"
+          }
+        ],
+        "_id": "636c3dd59a69adeb3f9fd27a"
+      },
+      "movieLength": 86,
+      "id": 8221,
+      "type": "anime",
+      "name": "Мой сосед Тоторо",
+      "description": "Сестры Сацуки и Мэй переезжают вместе с папой в деревенский дом. Однажды девочки обнаруживают, что по соседству с ними живут лесные духи — хранители леса во главе со своим могущественным и добрым повелителем Тоторо. Постепенно Тоторо становится другом девочек, помогая им в их повседневных приключениях.",
+      "year": 1988,
+      "alternativeName": "Tonari no Totoro",
+      "enName": null,
+      "names": [
+        {
+          "_id": "6339eb4f89ae969da21380d0",
+          "name": "Мой сосед Тоторо"
+        },
+        {
+          "_id": "6339eb4f89ae969da21380d1",
+          "name": "Tonari no Totoro"
+        }
+      ],
+      "shortDescription": "Сестренки знакомятся с обаятельным духом леса. История о вере в чудо, ставшая визитной карточкой студии Ghibli",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0948103",
+        "tmdb": 21729,
+        "_id": "6376cdd7d8baf233110e3a74"
+      },
+      "logo": {
+        "_id": "62ebe3dab252103987ec1c75",
+        "url": null
+      },
+      "poster": {
+        "_id": "6339793fc22d011bb56f0841",
+        "url": "https://st.kp.yandex.net/images/film_big/452973.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_452973.jpg"
+      },
+      "rating": {
+        "kp": 8.476,
+        "imdb": 8.3,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63c3a4682b1609d669bbb6fd"
+      },
+      "votes": {
+        "kp": 31054,
+        "imdb": 18824,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63da26c323bc2b4b9e706e73"
+      },
+      "watchability": {
+        "_id": "6339793fc22d011bb56f08b8",
+        "items": null
+      },
+      "id": 452973,
+      "type": "anime",
+      "name": "Гуррен-Лаганн",
+      "description": "Сотни лет люди живут в глубоких пещерах, в постоянном страхе перед землетрясениями и обвалами. В одной из таких подземных деревень живет мальчик Симон и его духовный наставник — парень Камина. Камина верит, что наверху есть другой мир, без стен и потолков, его мечта — попасть туда.\n\nНо мечты остаются пустыми фантазиями, пока в один прекрасный день Симон случайно не находит сверло, оказавшееся ключом от странного железного лица в толще земли. В этот же день потолок пещеры рушится. Так начинается приключение Симона, Камины и их компаньонов в новом мире под открытым небом огромной вселенной.",
+      "year": 2007,
+      "alternativeName": "Tengen toppa gurren lagann",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "6339793fc22d011bb56f083d",
+          "name": "Гуррен-Лаганн"
+        },
+        {
+          "_id": "6339793fc22d011bb56f083e",
+          "name": "Tengen toppa gurren lagann"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2007,
+          "end": 2007,
+          "_id": "6361479a11f1fd7ff1fdc85a"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0994314",
+        "tmdb": 31724,
+        "_id": "6376cbc3d8baf23311ff42c9"
+      },
+      "logo": {
+        "_id": "62e154e1028619ccaf2bee90",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397a65c22d011bb575792e",
+        "url": "https://st.kp.yandex.net/images/film_big/408674.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_408674.jpg"
+      },
+      "rating": {
+        "kp": 8.553,
+        "imdb": 8.7,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63bbc79c0b7d940e8368899f"
+      },
+      "votes": {
+        "kp": 37736,
+        "imdb": 70093,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63da29f9a08aa17ea58e7d92"
+      },
+      "watchability": {
+        "_id": "63397a65c22d011bb5757996",
+        "items": null
+      },
+      "id": 408674,
+      "type": "anime",
+      "name": "Код Гиас: Восставший Лелуш",
+      "description": "Альтернативная реальность: Британская империя захватила треть мира, обрушивая на непокорных мощь своей военной машины.\n\nВ Японии, захваченной и переименованной в Зону 11, вместе с младшей сестрой живёт старшеклассник Лелуш – изгнанный сын Императора, потерявший мать и право на престол. Юноша отличается от сверстников не только происхождением – он весьма одарённая личность, только где применить эти способности? Неожиданно Лелуш оказывается вовлечён в столкновение между японскими террористами и британскими солдатами. Так он знакомится с загадочной девушкой C.C. Она дарует ему сверхъестественную способность Гиас, позволяющую подчинять себе волю других людей.\n\nСкрывая лицо под маской и под именем Зеро, Лелуш присоединяется к подпольному движению, горя желанием отомстить Британии и отцу. Будучи студентом Академии Ашфорд, юноша вынужден вести двойную жизнь.",
+      "year": 2006,
+      "alternativeName": "Code Geass: Hangyaku no Lelouch",
+      "enName": null,
+      "movieLength": 24,
+      "names": [
+        {
+          "_id": "63397a65c22d011bb575792a",
+          "name": "Код Гиас: Восставший Лелуш"
+        },
+        {
+          "_id": "63397a65c22d011bb575792b",
+          "name": "Code Geass: Hangyaku no Lelouch"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2006,
+          "end": 2008,
+          "_id": "6361478411f1fd7ff1fc6311"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4b9a84d3f5a8db0ab61b2c1aeca4c8cf",
+        "imdb": "tt0388629",
+        "tmdb": 37854,
+        "_id": "6376cef8d8baf2331115be04"
+      },
+      "logo": {
+        "_id": "62f4031c252c8469ef4a7200",
+        "url": null
+      },
+      "poster": {
+        "_id": "6339eb5a89ae969da213c597",
+        "url": "https://st.kp.yandex.net/images/film_big/382731.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_382731.jpg"
+      },
+      "rating": {
+        "kp": 8.287,
+        "imdb": 8.9,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63c910552b1609d6696477b2"
+      },
+      "votes": {
+        "kp": 28661,
+        "imdb": 129556,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 1,
+        "_id": "63da405f09d4cbb13c8ef25e"
+      },
+      "watchability": {
+        "_id": "6339eb5a89ae969da213c886",
+        "items": null
+      },
+      "id": 382731,
+      "type": "anime",
+      "name": "Ван-Пис",
+      "description": "Гол Д. Роджер — король пиратов, добившийся за свою жизнь богатства, славы и власти - спрятал где-то на просторах этого мира загадочное сокровище, которое все называют «Ван-Пис». После смерти Роджера множество смельчаков кинулись на поиски этого большого куша. И наступила великая эпоха пиратов! Вот и паренёк по имени Луффи, живущий в маленькой прибрежной деревушке, мечтает стать пиратом. Ещё в детстве он ненароком съел дьявольский плод «резина-резина» и приобрёл невероятные способности. Повзрослев, он покидает родные места в погоне за величайшим сокровищем!",
+      "year": 1999,
+      "alternativeName": "One Piece",
+      "enName": null,
+      "movieLength": 22,
+      "names": [
+        {
+          "_id": "6339eb5a89ae969da213c593",
+          "name": "Ван-Пис"
+        },
+        {
+          "_id": "6339eb5a89ae969da213c594",
+          "name": "One Piece"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 1999,
+          "end": null,
+          "_id": "63a2926e724b35d32e3ee560"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt13616990",
+        "tmdb": 114410,
+        "_id": "6376e791ab9a5694e4443a22"
+      },
+      "logo": {
+        "_id": "6336f1e0248263ce89c5f6e8",
+        "url": null
+      },
+      "poster": {
+        "_id": "6339c081c22d011bb50dd512",
+        "url": "https://st.kp.yandex.net/images/film_big/2040161.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_2040161.jpg"
+      },
+      "rating": {
+        "kp": 8.337,
+        "imdb": 8.6,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 98.4,
+        "_id": "63e5b3e668d824d6ca9b02c7"
+      },
+      "votes": {
+        "kp": 21245,
+        "imdb": 27205,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 21308,
+        "_id": "63e5b3e668d824d6ca9b02c8"
+      },
+      "watchability": {
+        "_id": "6339c081c22d011bb50dd532",
+        "items": null
+      },
+      "id": 2040161,
+      "alternativeName": "Chainsaw Man",
+      "description": "Подросток Дэндзи всего лишь хотел жить обычной жизнью и есть досыта, но оставшиеся после смерти отца долги вынуждают парня влачить полуголодное существование и жить в халупе. Чтобы расплатиться с якудза, он уже продал некоторые свои органы и даже промышляет нелегальной охотой на демонов, в чём ему помогает необычный питомец Потита, демоническое существо с бензопилой. Однажды коварные бандиты заманивают Дэндзи в ловушку и приносят в жертву, но Потита не даёт парню умереть. Он сращивает его тело и становится сердцем своего хозяина — теперь Дэндзи обладает повышенной регенерацией, а также может превращать конечности в бензопилы. Такого ценного кадра нанимает Бюро общественной безопасности, чтобы тот снова охотился на демонов. На новой работе парень знакомится с коллегами — меланхоличным охотником Аки, вспыльчивой полудемонессой Пауэр — и влюбляется в свою загадочную начальницу Макиму.",
+      "enName": null,
+      "movieLength": 24,
+      "name": "Человек-бензопила",
+      "names": [
+        {
+          "_id": "6339c081c22d011bb50dd50e",
+          "name": "Человек-бензопила"
+        },
+        {
+          "_id": "6339c081c22d011bb50dd50f",
+          "name": "Chainsaw Man"
+        }
+      ],
+      "shortDescription": null,
+      "type": "anime",
+      "year": 2022,
+      "releaseYears": [
+        {
+          "start": 2022,
+          "end": 2022,
+          "_id": "63ac59d9724b35d32e43ba16"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0996628",
+        "tmdb": 63926,
+        "_id": "6376c512d8baf23311c9d8c7"
+      },
+      "logo": {
+        "_id": "62df4a21028619ccaf506b6d",
+        "url": null
+      },
+      "poster": {
+        "_id": "633977d1c22d011bb568af72",
+        "url": "https://st.kp.yandex.net/images/film_big/942544.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_942544.jpg"
+      },
+      "rating": {
+        "kp": 8.383,
+        "imdb": 8.7,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d5a2baf38219e94f6fa336"
+      },
+      "votes": {
+        "kp": 86921,
+        "imdb": 163118,
+        "filmCritics": 0,
+        "russianFilmCritics": 1,
+        "await": 3,
+        "_id": "63d9ad02f38219e94f536957"
+      },
+      "watchability": {
+        "_id": "633977d1c22d011bb568afcc",
+        "items": null
+      },
+      "id": 942544,
+      "type": "anime",
+      "name": "Ванпанчмен",
+      "description": "Парень по имени Сайтама живёт в мире, иронично похожем на наш. Ему 25, он лыс и прекрасен и к тому же силен настолько, что с одного удара аннигилирует всё, что представляет опасность для человечества. Он ищет себя в этой жизни, попутно раздавая подзатыльники монстрам и злодеям.",
+      "year": 2015,
+      "alternativeName": "One Punch Man",
+      "enName": null,
+      "names": [
+        {
+          "_id": "633977d1c22d011bb568af6e",
+          "name": "Ванпанчмен"
+        },
+        {
+          "_id": "633977d1c22d011bb568af6f",
+          "name": "One Punch Man"
+        }
+      ],
+      "movieLength": 24,
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2015,
+          "end": 2019,
+          "_id": "6361474511f1fd7ff1f8556b"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt5249462",
+        "tmdb": 65249,
+        "_id": "6376cc82d8baf2331104a7b5"
+      },
+      "logo": {
+        "_id": "62f47ac1252c8469ef62a9c5",
+        "url": null
+      },
+      "poster": {
+        "_id": "633978b8c22d011bb56c9308",
+        "url": "https://st.kp.yandex.net/images/film_big/957840.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_957840.jpg"
+      },
+      "rating": {
+        "kp": 8.619,
+        "imdb": 8.5,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d4547557101ffd39773ddb"
+      },
+      "votes": {
+        "kp": 36012,
+        "imdb": 49182,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9a0e1f38219e94f34ff7f"
+      },
+      "watchability": {
+        "_id": "633978b8c22d011bb56c9334",
+        "items": null
+      },
+      "id": 957840,
+      "type": "anime",
+      "name": "Город, в котором меня нет",
+      "description": "Жизнь мангаки нелегка. Тяжелый и кропотливый труд по достоинству вознаграждается в редких случаях. Авторские работы, в которые были вложены душа и нравоучительный посыл, не всегда достигают сердец читателей. Однажды понять, что ты пустой и скучный человек, не способный на большее — самый большой страх в жизни мангаки.\n\nСатору Фудзинума - тоже автор. В свои 28 он трудится не покладая рук, однако не все авторы гении, и далеко не у каждого получается выразить себя в своих работах. Множеством вопросов ежедневно задается Сатору, и боится однажды увидеть себя пустым и скучным. Но разве пустые и скучные люди могут так же ловко подмечать в своем окружении разные мелочи? Сатору может. Но признавать это в себе, то, что делает его далеко не посредственным, он не хочет. Впрочем, как и называть свой дар сверхъестественным.",
+      "year": 2016,
+      "alternativeName": "Boku dake ga inai machi",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "633978b8c22d011bb56c9304",
+          "name": "Город, в котором меня нет"
+        },
+        {
+          "_id": "633978b8c22d011bb56c9305",
+          "name": "Boku dake ga inai machi"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2016,
+          "end": 2016,
+          "_id": "6361478b11f1fd7ff1fcdf0e"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "42ef18eb868f99d6a7e33645048ae9d2",
+        "imdb": "",
+        "tmdb": 86031,
+        "_id": "6376c72bd8baf23311dc241e"
+      },
+      "logo": {
+        "_id": "62f57143252c8469ef94ed15",
+        "url": "https://avatars.mds.yandex.net/get-ott/2439731/2a00000176a9b3f42ead958fb9112551dd8c/orig"
+      },
+      "poster": {
+        "_id": "633978cec22d011bb56cf9b6",
+        "url": "https://st.kp.yandex.net/images/film_big/1249511.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1249511.jpg"
+      },
+      "rating": {
+        "kp": 8.238,
+        "imdb": 8.1,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63e62a6668d824d6ca8954fa"
+      },
+      "votes": {
+        "kp": 66210,
+        "imdb": 21347,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 8,
+        "_id": "63e62a6668d824d6ca8954fb"
+      },
+      "watchability": {
+        "_id": "633978cec22d011bb56cfa30",
+        "items": null
+      },
+      "id": 1249511,
+      "type": "anime",
+      "name": "Доктор Стоун",
+      "description": "В один роковой день всё человечество превратилось в камень. Много тысячелетий спустя старшеклассник Тайдзю освобождается от окаменения и оказывается в окружении статуй. Однако он не одинок: его другу Сэнку также удалось сбросить каменную оболочку, и теперь, используя научные знания, они начинают восстанавливать былую цивилизацию.",
+      "year": 2019,
+      "alternativeName": "Dr. Stone",
+      "enName": null,
+      "names": [
+        {
+          "_id": "633978cec22d011bb56cf9b2",
+          "name": "Доктор Стоун"
+        },
+        {
+          "_id": "633978cec22d011bb56cf9b3",
+          "name": "Dr. Stone"
+        }
+      ],
+      "movieLength": 24,
+      "shortDescription": "Друзья пытаются оживить окаменевшее человечество, но у них есть противник. Сай-фай-аниме о борьбе идеологий",
+      "releaseYears": [
+        {
+          "start": 2019,
+          "end": null,
+          "_id": "63cc48e0956e06bfe792b630"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt1753670",
+        "tmdb": 85937,
+        "_id": "6376c5abd8baf23311cf2051"
+      },
+      "logo": {
+        "_id": "62ef91240f5be412468dd6e2",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397810c22d011bb569d4b2",
+        "url": "https://st.kp.yandex.net/images/film_big/1220920.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1220920.jpg"
+      },
+      "rating": {
+        "kp": 8.204,
+        "imdb": 8.7,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63e627f668d824d6ca7830e2"
+      },
+      "votes": {
+        "kp": 80649,
+        "imdb": 107642,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 4,
+        "_id": "63e627f668d824d6ca7830e3"
+      },
+      "watchability": {
+        "_id": "63397810c22d011bb569d53d",
+        "items": null
+      },
+      "id": 1220920,
+      "type": "anime",
+      "name": "Истребитель демонов",
+      "description": "Эпоха Тайсё. Ещё с древних времён ходят слухи, что в лесу обитают человекоподобные демоны, которые питаются людьми и выискивают по ночам новых жертв. Тандзиро Камадо — старший сын в семье, потерявший отца и взявший на себя заботу о родных. Однажды он уходит в соседний город, чтобы продать древесный уголь. Вернувшись утром, парень обнаруживает перед собой страшную картину: вся родня зверски убита, а единственная выжившая — младшая сестра Нэдзуко, обращённая в демона, но пока не потерявшая человечность. С этого момента начинается долгое и опасное путешествие Тандзиро и Нэдзуко, в котором мальчик намерен разыскать убийцу и узнать способ исцеления сестры.",
+      "year": 2019,
+      "alternativeName": "Kimetsu no Yaiba",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "63397810c22d011bb569d4ae",
+          "name": "Истребитель демонов"
+        },
+        {
+          "_id": "63397810c22d011bb569d4af",
+          "name": "Kimetsu no Yaiba"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2019,
+          "end": null,
+          "_id": "6361474911f1fd7ff1f8c3ce"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "tmdb": 1063,
+        "_id": "6376ba2a7ad98299ff9d6513"
+      },
+      "logo": {
+        "_id": "62f54232252c8469ef8b27f5",
+        "url": null
+      },
+      "poster": {
+        "url": "https://st.kp.yandex.net/images/film_big/256147.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_256147.jpg",
+        "_id": "636d29f3e5b9cc8b965d3400"
+      },
+      "rating": {
+        "kp": 8.395,
+        "imdb": 8.6,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63da39780b0ba1a94d4d3d2d"
+      },
+      "votes": {
+        "kp": 24466,
+        "imdb": 50073,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63da39780b0ba1a94d4d3d2e"
+      },
+      "watchability": {
+        "_id": "6339793cc22d011bb56ef9bd",
+        "items": null
+      },
+      "id": 256147,
+      "type": "anime",
+      "name": "Самурай Чамплу",
+      "description": "Мугэн - мечник с повадками брейкдансера, вспыльчивый, грубый и вечно голодный мужлан. Дзин - благородный, хорошо воспитанный ронин, чьё прошлое скрывает мрачную тайну.\n\nНет в мире двух других самураев, настолько непохожих друг на друга - а судьба не только сводит их в поединке, но и заставляет присоединиться к Фуу, целеустремленной юной особе, озабоченной поисками таинственного самурая, пахнущего подсолнухами. Это история о любви, дружбе и мужестве... или нет?!",
+      "year": 2004,
+      "alternativeName": "Samurai chanpurû",
+      "enName": null,
+      "movieLength": 22,
+      "names": [
+        {
+          "_id": "6339793cc22d011bb56ef8f1",
+          "name": "Самурай Чамплу"
+        },
+        {
+          "_id": "6339793cc22d011bb56ef8f2",
+          "name": "Samurai chanpurû"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2004,
+          "end": 2005,
+          "_id": "636147b311f1fd7ff1ff41ce"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0181696",
+        "tmdb": 60863,
+        "_id": "6376cf04d8baf23311160d9b"
+      },
+      "logo": {
+        "_id": "62ecb758b252103987726523",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397813c22d011bb569e854",
+        "url": "https://st.kp.yandex.net/images/film_big/840073.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_840073.jpg"
+      },
+      "rating": {
+        "kp": 8.365,
+        "imdb": 8.7,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d78ca8f38219e94f08adad"
+      },
+      "votes": {
+        "kp": 27826,
+        "imdb": 26841,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 35,
+        "_id": "63d78ca8f38219e94f08adae"
+      },
+      "watchability": {
+        "_id": "63397813c22d011bb569e903",
+        "items": null
+      },
+      "id": 840073,
+      "type": "anime",
+      "name": "Волейбол!!",
+      "description": "Один случайный матч зажёг в Сёё Хинате безумную любовь к волейболу. Хоть в его волейбольном клубе изначально не было даже участников, упорством и стараниями Сёё собравшаяся команда всё-таки прорвалась в свой первый и последний финальный матч в средней школе. Но там она была начисто разгромлена Тобио Кагэямой, известным как Король площадки. Поклявшись отомстить, Хината вступает в клуб волейбола в старшей школе Карасуно и лицом к лицу сталкивается со своим ненавистным противником Кагэямой.",
+      "year": 2014,
+      "alternativeName": "Haikyuu!!",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "63397813c22d011bb569e850",
+          "name": "Волейбол!!"
+        },
+        {
+          "_id": "63397813c22d011bb569e851",
+          "name": "Haikyuu!!"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2014,
+          "end": null,
+          "_id": "636147a611f1fd7ff1fe73ee"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "41b55cb854914f9795ffa12d3d0caf24",
+        "imdb": "tt7441658",
+        "tmdb": 73223,
+        "_id": "6376c9a5d8baf23311ef9f75"
+      },
+      "logo": {
+        "_id": "62ec867cb25210398755399c",
+        "url": null
+      },
+      "poster": {
+        "_id": "6339eb4789ae969da2135337",
+        "url": "https://st.kp.yandex.net/images/film_big/1049731.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1049731.jpg"
+      },
+      "rating": {
+        "kp": 8.145,
+        "imdb": 8.3,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d80a0cf38219e94f0751d5"
+      },
+      "votes": {
+        "kp": 48509,
+        "imdb": 24984,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9a676f38219e94f3e8c2f"
+      },
+      "watchability": {
+        "_id": "6339eb4789ae969da213537b",
+        "items": null
+      },
+      "id": 1049731,
+      "type": "anime",
+      "name": "Чёрный клевер",
+      "description": "Ещё младенцами в один и тот же день Аста с Юно были подброшены под двери церкви одной отдалённой деревни. Годы шли, мальчики росли, а миром вокруг них правила магия. Юно оказался по-настоящему одарённым чародеем, а Аста не мог освоить и простейшее заклинание. На пятнадцатый день рождения юноши получат свою собственную книгу заклинаний — гримуар. Лучшие друзья в прошлом, а ныне — соперники, они делят одну мечту на двоих. Каждый из них хочет стать Королём-чародеем.",
+      "year": 2017,
+      "alternativeName": "Black Clover",
+      "enName": null,
+      "movieLength": 23,
+      "names": [
+        {
+          "_id": "6339eb4789ae969da2135333",
+          "name": "Чёрный клевер"
+        },
+        {
+          "_id": "6339eb4789ae969da2135334",
+          "name": "Black Clover"
+        }
+      ],
+      "shortDescription": "Редкий дар приносит юному магу радость и неприятности. Аниме-сериал о борьбе друзей за звание короля-чародея",
+      "releaseYears": [
+        {
+          "start": 2017,
+          "end": 2021,
+          "_id": "6361477011f1fd7ff1fb3bb1"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt2464806",
+        "tmdb": 67075,
+        "_id": "6376d12ad8baf23311247d4a"
+      },
+      "logo": {
+        "_id": "62dd5e0c028619ccaf807a6f",
+        "url": null
+      },
+      "poster": {
+        "url": "https://st.kp.yandex.net/images/film_big/1002686.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1002686.jpg",
+        "_id": "63965db718054ff7f2875d66"
+      },
+      "rating": {
+        "kp": 8.257,
+        "imdb": 8.6,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d59086f38219e94fdf2c16"
+      },
+      "votes": {
+        "kp": 21416,
+        "imdb": 34521,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 1,
+        "_id": "63d59086f38219e94fdf2c17"
+      },
+      "watchability": {
+        "_id": "633978dac22d011bb56d35a3",
+        "items": null
+      },
+      "id": 1002686,
+      "type": "anime",
+      "name": "Моб Психо 100",
+      "description": "Сигэо Кагэяма, также известный как Моб, — восьмиклассник с психическими способностями. Он умеет сгибать ложки и поднимать вещи силой мысли с ранних лет, но затем он постепенно начал сдерживаться от использования способностей на публике. И теперь единственное, чего он хочет — это подружиться с одноклассницей Цубоми. Вместе со своим психическим наставником (у которого нет психических способностей), он продолжает повседневную жизнь, пытаясь понять свое назначение в жизни.",
+      "year": 2016,
+      "alternativeName": "Mob Psycho 100",
+      "enName": null,
+      "names": [
+        {
+          "_id": "633978dac22d011bb56d353e",
+          "name": "Моб Психо 100"
+        },
+        {
+          "_id": "633978dac22d011bb56d353f",
+          "name": "Mob Psycho 100"
+        }
+      ],
+      "movieLength": 24,
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2016,
+          "end": null,
+          "_id": "636147c511f1fd7ff10028fb"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0114354",
+        "tmdb": 890,
+        "_id": "6376c846d8baf23311e4d331"
+      },
+      "logo": {
+        "_id": "62f0ef4b0f5be412466626a5",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397915c22d011bb56e4c34",
+        "url": "https://st.kp.yandex.net/images/film_big/95323.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_95323.jpg"
+      },
+      "rating": {
+        "kp": 8.148,
+        "imdb": 8.5,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d89839f38219e94f9a8227"
+      },
+      "votes": {
+        "kp": 57922,
+        "imdb": 72166,
+        "filmCritics": 0,
+        "russianFilmCritics": 1,
+        "await": 0,
+        "_id": "63d89839f38219e94f9a8228"
+      },
+      "watchability": {
+        "_id": "63397915c22d011bb56e4c6e",
+        "items": null
+      },
+      "id": 95323,
+      "type": "anime",
+      "name": "Евангелион",
+      "description": "2015 год, Токио-3. 15 лет назад произошёл Второй удар, в результате чего Антарктида растаяла, Землю накрыла глобальная катастрофа, и большая часть человечества погибла. Теперь планету атакуют Ангелы — загадочные существа, противостоять которым могут только созданные с помощью биотехнологий гигантские роботы серии «Евангелион». \n\n14-летний Синдзи Икари направлялся на встречу с отцом, руководителем влиятельной организации NERV, когда Токио-3 подвергся нападению Ангела. С помощью капитана Мисато Кацураги парень добирается до подземной штаб-квартиры NERV и единственное, что он хочет сказать отцу — как сильно его ненавидит. Но на месте выясняется, что Синдзи должен прямо сейчас залезть в робота и сражаться с Ангелом.",
+      "year": 1995,
+      "alternativeName": "Shin Seiki Evangelion",
+      "enName": null,
+      "names": [
+        {
+          "_id": "63397915c22d011bb56e4c30",
+          "name": "Евангелион"
+        },
+        {
+          "_id": "63397915c22d011bb56e4c31",
+          "name": "Shin Seiki Evangelion"
+        }
+      ],
+      "movieLength": 26,
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 1995,
+          "end": 1996,
+          "_id": "6361476011f1fd7ff1fa37ac"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4bf7b53f70c3b3a8819cd8733195bece",
+        "imdb": "tt5323662",
+        "tmdb": 378064,
+        "_id": "6376c36dd8baf23311ba0242"
+      },
+      "logo": {
+        "_id": "62ebf971b252103987f8974c",
+        "url": "https://avatars.mds.yandex.net/get-ott/2439731/2a00000171bfe7e1d5ddaba36e9a6b94e89e/orig"
+      },
+      "poster": {
+        "_id": "633977c0c22d011bb567a92f",
+        "url": "https://st.kp.yandex.net/images/film_big/963343.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_963343.jpg"
+      },
+      "rating": {
+        "kp": 8.188,
+        "imdb": 8.1,
+        "filmCritics": 7.6,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63cdbffe57101ffd392d1cc7"
+      },
+      "votes": {
+        "kp": 111221,
+        "imdb": 84716,
+        "filmCritics": 37,
+        "russianFilmCritics": 0,
+        "await": 54,
+        "_id": "63d99a99f38219e94f1c59db"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/daeb142e-3ecc-4bb2-9bff-4827996643ab/orig",
+              "_id": "6389de95ead58d1db7f02d2c"
+            },
+            "name": "KION",
+            "url": "https://kion.ru/video/movie/180209372?utm_source=yandex&utm_medium=organic&utm_campaign=wizard",
+            "_id": "6389de95ead58d1db7f02d2b"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/74a3af87-2bfa-4cdc-bc16-32a21114665b/orig",
+              "_id": "6389de95ead58d1db7f02d2e"
+            },
+            "name": "МегаФон ТВ",
+            "url": "https://megafon.tv/movies/vods/Forma_golosa_2016?utm_source=yandex&utm_medium=wizard&utm_campaign=Forma_golosa_2016",
+            "_id": "6389de95ead58d1db7f02d2d"
+          }
+        ],
+        "_id": "6389de95ead58d1db7f02d2a"
+      },
+      "movieLength": 130,
+      "id": 963343,
+      "type": "anime",
+      "name": "Форма голоса",
+      "description": "Молодой человек Сёя Исида внезапно осознаёт, что в школе умудрился превратить жизнь одноклассницы Сёко в ад только потому, что та была глухая. И теперь, хоть и запоздало, парень понимает — чтобы сказать нечто важное тому, кто не может тебя услышать, вовсе не обязательно использовать голос.",
+      "year": 2016,
+      "alternativeName": "Koe no katachi",
+      "enName": null,
+      "names": [
+        {
+          "_id": "633977c0c22d011bb567a92b",
+          "name": "Форма голоса"
+        },
+        {
+          "_id": "633977c0c22d011bb567a92c",
+          "name": "Koe no katachi"
+        }
+      ],
+      "shortDescription": "Девочка с проблемами со слухом подвергается травле в школе. Аниме о запоздалом раскаянии и шансе на прощение",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": "4500cc38c4ecd70f84621214d665d652",
+        "imdb": "tt3358020",
+        "tmdb": 61459,
+        "_id": "6376c8a3d8baf23311e7c7d8"
+      },
+      "logo": {
+        "_id": "62ee33010f5be41246b15a2a",
+        "url": "https://avatars.mds.yandex.net/get-ott/223007/2a0000017e0668b35a2671bd4995246608f1/orig"
+      },
+      "poster": {
+        "_id": "63397862c22d011bb56b2bec",
+        "url": "https://st.kp.yandex.net/images/film_big/843221.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_843221.jpg"
+      },
+      "rating": {
+        "kp": 8.139,
+        "imdb": 8.3,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d84742f38219e94fbd28b3"
+      },
+      "votes": {
+        "kp": 56508,
+        "imdb": 39960,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 7,
+        "_id": "63d9cce96b3288b2450c4448"
+      },
+      "watchability": {
+        "_id": "634732d0a7faa4cbfc712102",
+        "items": [
+          {
+            "logo": {
+              "_id": "634732d0a7faa4cbfc712104",
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig"
+            },
+            "_id": "634732d0a7faa4cbfc712103",
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/136260944?utm_source=yandex&utm_medium=koldunschick&utm_content=name"
+          }
+        ]
+      },
+      "id": 843221,
+      "type": "anime",
+      "name": "Паразит: Учение о жизни",
+      "description": "Паразиты — создания, живущие за счёт своего носителя. Обладают совершенно нечеловеческой силой. Посланные небом они должны проникать в мозг человека для полной власти над носителем. Но кому как повезёт. Именно неудача одного паразита спасает жизнь школьника Синъити Идзуми. Но и эта же неудача делает его носителем этого загадочного существа, обрекая Синъити на постоянную борьбу за выживание с другими, более сильными паразитами.",
+      "year": 2014,
+      "alternativeName": "Kiseijuu: Sei no Kakuritsu",
+      "enName": null,
+      "movieLength": 23,
+      "names": [
+        {
+          "_id": "63397862c22d011bb56b2be8",
+          "name": "Паразит: Учение о жизни"
+        },
+        {
+          "_id": "63397862c22d011bb56b2be9",
+          "name": "Kiseijuu: Sei no Kakuritsu"
+        }
+      ],
+      "shortDescription": "В правой руке старшеклассника поселяется внеземной симбиот. Экранизация фантастической манги Хитоси Ивааки",
+      "releaseYears": [
+        {
+          "start": 2014,
+          "end": 2015,
+          "_id": "6361476511f1fd7ff1fa8e25"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0013705",
+        "tmdb": 42509,
+        "_id": "6376cefbd8baf2331115d031"
+      },
+      "logo": {
+        "_id": "62ef675a0f5be4124672fff3",
+        "url": null
+      },
+      "poster": {
+        "_id": "6339eb4b89ae969da21369b4",
+        "url": "https://st.kp.yandex.net/images/film_big/586251.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_586251.jpg"
+      },
+      "rating": {
+        "kp": 8.416,
+        "imdb": 8.8,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d5eb0cf38219e94fa25057"
+      },
+      "votes": {
+        "kp": 27600,
+        "imdb": 63922,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9ee69a6b88e0a4144d05e"
+      },
+      "watchability": {
+        "_id": "6339eb4b89ae969da21369f9",
+        "items": null
+      },
+      "id": 586251,
+      "type": "anime",
+      "name": "Врата Штейна",
+      "description": "Акихабара – интереснейшее место, где обитают самые разные люди – от слегка сдвинутых по фазе до больных на всю голову. Именно такая компания собралась в Лаборатории проблем времени, что над лавкой старых телевизоров. Возглавляет её 18-летний Ринтаро Окабэ, сумасшедший ученый и борец с мировым заговором. В серьезном деле нельзя без хакера – вот и он, Итару Хасида, конечно же, толстяк и истинный отаку. Добрая фея лаборатории – Маюри Сиина, подруга детства Ринтаро, официантка мейд-кафе и фанатка косплея, а научную мощь бригады резко повысила юный гений Курису Макисэ, истосковавшаяся по интеллектуальным приключениям и простому человеческому теплу.\n\nКомпании удалось построить машину времени из микроволновки и барахла с ближайшей распродажи. Великие открытия делают любители, а профессионалы строят «Титаники». Вот только потом началось такое, что парадокс дедушки нервно удалился курить в сторонку, а главный герой трижды проклял тот день, когда сдуру открыл врата Штейна. Он был готов рисковать своей жизнью, но не чужими. Впрочем, сделанного, как известно, не воротишь. Или… все же можно?",
+      "year": 2011,
+      "alternativeName": "Steins;Gate",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "6339eb4b89ae969da21369b0",
+          "name": "Врата Штейна"
+        },
+        {
+          "_id": "6339eb4b89ae969da21369b1",
+          "name": "Steins;Gate"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2011,
+          "end": 2011,
+          "_id": "636147a611f1fd7ff1fe744b"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4e16382ce23bf36e97521742fd515aa0",
+        "imdb": "tt0097814",
+        "tmdb": 16859,
+        "_id": "6376c4ccd8baf23311c7373e"
+      },
+      "logo": {
+        "_id": "62f3cb09252c8469ef3eecdf",
+        "url": "https://avatars.mds.yandex.net/get-ott/1672343/2a0000017394e0cb8cb22bd1dbb22f58e8ce/orig"
+      },
+      "poster": {
+        "_id": "6339eb5c89ae969da213d204",
+        "url": "https://st.kp.yandex.net/images/film_big/2428.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_2428.jpg"
+      },
+      "rating": {
+        "kp": 8.083,
+        "imdb": 7.8,
+        "filmCritics": 8.1,
+        "russianFilmCritics": 100,
+        "await": 0,
+        "_id": "63d8b0e5f38219e94fe11631"
+      },
+      "votes": {
+        "kp": 91296,
+        "imdb": 147663,
+        "filmCritics": 41,
+        "russianFilmCritics": 3,
+        "await": 0,
+        "_id": "63d8b0e5f38219e94fe11632"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "636c3dfbf24ff7b45ac3898a"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/movie/majo-no-takkyubin?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "636c3dfbf24ff7b45ac38989"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "636c3dfbf24ff7b45ac3898c"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/100071?utm_source=yandex&utm_medium=wizard",
+            "_id": "636c3dfbf24ff7b45ac3898b"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/daeb142e-3ecc-4bb2-9bff-4827996643ab/orig",
+              "_id": "636c3dfbf24ff7b45ac3898e"
+            },
+            "name": "KION",
+            "url": "https://kion.ru/video/movie/601879530?utm_source=yandex&utm_medium=organic&utm_campaign=wizard",
+            "_id": "636c3dfbf24ff7b45ac3898d"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "636c3dfbf24ff7b45ac38990"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/146685871?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "636c3dfbf24ff7b45ac3898f"
+          }
+        ],
+        "_id": "636c3dfbf24ff7b45ac38988"
+      },
+      "movieLength": 103,
+      "id": 2428,
+      "type": "anime",
+      "name": "Ведьмина служба доставки",
+      "description": "Молодая ведьма Кики по достижении 13 лет должна прожить среди людей определённое время. Вместе с котом Дзидзи она отправляется в город, где знакомится с добрым пекарем, который помогает ей начать собственное дело - экстренную службу доставки. Новая работа знакомит Кики со множеством различных людей и предоставляет возможность обрести новых друзей и совершить массу всевозможных проделок.",
+      "year": 1989,
+      "alternativeName": "Majo no takkyûbin",
+      "enName": null,
+      "names": [
+        {
+          "_id": "6339eb5c89ae969da213d200",
+          "name": "Ведьмина служба доставки"
+        },
+        {
+          "_id": "6339eb5c89ae969da213d201",
+          "name": "Majo no takkyûbin"
+        }
+      ],
+      "shortDescription": "Маленькая колдунья учится жить самостоятельно и трудится курьером на метле, но однажды волшебство покидает ее",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": "4ee0dcd9fc7b11e5ace47b537b04c44f",
+        "imdb": "tt7339826",
+        "tmdb": 476292,
+        "_id": "6376c663d8baf23311d595d8"
+      },
+      "logo": {
+        "_id": "62f771d1252c8469effd6795",
+        "url": "https://avatars.mds.yandex.net/get-ott/2439731/2a000001720d2f43906e1ef4474f5a0fdf5a/orig"
+      },
+      "poster": {
+        "_id": "6339eb4d89ae969da21374f3",
+        "url": "https://st.kp.yandex.net/images/film_big/1103852.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1103852.jpg"
+      },
+      "rating": {
+        "kp": 8.079,
+        "imdb": 7.4,
+        "filmCritics": 7.8,
+        "russianFilmCritics": 100,
+        "await": 0,
+        "_id": "63e6986568d824d6ca2157b1"
+      },
+      "votes": {
+        "kp": 78823,
+        "imdb": 7014,
+        "filmCritics": 27,
+        "russianFilmCritics": 3,
+        "await": 335,
+        "_id": "63e6986568d824d6ca2157b2"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https://avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "63e6986568d824d6ca2157b5"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/movie/sayonara-no-asa-ni-yakusoku-no-hana-wo-kazarou?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "63e6986568d824d6ca2157b4"
+          },
+          {
+            "logo": {
+              "url": "https://avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "63e6986568d824d6ca2157b7"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/207873?utm_source=yandex&utm_medium=wizard",
+            "_id": "63e6986568d824d6ca2157b6"
+          },
+          {
+            "logo": {
+              "url": "https://avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "63e6986568d824d6ca2157b9"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/72854114?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "63e6986568d824d6ca2157b8"
+          },
+          {
+            "logo": {
+              "url": "https://avatars.mds.yandex.net/get-ott/1672343/74a3af87-2bfa-4cdc-bc16-32a21114665b/orig",
+              "_id": "63e6986568d824d6ca2157bb"
+            },
+            "name": "МегаФон ТВ",
+            "url": "https://megafon.tv/movies/vods/Ukras_proshalnoe_utro_2018?utm_source=yandex&utm_medium=wizard&utm_campaign=Ukras_proshalnoe_utro_2018",
+            "_id": "63e6986568d824d6ca2157ba"
+          }
+        ],
+        "_id": "63e6986568d824d6ca2157b3"
+      },
+      "movieLength": 115,
+      "id": 1103852,
+      "type": "anime",
+      "name": "Укрась прощальное утро цветами обещания",
+      "description": "Красавица Макия — из рода бессмертных. На протяжении веков многие армии пытались захватить её народ, чтобы завладеть секретом вечной жизни. И вот теперь, когда город разрушен, девушка прячется в лесу. Здесь она находит потерявшего родителей маленького мальчика Эриала и начинает о нём заботиться.",
+      "year": 2018,
+      "alternativeName": "Sayonara no asa ni yakusoku no hana o kazaro",
+      "enName": null,
+      "names": [
+        {
+          "_id": "6339eb4d89ae969da21374ef",
+          "name": "Укрась прощальное утро цветами обещания"
+        },
+        {
+          "_id": "6339eb4d89ae969da21374f0",
+          "name": "Sayonara no asa ni yakusoku no hana o kazaro"
+        }
+      ],
+      "shortDescription": "Может ли бессмертная стать матерью чужому ребенку? Фэнтези-аниме — режиссерский дебют сценаристки Мари Окады",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0162556",
+        "tmdb": 61663,
+        "_id": "6376e723ab9a5694e441808e"
+      },
+      "logo": {
+        "_id": "62e99a39b25210398786e9d2",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397922c22d011bb56e7ae8",
+        "url": "https://st.kp.yandex.net/images/film_big/846825.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_846825.jpg"
+      },
+      "rating": {
+        "kp": 8.535,
+        "imdb": 8.6,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9b619f38219e94f826552"
+      },
+      "votes": {
+        "kp": 10931,
+        "imdb": 30884,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d9b619f38219e94f826553"
+      },
+      "watchability": {
+        "_id": "63397922c22d011bb56e7afb",
+        "items": null
+      },
+      "id": 846825,
+      "type": "anime",
+      "name": "Твоя апрельская ложь",
+      "description": "Пианист-вундеркинд Косэй Арима, выиграв множество детских конкурсов, после смерти матери теряет к чему-либо интерес и перестает играть. Все меняется, когда Косэй встречает скрипачку Каори. Она хочет помочь Косэю вернуться в музыкальный мир и вновь обрести смысл жизни.",
+      "year": 2014,
+      "alternativeName": "Shigatsu wa kimi no uso",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "63397922c22d011bb56e7ae4",
+          "name": "Твоя апрельская ложь"
+        },
+        {
+          "_id": "63397922c22d011bb56e7ae5",
+          "name": "Shigatsu wa kimi no uso"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2014,
+          "end": 2015,
+          "_id": "6361482411f1fd7ff1052c4f"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0367409",
+        "tmdb": 40143,
+        "_id": "6376cb7fd8baf23311fd7365"
+      },
+      "logo": {
+        "_id": "62f504f8252c8469ef7ef92d",
+        "url": null
+      },
+      "poster": {
+        "_id": "633978a5c22d011bb56c3939",
+        "url": "https://st.kp.yandex.net/images/film_big/280155.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_280155.jpg"
+      },
+      "rating": {
+        "kp": 8.133,
+        "imdb": 8,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d3b08f57101ffd396bab70"
+      },
+      "votes": {
+        "kp": 39061,
+        "imdb": 6114,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d876ddf38219e94f2f9fe8"
+      },
+      "watchability": {
+        "_id": "633978a5c22d011bb56c3977",
+        "items": null
+      },
+      "id": 280155,
+      "type": "anime",
+      "name": "Король шаманов",
+      "description": "Существует два мира — мир живых и мир духов. Люди с каждым годом становились все более занятыми, бездушными, перестали верить в духов и утратили способность их видеть. Но испокон веков в человеческом обществе живут люди, способные видеть и слышать духов, вступать с ними в контакт и управлять ими. Эти люди — связующее звено между двумя мирами, и они называются шаманами.",
+      "year": 2001,
+      "alternativeName": "Shaman King",
+      "enName": null,
+      "movieLength": 23,
+      "names": [
+        {
+          "_id": "633978a5c22d011bb56c3935",
+          "name": "Король шаманов"
+        },
+        {
+          "_id": "633978a5c22d011bb56c3936",
+          "name": "Shaman King"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2001,
+          "end": 2002,
+          "_id": "6361478111f1fd7ff1fc3ca4"
+        }
+      ]
+    },
+    {
+      "externalId": {
+        "kpHD": "4efed28645f829168b1e113d1713702f",
+        "imdb": "tt0087544",
+        "tmdb": 81,
+        "_id": "6376c6c7d8baf23311d8d73a"
+      },
+      "logo": {
+        "_id": "62f6a1be252c8469efd2ac3e",
+        "url": "https://avatars.mds.yandex.net/get-ott/239697/2a000001739478fe03e3d051f7db7e13567d/orig"
+      },
+      "poster": {
+        "_id": "6339eb5089ae969da213882d",
+        "url": "https://st.kp.yandex.net/images/film_big/8240.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_8240.jpg"
+      },
+      "rating": {
+        "kp": 8.137,
+        "imdb": 8,
+        "filmCritics": 8.1,
+        "russianFilmCritics": 100,
+        "await": 0,
+        "_id": "63c7a6992b1609d669d63eab"
+      },
+      "votes": {
+        "kp": 67506,
+        "imdb": 171355,
+        "filmCritics": 19,
+        "russianFilmCritics": 5,
+        "await": 0,
+        "_id": "63d8c2c9f38219e94fe01413"
+      },
+      "watchability": {
+        "items": [
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/7713e586-17d1-42d1-ac62-53e9ef1e70c3/orig",
+              "_id": "636c3e13f24ff7b45ac64f8c"
+            },
+            "name": "Okko",
+            "url": "https://okko.tv/movie/kaze-no-tani-no-naushika?utm_medium=referral&utm_source=yandex_search&utm_campaign=new_search_feed",
+            "_id": "636c3e13f24ff7b45ac64f8b"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/2419418/0dfd1724-848f-4725-9160-abc571f41c11/orig",
+              "_id": "636c3e13f24ff7b45ac64f8e"
+            },
+            "name": "Иви",
+            "url": "https://www.ivi.ru/watch/100074?utm_source=yandex&utm_medium=wizard",
+            "_id": "636c3e13f24ff7b45ac64f8d"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/239697/daeb142e-3ecc-4bb2-9bff-4827996643ab/orig",
+              "_id": "636c3e13f24ff7b45ac64f90"
+            },
+            "name": "KION",
+            "url": "https://kion.ru/video/movie/601879486?utm_source=yandex&utm_medium=organic&utm_campaign=wizard",
+            "_id": "636c3e13f24ff7b45ac64f8f"
+          },
+          {
+            "logo": {
+              "url": "https//avatars.mds.yandex.net/get-ott/1672343/54096cbe-cc3b-41c9-8e44-990ebbca8d61/orig",
+              "_id": "636c3e13f24ff7b45ac64f92"
+            },
+            "name": "Wink",
+            "url": "https://wink.ru/media_items/146707655?utm_source=yandex&utm_medium=koldunschick&utm_content=name",
+            "_id": "636c3e13f24ff7b45ac64f91"
+          }
+        ],
+        "_id": "636c3e13f24ff7b45ac64f8a"
+      },
+      "id": 8240,
+      "type": "anime",
+      "name": "Навсикая из долины ветров",
+      "description": "Будущее. После ядерной войны Землю постигла ужасная экологическая катастрофа. Поверхность планеты почти целиком покрывают леса, испускающие в атмосферу ядовитые споры растений. Оставшиеся в живых люди живут в зонах, ещё не покрытых лесами, и периодически сталкиваются с чудовищными насекомообразными монстрами. Долина ветров — одно из царств, образовавшихся на руинах прежних государств. Им управляет отважная принцесса Навсикая. Но мирное существование Долины ветров нарушается, когда маленькая страна сталкивается с воинственными соседями, которые стремятся воссоздать опасное оружие, способное окончательно уничтожить планету.",
+      "year": 1984,
+      "alternativeName": "Kaze no tani no Naushika",
+      "enName": null,
+      "movieLength": 117,
+      "names": [
+        {
+          "_id": "6339eb5089ae969da2138829",
+          "name": "Навсикая из долины ветров"
+        },
+        {
+          "_id": "6339eb5089ae969da213882a",
+          "name": "Kaze no tani no Naushika"
+        }
+      ],
+      "shortDescription": "В далеком будущем храбрая девушка спасает планету. Экологический фэнтези-постапокалипсис раннего Хаяо Миядзаки",
+      "releaseYears": []
+    },
+    {
+      "externalId": {
+        "kpHD": null,
+        "imdb": "tt0084616",
+        "tmdb": 37863,
+        "_id": "6376cd69d8baf233110b3759"
+      },
+      "logo": {
+        "_id": "62e1becc028619ccaf588706",
+        "url": null
+      },
+      "poster": {
+        "_id": "63397934c22d011bb56eca75",
+        "url": "https://st.kp.yandex.net/images/film_big/361699.jpg",
+        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_361699.jpg"
+      },
+      "rating": {
+        "kp": 8.229,
+        "imdb": 8.5,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63be45eb2b1609d669681047"
+      },
+      "votes": {
+        "kp": 32503,
+        "imdb": 71968,
+        "filmCritics": 0,
+        "russianFilmCritics": 0,
+        "await": 0,
+        "_id": "63d86dc2f38219e94feb279c"
+      },
+      "watchability": {
+        "_id": "63397934c22d011bb56ecb0e",
+        "items": null
+      },
+      "id": 361699,
+      "type": "anime",
+      "name": "Стальной алхимик",
+      "description": "Алхимия - наука о преобразовании материи из одной формы в другую. Ее основное правило - ты можешь получить что-нибудь, лишь отдав взамен нечто равноценное. Эдварду и Альфонсу Элрикам, сыновьям великого алхимика, было всего 11 и 10 лет, когда они решили, что знают об алхимии достаточно, чтобы вернуть к жизни свою покойную мать.   Но не зря на создание человека наложен запрет - братья потерпели неудачу и заплатили за свою ошибку страшную цену: Эдвард потерял ногу, а Альфонс был поглощен целиком. Лишь пожертвовав правой рукой, Эдвард сумел вернуть душу Альфонса и присоединить ее к старинному доспеху. \n\nЗаменив утраченные руку и ногу металлическими протезами, Эдвард вместе с братом покидает родной городок, где поступает на государственную службу, дабы получить доступ к обширным ресурсам военных. Отныне братья еще отчаянней стремятся раскрыть тайну человеческого преобразования - теперь уже ради того, чтобы вернуть друг другу прежние тела. Цель их поисков - легендарный философский камень, который позволяет обойти принцип равнозначного обмена. Однако вскоре братья выясняют, что не они одни ищут философский камень, и что они ввязались в серьёзную игру...",
+      "year": 2003,
+      "alternativeName": "Fullmetal Alchemist",
+      "enName": null,
+      "movieLength": 25,
+      "names": [
+        {
+          "_id": "63397934c22d011bb56eca71",
+          "name": "Стальной алхимик"
+        },
+        {
+          "_id": "63397934c22d011bb56eca72",
+          "name": "Fullmetal Alchemist"
+        }
+      ],
+      "shortDescription": null,
+      "releaseYears": [
+        {
+          "start": 2003,
+          "end": 2004,
+          "_id": "6361479511f1fd7ff1fd7152"
+        }
+      ]
     }
   ],
   "collection2": [

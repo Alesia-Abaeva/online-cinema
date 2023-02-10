@@ -5,7 +5,7 @@ import { renderAboutFilm } from './components/ContentWrapper/AboutFilm';
 import styles from './MainBanner.module.scss';
 import { renderDetails } from './components/Details/Details';
 
-export const renderMainBanner = async (movieId: number): Promise<HTMLElement> => {
+export const renderMainBanner = async (movieId: string): Promise<HTMLElement> => {
   const mainBanner: HTMLElement = createElem('div', styles.mainBanner);
   const wrapper: HTMLElement = createElem('div', styles.mainBanner__wrapper);
   const container: HTMLElement = createElem('div', styles.mainBanner__container);
@@ -29,15 +29,12 @@ export const renderMainBanner = async (movieId: number): Promise<HTMLElement> =>
 
   tabs.addEventListener('click', (event: Event): void => {
     event.stopPropagation();
-    console.log('click');
     const target = event.target as HTMLElement;
 
     if (target.classList.contains('details')) {
-      console.log('click');
       content.innerHTML = '';
       content.append(renderDetails(res));
     } else if (target.classList.contains('about-film')) {
-      console.log('click');
       content.innerHTML = '';
       content.append(renderAboutFilm(res));
     }

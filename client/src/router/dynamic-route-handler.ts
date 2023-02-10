@@ -7,7 +7,6 @@ import { getFetchOptions } from './get-fetch-options';
 export const dynamicRouteHandler = async (pathname: string, commonPath: string, fetchData: Function | -1) => {
   if (pathname.startsWith(commonPath) && fetchData !== -1) {
     const options = getFetchOptions();
-    console.log(options);
     const item = await fetchData(options);
 
     if (!isError(item)) {

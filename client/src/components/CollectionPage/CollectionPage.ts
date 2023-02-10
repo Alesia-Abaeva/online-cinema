@@ -1,8 +1,7 @@
 import { createElem } from 'src/utils/create-element';
-import { Iitem } from '../MainPage/mockData';
 import styles from './CollectionPage.module.scss';
 
-export const renderCollection = (data: Iitem[], name: string): HTMLElement => {
+export const renderCollection = (data: FindedMovies[], name: string): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['collection']);
@@ -17,12 +16,17 @@ export const renderCollection = (data: Iitem[], name: string): HTMLElement => {
 
   data.forEach((elem) => {
     const img = createElem('img', 'collection__item__img') as HTMLImageElement;
-    img.src = elem.img;
+    const url = `${
+      elem.poster
+        ? elem.poster.previewUrl
+        : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
+    }`;
+    img.src = url;
     const item = createElem('a', 'collection__item') as HTMLElement;
 
-    if (elem.rating) {
+    if (elem.rating.kp) {
       const raiting = createElem('span', 'collection__item__raiting') as HTMLElement;
-      raiting.innerHTML = elem.rating;
+      raiting.innerHTML = elem.rating.kp ? elem.rating.kp.toFixed(1) : '';
       item.append(raiting);
     }
 

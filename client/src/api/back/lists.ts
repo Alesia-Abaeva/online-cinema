@@ -7,6 +7,5 @@ export const getList = async (options: Options): Promise<ResponseFindedMovies | 
     limit: options.limit,
     sort: options.sort,
   });
-  console.log(res.data);
   return res.data;
 };
