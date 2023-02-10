@@ -1,4 +1,4 @@
-import { updateUser, updateUserParentsCntr, updateUserPass } from 'src/api/back/auth';
+import { updateUser, updateUserParentsCntr, updateUserPass, updateUserTariff } from 'src/api/back/auth';
 import { appDispatch } from 'src/logic/redux';
 import { setPasswordError, setUserInfo } from 'src/logic/redux/actions';
 
@@ -26,6 +26,15 @@ export const handleChangeUserPassword = async (body: AuthGetPersonToken) => {
 export const handleChangeParentControl = async (body: AuthGetPersonToken) => {
   try {
     const { data } = await updateUserParentsCntr(body);
+    appDispatch(setUserInfo({ data }));
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
+export const handleChangeTariff = async (body: AuthGetPersonToken) => {
+  try {
+    const { data } = await updateUserTariff(body);
     appDispatch(setUserInfo({ data }));
   } catch (err) {
     console.warn(err);

@@ -7,6 +7,7 @@ import {
   updateUser,
   updateUserParentsContr,
   updateUserPassword,
+  updateUserTariff,
 } from "../controllers/UserControllers";
 import {
   checkLoginData,
@@ -32,3 +33,6 @@ router.put("/person/pass", checkAuth, updateUserPassword);
 
 // api/auth/pesron/parents
 router.put("/person/parents", checkAuth, updateUserParentsContr);
+
+// api/auth/pesron/tariff
+router.put("/person/tariff", checkAuth, updateUserTariff);

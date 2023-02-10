@@ -1,4 +1,12 @@
-import { LOGIN, PERSON_DATA, PERSON_DATA_PARENT, PERSON_DATA_PASS, REGISTER, UPLOAD_IMG } from 'src/const/api/url';
+import {
+  LOGIN,
+  PERSON_DATA,
+  PERSON_DATA_PARENT,
+  PERSON_DATA_PASS,
+  PERSON_DATA_TARIFF,
+  REGISTER,
+  UPLOAD_IMG,
+} from 'src/const/api/url';
 import { backCall } from '../api';
 
 export const loginHandler = (body: AuthRequest) => backCall.post<AuthRequest, AuthResponse>(LOGIN, body);
@@ -18,3 +26,6 @@ export const updateUserPass = async (body: Partial<AuthGetPersonToken>) =>
 
 export const updateUserParentsCntr = async (body: Partial<AuthGetPersonToken>) =>
   backCall.put<Partial<AuthGetPersonToken>, AuthGetPersonToken>(PERSON_DATA_PARENT, body);
+
+export const updateUserTariff = async (body: Partial<AuthGetPersonToken>) =>
+  backCall.put<Partial<AuthGetPersonToken>, AuthGetPersonToken>(PERSON_DATA_TARIFF, body);

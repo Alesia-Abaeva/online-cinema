@@ -41,7 +41,7 @@ export const renderProfileMenu = (): HTMLElement => {
     localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
     window.location.reload();
     // вышли из аккаунта
-    // TODO: сделать всплывающее окно
+    // TODO: сделать всплывающее окно точно хотите выйти
   };
 
   personalDataWpar.append(personalName, personalEmail);

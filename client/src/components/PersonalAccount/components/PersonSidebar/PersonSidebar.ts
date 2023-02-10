@@ -1,6 +1,6 @@
 import { uploadHandler } from 'src/api/back/auth';
 import { SIDEBAR_BTNS } from 'src/const/nav-bar-btns';
-import { appDispatch } from 'src/logic/redux';
+import { appDispatch, store } from 'src/logic/redux';
 import { setUserInfo } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
@@ -47,6 +47,14 @@ export const renderPersonSidebar = (): HTMLElement => {
   const tariffName = createElem('div', 'tariff_name');
   tariffName.innerHTML = 'Для всех';
   tariff.append(tariffIconCnt, tariffName);
+
+  store.subscribe(() => {
+    const userState = store.getState().auth.user;
+
+    if (userState.data && userState.data.tariff) {
+      userState.data.tariff === 'base' ? (tariffName.innerHTML = 'Для всех') : (tariffName.innerHTML = 'Премиум');
+    }
+  });
 
   profileSideBar.append(userAvatarCnt, tariff, menuCtn);
   return profileSideBar;

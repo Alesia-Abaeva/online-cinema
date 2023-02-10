@@ -220,3 +220,29 @@ export const updateUserParentsContr = async (
     res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
   }
 };
+
+export const updateUserTariff = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { tariff } = req.body;
+
+    // TODO: отредактировать для изменения данных пользователя
+
+    const user = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        tariff,
+      },
+      {
+        new: true,
+      }
+    );
+
+    console.log(user);
+    res.json(user);
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
+  }
+};

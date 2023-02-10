@@ -17,4 +17,5 @@ export const LOGIN = 'api/auth/login';
 export const PERSON_DATA = 'api/auth/person';
 export const PERSON_DATA_PASS = 'api/auth/person/pass';
 export const PERSON_DATA_PARENT = 'api/auth/person/parents';
+export const PERSON_DATA_TARIFF = 'api/auth/person/tariff';
 export const UPLOAD_IMG = 'upload';

@@ -1,4 +1,5 @@
 import { createElem } from 'src/utils/create-element';
+import { handleChangeTariff } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
 import { validateCardNumber } from './Validators/validateCardNumber';
 import { validateExpDate } from './Validators/validateExpDate';
 import { validateCvc } from './Validators/validateCvc';
@@ -27,6 +28,7 @@ export const onSubmitCheckout = (e: Event): void => {
     modal.append(heading);
     const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
     overlay.style.pointerEvents = 'none';
+    handleChangeTariff({ tariff: 'premium' });
 
     let time = 3;
     setInterval((): void => {
