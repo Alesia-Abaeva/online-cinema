@@ -17,7 +17,7 @@ export const register = async (req: express.Request, res: express.Response) => {
       });
     }
 
-    const { email, password, name } = req.body;
+    const { email, password, name, tariff } = req.body;
 
     const candidate = await User.findOne({ email }); //прoверяем есть ли такой юзер уже
 
@@ -29,9 +29,11 @@ export const register = async (req: express.Request, res: express.Response) => {
 
     const hashedPassword = await bcrypt.hash(password, 12); //хэшируем пароль
 
-    const user = new User({ email, password: hashedPassword, name });
+    const user = new User({ email, password: hashedPassword, name, tariff });
 
     await user.save();
+
+    console.log(user);
 
     const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
       expiresIn: "3h", //время существования токена

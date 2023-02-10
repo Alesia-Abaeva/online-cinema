@@ -5,14 +5,8 @@ import styles from './buttons.module.scss';
 const watchFilmContent = `${watchFilmIcon}Смотреть фильм`;
 
 export const createBtnWatch = () => {
-  const btnWatch = createButton(
-    watchFilmContent,
-    (): void => {
-      console.log('Film');
-    },
-    `${styles.actionBtn}`
-  ) as HTMLButtonElement;
-  btnWatch.classList.add(`${styles.actionBtn__film}`);
+  const btnWatch = createButton(watchFilmContent) as HTMLButtonElement;
+  btnWatch.classList.add(`${styles.actionBtn__film}`, `${styles.actionBtn}`);
   return btnWatch;
 };
 

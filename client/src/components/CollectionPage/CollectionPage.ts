@@ -10,6 +10,7 @@ export const renderCollection = (data: Iitem[], name?: string): HTMLElement => {
   const wrapper: HTMLElement = createElem('div', 'collection__wrapper');
   const container: HTMLElement = createElem('div', 'collection__container');
   const title: HTMLElement = createElem('h1', 'collection__title');
+
   const list: HTMLElement = renderCollectionFilms(data);
 
   window.scrollTo(0, 0);
