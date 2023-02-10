@@ -1,7 +1,7 @@
-import { yearsFilterData } from 'src/const/filters-data';
+// import { yearsFilterData } from 'src/const/filters-data';
 import { createElem } from 'src/utils/create-element';
 import { renderBubbleFilter } from './components/BubbleFilter/BubbleFilter';
-import { renderDropdownFilter } from './components/DropdownFIlter/DropdownFilter';
+// import { renderDropdownFilter } from './components/DropdownFIlter/DropdownFilter';
 import styles from './Filters.module.scss';
 
 export const renderFilters = (): HTMLElement => {
@@ -11,9 +11,9 @@ export const renderFilters = (): HTMLElement => {
 
   // const countriesFilter: HTMLElement = renderDropdownFilter(countriesFilterData);
   // const genreFilter: HTMLElement = renderDropdownFilter(generesFilterData);
-  const yearsFilter: HTMLElement = renderDropdownFilter(yearsFilterData);
+  // const yearsFilter: HTMLElement = renderDropdownFilter(yearsFilterData);
 
-  filters.append(bubbleFilter, yearsFilter);
+  filters.append(bubbleFilter);
 
   return filters;
 };
