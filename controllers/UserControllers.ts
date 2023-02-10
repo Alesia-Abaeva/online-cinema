@@ -246,3 +246,15 @@ export const updateUserTariff = async (
     res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
   }
 };
+
+export const deleteUser = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    await User.deleteOne({ _id: req.user.userId });
+    res.status(200).json({ message: "Пользователь удален" });
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базу данных: ${e}` });
+  }
+};

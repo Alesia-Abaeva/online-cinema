@@ -4,6 +4,7 @@ import {
   PERSON_DATA_PARENT,
   PERSON_DATA_PASS,
   PERSON_DATA_TARIFF,
+  PERSON_DELETE,
   REGISTER,
   UPLOAD_IMG,
 } from 'src/const/api/url';
@@ -29,3 +30,5 @@ export const updateUserParentsCntr = async (body: Partial<AuthGetPersonToken>) =
 
 export const updateUserTariff = async (body: Partial<AuthGetPersonToken>) =>
   backCall.put<Partial<AuthGetPersonToken>, AuthGetPersonToken>(PERSON_DATA_TARIFF, body);
+
+export const deleteUser = async () => backCall.delete<void>(PERSON_DELETE);

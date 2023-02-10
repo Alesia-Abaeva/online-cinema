@@ -1,6 +1,7 @@
 import { Router } from "express";
 import checkAuth from "../middleware/auth.middelware";
 import {
+  deleteUser,
   getUserData,
   login,
   register,
@@ -36,3 +37,6 @@ router.put("/person/parents", checkAuth, updateUserParentsContr);
 
 // api/auth/pesron/tariff
 router.put("/person/tariff", checkAuth, updateUserTariff);
+
+// api/auth/pesron/delete
+router.delete("/person/delete", checkAuth, deleteUser);

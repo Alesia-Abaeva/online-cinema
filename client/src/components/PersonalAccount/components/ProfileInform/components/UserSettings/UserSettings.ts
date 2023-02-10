@@ -38,8 +38,6 @@ export const renderUserSettings = () => {
   themeFilter.innerHTML = 'Установить новую тему';
   themeCnt.append(themeFilter, themeSwitcher);
 
-  console.log(ageFilter.lastChild?.childNodes);
-
   store.subscribe(() => {
     // const userState = store.getState().auth.user;
     // TODO: подписаться на изменение компонента, возможно в самом компоненте
