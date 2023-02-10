@@ -10,7 +10,7 @@ export const renderProfileSet = (): HTMLElement => {
 
   const { data: personaldata, title: dataTitle } = renderProfileData();
   const { data: personalPass, title: passTitle } = renderProfileDataPass();
-  const deleteBnt = createButton('Удалить аккаунт', handleDelete);
+  const deleteBnt = createButton('Удалить аккаунт', handleDelete, 'button-delete');
 
   userProfile.append(dataTitle, personaldata, passTitle, personalPass, deleteBnt);
   return userProfile;

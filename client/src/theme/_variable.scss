@@ -81,8 +81,8 @@ $shadow-primary: 0 4px 7px rgb(0 0 0 / 25%);
   background-blend-mode: overlay;
 }
 
-@mixin btn-new-style {
-  background-image: var(--gradient-primary);
+@mixin btn-new-style($color: --gradient-primary) {
+  background-image: var($color);
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;

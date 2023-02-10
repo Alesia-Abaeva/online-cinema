@@ -5,3 +5,7 @@
   @include btn-new-style;
   width: 10rem;
 }
+
+.button-delete {
+  @include btn-new-style(--gradient-red);
+}

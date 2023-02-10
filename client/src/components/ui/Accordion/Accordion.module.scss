@@ -7,10 +7,17 @@
   justify-content: space-between;
   cursor: pointer;
   padding: 0 1.6rem;
+  border-bottom: 1px solid transparent;
   border-bottom: 1px solid var(--text-secondary);
   font-size: 1rem;
   line-height: 1.7rem;
   font-weight: 400;
+  transition: border 0.3s ease;
+  // &:hover {
+  //   background-color: var(--text-ternary);
+  //   border: 1px solid var(--text-secondary);
+  //   transition: border 0.3s ease;
+  // }
 }
 
 .item-descriprions {
@@ -21,11 +28,18 @@
 .referens__data-item-title {
   margin-bottom: 0.1rem;
   padding: 1rem 0;
-}
-
-.referens__data-item-title {
-  color: var(--text-secondary);
+  color: var(--text-primary);
   position: relative;
+  &:hover {
+    color: var(--text-contrast-reverse);
+    .show-descriptions {
+      &::after,
+      &::before {
+        transition: background-color 0.5s ease;
+        background-color: var(--text-contrast-reverse);
+      }
+    }
+  }
 }
 
 .show-descriptions {
