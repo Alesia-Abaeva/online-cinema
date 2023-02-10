@@ -26,11 +26,11 @@ export const ROUTER_PATHS: Paths = {
     title: `${projectTitle}`,
   },
   [PATH_NAMES.login]: {
-    template: login,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? authorized : login,
     title: `login | ${projectTitle}`,
   },
   [PATH_NAMES.register]: {
-    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? notFound : register, // TODO: поставить страницу заглушки
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? authorized : register, // TODO: поставить страницу заглушки
     title: `register | ${projectTitle}`,
   },
   [PATH_NAMES.films]: {
@@ -50,7 +50,7 @@ export const ROUTER_PATHS: Paths = {
     title: `list | ${projectTitle}`,
   },
   [PATH_NAMES.user]: {
-    template: user,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? user : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userWatch]: {

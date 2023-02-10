@@ -1,13 +1,22 @@
 @import '/src/theme/variable';
 
+.stub_banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/img/kinopoisk-background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .stub {
   @include default-page-container;
 
-  &__message {
+  .stub__message {
     margin-bottom: 2.4rem;
     text-align: center;
     font-size: 1.8rem;
     font-weight: 400;
     max-width: 600px;
+    text-transform: uppercase;
+    // background-color: black;
   }
 }
