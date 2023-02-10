@@ -5,6 +5,8 @@ import { user, userPromo, userReference, userSettings, userSubscribe, userWatch 
 import { subscriptions } from 'src/pages/subscriptions';
 import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
+import { authorized } from 'src/pages/authorized';
+import { notauthorized } from 'src/pages/notauthorized';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
@@ -75,8 +77,17 @@ export const ROUTER_PATHS: Paths = {
     template: collection,
     title: `collection | ${projectTitle}`,
   },
+
   [PATH_NAMES.userSubscribe]: {
     template: userSubscribe,
     title: `collection | ${projectTitle}`,
+ },
+  [PATH_NAMES.authorized]: {
+    template: authorized,
+    title: `authorized | ${projectTitle}`,
+  },
+  [PATH_NAMES.notauthorized]: {
+    template: notauthorized,
+    title: `notauthorized | ${projectTitle}`,
   },
 };
