@@ -28,7 +28,7 @@ export const onSubmitCheckout = (e: Event): void => {
     modal.append(heading);
     const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
     overlay.style.pointerEvents = 'none';
-    handleChangeTariff({ tariff: 'premium' });
+    handleChangeTariff({ tariff: 'premium' }); // обновляем данные пользователя на сервере
 
     let time = 3;
     setInterval((): void => {
