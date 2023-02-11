@@ -1,5 +1,10 @@
+import { renderOverlay } from 'src/components/Overlay/Overlay';
 import { createButton } from 'src/components/ui/Button/Button';
 import { bookmarkIcon, threeDotsIcon, watchFilmIcon } from 'src/const/icons/icons';
+import { createElem } from 'src/utils/create-element';
+import { removeOverlay } from 'src/utils/remove-overlay';
+import { renderButtonDropdown } from '../ButtonDropdown/ButtonDropdown';
+import { closeDropdown } from '../ButtonDropdown/Handlers/close-dropdown';
 import styles from './buttons.module.scss';
 
 const watchFilmContent = `${watchFilmIcon}Смотреть фильм`;
@@ -35,15 +40,23 @@ export const createBtnBookmark = () => {
 };
 
 export const createBtnInterest = () => {
-  const btnInterest = createButton(
-    threeDotsIcon,
-    (): void => {
-      console.log('Interest');
-    },
-    `${styles.actionBtn}`
-  ) as HTMLButtonElement;
+  const btnWrapper: HTMLElement = createElem('div', 'action-btn-wrapper');
+  const btnInterest = createButton(threeDotsIcon, undefined, `${styles.actionBtn}`) as HTMLButtonElement;
+  btnInterest.onclick = (e: Event) => {
+    const target = e.target as HTMLElement;
+    const wrapper = target.parentElement as HTMLElement;
+    const dropDown: HTMLElement = renderButtonDropdown();
+    wrapper.append(dropDown);
+    // const app = document.getElementById('app') as HTMLElement;
+    const overlay = renderOverlay(() => {
+      closeDropdown();
+      removeOverlay('dropdown-overlay');
+    }, 'dropdown-overlay');
+    wrapper.append(overlay);
+  };
   btnInterest.classList.add(`${styles.actionBtn__round}`);
-  return btnInterest;
+  btnWrapper.append(btnInterest);
+  return btnWrapper;
 };
 
 export const createBtnTabAboutFilm = () => {
@@ -56,10 +69,8 @@ export const createBtnTabAboutFilm = () => {
   ) as HTMLButtonElement;
   btnTabAboutFilm.onclick = (e: Event) => {
     const target = e.target as HTMLElement;
-    console.log(target);
     const container = target.closest('.mainBanner__container') as HTMLElement;
     const banner = container.firstElementChild as HTMLElement;
-    console.log(banner);
     banner.classList.remove('background-blur');
   };
   return btnTabAboutFilm;
@@ -77,7 +88,6 @@ export const createBtnTabDetails = () => {
     const target = e.target as HTMLElement;
     const container = target.closest('.mainBanner__container') as HTMLElement;
     const banner = container.firstElementChild as HTMLElement;
-    console.log(banner);
     banner.classList.add('background-blur');
   };
   return btnTabDetails;

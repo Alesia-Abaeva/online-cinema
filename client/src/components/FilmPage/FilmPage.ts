@@ -1,4 +1,5 @@
 import { createElem } from 'src/utils/create-element';
+import { watchFilmIcon } from 'src/const/icons/icons';
 import { createButton } from '../ui/Button/Button';
 import { renderPersons } from './components/Persons/Persons';
 import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
@@ -8,6 +9,7 @@ import { getPersonsWithJob } from './Handlers/film-data-formaters';
 import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
 import styles from './FilmPage.module.scss';
 import { showCover } from './Handlers/showCover';
+import { createBtnInterest } from '../MainPage/components/MainBanner/components/buttons/buttons';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -44,10 +46,13 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   filmHeader.append(filmTitle, filmEnTitle);
 
   const actionBtns: HTMLElement = createElem('div', 'id-page__action');
-  const wantToWatchBtn: HTMLElement = createButton('Буду смотреть', undefined, 'id-page__action-want-to-watch');
-  const moreActionsBtn: HTMLElement = createButton('', undefined, 'id-page__action-more');
 
-  actionBtns.append(wantToWatchBtn, moreActionsBtn);
+  const watchFilmContent = `${watchFilmIcon}Смотреть фильм`;
+  const btnWatch = createButton(watchFilmContent, undefined, 'actionBtn__film') as HTMLButtonElement;
+  btnWatch.classList.add('actionBtn');
+  const btnInterest = createBtnInterest();
+
+  actionBtns.append(btnWatch, btnInterest);
 
   const shortDescription: HTMLElement = createElem('div', 'id-page__short-desc');
   const shortDescriptionText: HTMLElement = createElem('p', 'id-page__desc-text');
