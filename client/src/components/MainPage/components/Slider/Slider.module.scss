@@ -30,6 +30,9 @@
 
   &__header_disabled {
     cursor: auto;
+    &:hover::after {
+      opacity: 0;
+    }
   }
 
   &__container {
