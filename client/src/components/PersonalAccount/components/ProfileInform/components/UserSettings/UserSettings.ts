@@ -1,3 +1,4 @@
+import { renderThemeSwitcher } from 'src/components/Footer/components/ThemeSwitcher/ThemeSwitcher';
 import { renderDropdownFilter } from 'src/components/ListPage/components/Filters/components/DropdownFIlter/DropdownFilter';
 import { createButton } from 'src/components/ui/Button/Button';
 import { parentControl } from 'src/const/filters-data';
@@ -31,12 +32,11 @@ export const renderUserSettings = () => {
   const titleTheme: HTMLElement = createElem('h2', 'profile-info__title');
   titleTheme.innerHTML = 'Смена темы';
   const themeCnt: HTMLElement = createElem('div', 'profile-info__data');
-  const themeFilter: HTMLElement = createElem('div', 'profile-watch__description');
-  themeFilter.innerHTML = 'Здесь будет компонент кнопки смены цвета';
+  const themeFilter: HTMLElement = createElem('div', 'profile-settings__theme');
 
-  themeCnt.append(themeFilter);
-
-  console.log(ageFilter.lastChild?.childNodes);
+  const themeSwitcher = renderThemeSwitcher();
+  themeFilter.innerHTML = 'Установить новую тему';
+  themeCnt.append(themeFilter, themeSwitcher);
 
   store.subscribe(() => {
     // const userState = store.getState().auth.user;

@@ -17,7 +17,7 @@ export const register = async (req: express.Request, res: express.Response) => {
       });
     }
 
-    const { email, password, name } = req.body;
+    const { email, password, name, tariff } = req.body;
 
     const candidate = await User.findOne({ email }); //прoверяем есть ли такой юзер уже
 
@@ -29,7 +29,7 @@ export const register = async (req: express.Request, res: express.Response) => {
 
     const hashedPassword = await bcrypt.hash(password, 12); //хэшируем пароль
 
-    const user = new User({ email, password: hashedPassword, name });
+    const user = new User({ email, password: hashedPassword, name, tariff });
 
     await user.save();
 
@@ -161,7 +161,8 @@ export const updateUserPassword = async (
     const user = await User.findById(req.user.userId);
 
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log(isMatch);
+    console.log("isMatch", isMatch);
+    console.log("user", user);
 
     if (!isMatch) {
       return res
@@ -169,9 +170,17 @@ export const updateUserPassword = async (
         .json({ message: 'Неверный пароль, данные не обновлены' });
     }
 
-    const userUpdate = await User.findOneAndUpdate(req.user.userId, {
-      password: await bcrypt.hash(newPassword, 12),
-    });
+    const userUpdate = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        password: await bcrypt.hash(newPassword, 12),
+      },
+      {
+        new: true,
+      }
+    );
+
+    console.log("userUpdate", userUpdate);
 
     // TODO: отредактировать для изменения данных пользователя
 
@@ -207,5 +216,43 @@ export const updateUserParentsContr = async (
     res.json(user);
   } catch (e) {
     res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
+  }
+};
+
+export const updateUserTariff = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { tariff } = req.body;
+
+    // TODO: отредактировать для изменения данных пользователя
+
+    const user = await User.findByIdAndUpdate(
+      req.user.userId,
+      {
+        tariff,
+      },
+      {
+        new: true,
+      }
+    );
+
+    console.log(user);
+    res.json(user);
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
+  }
+};
+
+export const deleteUser = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    await User.deleteOne({ _id: req.user.userId });
+    res.status(200).json({ message: "Пользователь удален" });
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базу данных: ${e}` });
   }
 };

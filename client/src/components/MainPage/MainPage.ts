@@ -1,11 +1,13 @@
 import { createElem } from 'src/utils/create-element';
 import { SLIDERS_ORDER } from 'src/const/main-page-data';
 import { isError } from 'src/utils/type-checkers';
+import { REFERENC_DESCRIP, REFERENC_TITLE } from 'src/const/referens';
 import { renderSlider } from './components/Slider/Slider';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
 import { addListenerCollection, addListenerSlideDown } from './sliderActions';
 import { genresData } from './genresData';
+import { Accordion } from '../ui/Accordion/Accordion';
 
 export const renderMainPage = (
   data: {
@@ -33,6 +35,13 @@ export const renderMainPage = (
       main.append(slider);
     }
   });
+  const accordionSection: HTMLElement = createElem('div', 'accordion-section');
+  const accordion: HTMLElement = createElem('div', 'accordion-container');
+  accordionSection.append(accordion);
+
+  Accordion(accordion, REFERENC_TITLE, REFERENC_DESCRIP);
+
+  main.append(accordionSection);
 
   return main;
 };

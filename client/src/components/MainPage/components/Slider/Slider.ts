@@ -21,7 +21,6 @@ export const renderSlider = (filmsData: ResponseMovie[] | Iitem[], slaiderName: 
   container.append(wrapper);
   wrapper.append(items, btnLeft, btnRight);
   slider.append(header, container);
-
   const totalSlides = filmsData.length;
   const itemLeftPadding = 8;
   let position = 0;

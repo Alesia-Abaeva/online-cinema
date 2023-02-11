@@ -1,4 +1,5 @@
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+import { PATH_NAMES } from 'src/const/path-names';
 import { store } from 'src/logic/redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
@@ -20,15 +21,19 @@ export const renderProfileMenu = (): HTMLElement => {
 
   const profileHistory: HTMLElement = createElem('li', 'profile-menu__item');
   profileHistory.innerHTML = 'История просмотра';
+  profileHistory.onclick = () => route(PATH_NAMES.userWatch);
+
   // TODO: переход на страницу просмотренных фильмов???
 
   const profileSet: HTMLElement = createElem('li', 'profile-menu__item');
   profileSet.innerHTML = 'Настройки';
+  profileSet.onclick = () => route(PATH_NAMES.userSettings);
+
   // TODO: открывается подменю настроек либо переход на страницу настроек в личном кабинете
 
   const profileAccount: HTMLElement = createElem('li', 'profile-menu__item');
   profileAccount.innerHTML = 'Личный кабинет';
-  profileAccount.onclick = () => route('/user');
+  profileAccount.onclick = () => route(PATH_NAMES.user);
 
   const avatarWrapperMenu: HTMLElement = renderAvatar();
 
@@ -36,7 +41,7 @@ export const renderProfileMenu = (): HTMLElement => {
     localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
     window.location.reload();
     // вышли из аккаунта
-    // TODO: сделать всплывающее окно
+    // TODO: сделать всплывающее окно точно хотите выйти
   };
 
   personalDataWpar.append(personalName, personalEmail);

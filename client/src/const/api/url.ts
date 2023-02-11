@@ -20,4 +20,7 @@ export const PERSON_DATA_PARENT = 'api/auth/person/parents';
 export const GET_LISTS = 'api/lists';
 export const GET_SLIDER = 'api/sliders';
 export const GET_COLLECTION = 'api/collections';
+export const PERSON_DATA_TARIFF = 'api/auth/person/tariff';
+export const PERSON_DELETE = 'api/auth/person/delete';
+
 export const UPLOAD_IMG = 'upload';

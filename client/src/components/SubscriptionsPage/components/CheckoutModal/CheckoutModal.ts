@@ -1,4 +1,5 @@
 import { createElem } from 'src/utils/create-element';
+// import { handleChangeTariff } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
 import { countDateFromNow } from 'src/utils/count-date-from-now';
 import { createButton } from 'src/components/ui/Button/Button';
 import styles from './CheckoutModal.module.scss';

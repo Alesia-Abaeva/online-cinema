@@ -14,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  // background-color: var(--bg-ternary);
 }
 
 .form_logo {
@@ -58,14 +59,11 @@
   width: 20rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-// TODO: проверить что здесь будет выводиться
   color: var(--text-white);
-  // background-image: $gradient-primary;
   background-color: var(--blue);
   &:hover {
     background-color: var(--blue);
   }
-
 
   @media (max-width: $phone-width) {
     width: 75vw;

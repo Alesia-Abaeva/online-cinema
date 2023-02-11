@@ -3,7 +3,7 @@ $black: #000;
 $background: #141414;
 $conditionalborder: #222;
 $orange: #f50;
-$orange-light: #F99540;
+$orange-light: #f99540;
 $orange-intense: #f25900;
 $blue: #4434ff;
 $blue-intense: #3d2ae4;
@@ -57,6 +57,7 @@ $black-90: rgba(0, 0, 0, 0.9);
   --gradient-primary: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
   --silver-gradient: linear-gradient(45deg, rgba(160, 160, 160, 1) 0%, rgba(232, 232, 232, 1) 56%);
   --gold-gradient: linear-gradient(165deg, #ffd25e 16.44%, #b59646 63.42%);
+  --gradient-red: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
 }
 
 [data-theme='light'] {
@@ -89,4 +90,5 @@ $black-90: rgba(0, 0, 0, 0.9);
   --gradient-primary: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
   --silver-gradient: linear-gradient(45deg, rgba(160, 160, 160, 1) 0%, rgba(232, 232, 232, 1) 56%);
   --gold-gradient: linear-gradient(165deg, #ffd25e 16.44%, #b59646 63.42%);
+  --gradient-red: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
 }

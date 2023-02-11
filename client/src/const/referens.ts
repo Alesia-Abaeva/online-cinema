@@ -12,7 +12,7 @@ export const REFERENC_TITLE: Record<ReferenceTypes | string, string> = {
   [REFERENC.DEVELOPERS]: 'Разработчики',
   [REFERENC.PARENS]: 'Родительский контроль',
   [REFERENC.FIND]: 'Как найти фильм',
-} as const;
+};
 
 export const REFERENC_DESCRIP: Record<ReferenceTypes, string> = {
   [REFERENC.ABOUT]:
@@ -25,4 +25,4 @@ export const REFERENC_DESCRIP: Record<ReferenceTypes, string> = {
     '  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam quaerat saepe vero accusamus eos dolorum! Minima dolorum corporis quisquam fuga?',
   [REFERENC.FIND]:
     '  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam quaerat saepe vero accusamus eos dolorum! Minima dolorum corporis quisquam fuga?',
-} as const;
+};

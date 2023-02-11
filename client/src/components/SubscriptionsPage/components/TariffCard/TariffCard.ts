@@ -1,4 +1,5 @@
 import { createButton } from 'src/components/ui/Button/Button';
+// import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
 import { toggleModal } from '../CheckoutModal/components/ToggleModal';
 import styles from './TariffCard.module.scss';
@@ -55,6 +56,16 @@ export const renderTariffCard = (data: SubsctiptionsPlan, id: number): HTMLEleme
     );
     tariffCard.append(cardBtn);
   }
+  // else {
+  //   const cardBtn: HTMLElement = createButton(
+  //     'Попробовать',
+  //     (): void => {
+  //       route('/register');
+  //     },
+  //     'tariff-card__btn'
+  //   );
+  //   tariffCard.append(cardBtn);
+  // }
 
   return tariffCard;
 };

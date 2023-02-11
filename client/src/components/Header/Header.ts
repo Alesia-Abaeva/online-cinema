@@ -1,4 +1,5 @@
-import { NAVBAR_BTNS } from 'src/const/nav-bar-btns';
+import { NAVBAR_BTNS, NAVBAR_BTNS_AUTH } from 'src/const/nav-bar-btns';
+import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { renderAccountSectionHead } from './components/Account/Account';
@@ -19,15 +20,27 @@ export const renderHeader = (): HTMLElement => {
 
   logoLink.onclick = linkHandler;
 
-  const navBar: HTMLElement = rednerNavbar(NAVBAR_BTNS, '');
-
   const accoutSection: HTMLElement = renderAccountSectionHead();
-
   const hamburger: HTMLElement = rednerHamburgerNavbar();
-
   const searchInput: HTMLElement = renderSearchBar();
 
-  headerContainer.append(logo, navBar, accoutSection, hamburger, searchInput);
+  store.subscribe(() => {
+    const userState = store.getState().auth.user;
+
+    if (userState.isLoading) {
+      headerContainer.innerHTML = '';
+      headerContainer.append(logo, accoutSection, hamburger, searchInput);
+    }
+
+    if (userState.data === null) {
+      headerContainer.innerHTML = '';
+      headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS, ''), accoutSection, hamburger, searchInput);
+    } else {
+      headerContainer.innerHTML = '';
+      headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS_AUTH, ''), accoutSection, hamburger, searchInput);
+    }
+  });
+
   header.append(headerContainer);
 
   return header;

@@ -1,10 +1,11 @@
 @import '/src/theme/variable';
 
-.subs-hero {
+.subs-hero,
+.subs-hero__contents-container {
   @include flex-center;
   flex-direction: column;
   gap: 1rem;
-  height: 600px;
+  height: 800px; //TODO: изменить!
 }
 
 .subs-hero__title {

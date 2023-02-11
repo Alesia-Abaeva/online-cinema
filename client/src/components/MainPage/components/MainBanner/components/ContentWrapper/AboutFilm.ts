@@ -6,6 +6,7 @@ import styles from './AboutFilm.module.scss';
 export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
   const buttons: HTMLElement = createElem('div', styles.contentWrapper__actions);
   const content: HTMLElement = createElem('div', styles.contentWrapper);
+
   const btnWatch = createBtnWatch() as HTMLButtonElement;
   const btnTrailer = createBtnTrailer() as HTMLButtonElement;
   const btnBookmark = createBtnBookmark() as HTMLButtonElement;

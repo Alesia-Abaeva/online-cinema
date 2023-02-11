@@ -15,6 +15,7 @@ export const renderRegisterPage = (): HTMLElement => {
     name: '',
     email: '',
     password: '',
+    tariff: 'base',
   };
 
   const main: HTMLElement = createElem('main', 'main');
@@ -78,7 +79,14 @@ export const renderRegisterPage = (): HTMLElement => {
   const button = createButton(
     `Зарегистрироваться`,
     () => {
-      appDispatch(register({ email: stateInput.email, password: stateInput.password, name: stateInput.name }));
+      appDispatch(
+        register({
+          email: stateInput.email,
+          password: stateInput.password,
+          name: stateInput.name,
+          tariff: stateInput.tariff,
+        })
+      );
     },
     'form_button'
   );
