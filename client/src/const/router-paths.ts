@@ -7,6 +7,7 @@ import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
 import { authorized } from 'src/pages/authorized';
 import { notauthorized } from 'src/pages/notauthorized';
+import { slider } from 'src/pages/slider';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
@@ -77,11 +78,14 @@ export const ROUTER_PATHS: Paths = {
     template: collection,
     title: `collection | ${projectTitle}`,
   },
-
+  [PATH_NAMES.slider]: {
+    template: slider,
+    title: `slider | ${projectTitle}`,
+  },
   [PATH_NAMES.userSubscribe]: {
     template: userSubscribe,
     title: `collection | ${projectTitle}`,
- },
+  },
   [PATH_NAMES.authorized]: {
     template: authorized,
     title: `authorized | ${projectTitle}`,

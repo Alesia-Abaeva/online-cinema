@@ -1,4 +1,4 @@
-import User from "../models/User";
+import User from '../models/User';
 
 export default async (req, res, next) => {
   try {
@@ -16,6 +16,6 @@ export default async (req, res, next) => {
   } catch (e) {
     res
       .status(500)
-      .json({ message: "Ошибка при обновлении данных, попробуйте еще раз." });
+      .json({ message: 'Ошибка при обновлении данных, попробуйте еще раз.' });
   }
 };

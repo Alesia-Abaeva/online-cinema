@@ -136,6 +136,10 @@ interface ResponseFindedMovies extends PageLimit {
   docs: FindedMovies[];
 }
 
+interface ResponseFindedFullMovies extends PageLimit {
+  docs: ResponseMovie[];
+}
+
 type SequelsAndPrequels = Pick<ResponseMovie, 'alternativeName' | 'enName' | 'id' | 'name' | 'poster' | 'type'>;
 
 type ResErrorMes = {

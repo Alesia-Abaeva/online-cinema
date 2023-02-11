@@ -5,9 +5,34 @@
   overflow: hidden;
 
   &__header {
+    display: inline-block;
     padding: 1.5rem calc(2.5% + 15px) 0.1rem;
     font-size: 1.5rem;
     color: var(--always-white);
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: '';
+      width: 1.5rem;
+      height: 1.5rem;
+      background-image: url('assets/img/icons/chevron-down-solid.svg');
+      transform: rotate(-90deg);
+      position: absolute;
+      filter: invert(100%);
+      top: 2rem;
+      right: 1rem;
+      opacity: 0;
+    }
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  &__header_disabled {
+    cursor: auto;
+    &:hover::after {
+      opacity: 0;
+    }
   }
 
   &__container {
@@ -69,5 +94,10 @@
 @media (max-width: 680px) {
   .slider__button svg {
     height: 20px;
+  }
+
+  .slider__header::after {
+    opacity: 1;
+    right: 0;
   }
 }
