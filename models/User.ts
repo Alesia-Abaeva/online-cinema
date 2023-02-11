@@ -9,7 +9,7 @@ const schema = new Schema(
     password: { type: String, required: true },
     films: [{ type: Types.ObjectId, ref: "Films" }], // TODO: здесь будет отображаться списков избранных фильмов, возможно сделать объект?
     avatarUrl: { type: String },
-    tarrif: { type: String },
+    tariff: { type: String },
     promocode: [{ type: String }],
     parentControls: { type: String },
   },

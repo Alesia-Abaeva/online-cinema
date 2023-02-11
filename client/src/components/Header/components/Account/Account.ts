@@ -36,7 +36,6 @@ export const renderAccountSectionHead = (): HTMLElement => {
     if (userState.data === null) {
       accoutSection.append(loginBtn);
     } else {
-      // personalName.innerHTML = userState.data?.name as string;
       accoutSection.append(avatarCnt);
     }
   });

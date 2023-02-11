@@ -2,6 +2,8 @@ interface AuthRequest {
   email: string;
   password: string;
   name?: string;
+  tariff?: string;
+  promocode?: string[];
 }
 
 interface AuthResponse {
@@ -19,7 +21,7 @@ interface AuthGetPersonToken {
   createdAt?: string;
   avatarUrl?: string;
   lastName?: string;
-  tarrif?: string;
+  tariff?: string;
   newPassword?: string;
   repeatPassword?: string;
   promocode?: string[];

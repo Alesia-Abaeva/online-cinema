@@ -3,8 +3,14 @@
 .profile-settings {
   .profile-info__data {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     .profile__btn-save {
+      margin-bottom: 0;
+    }
+
+    .theme-switcher {
       margin-bottom: 0;
     }
 
