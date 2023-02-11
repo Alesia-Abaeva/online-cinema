@@ -60,6 +60,8 @@
   justify-content: center;
   box-shadow: none;
   border: none;
+  position: relative;
+  z-index: 99;
 
   &__active {
     color: white;

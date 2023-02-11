@@ -21,8 +21,7 @@ export const renderMainBanner = async (movieId: string): Promise<HTMLElement> =>
   const contentWrapper: HTMLElement = renderAboutFilm(res);
 
   background.style.backgroundImage = `url(${res.backdrop?.url})`;
-  background.append(content, tabs);
-  container.append(background);
+  container.append(background, content, tabs);
   content.append(contentWrapper);
   wrapper.append(container);
   mainBanner.append(wrapper);

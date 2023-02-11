@@ -60,6 +60,14 @@ export const createBtnTabAboutFilm = () => {
     },
     `${styles.tabBtn}`
   ) as HTMLButtonElement;
+  btnTabAboutFilm.onclick = (e: Event) => {
+    const target = e.target as HTMLElement;
+    console.log(target);
+    const container = target.closest('.mainBanner__container') as HTMLElement;
+    const banner = container.firstElementChild as HTMLElement;
+    console.log(banner);
+    banner.classList.remove('background-blur');
+  };
   return btnTabAboutFilm;
 };
 
@@ -71,5 +79,12 @@ export const createBtnTabDetails = () => {
     },
     `${styles.tabBtn}`
   ) as HTMLButtonElement;
+  btnTabDetails.onclick = (e: Event) => {
+    const target = e.target as HTMLElement;
+    const container = target.closest('.mainBanner__container') as HTMLElement;
+    const banner = container.firstElementChild as HTMLElement;
+    console.log(banner);
+    banner.classList.add('background-blur');
+  };
   return btnTabDetails;
 };
