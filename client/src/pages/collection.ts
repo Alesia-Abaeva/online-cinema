@@ -1,5 +1,5 @@
 import { renderCollection } from 'src/components/CollectionPage/collectionPage';
-import { genresData } from 'src/components/MainPage/mockData';
+import { genresData } from 'src/components/MainPage/genresData';
 import { renderApp } from '../components/App/App';
 
 export const collection = (data: ListItems): void => {

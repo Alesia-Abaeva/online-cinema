@@ -1,4 +1,4 @@
-import { Iitem } from 'src/components/MainPage/mockData';
+import { Iitem } from 'src/components/MainPage/genresData';
 
 export const isError = (
   obj: ErrorMessage | ResponseFindedMovies | ResponseMovie | ResponseFindedFullMovies

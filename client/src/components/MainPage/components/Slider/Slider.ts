@@ -2,19 +2,20 @@ import { createElem } from 'src/utils/create-element';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';
-import { Iitem } from '../../mockData';
-// import { Iitem } from '../../mockData';
+import { Iitem } from '../../genresData';
 
-export const renderSlider = (filmsData: ResponseMovie[] | Iitem[], slaiderName: string): HTMLElement => {
+export const renderSlider = (filmsData: ResponseMovie[] | Iitem[], slaiderName: string, id: string): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
   const header: HTMLElement = createElem('h3', styles.slider__header);
+  if (id === 'genres') header.classList.add('slider__header_disabled');
   const container: HTMLElement = createElem('div', styles.slider__container);
   const wrapper: HTMLElement = createElem('div', styles.slider__wrapper);
   const items: HTMLElement = createElem('div', styles.slider__items);
   const btnLeft: HTMLButtonElement = createSliderBtn('slider__btn__left', 'left');
   const btnRight: HTMLButtonElement = createSliderBtn('slider__btn__right', 'right');
 
-  slider.dataset.id = String(Date.now());
+  // slider.dataset.id = String(Date.now());
+  slider.dataset.id = id;
   items.style.transform = `transform: translateX(0px);`;
   header.innerHTML = slaiderName;
   container.append(wrapper);

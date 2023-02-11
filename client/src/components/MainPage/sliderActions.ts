@@ -10,6 +10,10 @@ export const addListenerSlideDown = (slider: HTMLElement): HTMLElement => {
     const target = event.target as HTMLElement;
     const currentTarget = event.currentTarget as HTMLElement;
 
+    if (target.classList.contains('slider__header')) {
+      const parent = target.closest('.slider') as HTMLElement;
+      route(`/slider/${parent.dataset.id}`);
+    }
     if (target.classList.contains('sliderItem__image')) {
       const allSliders = document.querySelectorAll('.slider');
       allSliders.forEach(
