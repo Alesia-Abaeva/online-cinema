@@ -2,7 +2,7 @@ import { createElem } from 'src/utils/create-element';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';
-import { Iitem } from '../../genresData';
+import { Iitem } from '../../../../const/genres-data';
 
 export const renderSlider = (filmsData: ResponseMovie[] | Iitem[], slaiderName: string, id: string): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);

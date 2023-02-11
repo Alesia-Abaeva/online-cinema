@@ -1,4 +1,4 @@
-import { Iitem } from 'src/components/MainPage/genresData';
+import { Iitem } from 'src/const/genres-data';
 
 export const isError = (
   obj: ErrorMessage | ResponseFindedMovies | ResponseMovie | ResponseFindedFullMovies

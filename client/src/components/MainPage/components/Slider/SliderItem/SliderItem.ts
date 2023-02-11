@@ -1,4 +1,4 @@
-import { Iitem } from 'src/components/MainPage/genresData';
+import { Iitem } from 'src/const/genres-data';
 import { createElem } from 'src/utils/create-element';
 import { isGenres } from 'src/utils/type-checkers';
 import styles from './SliderItem.module.scss';

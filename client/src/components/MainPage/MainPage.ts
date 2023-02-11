@@ -6,7 +6,7 @@ import { renderSlider } from './components/Slider/Slider';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
 import { addListenerCollection, addListenerSlideDown } from './sliderActions';
-import { genresData } from './genresData';
+import { genresData } from '../../const/genres-data';
 import { Accordion } from '../ui/Accordion/Accordion';
 
 export const renderMainPage = (
