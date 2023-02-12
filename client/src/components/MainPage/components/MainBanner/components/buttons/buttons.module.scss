@@ -29,22 +29,25 @@
     }
   }
   &__trailer {
+    color: var(--text-primary);
     background: rgba(31, 31, 31, 0.95);
+    background: var(--bg-secondary);
     &:hover {
-      background: rgba(41, 41, 41, 0.95);
+      color: var(--text-primary);
+      background: var(--bg-ternary);
     }
   }
   &__round {
     height: 52px;
     padding: 0 14px;
-    background: rgba(31, 31, 31, 0.95);
+    background: var(--bg-secondary);
     svg {
-      fill: white;
+      fill: var(--bg-contrast);
       width: 24px;
       height: 24px;
     }
     &:hover {
-      background: rgba(41, 41, 41, 0.95);
+      background: var(--bg-ternary);
     }
   }
 }

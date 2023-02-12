@@ -9,6 +9,7 @@
   border-radius: 10px;
   background: var(--bg-secondary);
   box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
+  user-select: none;
 }
 
 .button-dropdown__item {
