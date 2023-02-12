@@ -1,14 +1,14 @@
-// import { DEFAULT_OPTIONS } from 'src/const/default-query-options';
-import { extractPathId } from 'src/utils/extract-path-id';
+import { extractAfterLastSlash } from 'src/utils/extract-after-last-slash';
 import { fromQueryString } from './from-query-string';
 
 export const getFetchOptions = (): Options => {
   const options: Options = {};
-  const id = extractPathId(window.location.pathname);
+  const id = extractAfterLastSlash(window.location.pathname);
   const queryOptions = fromQueryString(window.location.search);
 
   options.page = queryOptions.page;
   options.limit = queryOptions.limit;
+  options.sort = queryOptions.sort || 'DEFAULT';
   options.id = id;
   return options;
 };

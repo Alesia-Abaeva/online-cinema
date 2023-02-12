@@ -19,7 +19,7 @@ export const formatBirthDate = (birthday: string, age: number | null): string =>
 };
 
 export const formatBirthPlace = (birthPlace: { value: string }[]): string => {
-  return birthPlace.map((el) => el.value).join(', ');
+  return birthPlace ? birthPlace.map((el) => el.value).join(', ') : '';
 };
 
 export const formatTotalMovies = (moviesCount: MoviesPerson[]): string => {

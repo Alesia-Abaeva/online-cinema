@@ -1,24 +1,38 @@
 import { createElem } from 'src/utils/create-element';
+import { IitemTop10 } from 'src/const/top10-data';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';
-import { Iitem } from '../../mockData';
+import { Iitem } from '../../../../const/genres-data';
 
-export const renderSlider = (filmsData: Iitem[], slaiderName: string): HTMLElement => {
+export const renderSlider = (
+  filmsData: ResponseMovie[] | Iitem[] | IitemTop10[],
+  slaiderName: string,
+  id: string
+): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
   const header: HTMLElement = createElem('h3', styles.slider__header);
+  if (id === 'genres') header.classList.add('slider__header_disabled');
   const container: HTMLElement = createElem('div', styles.slider__container);
   const wrapper: HTMLElement = createElem('div', styles.slider__wrapper);
   const items: HTMLElement = createElem('div', styles.slider__items);
   const btnLeft: HTMLButtonElement = createSliderBtn('slider__btn__left', 'left');
   const btnRight: HTMLButtonElement = createSliderBtn('slider__btn__right', 'right');
 
-  slider.dataset.id = String(Date.now());
+  slider.dataset.id = id;
   items.style.transform = `transform: translateX(0px);`;
-  header.innerHTML = slaiderName;
+
   container.append(wrapper);
   wrapper.append(items, btnLeft, btnRight);
   slider.append(header, container);
+
+  if (id === 'top-10') {
+    const titleImg = createElem('div', 'slider__header__img');
+    header.append(titleImg);
+  } else {
+    header.innerHTML = slaiderName;
+  }
+
   const totalSlides = filmsData.length;
   const itemLeftPadding = 8;
   let position = 0;
@@ -26,8 +40,8 @@ export const renderSlider = (filmsData: Iitem[], slaiderName: string): HTMLEleme
   let itemsSize: number;
   let prevSize: number;
 
-  const arr: Iitem[] = filmsData.slice(0);
-  arr.forEach((element) => items.append(renderSliderItem(element.id, element.img, element?.rating)));
+  const arr: ResponseMovie[] | Iitem[] | IitemTop10[] = filmsData.slice(0);
+  arr.forEach((element) => items.append(renderSliderItem(element)));
 
   const updateItemsOpacity = async (): Promise<void> => {
     btnLeft.disabled = true;
@@ -79,10 +93,10 @@ export const renderSlider = (filmsData: Iitem[], slaiderName: string): HTMLEleme
       case width <= 680:
         itemsSize = 2;
         break;
-      case width <= 1240:
+      case width <= 1040:
         itemsSize = 3;
         break;
-      case width <= 1540:
+      case width <= 1440:
         itemsSize = 4;
         break;
       default:

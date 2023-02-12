@@ -14,7 +14,7 @@ export const createSlideDown = (): HTMLElement => {
   slideDown.append(wrapper, btnClose);
 
   slideDown.addEventListener('showFilmInfo', async (e: CustomEventInit) => {
-    const filmID = Number(e.detail.id);
+    const filmID = e.detail.id;
     const banner = await renderMainBanner(filmID);
     wrapper.innerHTML = '';
     wrapper.append(banner);

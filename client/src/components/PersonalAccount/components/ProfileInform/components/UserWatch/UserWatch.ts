@@ -1,6 +1,6 @@
 // import { renderCollection } from 'src/components/CollectionPage/collectionPage';
-import { renderCollectionFilms } from 'src/components/CollectionPage/component/Collection';
-import { animeData, Iitem } from 'src/components/MainPage/mockData';
+// import { renderCollectionFilms } from 'src/components/CollectionPage/component/Collection';
+// import { animeData, Iitem } from 'src/components/MainPage/mockData';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { arrowBtn } from '../Handlers/arrow-but';
@@ -21,14 +21,14 @@ export const renderUserWatchEmpty = (): HTMLElement => {
 };
 
 // TODO: переиспользовать готовый компонент
-export const renderUserWatchFilms = (films: Iitem[]): HTMLElement => {
-  const data: HTMLElement = createElem('div', 'profile-info__data');
-  const collection: HTMLElement = renderCollectionFilms(films);
+// export const renderUserWatchFilms = (films: Iitem[]): HTMLElement => {
+//   const data: HTMLElement = createElem('div', 'profile-info__data');
+//   const collection: HTMLElement = renderCollectionFilms(films);
 
-  data.append(collection);
+//   data.append(collection);
 
-  return data;
-};
+//   return data;
+// };
 
 export const renderUserWatch = () => {
   const userProfile: HTMLElement = createElem('div', styles['profile-watch']);
@@ -40,13 +40,13 @@ export const renderUserWatch = () => {
   title.append(btn);
 
   const empty: HTMLElement = renderUserWatchEmpty();
-  const film: HTMLElement = renderUserWatchFilms(animeData);
+  // const film: HTMLElement = renderUserWatchFilms(animeData);
 
   store.subscribe(() => {
     const userState = store.getState().auth.user;
 
     if (userState.data?.films?.length) {
-      userProfile.append(title, film);
+      // userProfile.append(title, film);
     } else {
       userProfile.append(title, empty);
     }
