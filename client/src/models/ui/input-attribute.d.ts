@@ -15,3 +15,10 @@ interface InputComponent {
 interface Commons {
   [key: string]: string;
 }
+
+interface CommonsHtml {
+  container: HTMLElement;
+  overlay: HTMLElement;
+  window: HTMLElement;
+  body: HTMLElement;
+}

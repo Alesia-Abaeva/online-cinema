@@ -6,8 +6,10 @@ import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
 import { renderRating } from './components/Rating/Rating';
 import { getPersonsWithJob } from './Handlers/film-data-formaters';
 import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
-import styles from './FilmPage.module.scss';
 import { showCover } from './Handlers/showCover';
+import { addFilmModal } from '../ui/ModalFilm/Handlers/show-hide-modal';
+import { renderModal } from '../ui/ModalFilm/ModalFilm';
+import styles from './FilmPage.module.scss';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -15,6 +17,9 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
   mainContent.classList.add('id-page');
   const backdrop: HTMLElement = createElem('div', 'id-page__backdrop');
+  const filmImg = filmData.backdrop ? filmData.backdrop.url : '';
+
+  const { container, overlay, window: modalWindow, body: bodyFilms } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
   if (window.screen.width > 1000) renderBackgroundPlayer(filmData, backdrop, mainContent);
   else showCover(filmData, backdrop, mainContent)();
@@ -44,7 +49,11 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   filmHeader.append(filmTitle, filmEnTitle);
 
   const actionBtns: HTMLElement = createElem('div', 'id-page__action');
-  const wantToWatchBtn: HTMLElement = createButton('Буду смотреть', undefined, 'id-page__action-want-to-watch');
+  const wantToWatchBtn: HTMLElement = createButton(
+    'Буду смотреть',
+    () => addFilmModal(bodyFilms, overlay, modalWindow, filmData.id, filmImg),
+    'id-page__action-want-to-watch'
+  );
   const moreActionsBtn: HTMLElement = createButton('', undefined, 'id-page__action-more');
 
   actionBtns.append(wantToWatchBtn, moreActionsBtn);
@@ -93,7 +102,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   mainContent.append(filmPoster, filmDescription, filmRatingAndActors);
   mainContainer.append(backdrop, mainContent);
-  main.append(mainContainer);
+  main.append(mainContainer, container);
 
   return main;
 };
