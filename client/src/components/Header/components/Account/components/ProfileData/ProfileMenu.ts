@@ -3,7 +3,7 @@ import { PATH_NAMES } from 'src/const/path-names';
 import { store } from 'src/logic/redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
-import { renderAvatar } from '../Avatar/Avatar';
+import { renderAvatar, renderChildeAvatar } from '../Avatar/Avatar';
 import styles from './ProfileMenu.module.scss';
 
 export const renderProfileMenu = (): HTMLElement => {
@@ -16,24 +16,26 @@ export const renderProfileMenu = (): HTMLElement => {
   const personalEmail: HTMLElement = createElem('div', 'profile-menu__data-email');
 
   const profileMenu: HTMLElement = createElem('ul', 'profile-menu__wrapp');
-  const profileOut: HTMLElement = createElem('li', 'profile-menu__item');
-  profileOut.innerHTML = 'Выйти';
+
+  const childeProfileAvatar: HTMLElement = renderChildeAvatar('Дети 12+');
+  const childeProfile: HTMLElement = createElem('li', 'profile-menu__item');
+  childeProfile.append(childeProfileAvatar);
+  // childeProfile.onclick = () => route(PATH_NAMES.userWatch); // TODO: переход на детский профиль - сделать через роутер
 
   const profileHistory: HTMLElement = createElem('li', 'profile-menu__item');
   profileHistory.innerHTML = 'История просмотра';
   profileHistory.onclick = () => route(PATH_NAMES.userWatch);
 
-  // TODO: переход на страницу просмотренных фильмов???
-
   const profileSet: HTMLElement = createElem('li', 'profile-menu__item');
   profileSet.innerHTML = 'Настройки';
   profileSet.onclick = () => route(PATH_NAMES.userSettings);
 
-  // TODO: открывается подменю настроек либо переход на страницу настроек в личном кабинете
-
   const profileAccount: HTMLElement = createElem('li', 'profile-menu__item');
   profileAccount.innerHTML = 'Личный кабинет';
   profileAccount.onclick = () => route(PATH_NAMES.user);
+
+  const profileOut: HTMLElement = createElem('li', 'profile-menu__item');
+  profileOut.innerHTML = 'Выйти';
 
   const avatarWrapperMenu: HTMLElement = renderAvatar();
 
@@ -45,7 +47,7 @@ export const renderProfileMenu = (): HTMLElement => {
   };
 
   personalDataWpar.append(personalName, personalEmail);
-  profileMenu.append(profileAccount, profileHistory, profileSet, profileOut);
+  profileMenu.append(childeProfile, profileAccount, profileHistory, profileSet, profileOut);
   personalData.append(personalDataWpar, avatarWrapperMenu);
   profileContainer.append(personalData, profileMenu);
 

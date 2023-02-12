@@ -18,13 +18,13 @@ export const renderAvatar = (): HTMLElement => {
   return avatarWrap;
 };
 
-export const renderChildeAvatar = (): HTMLElement => {
+export const renderChildeAvatar = (text: string): HTMLElement => {
   const avatarWrap: HTMLElement = createElem('div', 'avatar__wrapper');
   avatarWrap.classList.add('childe-avatar__wrapper');
   const avatar: HTMLElement = createElem('div', styles['avatar__profile']);
   avatar.classList.add('childe-avatar');
   const name = createElem('span', 'avatar__name');
-  name.innerHTML = 'Дети';
+  name.innerHTML = text;
 
   avatarWrap.append(avatar, name);
   store.subscribe(() => {

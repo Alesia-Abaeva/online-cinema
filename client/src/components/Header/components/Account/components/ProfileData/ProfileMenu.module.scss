@@ -56,6 +56,10 @@
   width: 100%;
   cursor: pointer;
 
+  &:first-child {
+    margin-bottom: 1rem;
+  }
+
   &:hover {
     background-color: var(--bg-ternary);
     color: var(--text-primary);

@@ -19,7 +19,7 @@ export const renderAccountSectionHead = (): HTMLElement => {
   //   авторизованный
   const avatarCnt: HTMLElement = createElem('div', 'avatar__container');
   const avatarWrapperHeader: HTMLElement = renderAvatar();
-  const avatarChildeWrapp: HTMLElement = renderChildeAvatar();
+  const avatarChildeWrapp: HTMLElement = renderChildeAvatar('Дети');
   const profileContainer: HTMLElement = renderProfileMenu();
   avatarCnt.append(avatarWrapperHeader, avatarChildeWrapp, profileContainer);
 
