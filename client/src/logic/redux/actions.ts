@@ -26,6 +26,13 @@ export const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
   };
 };
 
+export const setPasswordError = (payload: Nullable<ErrorMessage>) => {
+  return {
+    type: AuthTypes.ERROR_PASS,
+    payload,
+  };
+};
+
 export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
   try {
     dispatch(setLoginInfo({ isLoading: true }));
@@ -55,13 +62,6 @@ export const getDataPerson = () => async (dispatch: AppDispatch) => {
     dispatch(setUserInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
     // localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
   }
-};
-
-export const setPasswordError = (payload: Nullable<ErrorMessage>) => {
-  return {
-    type: AuthTypes.ERROR_PASS,
-    payload,
-  };
 };
 
 export const setModal = (payload: Nullable<Modals>) => ({

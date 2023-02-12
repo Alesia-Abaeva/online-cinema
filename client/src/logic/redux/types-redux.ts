@@ -15,3 +15,5 @@ export enum UiConfigTypes {
 export enum Modals {
   FILM = 'FILM',
 }
+// тип для редакса
+export const CHILDE = 'CHILDE';

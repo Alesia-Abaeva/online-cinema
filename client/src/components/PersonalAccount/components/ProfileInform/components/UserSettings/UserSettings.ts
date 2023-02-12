@@ -2,7 +2,6 @@ import { renderThemeSwitcher } from 'src/components/Footer/components/ThemeSwitc
 import { renderDropdownFilter } from 'src/components/ListPage/components/Filters/components/DropdownFIlter/DropdownFilter';
 import { createButton } from 'src/components/ui/Button/Button';
 import { parentControl } from 'src/const/filters-data';
-import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { arrowBtn } from '../Handlers/arrow-btn';
 import { handleChangeParentControl } from '../Handlers/handlersChangeUserData';
@@ -20,10 +19,7 @@ export const renderUserSettings = () => {
   const ageFilter: HTMLElement = renderDropdownFilter(parentControl);
 
   const bntCtn: HTMLElement = createElem('div', 'profile__btn-save');
-  bntCtn.onclick = () => {
-    const number = ageFilter.firstChild?.textContent as string;
-    handleChangeParentControl({ parentControls: number });
-  };
+
   const bntSaveData: HTMLElement = createButton('сохранить');
   bntCtn.append(bntSaveData);
 
@@ -37,11 +33,6 @@ export const renderUserSettings = () => {
   const themeSwitcher = renderThemeSwitcher();
   themeFilter.innerHTML = 'Установить новую тему';
   themeCnt.append(themeFilter, themeSwitcher);
-
-  store.subscribe(() => {
-    // const userState = store.getState().auth.user;
-    // TODO: подписаться на изменение компонента, возможно в самом компоненте
-  });
 
   userProfile.append(title, ageCnt, titleTheme, themeCnt);
   return userProfile;
