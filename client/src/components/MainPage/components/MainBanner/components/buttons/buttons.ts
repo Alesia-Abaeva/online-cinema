@@ -47,7 +47,6 @@ export const createBtnInterest = () => {
     const wrapper = target.parentElement as HTMLElement;
     const dropDown: HTMLElement = renderButtonDropdown();
     wrapper.append(dropDown);
-    // const app = document.getElementById('app') as HTMLElement;
     const overlay = renderOverlay(() => {
       closeDropdown();
       removeOverlay('dropdown-overlay');

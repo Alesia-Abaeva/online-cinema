@@ -1,36 +1,45 @@
 @import '/src/theme/variable';
 
 .list-item {
-  height: 220px;
-  text-decoration: none;
-  color: var(--text-secondary);
+  padding: 1rem;
   display: grid;
-  grid-template-columns: 0.2fr 1fr 3fr 0.6fr 2.7fr;
+  grid-template-columns: 3fr 0.5fr;
   border-bottom: 1px solid var(--border-primary);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   &:hover {
     border-radius: 10px;
     background-color: var(--bg-primary);
   }
 }
+
+.list-item__link {
+  height: 220px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 3fr 0.5fr;
+  gap: 1rem;
+}
+
 .list-item__number-cont {
-  margin-right: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .list-item__number {
   width: 30px;
-  padding: 1rem;
 }
 
 .list-item__img-cont {
-  @include flex-center;
+  height: 40%;
+  display: flex;
   justify-content: flex-end;
+  padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
 .list-item__img {
-  height: 150px;
-  width: 100px;
+  height: 100%;
+  width: auto;
   object-fit: cover;
 }
 
@@ -39,7 +48,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 1rem;
 }
 
 .list-item__title {
@@ -62,7 +70,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 1rem;
 }
 
 .rating {
@@ -79,7 +86,6 @@
   justify-content: flex-end;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1rem;
 }
 
 .list-item__btn {
@@ -91,129 +97,77 @@
   }
 }
 
-.wtw-icon {
-  background-image: url('assets/img/icons/bookmark-add.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: var(--inverted-icon);
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.more-actions-icon {
-  background-image: url('assets/img/icons/three-dots-svgrepo-com.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: var(--inverted-icon);
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-@media (max-width: 1240px) {
+@media (max-width: $phone-width) {
   .list-item__description_secondary {
     display: none;
   }
 }
 
-@media (max-width: 550px) {
-  .list-item {
-    height: 160px;
-    grid-template-columns: 0.6fr 1fr 3fr 0.6fr 2.1fr;
-  }
-
-  .list-item__title {
-    font-size: 0.8rem;
-  }
-
-  .list-item__number-cont {
-    margin-right: 0.5rem;
-  }
-
-  .list-item__number {
-    padding: 0;
-  }
-
-  .list-item__rating-cont {
-    padding-top: 0;
-    margin-left: 0.5rem;
-    padding-bottom: 0;
-
-    & .rating {
-      font-size: 1.5rem;
-    }
-  }
-
-  .list-item__controls {
-    padding: 0;
-  }
-
+@media (max-width: 585px) {
   .list-item__description {
+    font-size: 0.7rem;
+  }
+
+  .list-item__link {
+    gap: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .list-item__info {
     display: none;
   }
 
-  .list-item__info {
-    padding: 0.5rem;
-    padding-left: 1rem;
-    padding-top: 0;
-    padding-bottom: 0;
-    max-width: 130px;
+  .list-item__link {
+    height: 300px;
+    grid-template-columns: 0.2fr 1fr 0.5fr;
+    gap: 1rem;
   }
 
-  .list-item__img {
-    align-self: flex-start;
-    height: 100px;
-    width: 60px;
+  .list-item__img-cont {
+    height: 55%;
   }
+}
 
-  .list-item__rating-cont {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .list-item__rating {
-    font-size: 1.5rem;
-  }
-
-  .list-item__controls {
+@media (max-width: 480px) {
+  .list-item__link {
     gap: 0.5rem;
   }
 }
 
-@media (max-width: $iphoneSE) {
+@media (max-width: 460px) {
+  .list-item__link {
+    gap: 0;
+  }
+}
+
+@media (max-width: 440px) {
+  .list-item__link {
+    height: 280px;
+  }
+  .list-item__img-cont {
+    height: 50%;
+  }
+}
+@media (max-width: 425px) {
+  .list-item__link {
+    height: 250px;
+  }
+  .list-item__img-cont {
+    height: 45%;
+  }
+}
+
+@media (max-width: 395px) {
   .list-item {
-    height: 150px;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
   }
 
-  .list-item__img {
-    align-self: flex-start;
-    height: 90px;
-    width: 55px;
+  .list-item__link {
+    height: 220px;
   }
-
-  .list-item__rating-cont {
-    padding-top: 0.25rem;
-  }
-
-  .list-item {
-    padding-right: 0.1rem;
-    padding-left: 0.1rem;
-  }
-
-  .list-item__title {
-    font-size: 0.7rem;
-  }
-
-  .list-item__rating {
-    font-size: 1rem;
-  }
-
-  .wtw-icon {
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .more-actions-icon {
-    width: 1rem;
-    height: 1rem;
+  .list-item__img-cont {
+    height: 41%;
   }
 }
