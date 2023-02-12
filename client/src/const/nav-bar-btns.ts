@@ -12,7 +12,7 @@ export const NAVBAR_BTNS: NavbarBtns[] = [
 
 export const SIDEBAR_BTNS: NavbarBtns[] = [
   { link: '/user', text: 'Учетная запись' },
-  { link: '/user/watch', text: 'Буду смотреть' },
+  { link: '/user/watch', text: 'История просмотра' },
   { link: '/user/subscribeme', text: 'Подписки' },
   { link: '/user/promo', text: 'Промокод' },
   { link: '/user/settings', text: 'Настройки' },

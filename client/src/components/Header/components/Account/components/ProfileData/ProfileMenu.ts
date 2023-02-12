@@ -37,6 +37,10 @@ export const renderProfileMenu = (): HTMLElement => {
   profileAccount.innerHTML = 'Личный кабинет';
   profileAccount.onclick = () => route(PATH_NAMES.user);
 
+  const subscribeAccount: HTMLElement = createElem('li', 'profile-menu__item');
+  subscribeAccount.innerHTML = 'Подпискa';
+  subscribeAccount.onclick = () => route(PATH_NAMES.userSubscribe);
+
   const profileOut: HTMLElement = createElem('li', 'profile-menu__item');
   profileOut.innerHTML = 'Выйти';
 
@@ -50,7 +54,7 @@ export const renderProfileMenu = (): HTMLElement => {
   };
 
   personalDataWpar.append(personalName, personalEmail);
-  profileMenu.append(childeProfile, profileAccount, profileHistory, profileSet, profileOut);
+  profileMenu.append(childeProfile, profileAccount, profileHistory, profileSet, subscribeAccount, profileOut);
   personalData.append(personalDataWpar, avatarWrapperMenu);
   profileContainer.append(personalData, profileMenu);
 
