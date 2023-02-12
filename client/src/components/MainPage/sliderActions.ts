@@ -51,3 +51,17 @@ export const addListenerCollection = (slider: HTMLElement): HTMLElement => {
 
   return slider;
 };
+
+export const addListenerTop10 = (slider: HTMLElement): HTMLElement => {
+  slider.addEventListener('click', async (event: Event): Promise<void> => {
+    event.preventDefault();
+    event.stopPropagation();
+    const target = event.target as HTMLElement;
+    const parent = target.closest('.sliderItem') as HTMLElement;
+    if (parent) {
+      route(`/films/${parent.dataset.id}`);
+    }
+  });
+
+  return slider;
+};
