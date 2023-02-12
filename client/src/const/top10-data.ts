@@ -63,9 +63,9 @@ export const top10Data: IitemTop10[] = [
     numImg: num9,
   },
   {
-    id: 691558,
-    img: 'https://st.kp.yandex.net/images/film_iphone/iphone360_691558.jpg',
-    displayedTitle: 'неизвестн',
+    id: 329,
+    img: 'https://st.kp.yandex.net/images/film_iphone/iphone360_329.jpg',
+    displayedTitle: 'Список Шиндлера',
     numImg: num10,
   },
 ];
