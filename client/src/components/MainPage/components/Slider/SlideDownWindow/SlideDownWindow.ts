@@ -20,8 +20,15 @@ export const createSlideDown = (): HTMLElement => {
     wrapper.append(banner);
   });
 
-  btnClose.addEventListener('click', () => {
-    slideDown.classList.remove('show-slidedown');
+  btnClose.addEventListener('click', (e: Event) => {
+    const target = e.target as HTMLElement;
+    const slider = target.closest('.slideDown') as HTMLElement;
+    const sliderContent = slider.firstElementChild as HTMLElement;
+
+    slider.classList.remove('show-slidedown');
+    setTimeout(() => {
+      sliderContent.innerHTML = '';
+    }, 500);
   });
 
   return slideDown;
