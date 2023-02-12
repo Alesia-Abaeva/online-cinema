@@ -58,6 +58,13 @@ $black-90: rgba(0, 0, 0, 0.9);
   --silver-gradient: linear-gradient(45deg, rgba(160, 160, 160, 1) 0%, rgba(232, 232, 232, 1) 56%);
   --gold-gradient: linear-gradient(165deg, #ffd25e 16.44%, #b59646 63.42%);
   --gradient-red: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
+  --gradient-purple: linear-gradient(
+    84.47deg,
+    rgb(91, 97, 255) 8.43%,
+    rgb(185, 65, 239) 46.08%,
+    rgb(234, 80, 124) 69.86%,
+    rgb(255, 92, 0) 116.72%
+  );
 }
 
 [data-theme='light'] {
@@ -91,4 +98,11 @@ $black-90: rgba(0, 0, 0, 0.9);
   --silver-gradient: linear-gradient(45deg, rgba(160, 160, 160, 1) 0%, rgba(232, 232, 232, 1) 56%);
   --gold-gradient: linear-gradient(165deg, #ffd25e 16.44%, #b59646 63.42%);
   --gradient-red: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
+  --gradient-purple: linear-gradient(
+    84.47deg,
+    rgb(91, 97, 255) 8.43%,
+    rgb(185, 65, 239) 46.08%,
+    rgb(234, 80, 124) 69.86%,
+    rgb(255, 92, 0) 116.72%
+  );
 }

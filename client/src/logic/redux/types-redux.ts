@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-shadow
+/* eslint-disable no-shadow */
+
 export enum AuthTypes {
   INIT = 'INIT',
   LOGIN = 'LOGIN',
@@ -7,4 +8,10 @@ export enum AuthTypes {
   ERROR_PASS = 'ERROR_PASS',
 }
 
-// тип для редакса
+export enum UiConfigTypes {
+  SET_MODAL = 'SET_MODAL',
+}
+
+export enum Modals {
+  FILM = 'FILM',
+}

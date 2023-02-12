@@ -1,5 +1,6 @@
+/* eslint-disable default-param-last */
 import { combineReducers } from 'redux';
-import { AuthTypes } from './types-redux';
+import { AuthTypes, Modals, UiConfigTypes } from './types-redux';
 
 interface AuthState {
   login: ApiResponse<AuthResponse>;
@@ -7,14 +8,21 @@ interface AuthState {
   user: ApiResponse<AuthGetPersonToken>;
 }
 
-const initialState: AuthState = {
+interface UiConfigState {
+  modal: Nullable<Modals>;
+}
+
+const initialAuthState: AuthState = {
   login: { data: null, error: null, isLoading: false },
   register: { data: null, error: null, isLoading: false },
   user: { data: null, error: null, isLoading: false, isAuth: false },
 };
 
-// eslint-disable-next-line default-param-last
-const authReducer = (state = initialState, action: TypesRedux) => {
+const initialUiConfigState: UiConfigState = {
+  modal: null,
+};
+
+const authReducer = (state = initialAuthState, action: TypesRedux) => {
   switch (action.type) {
     case AuthTypes.LOGIN:
       return { ...state, login: { ...state.login, ...(action.payload as ApiResponse<AuthResponse>) } };
@@ -29,8 +37,18 @@ const authReducer = (state = initialState, action: TypesRedux) => {
   }
 };
 
+const uiConfigReducer = (state = initialUiConfigState, action: TypesRedux) => {
+  switch (action.type) {
+    case UiConfigTypes.SET_MODAL:
+      return { ...state, modal: action.payload as Nullable<Modals> };
+    default:
+      return state;
+  }
+};
+
 // Должны проверять какой action нам приходит и менять состояние
 // rootReducer - изменяет все наши состояния
 export const rootReducer = combineReducers({
   auth: authReducer,
+  uiConfig: uiConfigReducer,
 });

@@ -3,6 +3,8 @@ import styles from './StubPage.module.scss';
 
 export const renderStubPage = (text: string): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
+  main.classList.add('stub_banner');
+
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['stub']);
 

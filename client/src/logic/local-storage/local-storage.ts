@@ -10,5 +10,3 @@ export const getLocalStorage = (key: string) => {
 
   return JSON.parse(storageItem);
 };
-
-// TODO - переделать тип!
