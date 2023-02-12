@@ -7,6 +7,11 @@ export const SLIDERS_ORDER = [
     url: '/slider/new-shows',
   },
   {
+    displayedTitle: 'Топ 10',
+    title: 'top-10',
+    url: '/slider/top-10',
+  },
+  {
     displayedTitle: 'Лучшие ужастики',
     title: 'horror',
     url: '/slider/horror',

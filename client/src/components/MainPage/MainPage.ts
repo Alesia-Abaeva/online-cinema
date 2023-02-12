@@ -2,10 +2,11 @@ import { createElem } from 'src/utils/create-element';
 import { SLIDERS_ORDER } from 'src/const/main-page-data';
 import { isError } from 'src/utils/type-checkers';
 import { REFERENC_DESCRIP, REFERENC_TITLE } from 'src/const/referens';
+import { top10Data } from 'src/const/top10-data';
 import { renderSlider } from './components/Slider/Slider';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
-import { addListenerCollection, addListenerSlideDown } from './sliderActions';
+import { addListenerCollection, addListenerSlideDown, addListenerTop10 } from './sliderActions';
 import { genresData } from '../../const/genres-data';
 import { Accordion } from '../ui/Accordion/Accordion';
 
@@ -32,6 +33,10 @@ export const renderMainPage = (
     }
     if (el.title === 'genres') {
       const slider: HTMLElement = addListenerCollection(renderSlider(genresData, el.displayedTitle, el.title));
+      main.append(slider);
+    }
+    if (el.title === 'top-10') {
+      const slider: HTMLElement = addListenerTop10(renderSlider(top10Data, el.displayedTitle, el.title));
       main.append(slider);
     }
   });
