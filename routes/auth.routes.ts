@@ -6,6 +6,7 @@ import {
   login,
   register,
   updateUser,
+  updateUserFolders,
   updateUserParentsContr,
   updateUserPassword,
   updateUserTariff,
@@ -40,3 +41,6 @@ router.put('/person/tariff', checkAuth, updateUserTariff);
 
 // api/auth/pesron/delete
 router.delete('/person/delete', checkAuth, deleteUser);
+
+// api/auth/person/folders
+router.put('/person/folders', checkAuth, updateUserFolders);

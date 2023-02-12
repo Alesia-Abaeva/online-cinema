@@ -47,12 +47,6 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
   itemRatingCont.append(itemRating);
 
   const itemControls: HTMLElement = createElem('div', 'list-item__controls');
-  // const wantToWatchBtn: HTMLElement = createElem('div', 'list-item__btn');
-  // const wtwIcon: HTMLElement = createElem('div', 'wtw-icon');
-  // wantToWatchBtn.append(wtwIcon);
-  // const moreActions: HTMLElement = createElem('div', 'list-item__btn');
-  // const moreActionsIcon: HTMLElement = createElem('div', 'more-actions-icon');
-  // moreActions.append(moreActionsIcon);
   const moreActions: HTMLElement = createBtnInterest();
 
   itemControls.append(moreActions);

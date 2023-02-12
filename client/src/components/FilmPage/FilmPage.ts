@@ -47,8 +47,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   const actionBtns: HTMLElement = createElem('div', 'id-page__action');
 
-  const watchFilmContent = `${watchFilmIcon}Смотреть фильм`;
-  const btnWatch = createButton(watchFilmContent, undefined, 'actionBtn__film') as HTMLButtonElement;
+  const btnWatch = createButton(`${watchFilmIcon}Смотреть фильм`, undefined, 'actionBtn__film') as HTMLButtonElement;
   btnWatch.classList.add('actionBtn');
   const btnInterest = createBtnInterest();
 
@@ -74,11 +73,10 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   }
 
   const { similarMovies } = filmData;
-  if (similarMovies.length !== 0) {
+  if (similarMovies.length !== 0 && similarMovies[0].name) {
     const simiralMoviesSection: HTMLElement = renderSimilarMovies(similarMovies);
     filmDescription.append(simiralMoviesSection);
   }
-
   // 3 column - actors and rating
   const filmRatingAndActors = createElem('div', 'id-page__desc-aside');
 
