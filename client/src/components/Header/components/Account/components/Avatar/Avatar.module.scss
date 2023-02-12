@@ -1,5 +1,12 @@
 @import '/src/theme/variable';
 
+.avatar__container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 2.8rem;
+}
+
 .avatar__wrapper,
 .avatar__wrapper-show {
   display: flex;
@@ -27,4 +34,28 @@
   background-size: cover;
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.childe-avatar__wrapper {
+  gap: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    .childe-avatar {
+      scale: 1.1;
+    }
+    .avatar__name {
+      color: var(--text-primary);
+    }
+  }
+}
+
+.childe-avatar {
+  background-image: url('../../../../../../assets/img/childe-avatar.png');
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.avatar__name {
+  color: var(--text-secondary);
 }

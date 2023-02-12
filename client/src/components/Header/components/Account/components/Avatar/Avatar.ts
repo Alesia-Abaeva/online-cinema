@@ -7,9 +7,6 @@ export const renderAvatar = (): HTMLElement => {
   const avatarCircle: HTMLElement = createElem('div', 'avatar__circle');
   const avatar: HTMLElement = createElem('div', styles['avatar__profile']);
 
-  //   avatarImg.style.backgroundImage = `url(${avatarUrl})`;
-  //   TODO: загрузка изображений!
-
   avatarCircle.append(avatar);
   avatarWrap.append(avatarCircle);
 
@@ -21,7 +18,17 @@ export const renderAvatar = (): HTMLElement => {
   return avatarWrap;
 };
 
-// interface ReturnAvatar {
-//   avatarWrap: HTMLElement;
-//   avatar: HTMLElement;
-// }
+export const renderChildeAvatar = (): HTMLElement => {
+  const avatarWrap: HTMLElement = createElem('div', 'avatar__wrapper');
+  avatarWrap.classList.add('childe-avatar__wrapper');
+  const avatar: HTMLElement = createElem('div', styles['avatar__profile']);
+  avatar.classList.add('childe-avatar');
+  const name = createElem('span', 'avatar__name');
+  name.innerHTML = 'Дети';
+
+  avatarWrap.append(avatar, name);
+  store.subscribe(() => {
+    // TODO: подписка на контроль
+  });
+  return avatarWrap;
+};

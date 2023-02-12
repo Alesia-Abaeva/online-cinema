@@ -3,7 +3,7 @@ import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
-import { renderAvatar } from './components/Avatar/Avatar';
+import { renderAvatar, renderChildeAvatar } from './components/Avatar/Avatar';
 import styles from './Account.module.scss';
 import { renderProfileMenu } from './components/ProfileData/ProfileMenu';
 
@@ -19,10 +19,11 @@ export const renderAccountSectionHead = (): HTMLElement => {
   //   авторизованный
   const avatarCnt: HTMLElement = createElem('div', 'avatar__container');
   const avatarWrapperHeader: HTMLElement = renderAvatar();
+  const avatarChildeWrapp: HTMLElement = renderChildeAvatar();
   const profileContainer: HTMLElement = renderProfileMenu();
-  avatarCnt.append(avatarWrapperHeader, profileContainer);
+  avatarCnt.append(avatarWrapperHeader, avatarChildeWrapp, profileContainer);
 
-  avatarCnt.onmouseover = () => {
+  avatarWrapperHeader.onmouseover = () => {
     profileContainer.classList.add('show__menu');
   };
 
