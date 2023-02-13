@@ -45,7 +45,7 @@ export const renderUserWatch = () => {
   store.subscribe(() => {
     const userState = store.getState().auth.user;
 
-    if (userState.data?.films?.length) {
+    if (userState.data?.folders) {
       // userProfile.append(title, film);
     } else {
       userProfile.append(title, empty);

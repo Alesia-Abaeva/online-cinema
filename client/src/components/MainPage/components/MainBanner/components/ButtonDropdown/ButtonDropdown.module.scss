@@ -37,6 +37,11 @@
     height: 24px;
   }
 
+  svg.active-svg {
+    fill: none;
+    filter: none;
+  }
+
   &:first-child {
     border-radius: 10px 10px 0 0;
   }

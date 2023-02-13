@@ -10,7 +10,7 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
   const btnWatch = createBtnWatch() as HTMLButtonElement;
   const btnTrailer = createBtnTrailer() as HTMLButtonElement;
   const btnBookmark = createBtnBookmark() as HTMLButtonElement;
-  const btnInterest = createBtnInterest() as HTMLButtonElement;
+  const btnInterest = createBtnInterest(res.id) as HTMLButtonElement;
 
   const description = res.shortDescription ? res.shortDescription : res.description;
   const title = res.logo && res.logo.url ? `<img src="${res.logo.url}" alt="${res.name}" />` : res.name;

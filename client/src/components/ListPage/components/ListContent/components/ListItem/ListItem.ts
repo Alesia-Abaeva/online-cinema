@@ -47,7 +47,7 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
   itemRatingCont.append(itemRating);
 
   const itemControls: HTMLElement = createElem('div', 'list-item__controls');
-  const moreActions: HTMLElement = createBtnInterest();
+  const moreActions: HTMLElement = createBtnInterest(itemData.id);
 
   itemControls.append(moreActions);
 

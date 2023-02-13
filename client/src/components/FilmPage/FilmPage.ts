@@ -49,7 +49,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   const btnWatch = createButton(`${watchFilmIcon}Смотреть фильм`, undefined, 'actionBtn__film') as HTMLButtonElement;
   btnWatch.classList.add('actionBtn');
-  const btnInterest = createBtnInterest();
+  const btnInterest = createBtnInterest(filmData.id);
 
   actionBtns.append(btnWatch, btnInterest);
 

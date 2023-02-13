@@ -39,13 +39,13 @@ export const createBtnBookmark = () => {
   return btnBookmark;
 };
 
-export const createBtnInterest = () => {
+export const createBtnInterest = (filmId: number) => {
   const btnWrapper: HTMLElement = createElem('div', 'action-btn-wrapper');
   const btnInterest = createButton(threeDotsIcon, undefined, `${styles.actionBtn}`) as HTMLButtonElement;
   btnInterest.onclick = (e: Event) => {
     const target = e.target as HTMLElement;
     const wrapper = target.parentElement as HTMLElement;
-    const dropDown: HTMLElement = renderButtonDropdown();
+    const dropDown: HTMLElement = renderButtonDropdown(filmId);
     wrapper.append(dropDown);
     const overlay = renderOverlay(() => {
       closeDropdown();
