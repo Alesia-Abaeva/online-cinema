@@ -27,6 +27,17 @@ export const handleChangeUserPassword = async (body: AuthGetPersonToken) => {
   try {
     await updateUserPass(body);
     appDispatch(setPasswordError(null));
+
+    const success = document.querySelector('.change_password') as HTMLElement;
+    success.innerHTML = 'Данные обновлены успешно';
+    success.classList.add('active-pass-modal');
+
+    setTimeout(() => {
+      success.innerHTML = '';
+      success.classList.remove('active-pass-modal');
+    }, 2000);
+
+    // показываем модалку
   } catch (err) {
     console.warn(err);
     appDispatch(setPasswordError(err as ErrorMessage));

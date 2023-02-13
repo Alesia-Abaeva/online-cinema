@@ -88,6 +88,10 @@ export const renderProfileDataPass = (): ReturnElements => {
       newPassRepet.classList.remove('invalide-data');
       newPass.classList.remove('invalide-data');
       handleChangeUserPassword(statePassword);
+      // TODO: перенести в функцию handleChangeUserPassword
+      newPassRepeatInput.value = '';
+      passInput.value = '';
+      newPassInput.value = '';
     }
   });
   bntSavePass.setAttribute('disabled', 'true');
@@ -118,7 +122,17 @@ export const renderProfileDataPass = (): ReturnElements => {
     }
   };
 
-  data.append(pass, newPass, newPassRepet, bntCtnPass);
+  const success = createElem('div', 'change_password');
+  // success.innerHTML = 'Пароль успешно обновлен';
+
+  data.append(
+    // success
+    pass,
+    newPass,
+    newPassRepet,
+    bntCtnPass,
+    success
+  );
 
   store.subscribe(() => {
     const userState = store.getState().auth.user.error;
