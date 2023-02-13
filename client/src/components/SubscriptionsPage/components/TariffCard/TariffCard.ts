@@ -1,12 +1,14 @@
 import { createButton } from 'src/components/ui/Button/Button';
-import { renderModal } from 'src/components/ui/Modal/Modal';
+import { Tariff } from 'src/const/subscriptions-data';
+import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { renderCheckoutModalContent } from '../CheckoutModal/CheckoutModal';
 import { toggleModal } from '../../../ui/Modal/ToggleModal';
 import styles from './TariffCard.module.scss';
 
-export const renderTariffCard = (data: SubsctiptionsPlan, id: number): HTMLElement => {
+export const renderTariffCard = (data: SubsctiptionsPlan, id: number, ids: string): HTMLElement => {
   const tariffCard: HTMLElement = createElem('div', styles['tariff-card']);
+  tariffCard.id = ids;
   const cardHeader: HTMLElement = createElem('div', 'tariff-card__header');
 
   const cardTitle: HTMLElement = createElem('h2', 'tariff-card__title');
@@ -45,31 +47,44 @@ export const renderTariffCard = (data: SubsctiptionsPlan, id: number): HTMLEleme
   });
   tariffCard.append(cardHeader, cardBody, cardCost);
 
-  if (id === 1) {
-    const cardBtn: HTMLElement = createButton(
-      'Оформить подиску',
-      (): void => {
-        const main = document.querySelector('.main') as HTMLElement;
-        if (main) {
-          const { modalFragment, modal, overlay } = renderModal(renderCheckoutModalContent());
-          main.append(modalFragment);
-          setTimeout(() => toggleModal(modal, overlay), 0);
-        }
-      },
-      'tariff-card__btn'
-    );
-    tariffCard.append(cardBtn);
-  }
-  // else {
-  //   const cardBtn: HTMLElement = createButton(
-  //     'Попробовать',
-  //     (): void => {
-  //       route('/register');
-  //     },
-  //     'tariff-card__btn'
-  //   );
-  //   tariffCard.append(cardBtn);
-  // }
+  store.subscribe(() => {
+    const userState = store.getState().auth.user;
+
+    if ((userState.data?.tariff === Tariff.BASE || !userState.data?.tariff) && tariffCard.id === Tariff.PREMIUM) {
+      // если у пользователя базовый тариф, рисуем кнопку оформить подписку
+      const cardBtn: HTMLElement = createButton(
+        'Оформить подиску',
+        (): void => {
+          const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
+          const modal = document.querySelector('.checkout-modal') as HTMLElement;
+          toggleModal(modal, overlay);
+        },
+        'tariff-card__btn'
+      );
+      tariffCard.append(cardBtn);
+    }
+
+    // если у пользователя базовый тариф, выделяем его
+    if (userState.data?.tariff === Tariff.BASE && tariffCard.id === Tariff.BASE) {
+      tariffCard.classList.add('active-base');
+      const message = createElem('div', 'tariff-card__premium');
+      message.innerHTML = 'Сейчас вы на этом тарифе (◕‿◕)';
+      tariffCard.append(message);
+    }
+
+    // если у пользователя премиум подписка, убираем тариф для всех
+    if (userState.data?.tariff === Tariff.PREMIUM && tariffCard.id === Tariff.BASE) {
+      tariffCard.classList.add('hide-tariff');
+    }
+
+    // если у пользователя премиум подписка
+    if (userState.data?.tariff === Tariff.PREMIUM && tariffCard.id === Tariff.PREMIUM) {
+      tariffCard.classList.add('active-tariff');
+      const message = createElem('div', 'tariff-card__premium');
+      message.innerHTML = '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧  Поздравляем , вы в премиуме!';
+      tariffCard.append(message);
+    }
+  });
 
   return tariffCard;
 };

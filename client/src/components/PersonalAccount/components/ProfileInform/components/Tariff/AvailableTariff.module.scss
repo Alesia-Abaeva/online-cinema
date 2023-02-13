@@ -1,11 +1,20 @@
+@import '/src/theme/variable';
+
+.profile-subscribe {
+  .profile-info__data {
+    padding: 0;
+  }
+}
+
 .profile-info__data {
   .main {
     min-height: auto;
     width: 100%;
+    border-radius: 10px;
   }
   .main__container {
     max-width: inherit;
-
+    padding: 2rem;
     .subscriptions {
       padding-top: 2rem;
       height: auto;

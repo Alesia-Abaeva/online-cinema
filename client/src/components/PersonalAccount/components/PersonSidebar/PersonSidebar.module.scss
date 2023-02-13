@@ -50,6 +50,7 @@
 }
 
 .profile-sidebar__tariff {
+  font-family: NetflixSans-Bold;
   margin-top: 1rem;
   transition: 0.5s;
   color: white;
@@ -68,6 +69,8 @@
   gap: 0.6rem;
   border: 1px solid $blue;
   background-color: $conditionalborder;
+  text-transform: uppercase;
+  font-size: 1.5rem;
 
   @media (max-width: $tablet-width) {
     width: 15rem;
