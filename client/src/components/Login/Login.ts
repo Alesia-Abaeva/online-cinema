@@ -29,6 +29,8 @@ export const renderLoginPage = (): HTMLElement => {
   const errorWrapp = createElem('div', 'form__error');
   errorWrapp.innerHTML = '.';
 
+  const form = createElem('form', 'form');
+
   // email
   const wrapperEmail = createElem('form', 'form__wrapp');
   const labelEmail = createElem('label', 'form_label');
@@ -38,7 +40,6 @@ export const renderLoginPage = (): HTMLElement => {
   inputEmail.oninput = () => {
     stateInput.email = inputEmail.value;
   };
-  inputEmail.setAttribute('value', 'test@test.tu'); // TODO: убрать перед релизом
 
   wrapperEmail.append(labelEmail, iconEmail, inputEmail);
 
@@ -53,7 +54,6 @@ export const renderLoginPage = (): HTMLElement => {
     id: 'password',
     name: 'password',
   });
-  iconPass.setAttribute('value', '123456'); // TODO: убрать перед релизом
 
   inputPas.oninput = () => {
     stateInput.password = inputPas.value;
@@ -69,6 +69,13 @@ export const renderLoginPage = (): HTMLElement => {
     'form_button'
   );
 
+  form.onkeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      appDispatch(login({ email: stateInput.email, password: stateInput.password }));
+    }
+  };
+
   const registrationContainer = createElem('div', 'reg__container');
   const registrationLink = createLink('/register', 'reg__link', true, 'Зарегистрироваться');
   registrationLink.onclick = linkHandler;
@@ -76,8 +83,8 @@ export const renderLoginPage = (): HTMLElement => {
   const registrationText = createElem('div', 'reg__text');
   registrationText.innerHTML = `, если у вас не аккаунта.`;
   registrationContainer.append(registrationLink, registrationText);
-
-  formContainer.append(logo, errorWrapp, wrapperEmail, wrapperPas, button, registrationContainer);
+  form.append(wrapperEmail, wrapperPas);
+  formContainer.append(logo, errorWrapp, form, button, registrationContainer);
   mainContent.append(formContainer);
   mainContainer.append(mainContent);
   main.append(mainContainer);
@@ -103,5 +110,3 @@ export const renderLoginPage = (): HTMLElement => {
 
   return main;
 };
-
-// test@test.tu

@@ -31,6 +31,8 @@ export const renderRegisterPage = (): HTMLElement => {
   const errorWrapp = createElem('div', 'form__error');
   errorWrapp.innerHTML = '.';
 
+  const form = createElem('form', 'form');
+
   // email
   const wrapperEmail = createElem('form', styles['form__wrapp-reg']);
   const labelEmail = createElem('label', 'form_label');
@@ -91,6 +93,20 @@ export const renderRegisterPage = (): HTMLElement => {
     'form_button'
   );
 
+  form.onkeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      appDispatch(
+        register({
+          email: stateInput.email,
+          password: stateInput.password,
+          name: stateInput.name,
+          tariff: stateInput.tariff,
+        })
+      );
+    }
+  };
+
   const registrationContainer = createElem('div', 'reg__container');
   const registrationLink = createLink('/login', 'reg__link', true, 'Войти');
   registrationLink.onclick = linkHandler;
@@ -99,7 +115,12 @@ export const renderRegisterPage = (): HTMLElement => {
   registrationText.innerHTML = `Уже есть аккаунт?&nbsp `;
   registrationContainer.append(registrationText, registrationLink);
 
-  formContainer.append(logo, errorWrapp, wrapperEmail, wrapperName, wrapperPas, button, registrationContainer);
+  // form.addEventListener('keydown', (event: KeyboardEvent) => {
+  //   console.log(event.key);
+  // });
+
+  form.append(wrapperEmail, wrapperName, wrapperPas);
+  formContainer.append(logo, errorWrapp, form, button, registrationContainer);
   mainContent.append(formContainer);
   mainContainer.append(mainContent);
   main.append(mainContainer);
