@@ -2,12 +2,14 @@ import { createBtnInterest } from 'src/components/MainPage/components/MainBanner
 import { setRatingColor } from 'src/components/ui/RatingColor/RatingColor';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
-import { isFilmInFolder } from 'src/utils/is-film-in-folder';
+import { updateListItem } from './Handlers/update-list-item';
 import styles from './ListItem.module.scss';
 
 export const renderListItem = (itemData: FindedMovies, i: number, page: number, limit: number): HTMLElement => {
   const listItem: HTMLElement = createElem('div', styles['list-item']);
   listItem.dataset.id = itemData.id.toString();
+
+  updateListItem(listItem);
 
   const listItemLink: HTMLElement = createElem('a', 'list-item__link');
   listItemLink.setAttribute('href', `/films/${itemData.id}`);
@@ -62,15 +64,7 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
     const listItemCont = document.querySelector('.list-content__list-items');
     if (listItemCont instanceof HTMLElement) {
       const items = Array.from(listItemCont.children) as HTMLElement[];
-
-      items.forEach((el) => {
-        const { id } = el.dataset;
-        if (id && isFilmInFolder(+id, 'watched')) {
-          el.classList.add('list-item_active');
-        } else {
-          el.classList.remove('list-item_active');
-        }
-      });
+      items.forEach((el) => updateListItem(el));
     }
   });
 

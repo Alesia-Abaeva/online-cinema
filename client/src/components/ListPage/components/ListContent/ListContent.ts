@@ -1,8 +1,5 @@
 import { paginaitonState } from 'src/const/default-query-options';
-import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
-import { formatRuWord } from 'src/utils/formatRUWorld';
-import { getWatchedMoviesCount } from 'src/utils/get-watched-movies-count';
 import { updateListPageUI } from '../../updateListPageUI';
 import { renderListItem } from './components/ListItem/ListItem';
 import { renderPagination } from './components/Pagination/Pagination';
@@ -23,7 +20,7 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
 
   listHeader.append(listTitle, listImgCont);
 
-  const progressBar: HTMLElement = renderProgressBar(`Вы посмотрели ${0} фильмов из ${listItems.item.total}`);
+  const progressBar: HTMLElement = renderProgressBar(listItems);
 
   const listItemsContainer: HTMLElement = createElem('div', 'list-content__list-items');
 
@@ -36,22 +33,6 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
   const pagination: HTMLElement = renderPagination(updateListPageUI);
 
   litsContent.append(listHeader, progressBar, listItemsContainer, pagination);
-
-  store.subscribe(() => {
-    const watchedCount = listItems.item.allId ? getWatchedMoviesCount(listItems.item.allId) : 0;
-    const totalCount = listItems.item.total;
-    const percentage = (watchedCount / totalCount) * 100;
-    const titleEl = document.querySelector('.progress-bar__title');
-    const progressBarLine = document.querySelector('.progress-bar__line-fill');
-    if (titleEl instanceof HTMLElement && progressBarLine instanceof HTMLElement) {
-      progressBarLine.style.width = `${percentage}%`;
-      titleEl.innerHTML = `Вы посмотрели ${watchedCount} ${formatRuWord(watchedCount, [
-        'фильм',
-        'фильма',
-        'фильмов',
-      ])} из ${totalCount}`;
-    }
-  });
 
   return litsContent;
 };
