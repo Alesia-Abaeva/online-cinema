@@ -3,4 +3,5 @@ interface PageLimit {
   page: number;
   pages: number;
   total: number;
+  allId?: number[];
 }

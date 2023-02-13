@@ -11,7 +11,7 @@ export const watchFilmIcon = `<svg width="2.4rem" height="2.4rem" viewBox="0 0 2
 
 export const bookmarkIcon = `<svg width="24px" height="24px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-tid="5a8f7f74"><path fill-rule="evenodd" clip-rule="evenodd" d="M28.05 13.5V9.3h4.575V5.7H28.05V1.125h-3.6V5.7h-4.2v3.6h4.2v4.2h3.6ZM11.475 5.625h4.275v3.6h-4.275v16.353l4.868-2.524 1.657-.86 1.657.86 4.868 2.524V18h3.6v13.5l-3.6-1.867L18 26.25l-6.525 3.383-3.6 1.867V5.625h3.6Z"></path></svg>`;
 
-export const bookmarkIconChecked = `<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const bookmarkIconChecked = `<svg class="active-svg" width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_2_4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="116" y="33" width="568" height="734">
 <path d="M183.333 33.3334C146.514 33.3334 116.667 63.181 116.667 100V733.333C116.667 745.373 123.16 756.48 133.654 762.383C144.147 768.287 157.009 768.073 167.301 761.827L400 620.523L632.7 761.827C642.99 768.073 655.853 768.287 666.347 762.383C676.84 756.48 683.333 745.373 683.333 733.333V100C683.333 63.181 653.487 33.3334 616.667 33.3334H183.333Z" fill="black"/>
 </mask>
@@ -47,7 +47,7 @@ export const tariffIcon = `
 </svg>
 `;
 
-export const eyeOpen = `<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const eyeOpen = `<svg class="active-svg" width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="16" y="187" width="768" height="426">
 <path d="M772.812 376.719L694.531 303.281C615.625 229.375 511.094 188.75 400 188.75C288.906 188.75 184.375 229.375 105.625 303.281L27.3437 376.719C8.43749 396.875 20.625 418.125 27.3437 423.281L105.625 496.719C184.375 570.625 288.906 611.25 400 611.25C511.094 611.25 615.625 570.625 694.375 496.719L772.656 423.281C780 417.187 791.719 395.781 772.812 376.719ZM400 493.75C348.281 493.75 306.25 451.719 306.25 400C306.25 348.281 348.281 306.25 400 306.25C451.719 306.25 493.75 348.281 493.75 400C493.75 451.719 451.719 493.75 400 493.75ZM95.7812 400L149.375 349.844C199.375 302.969 261.875 271.875 329.844 259.062C278.125 285 242.656 338.437 242.656 400C242.656 461.562 278.281 515.156 329.844 540.938C261.875 528.281 199.375 497.031 149.375 450.156L95.7812 400ZM650.781 450.156C600.781 497.031 538.281 528.281 470.312 540.938C522.031 515 557.5 461.562 557.5 400C557.5 338.437 521.875 285 470.312 259.062C538.281 271.719 600.781 302.969 650.781 349.844L704.375 400L650.781 450.156Z" fill="black" stroke="black" stroke-width="1.5625"/>
 <path d="M400 367.5C382.344 367.5 367.5 382.344 367.5 400C367.5 417.656 382.344 432.5 400 432.5C417.656 432.5 432.5 417.656 432.5 400C432.5 382.344 417.656 367.5 400 367.5Z" fill="black" stroke="black" stroke-width="1.5625"/>

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { isError } from 'src/utils/type-checkers';
 import { valiadteId } from 'src/utils/validateId';
-import { PATH_NAMES } from '../const/path-names';
 import { ROUTER_PATHS } from '../const/router-paths';
+import { route404 } from './404';
 import { getFetchOptions } from './get-fetch-options';
 
 export const dynamicRouteHandler = async (pathname: string, commonPath: string, fetchData: Function | -1) => {
@@ -15,18 +15,12 @@ export const dynamicRouteHandler = async (pathname: string, commonPath: string, 
         document.title = route.title;
         route.template({ item, pathname });
       } else {
-        const route = ROUTER_PATHS[PATH_NAMES.notFound];
-        route.template();
-        document.title = route.title;
+        route404();
       }
     } catch {
-      const route = ROUTER_PATHS[PATH_NAMES.notFound];
-      route.template();
-      document.title = route.title;
+      route404();
     }
   } else {
-    const route = ROUTER_PATHS[PATH_NAMES.notFound];
-    route.template();
-    document.title = route.title;
+    route404();
   }
 };

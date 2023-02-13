@@ -1,9 +1,14 @@
 import { createBtnInterest } from 'src/components/MainPage/components/MainBanner/components/buttons/buttons';
+import { setRatingColor } from 'src/components/ui/RatingColor/RatingColor';
+import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
+import { isFilmInFolder } from 'src/utils/is-film-in-folder';
 import styles from './ListItem.module.scss';
 
 export const renderListItem = (itemData: FindedMovies, i: number, page: number, limit: number): HTMLElement => {
   const listItem: HTMLElement = createElem('div', styles['list-item']);
+  listItem.dataset.id = itemData.id.toString();
+
   const listItemLink: HTMLElement = createElem('a', 'list-item__link');
   listItemLink.setAttribute('href', `/films/${itemData.id}`);
 
@@ -42,8 +47,7 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
   const itemRatingCont: HTMLElement = createElem('div', 'list-item__rating-cont');
   const itemRating: HTMLElement = createElem('p', 'rating');
   itemRating.innerHTML = ratingValue.toFixed(1);
-  if (ratingValue > 5) itemRating.classList.add('rating_good');
-  if (ratingValue > 9) itemRating.classList.add('rating_amazing');
+  setRatingColor(itemRating, ratingValue);
   itemRatingCont.append(itemRating);
 
   const itemControls: HTMLElement = createElem('div', 'list-item__controls');
@@ -53,6 +57,22 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
 
   listItemLink.append(itemNumCont, itemImgCont, itemInfo, itemRatingCont);
   listItem.append(listItemLink, itemControls);
+
+  store.subscribe(() => {
+    const listItemCont = document.querySelector('.list-content__list-items');
+    if (listItemCont instanceof HTMLElement) {
+      const items = Array.from(listItemCont.children) as HTMLElement[];
+
+      items.forEach((el) => {
+        const { id } = el.dataset;
+        if (id && isFilmInFolder(+id, 'watched')) {
+          el.classList.add('list-item_active');
+        } else {
+          el.classList.remove('list-item_active');
+        }
+      });
+    }
+  });
 
   return listItem;
 };

@@ -1,6 +1,6 @@
 import { renderSubscriptions } from 'src/components/SubscriptionsPage/SubscriptionsPage';
 import { createElem } from 'src/utils/create-element';
-import { arrowBtn } from '../Handlers/arrow-but';
+import { arrowBtn } from '../Handlers/arrow-btn';
 import styles from './AvailableTariff.module.scss';
 
 export const renderAvailibleTariff = () => {

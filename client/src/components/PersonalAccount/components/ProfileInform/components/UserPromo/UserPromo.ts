@@ -1,7 +1,7 @@
 import { createButton } from 'src/components/ui/Button/Button';
 import { createInputElement } from 'src/components/ui/Input/Input';
 import { createElem } from 'src/utils/create-element';
-import { arrowBtn } from '../Handlers/arrow-but';
+import { arrowBtn } from '../Handlers/arrow-btn';
 // import { createInputComponent } from '../Handlers/createInputeComponent';
 import styles from './UserPromo.module.scss';
 

@@ -3,7 +3,7 @@
 // import { animeData, Iitem } from 'src/components/MainPage/mockData';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
-import { arrowBtn } from '../Handlers/arrow-but';
+import { arrowBtn } from '../Handlers/arrow-btn';
 import styles from './UserWatch.module.scss';
 
 // пустой контейнер
