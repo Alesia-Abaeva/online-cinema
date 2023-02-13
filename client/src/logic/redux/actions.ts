@@ -1,7 +1,7 @@
 import { dataPersonHandler, loginHandler, registerHandler } from 'src/api/back/auth';
 // import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { AppDispatch } from '.';
-import { AuthTypes } from './types-redux';
+import { AuthTypes, Modals, UiConfigTypes } from './types-redux';
 
 // Здесь будут храниться функции, которые создают определенные action
 
@@ -63,3 +63,8 @@ export const setPasswordError = (payload: Nullable<ErrorMessage>) => {
     payload,
   };
 };
+
+export const setModal = (payload: Nullable<Modals>) => ({
+  type: UiConfigTypes.SET_MODAL,
+  payload,
+});

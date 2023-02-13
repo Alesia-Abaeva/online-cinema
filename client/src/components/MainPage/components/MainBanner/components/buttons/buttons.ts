@@ -1,5 +1,6 @@
 import { renderOverlay } from 'src/components/Overlay/Overlay';
 import { createButton } from 'src/components/ui/Button/Button';
+import { addFilmModal } from 'src/components/ui/ModalFilm/Handlers/show-hide-modal';
 import { bookmarkIcon, threeDotsIcon, watchFilmIcon } from 'src/const/icons/icons';
 import { createElem } from 'src/utils/create-element';
 import { removeOverlay } from 'src/utils/remove-overlay';
@@ -9,9 +10,10 @@ import styles from './buttons.module.scss';
 
 const watchFilmContent = `${watchFilmIcon}Смотреть фильм`;
 
-export const createBtnWatch = () => {
+export const createBtnWatch = (filmId: number, filmImg: string) => {
   const btnWatch = createButton(watchFilmContent) as HTMLButtonElement;
   btnWatch.classList.add(`${styles.actionBtn__film}`, `${styles.actionBtn}`);
+  btnWatch.onclick = () => addFilmModal(filmId, filmImg);
   return btnWatch;
 };
 
@@ -42,6 +44,7 @@ export const createBtnBookmark = () => {
 export const createBtnInterest = (filmId: number) => {
   const btnWrapper: HTMLElement = createElem('div', 'action-btn-wrapper');
   const btnInterest = createButton(threeDotsIcon, undefined, `${styles.actionBtn}`) as HTMLButtonElement;
+
   btnInterest.onclick = (e: Event) => {
     const target = e.target as HTMLElement;
     const wrapper = target.parentElement as HTMLElement;

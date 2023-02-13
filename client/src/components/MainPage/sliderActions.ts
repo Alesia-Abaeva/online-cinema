@@ -28,7 +28,6 @@ export const addListenerSlideDown = (slider: HTMLElement): HTMLElement => {
       );
 
       setTimeout(() => {
-        // const slide = target.closest('.slider') as HTMLElement;
         slideDown.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 300);
     }
@@ -46,6 +45,20 @@ export const addListenerCollection = (slider: HTMLElement): HTMLElement => {
     if (target.classList.contains('sliderItem__image')) {
       const parent = target.closest('.sliderItem') as HTMLElement;
       route(`/collection/${parent.dataset.id}`);
+    }
+  });
+
+  return slider;
+};
+
+export const addListenerTop10 = (slider: HTMLElement): HTMLElement => {
+  slider.addEventListener('click', async (event: Event): Promise<void> => {
+    event.preventDefault();
+    event.stopPropagation();
+    const target = event.target as HTMLElement;
+    const parent = target.closest('.sliderItem') as HTMLElement;
+    if (parent) {
+      route(`/films/${parent.dataset.id}`);
     }
   });
 

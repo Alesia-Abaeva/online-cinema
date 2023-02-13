@@ -1,15 +1,14 @@
 import { createElem } from 'src/utils/create-element';
-import { watchFilmIcon } from 'src/const/icons/icons';
-import { createButton } from '../ui/Button/Button';
 import { renderPersons } from './components/Persons/Persons';
 import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
 import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
 import { renderRating } from './components/Rating/Rating';
 import { getPersonsWithJob } from './Handlers/film-data-formaters';
 import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
-import styles from './FilmPage.module.scss';
 import { showCover } from './Handlers/showCover';
-import { createBtnInterest } from '../MainPage/components/MainBanner/components/buttons/buttons';
+import { createBtnInterest, createBtnWatch } from '../MainPage/components/MainBanner/components/buttons/buttons';
+import { renderModal } from '../ui/ModalFilm/ModalFilm';
+import styles from './FilmPage.module.scss';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -17,6 +16,9 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
   mainContent.classList.add('id-page');
   const backdrop: HTMLElement = createElem('div', 'id-page__backdrop');
+  const filmImg = filmData.backdrop ? filmData.backdrop.url : '';
+
+  const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
   if (window.screen.width > 1000) renderBackgroundPlayer(filmData, backdrop, mainContent);
   else showCover(filmData, backdrop, mainContent)();
@@ -46,9 +48,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   filmHeader.append(filmTitle, filmEnTitle);
 
   const actionBtns: HTMLElement = createElem('div', 'id-page__action');
-
-  const btnWatch = createButton(`${watchFilmIcon}Смотреть фильм`, undefined, 'actionBtn__film') as HTMLButtonElement;
-  btnWatch.classList.add('actionBtn');
+  const btnWatch = createBtnWatch(filmData.id, filmImg);
   const btnInterest = createBtnInterest(filmData.id);
 
   actionBtns.append(btnWatch, btnInterest);
@@ -96,7 +96,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   mainContent.append(filmPoster, filmDescription, filmRatingAndActors);
   mainContainer.append(backdrop, mainContent);
-  main.append(mainContainer);
+  main.append(mainContainer, container);
 
   return main;
 };
