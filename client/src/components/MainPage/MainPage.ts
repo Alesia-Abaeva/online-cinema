@@ -9,6 +9,7 @@ import styles from './MainPage.module.scss';
 import { addListenerCollection, addListenerSlideDown, addListenerTop10 } from './sliderActions';
 import { genresData } from '../../const/genres-data';
 import { Accordion } from '../ui/Accordion/Accordion';
+import { renderDevices } from './components/Devices/Devices';
 
 export const renderMainPage = (
   data: {
@@ -47,6 +48,8 @@ export const renderMainPage = (
   Accordion(accordion, REFERENC_TITLE, REFERENC_DESCRIP);
 
   main.append(accordionSection);
+
+  main.append(renderDevices());
 
   return main;
 };
