@@ -31,4 +31,14 @@ export const SLIDERS_ORDER = [
     title: 'zero-age',
     url: '/slider/zero-age',
   },
+  {
+    displayedTitle: 'Турция зовет',
+    title: 'turkey-serials',
+    url: '/slider/turkey-serials',
+  },
+  {
+    displayedTitle: 'Истории супергероев',
+    title: 'super-hero',
+    url: '/slider/super-hero',
+  },
 ];
