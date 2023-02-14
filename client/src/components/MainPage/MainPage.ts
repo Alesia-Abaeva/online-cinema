@@ -3,15 +3,16 @@ import { SLIDERS_ORDER } from 'src/const/main-page-data';
 import { isError } from 'src/utils/type-checkers';
 import { REFERENC_DESCRIP, REFERENC_TITLE } from 'src/const/referens';
 import { top10Data } from 'src/const/top10-data';
+import { galleryData } from 'src/const/gallery-data';
 import { renderSlider } from './components/Slider/Slider';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
 import { addListenerCollection, addListenerSlideDown, addListenerTop10 } from './sliderActions';
 import { genresData } from '../../const/genres-data';
 import { Accordion } from '../ui/Accordion/Accordion';
+import { renderInfiniteGallery } from './components/InfiniteGallery/InfiniteGallery';
 import { renderDevices } from './components/Devices/Devices';
 import { renderModal } from '../ui/ModalFilm/ModalFilm';
-
 
 export const renderMainPage = (
   data: {
@@ -54,6 +55,8 @@ export const renderMainPage = (
   main.append(accordionSection, container);
 
   main.append(renderDevices());
+
+  main.append(renderInfiniteGallery(galleryData));
 
   return main;
 };

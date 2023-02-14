@@ -79,7 +79,7 @@ const config: Configuration = {
   },
   resolve: {
     extensions: ['.ts', '.js', '.css', '.scss'],
-    alias: { assets: assetsPath, src: srcPath, utils:utilsPath },
+    alias: { assets: assetsPath, src: srcPath, utils: utilsPath },
   },
 };
 

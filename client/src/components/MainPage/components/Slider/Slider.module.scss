@@ -6,7 +6,7 @@
 
   &__header {
     display: inline-block;
-    padding: 1.5rem calc(2.5% + 15px) 0.1rem;
+    padding: 1.5rem $slider-padding 0.1rem;
     font-size: 1.5rem;
     color: var(--always-white);
     position: relative;
@@ -47,7 +47,7 @@
   }
 
   &__container {
-    padding: 0 calc(2.5% + 15px);
+    padding: 0 $slider-padding;
     position: relative;
   }
 
@@ -72,11 +72,11 @@
   }
 
   .slider__btn__left {
-    left: calc(-2.5% - 15px - 8px);
+    left: calc($slider-padding * -1 - 8px);
   }
 
   .slider__btn__right {
-    right: calc(-2.5% - 15px - 8px);
+    right: calc($slider-padding * -1 - 8px);
   }
 }
 
