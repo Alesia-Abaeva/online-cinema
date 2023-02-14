@@ -14,7 +14,12 @@ interface AuthResponse {
 interface AuthGetPersonToken {
   token?: string;
   email?: string;
-  films?: string[];
+  folders?: {
+    bookmarks: number[];
+    watched: number[];
+    watchedRecently: number[];
+    [key: string]: number[];
+  };
   name?: string;
   password?: string;
   updatedAt?: string;

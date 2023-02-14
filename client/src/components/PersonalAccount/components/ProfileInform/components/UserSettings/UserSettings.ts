@@ -4,7 +4,7 @@ import { createButton } from 'src/components/ui/Button/Button';
 import { parentControl } from 'src/const/filters-data';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
-import { arrowBtn } from '../Handlers/arrow-but';
+import { arrowBtn } from '../Handlers/arrow-btn';
 import { handleChangeParentControl } from '../Handlers/handlersChangeUserData';
 import styles from './UserSettings.module.scss';
 

@@ -4,7 +4,7 @@ import styles from './Details.module.scss';
 export const renderDetails = (res: ResponseMovie): HTMLElement => {
   const details: HTMLElement = createElem('div', styles.filmDetails);
   const description = res.description ? res.description : 'Нет описания';
-  const title = res.logo.url ? `<img src="${res.logo.url}" alt="${res.name}" />` : res.name;
+  const title = res.logo && res.logo.url ? `<img src="${res.logo.url}" alt="${res.name}" />` : res.name;
   const raiting = res.rating.kp ? res.rating.kp.toFixed(1) : '';
   const votes = res.votes.kp ? res.votes.kp : 0;
 
