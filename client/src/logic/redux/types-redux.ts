@@ -16,4 +16,5 @@ export enum Modals {
   FILM = 'FILM',
 }
 // тип для редакса
-export const CHILDE = 'CHILDE';
+export const CHILD = 'CHILD';
+export const PARENT = 'PARENT';

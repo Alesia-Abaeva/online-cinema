@@ -2,10 +2,10 @@ import { handleChangeParentControl } from 'src/components/PersonalAccount/compon
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
 import { store } from 'src/logic/redux';
-import { CHILDE } from 'src/logic/redux/types-redux';
+import { CHILD } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
-import { renderAvatar, renderChildeAvatar } from '../Avatar/Avatar';
+import { renderAvatar, renderChildAvatar } from '../Avatar/Avatar';
 import styles from './ProfileMenu.module.scss';
 
 export const renderProfileMenu = (): HTMLElement => {
@@ -19,11 +19,11 @@ export const renderProfileMenu = (): HTMLElement => {
 
   const profileMenu: HTMLElement = createElem('ul', 'profile-menu__wrapp');
 
-  const childeProfileAvatar: HTMLElement = renderChildeAvatar('Дети 12+');
+  const childeProfileAvatar: HTMLElement = renderChildAvatar('Дети 12+');
   const childeProfile: HTMLElement = createElem('li', 'profile-menu__item');
   childeProfile.append(childeProfileAvatar);
 
-  childeProfile.onclick = () => handleChangeParentControl({ parentControls: CHILDE }); // изменение стейта
+  childeProfile.onclick = () => handleChangeParentControl({ parentControls: CHILD }); // изменение стейта
 
   const profileHistory: HTMLElement = createElem('li', 'profile-menu__item');
   profileHistory.innerHTML = 'История просмотра';

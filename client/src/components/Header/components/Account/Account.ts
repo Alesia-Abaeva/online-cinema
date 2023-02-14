@@ -2,16 +2,19 @@
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { handleChangeParentControl } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
-import { CHILDE } from 'src/logic/redux/types-redux';
+import {
+  CHILD,
+  PARENT,
+  // PARENT
+} from 'src/logic/redux/types-redux';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
-import { renderAvatar, renderChildeAvatar } from './components/Avatar/Avatar';
+import { renderAvatar, renderChildAvatar } from './components/Avatar/Avatar';
 import { renderProfileMenu } from './components/ProfileData/ProfileMenu';
 import styles from './Account.module.scss';
 
 export const renderAccountSectionHead = (): HTMLElement => {
   const accoutSection: HTMLElement = createElem('div', styles['header__account']);
-
   //   не авторизованный
   const loginBtn: HTMLElement = createElem('div', 'header__login');
   const loginLink: HTMLElement = createLink('/login', 'header__login-link', false, 'Войти');
@@ -21,9 +24,11 @@ export const renderAccountSectionHead = (): HTMLElement => {
   //   авторизованный
   const avatarCnt: HTMLElement = createElem('div', 'avatar__container');
   const avatarWrapperHeader: HTMLElement = renderAvatar();
-  const avatarChildeWrapp: HTMLElement = renderChildeAvatar('Дети');
-  avatarChildeWrapp.onclick = () => handleChangeParentControl({ parentControls: CHILDE }); // обновили стейт
-
+  const avatarChildeWrapp: HTMLElement = renderChildAvatar('Дети');
+  avatarChildeWrapp.onclick = () =>
+    handleChangeParentControl({
+      parentControls: store.getState().auth.user.data?.parentControls === CHILD ? PARENT : CHILD,
+    }); // обновили стейт
   const profileContainer: HTMLElement = renderProfileMenu();
   avatarCnt.append(avatarWrapperHeader, avatarChildeWrapp, profileContainer);
 
@@ -37,12 +42,24 @@ export const renderAccountSectionHead = (): HTMLElement => {
 
   store.subscribe(() => {
     const userState = store.getState().auth.user;
+    // if (userState.data === null) {
+    //   accoutSection.append(loginBtn);
+    // }
 
-    if (userState.data === null) {
-      accoutSection.append(loginBtn);
-    } else {
-      accoutSection.append(avatarCnt);
-    }
+    !userState.data ? accoutSection.append(loginBtn) : accoutSection.append(avatarCnt);
+    // avatarChildeWrapp.onclick = () => handleChangeParentControl({ parentControls: CHILDE }); // обновили стейт
+
+    // if (userState.data === null) {
+    //   accoutSection.append(loginBtn);
+    // }
+
+    // if (userState.data?.parentControls === CHILDE) {
+    //   avatarCnt.append(avatarChildeWrapp);
+    //   accoutSection.append(avatarCnt);
+    // } else {
+    //   accoutSection.append(avatarCnt);
+    // }
+    // добавить проверку на родительский контроль
   });
 
   return accoutSection;
