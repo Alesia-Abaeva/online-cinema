@@ -34458,64 +34458,6 @@
     {
       "externalId": {
         "kpHD": null,
-        "imdb": "tt10954984",
-        "tmdb": 762504,
-        "_id": "6376d108d8baf233112393ae"
-      },
-      "logo": {
-        "_id": "6336d922248263ce89c22c64",
-        "url": null
-      },
-      "poster": {
-        "_id": "63397d39c22d011bb584a476",
-        "url": "https://st.kp.yandex.net/images/film_big/1447137.jpg",
-        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1447137.jpg"
-      },
-      "rating": {
-        "kp": 6.35,
-        "imdb": 6.9,
-        "filmCritics": 7.4,
-        "russianFilmCritics": 0,
-        "await": 98.15,
-        "_id": "63e5b82e68d824d6cad3286f"
-      },
-      "votes": {
-        "kp": 28880,
-        "imdb": 199198,
-        "filmCritics": 447,
-        "russianFilmCritics": 0,
-        "await": 4537,
-        "_id": "63ea693968d824d6ca5478c5"
-      },
-      "watchability": {
-        "_id": "63397d39c22d011bb584a4ba",
-        "items": null
-      },
-      "id": 1447137,
-      "alternativeName": "Nope",
-      "description": "Через полгода после смерти отца в результате нелепого несчастного случая брат с сестрой, Оджей и Эмеральд, пытаются удержать на плаву семейный бизнес — ранчо с лошадьми для съёмок в кино и рекламе. Дела идут из рук вон плохо, часть животных пришлось продать, и Оджей уже подумывает избавиться и от ранчо, когда вдруг замечает в окрестностях НЛО. Ребята видят в этом возможность заработка и решают заснять его любой ценой.",
-      "enName": null,
-      "movieLength": 130,
-      "name": "Нет",
-      "names": [
-        {
-          "_id": "63397d39c22d011bb584a472",
-          "name": "Нет"
-        },
-        {
-          "_id": "63397d39c22d011bb584a473",
-          "name": "Nope"
-        }
-      ],
-      "shortDescription": null,
-      "type": "movie",
-      "year": 2022,
-      "releaseYears": []
-    },
-
-    {
-      "externalId": {
-        "kpHD": null,
         "imdb": "tt9114286",
         "tmdb": 505642,
         "_id": "6376e7adab9a5694e4451571"
@@ -35760,63 +35702,7 @@
       "shortDescription": "Первая встреча главных супергероев DC на большом экране. Блокбастер Зака Снайдера, расколовший зрителей",
       "releaseYears": []
     },
-    {
-      "externalId": {
-        "kpHD": null,
-        "imdb": "tt1740828",
-        "tmdb": 41246,
-        "_id": "6376ec65ab9a5694e45f77c4"
-      },
-      "logo": {
-        "_id": "62f1b3830f5be41246e0625f",
-        "url": null
-      },
-      "poster": {
-        "_id": "63398aadc22d011bb5ba2972",
-        "url": "https://st.kp.yandex.net/images/film_big/568535.jpg",
-        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_568535.jpg"
-      },
-      "rating": {
-        "kp": 4.421,
-        "imdb": 4.2,
-        "filmCritics": 0,
-        "russianFilmCritics": 0,
-        "await": 77.84,
-        "_id": "63d49cf557101ffd39e39b38"
-      },
-      "votes": {
-        "kp": 872,
-        "imdb": 2233,
-        "filmCritics": 0,
-        "russianFilmCritics": 0,
-        "await": 365,
-        "_id": "63e7c52e68d824d6cae28d57"
-      },
-      "watchability": {
-        "_id": "63398aadc22d011bb5ba29b8",
-        "items": null
-      },
-      "id": 568535,
-      "alternativeName": "Wonder Woman",
-      "description": "Эпизод о жизни Дианы Принс, которая пытается сбалансировать свою жизнь: с одной стороны она борец с преступностью по имени Чудо-Женщина, с другой - успешная бизнес-леди.",
-      "enName": null,
-      "movieLength": 45,
-      "name": "Чудо-женщина",
-      "names": [
-        {
-          "_id": "63398aadc22d011bb5ba296e",
-          "name": "Чудо-женщина"
-        },
-        {
-          "_id": "63398aadc22d011bb5ba296f",
-          "name": "Wonder Woman"
-        }
-      ],
-      "shortDescription": null,
-      "type": "movie",
-      "year": 2011,
-      "releaseYears": []
-    },
+
     {
       "externalId": {
         "kpHD": "40a44c2b4972688589185b9b35c9b0ac",

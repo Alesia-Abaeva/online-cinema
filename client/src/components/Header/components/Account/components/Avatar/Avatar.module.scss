@@ -64,3 +64,13 @@
 .avatar__name {
   color: var(--text-secondary);
 }
+
+.childe-age {
+  padding: 0.2rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 2.2rem;
+  color: $black;
+  border-radius: 0.6rem;
+  background-color: var(--text-secondary);
+}

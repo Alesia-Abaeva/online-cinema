@@ -1,4 +1,3 @@
-import { handleChangeParentControl } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
 import { store } from 'src/logic/redux';
@@ -22,8 +21,6 @@ export const renderProfileMenu = (): HTMLElement => {
   const childeProfileAvatar: HTMLElement = renderChildAvatar('Дети 12+');
   const childeProfile: HTMLElement = createElem('li', 'profile-menu__item');
   childeProfile.append(childeProfileAvatar);
-
-  childeProfile.onclick = () => handleChangeParentControl({ parentControls: CHILD }); // изменение стейта
 
   const profileHistory: HTMLElement = createElem('li', 'profile-menu__item');
   profileHistory.innerHTML = 'История просмотра';

@@ -1,4 +1,4 @@
-export const MAIN_SLIDERS = ['horror', 'cartoons', 'zero-age', 'new-shows'];
+export const MAIN_SLIDERS = ['horror', 'turkey-serials', 'super-hero', 'new-shows'];
 
 export const SLIDERS_ORDER = [
   {
@@ -40,5 +40,40 @@ export const SLIDERS_ORDER = [
     displayedTitle: 'Истории супергероев',
     title: 'super-hero',
     url: '/slider/super-hero',
+  },
+  {
+    displayedTitle: 'Мюзиклы',
+    title: 'misikl',
+    url: '/slider/misikl',
+  },
+  {
+    displayedTitle: 'Хорошие сериалы',
+    title: 'top-serials',
+    url: '/slider/top-serials',
+  },
+  {
+    displayedTitle: 'Магия рядом',
+    title: 'magic',
+    url: '/slider/magic',
+  },
+  {
+    displayedTitle: 'Далекий космос',
+    title: 'space',
+    url: '/slider/space',
+  },
+  {
+    displayedTitle: 'Приключения',
+    title: 'adventures',
+    url: '/slider/adventures',
+  },
+  {
+    displayedTitle: 'Семейное',
+    title: 'family',
+    url: '/slider/family',
+  },
+  {
+    displayedTitle: 'Приключения',
+    title: 'adventures',
+    url: '/slider/adventures',
   },
 ];
