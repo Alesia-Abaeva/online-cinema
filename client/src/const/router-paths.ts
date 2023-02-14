@@ -8,6 +8,7 @@ import { name } from 'src/pages/person-page';
 import { authorized } from 'src/pages/authorized';
 import { notauthorized } from 'src/pages/notauthorized';
 import { slider } from 'src/pages/slider';
+import { personal } from 'src/pages/personal';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
@@ -81,6 +82,10 @@ export const ROUTER_PATHS: Paths = {
   [PATH_NAMES.slider]: {
     template: slider,
     title: `slider | ${projectTitle}`,
+  },
+  [PATH_NAMES.personal]: {
+    template: personal,
+    title: `personal | ${projectTitle}`,
   },
   [PATH_NAMES.userSubscribe]: {
     template: userSubscribe,

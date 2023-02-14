@@ -7,13 +7,15 @@ export const PATH_NAMES: PathNames = {
   list: '/list', // dynamic
   name: '/name', // dynamic
   lists: '/all-lists',
+  personal: '/personal',
+  folders: '/folders', // dynamic
   subscriptions: '/subscriptions',
   collection: '/collection', // dynamic
   slider: '/slider', // dynamic
   authorized: '/authorized',
   notauthorized: '/notauthorized',
 
-  user: '/user', // dinamyc
+  user: '/user', // dinamyc actually not
   userAccount: '/user/aboutme',
   userWatch: '/user/watch',
   userSubscribe: '/user/subscribeme',

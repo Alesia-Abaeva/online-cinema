@@ -12,6 +12,13 @@ const schema = new Schema(
       watched: [Number],
       watchedRecently: [Number],
     },
+    userFolders: [
+      {
+        _id: { type: Number },
+        displayedName: { type: String },
+        films: [Number],
+      },
+    ],
     avatarUrl: { type: String },
     tariff: { type: String },
     promocode: [{ type: String }],
