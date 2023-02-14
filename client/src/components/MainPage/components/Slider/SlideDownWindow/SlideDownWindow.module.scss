@@ -1,8 +1,9 @@
 .slideDown {
   height: 0px;
   width: 100%;
-  transition: height 1s;
+  transition: all 1s;
   position: relative;
+  opacity: 0;
 
   &__wrapper {
     width: 100%;
@@ -29,4 +30,5 @@
 
 .show-slidedown {
   height: 608px !important;
+  opacity: 1;
 }

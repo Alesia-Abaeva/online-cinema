@@ -28,7 +28,6 @@ export const addListenerSlideDown = (slider: HTMLElement): HTMLElement => {
       );
 
       setTimeout(() => {
-        // const slide = target.closest('.slider') as HTMLElement;
         slideDown.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 300);
     }

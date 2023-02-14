@@ -1,5 +1,4 @@
 import { createElem } from 'src/utils/create-element';
-import { createButton } from '../ui/Button/Button';
 import { renderPersons } from './components/Persons/Persons';
 import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
 import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
@@ -7,7 +6,7 @@ import { renderRating } from './components/Rating/Rating';
 import { getPersonsWithJob } from './Handlers/film-data-formaters';
 import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
 import { showCover } from './Handlers/showCover';
-import { addFilmModal } from '../ui/ModalFilm/Handlers/show-hide-modal';
+import { createBtnInterest, createBtnWatch } from '../MainPage/components/MainBanner/components/buttons/buttons';
 import { renderModal } from '../ui/ModalFilm/ModalFilm';
 import styles from './FilmPage.module.scss';
 
@@ -19,7 +18,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const backdrop: HTMLElement = createElem('div', 'id-page__backdrop');
   const filmImg = filmData.backdrop ? filmData.backdrop.url : '';
 
-  const { container, overlay, window: modalWindow, body: bodyFilms } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
+  const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
   if (window.screen.width > 1000) renderBackgroundPlayer(filmData, backdrop, mainContent);
   else showCover(filmData, backdrop, mainContent)();
@@ -49,14 +48,10 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   filmHeader.append(filmTitle, filmEnTitle);
 
   const actionBtns: HTMLElement = createElem('div', 'id-page__action');
-  const wantToWatchBtn: HTMLElement = createButton(
-    'Буду смотреть',
-    () => addFilmModal(bodyFilms, overlay, modalWindow, filmData.id, filmImg),
-    'id-page__action-want-to-watch'
-  );
-  const moreActionsBtn: HTMLElement = createButton('', undefined, 'id-page__action-more');
+  const btnWatch = createBtnWatch(filmData.id, filmImg);
+  const btnInterest = createBtnInterest(filmData.id);
 
-  actionBtns.append(wantToWatchBtn, moreActionsBtn);
+  actionBtns.append(btnWatch, btnInterest);
 
   const shortDescription: HTMLElement = createElem('div', 'id-page__short-desc');
   const shortDescriptionText: HTMLElement = createElem('p', 'id-page__desc-text');
@@ -78,11 +73,10 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   }
 
   const { similarMovies } = filmData;
-  if (similarMovies.length !== 0) {
+  if (similarMovies.length !== 0 && similarMovies[0].name) {
     const simiralMoviesSection: HTMLElement = renderSimilarMovies(similarMovies);
     filmDescription.append(simiralMoviesSection);
   }
-
   // 3 column - actors and rating
   const filmRatingAndActors = createElem('div', 'id-page__desc-aside');
 

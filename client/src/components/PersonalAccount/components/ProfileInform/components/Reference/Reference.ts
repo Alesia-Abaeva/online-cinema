@@ -1,7 +1,7 @@
 import { Accordion } from 'src/components/ui/Accordion/Accordion';
 import { REFERENC_DESCRIP, REFERENC_TITLE } from 'src/const/referens';
 import { createElem } from 'src/utils/create-element';
-import { arrowBtn } from '../Handlers/arrow-but';
+import { arrowBtn } from '../Handlers/arrow-btn';
 import styles from './Reference.module.scss';
 
 export const renderUserReferens = () => {

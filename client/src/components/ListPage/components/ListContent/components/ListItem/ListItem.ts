@@ -1,9 +1,18 @@
+import { createBtnInterest } from 'src/components/MainPage/components/MainBanner/components/buttons/buttons';
+import { setRatingColor } from 'src/components/ui/RatingColor/RatingColor';
+import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
+import { updateListItem } from './Handlers/update-list-item';
 import styles from './ListItem.module.scss';
 
 export const renderListItem = (itemData: FindedMovies, i: number, page: number, limit: number): HTMLElement => {
-  const listItem: HTMLElement = createElem('a', styles['list-item']);
-  listItem.setAttribute('href', `/films/${itemData.id}`);
+  const listItem: HTMLElement = createElem('div', styles['list-item']);
+  listItem.dataset.id = itemData.id.toString();
+
+  updateListItem(listItem);
+
+  const listItemLink: HTMLElement = createElem('a', 'list-item__link');
+  listItemLink.setAttribute('href', `/films/${itemData.id}`);
 
   const itemNumCont: HTMLElement = createElem('div', 'list-item__number-cont');
   const itemNum: HTMLElement = createElem('p', 'list-item__number');
@@ -40,21 +49,24 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
   const itemRatingCont: HTMLElement = createElem('div', 'list-item__rating-cont');
   const itemRating: HTMLElement = createElem('p', 'rating');
   itemRating.innerHTML = ratingValue.toFixed(1);
-  if (ratingValue > 5) itemRating.classList.add('rating_good');
-  if (ratingValue > 9) itemRating.classList.add('rating_amazing');
+  setRatingColor(itemRating, ratingValue);
   itemRatingCont.append(itemRating);
 
   const itemControls: HTMLElement = createElem('div', 'list-item__controls');
-  const wantToWatchBtn: HTMLElement = createElem('div', 'list-item__btn');
-  const wtwIcon: HTMLElement = createElem('div', 'wtw-icon');
-  wantToWatchBtn.append(wtwIcon);
-  const moreActions: HTMLElement = createElem('div', 'list-item__btn');
-  const moreActionsIcon: HTMLElement = createElem('div', 'more-actions-icon');
-  moreActions.append(moreActionsIcon);
+  const moreActions: HTMLElement = createBtnInterest(itemData.id);
 
-  itemControls.append(wantToWatchBtn, moreActions);
+  itemControls.append(moreActions);
 
-  listItem.append(itemNumCont, itemImgCont, itemInfo, itemRatingCont, itemControls);
+  listItemLink.append(itemNumCont, itemImgCont, itemInfo, itemRatingCont);
+  listItem.append(listItemLink, itemControls);
+
+  store.subscribe(() => {
+    const listItemCont = document.querySelector('.list-content__list-items');
+    if (listItemCont instanceof HTMLElement) {
+      const items = Array.from(listItemCont.children) as HTMLElement[];
+      items.forEach((el) => updateListItem(el));
+    }
+  });
 
   return listItem;
 };

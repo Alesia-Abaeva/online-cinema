@@ -1,4 +1,4 @@
-import { model, Schema, Types } from "mongoose";
+import { model, Schema, Types } from 'mongoose';
 // const { model, Schema, Types } = require("mongoose");
 
 const schema = new Schema(
@@ -7,7 +7,11 @@ const schema = new Schema(
     name: { type: String },
     lastName: { type: String },
     password: { type: String, required: true },
-    films: [{ type: Types.ObjectId, ref: "Films" }], // TODO: здесь будет отображаться списков избранных фильмов, возможно сделать объект?
+    folders: {
+      bookmarks: [Number],
+      watched: [Number],
+      watchedRecently: [Number],
+    },
     avatarUrl: { type: String },
     tariff: { type: String },
     promocode: [{ type: String }],
@@ -18,4 +22,4 @@ const schema = new Schema(
   }
 );
 
-export default model("User", schema);
+export default model('User', schema);
