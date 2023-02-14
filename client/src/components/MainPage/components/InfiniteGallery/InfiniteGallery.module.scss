@@ -2,9 +2,9 @@
 
 :root {
   --poster-speed: 10000ms;
-  --poster-width: 300px;
+  --poster-width: 340px;
   --poster-gap: 8px;
-  --poster-count: 9;
+  --poster-count: 10;
   --gallery-speed: calc(var(--poster-speed) * var(--poster-count));
   --gallery-offset: calc(((var(--poster-width) + var(--poster-gap)) * var(--poster-count)) * -1);
 }
@@ -20,6 +20,8 @@
 
 .gallery {
   display: block;
+  background: var(--bg-primary);
+  padding: 16px 0;
   &__wrapper {
     display: flex;
     animation-name: galleryMove;
@@ -41,6 +43,12 @@
       margin-bottom: var(--poster-gap);
       transform: translateX(-50%);
     }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  :root {
+    --poster-width: 300px;
   }
 }
 

@@ -1,7 +1,7 @@
 @import '/src/theme/variable';
 
 .slider__button {
-  width: calc(2.5% + 15px);
+  width: $slider-padding;
   height: calc(100% - 16px * 2);
   position: absolute;
   top: 16px;

@@ -1,7 +1,6 @@
 @import '/src/theme/variable';
 
 :root {
-  --main-padding: calc(2.5% + 15px);
   --main-items-padding: 8px;
   --item-size: 5;
   --visible-items-size: calc(var(--item-size) - 1);
@@ -20,7 +19,7 @@
 
   &__wrapper {
     position: relative;
-    width: 100%;
+    width: 98%; // slider item size
     color: var(--always-white);
     display: flex;
     align-items: center;
@@ -69,7 +68,6 @@
 
 .sliderItem:not(:first-child) {
   margin-left: 8px;
-  // margin-left: 2rem;
 }
 
 .sliderItem:hover {
