@@ -1,25 +1,31 @@
 /* eslint-disable default-param-last */
 import { combineReducers } from 'redux';
-import { AuthTypes, Modals, UiConfigTypes } from './types-redux';
+import { AuthTypes, Modals, UiConfigTypes, UserTypes } from './types-redux';
 
 export interface AuthState {
   login: ApiResponse<AuthResponse>;
   register: ApiResponse<AuthResponse>;
-  user: ApiResponse<AuthGetPersonToken>;
 }
-
-export interface UiConfigState {
+interface UiConfigState {
   modal: Nullable<Modals>;
+}
+interface UserState {
+  personal: ApiResponse<AuthGetPersonToken>;
+  password: ApiResponse<{ message: string }>;
 }
 
 const initialAuthState: AuthState = {
   login: { data: null, error: null, isLoading: false },
   register: { data: null, error: null, isLoading: false },
-  user: { data: null, error: null, isLoading: false, isAuth: false },
 };
 
 const initialUiConfigState: UiConfigState = {
   modal: null,
+};
+
+const initialUserState: UserState = {
+  personal: { data: null, error: null, isLoading: false, isAuth: false },
+  password: { data: null, error: null, isLoading: false },
 };
 
 const authReducer = (state = initialAuthState, action: TypesRedux) => {
@@ -28,10 +34,19 @@ const authReducer = (state = initialAuthState, action: TypesRedux) => {
       return { ...state, login: { ...state.login, ...(action.payload as ApiResponse<AuthResponse>) } };
     case AuthTypes.REGISTER:
       return { ...state, register: { ...state.register, ...(action.payload as ApiResponse<AuthResponse>) } };
-    case AuthTypes.PERSON:
-      return { ...state, user: { ...state.user, ...(action.payload as ApiResponse<AuthGetPersonToken>) } };
-    case AuthTypes.ERROR_PASS:
-      return { ...state, user: { ...state.user, error: action.payload as ErrorMessage } };
+    default:
+      return state;
+  }
+};
+
+const userReducer = (state = initialUserState, action: TypesRedux) => {
+  switch (action.type) {
+    case UserTypes.PERSON:
+      return { ...state, personal: { ...state.personal, ...(action.payload as ApiResponse<AuthGetPersonToken>) } };
+    case UserTypes.SET_PASS_INFO:
+      return { ...state, password: { ...state.password, ...(action.payload as ApiResponse<{ message: string }>) } };
+    // case UserTypes.ERROR_PASS:
+    //   return { ...state, user: { ...state.user, error: action.payload as ErrorMessage } };
     default:
       return state;
   }
@@ -51,4 +66,5 @@ const uiConfigReducer = (state = initialUiConfigState, action: TypesRedux) => {
 export const rootReducer = combineReducers({
   auth: authReducer,
   uiConfig: uiConfigReducer,
+  user: userReducer,
 });

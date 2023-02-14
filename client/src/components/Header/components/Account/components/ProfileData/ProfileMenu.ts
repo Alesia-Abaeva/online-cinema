@@ -59,7 +59,7 @@ export const renderProfileMenu = (): HTMLElement => {
   profileContainer.append(personalData, profileMenu);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
     if (userState.data !== null) {
       personalName.innerHTML = userState.data?.name as string;

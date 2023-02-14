@@ -83,7 +83,7 @@ export const renderProfileData = (): ReturnElements => {
   data.append(email, name, lastname, bntCtn);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
     if (userState.data !== null) {
       emailInput.setAttribute('value', `${userState.data?.email}`);

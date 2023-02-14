@@ -13,7 +13,7 @@ export const renderHeroSection = (): HTMLElement => {
   const authUser: HTMLElement = renderHeroSectionAuthUser();
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
     if (userState.data === null) {
       // если не авторизован

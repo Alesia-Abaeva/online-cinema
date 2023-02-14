@@ -1,7 +1,7 @@
-import { dataPersonHandler, loginHandler, registerHandler } from 'src/api/back/auth';
+import { dataPersonHandler, loginHandler, registerHandler, updateUserPass } from 'src/api/back/auth';
 // import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { AppDispatch } from '.';
-import { AuthTypes, Modals, UiConfigTypes } from './types-redux';
+import { AuthTypes, Modals, UiConfigTypes, UserTypes } from './types-redux';
 
 // Здесь будут храниться функции, которые создают определенные action
 
@@ -21,17 +21,24 @@ const setRegisterInfo = (payload: ApiResponse<AuthResponse>) => {
 
 export const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
   return {
-    type: AuthTypes.PERSON,
+    type: UserTypes.PERSON,
     payload,
   };
 };
 
-export const setPasswordError = (payload: Nullable<ErrorMessage>) => {
+export const setPasswordInfo = (payload: ApiResponse<{ message: string }>) => {
   return {
-    type: AuthTypes.ERROR_PASS,
+    type: UserTypes.SET_PASS_INFO,
     payload,
   };
 };
+
+// export const setPasswordError = (payload: Nullable<ErrorMessage>) => {
+//   return {
+//     type: AuthTypes.ERROR_PASS,
+//     payload,
+//   };
+// };
 
 export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
   try {
@@ -56,8 +63,8 @@ export const register = (body: AuthRequest) => async (dispatch: AppDispatch) => 
 export const getDataPerson = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(setUserInfo({ isLoading: true }));
-    const data = await dataPersonHandler();
-    dispatch(setUserInfo({ error: null, data: data.data, isLoading: false, isAuth: true }));
+    const { data } = await dataPersonHandler();
+    dispatch(setUserInfo({ error: null, data, isLoading: false, isAuth: true }));
   } catch (e) {
     dispatch(setUserInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
     // localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
@@ -68,3 +75,14 @@ export const setModal = (payload: Nullable<Modals>) => ({
   type: UiConfigTypes.SET_MODAL,
   payload,
 });
+
+export const changePassword = (body: AuthGetPersonToken) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(setPasswordInfo({ isLoading: true }));
+    const { data } = await updateUserPass(body);
+    dispatch(setPasswordInfo({ error: null, data, isLoading: false }));
+  } catch (e) {
+    dispatch(setPasswordInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
+    // localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
+  }
+};

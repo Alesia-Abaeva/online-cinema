@@ -133,13 +133,21 @@ export const renderProfileDataPass = (): ReturnElements => {
   );
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user.error;
-    // console.log(userState?.message);
+    const passwordState = store.getState().user.password;
 
-    console.log(store.getState().auth.user.isLoading);
+    if (passwordState.isLoading) {
+      bntSavePass.innerText = 'Loading';
+    } else {
+      bntSavePass.innerText = 'Поменять пароль';
+    }
+  });
 
-    if (userState?.message) {
-      passLabel.innerHTML = (userState as ErrorMessage).message;
+  store.subscribe(() => {
+    const passwordErrorState = store.getState().user.password.error;
+    console.log(passwordErrorState?.message);
+
+    if (passwordErrorState?.message) {
+      passLabel.innerHTML = (passwordErrorState as ErrorMessage).message;
       pass.classList.add('invalide-data');
     } else {
       passLabel.innerHTML = 'Текущий пароль';

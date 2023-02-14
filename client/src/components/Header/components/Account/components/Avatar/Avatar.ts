@@ -12,7 +12,7 @@ export const renderAvatar = (): HTMLElement => {
   avatarWrap.append(avatarCircle);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
     userState.data?.avatarUrl &&
       (avatar.style.backgroundImage = `url(http://localhost:3000${userState.data?.avatarUrl})`);
 
@@ -36,7 +36,7 @@ export const renderChildAvatar = (text: string): HTMLElement => {
 
   avatarWrap.append(avatar, name);
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
     if (userState.data?.parentControls === CHILD) {
       // TODO: добавить стиль для увеличения аватара

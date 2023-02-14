@@ -26,7 +26,7 @@ export const renderHeader = (): HTMLElement => {
   const searchInput: HTMLElement = renderSearchBar();
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
     if (userState.isLoading) {
       headerContainer.innerHTML = '';

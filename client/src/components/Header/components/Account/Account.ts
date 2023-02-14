@@ -27,7 +27,7 @@ export const renderAccountSectionHead = (): HTMLElement => {
   const avatarChildeWrapp: HTMLElement = renderChildAvatar('Дети');
   avatarChildeWrapp.onclick = () =>
     handleChangeParentControl({
-      parentControls: store.getState().auth.user.data?.parentControls === CHILD ? PARENT : CHILD,
+      parentControls: store.getState().user.personal.data?.parentControls === CHILD ? PARENT : CHILD,
     }); // обновили стейт
   const profileContainer: HTMLElement = renderProfileMenu();
   avatarCnt.append(avatarWrapperHeader, avatarChildeWrapp, profileContainer);
@@ -41,7 +41,7 @@ export const renderAccountSectionHead = (): HTMLElement => {
   };
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
     // if (userState.data === null) {
     //   accoutSection.append(loginBtn);
     // }

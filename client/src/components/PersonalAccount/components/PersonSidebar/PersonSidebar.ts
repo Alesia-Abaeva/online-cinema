@@ -52,7 +52,7 @@ export const renderPersonSidebar = (): HTMLElement => {
   tariff.append(tariffIconCnt, tariffName);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
     if (userState.data && userState.data.tariff) {
       userState.data.tariff === 'base' ? (tariffName.innerHTML = 'Для всех') : (tariffName.innerHTML = 'Премиум');

@@ -48,7 +48,7 @@ export const renderTariffCard = (data: SubsctiptionsPlan, id: number, ids: strin
   tariffCard.append(cardHeader, cardBody, cardCost);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
     if ((userState.data?.tariff === Tariff.BASE || !userState.data?.tariff) && tariffCard.id === Tariff.PREMIUM) {
       // если у пользователя базовый тариф, рисуем кнопку оформить подписку

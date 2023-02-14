@@ -44,7 +44,7 @@ export const renderUserWatch = () => {
   // const film: HTMLElement = renderUserWatchFilms(animeData);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
     if (userState.data?.folders) {
       // userProfile.append(title, film);

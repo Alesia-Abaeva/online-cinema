@@ -9,7 +9,7 @@ import {
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch } from 'src/logic/redux';
-import { setPasswordError, setUserInfo } from 'src/logic/redux/actions';
+import { changePassword, setUserInfo } from 'src/logic/redux/actions';
 import { route } from 'src/router/route';
 
 export const handleChangeUserData = async (body: AuthGetPersonToken) => {
@@ -25,8 +25,7 @@ export const handleChangeUserData = async (body: AuthGetPersonToken) => {
 
 export const handleChangeUserPassword = async (body: AuthGetPersonToken, array: HTMLInputElement[]) => {
   try {
-    await updateUserPass(body);
-    appDispatch(setPasswordError(null));
+    await appDispatch(changePassword(body));
 
     const success = document.querySelector('.change_password') as HTMLElement;
     success.innerHTML = 'Данные успешно обновлены ＼(￣▽￣)／';
@@ -44,7 +43,6 @@ export const handleChangeUserPassword = async (body: AuthGetPersonToken, array: 
     // показываем модалку
   } catch (err) {
     console.warn(err);
-    appDispatch(setPasswordError(err as ErrorMessage));
   }
 };
 

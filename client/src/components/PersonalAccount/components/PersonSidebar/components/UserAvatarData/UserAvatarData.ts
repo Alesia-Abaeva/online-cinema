@@ -32,7 +32,7 @@ export const renderUserAvatarBlock = (): HTMLElement => {
   imgInputCnt.append(avatar, svgCnt);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
     userState.data?.avatarUrl && (avatar.style.backgroundImage = userState.data?.avatarUrl);
 
     if (userState.data !== null) {
