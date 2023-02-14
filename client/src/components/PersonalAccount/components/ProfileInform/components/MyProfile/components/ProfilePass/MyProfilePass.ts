@@ -136,9 +136,9 @@ export const renderProfileDataPass = (): ReturnElements => {
     const passwordState = store.getState().user.password;
 
     if (passwordState.isLoading) {
-      bntSavePass.innerText = 'Loading';
+      bntSavePass.innerText = 'Загрузка';
     } else {
-      bntSavePass.innerText = 'Поменять пароль';
+      bntSavePass.innerText = 'сохранить';
     }
   });
 
