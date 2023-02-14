@@ -17,7 +17,6 @@ export const renderAvatar = (): HTMLElement => {
       (avatar.style.backgroundImage = `url(http://localhost:3000${userState.data?.avatarUrl})`);
 
     if (userState.data?.parentControls === CHILD) {
-      // avatar.classList.remove('child-avatar');
       avatarWrap.style.display = 'none';
     } else {
       avatarWrap.style.display = 'flex';
@@ -35,14 +34,17 @@ export const renderChildAvatar = (text: string): HTMLElement => {
   name.innerHTML = text;
 
   avatarWrap.append(avatar, name);
+
   store.subscribe(() => {
     const userState = store.getState().user.personal;
 
     if (userState.data?.parentControls === CHILD) {
+      avatar.classList.add('child-avatar-avtive');
       // TODO: добавить стиль для увеличения аватара
       name.innerHTML = '';
     } else {
       name.innerHTML = text;
+      avatar.classList.remove('child-avatar-avtive');
     }
   });
   return avatarWrap;

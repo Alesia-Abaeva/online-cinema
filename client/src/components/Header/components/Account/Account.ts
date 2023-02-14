@@ -1,12 +1,9 @@
-// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { handleChangeParentControl } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
-import {
-  CHILD,
-  PARENT,
-  // PARENT
-} from 'src/logic/redux/types-redux';
+import { CHILD, PARENT } from 'src/logic/redux/types-redux';
+import { route } from 'src/router/route';
+import { PATH_NAMES } from 'src/const/path-names';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { renderAvatar, renderChildAvatar } from './components/Avatar/Avatar';
@@ -25,10 +22,14 @@ export const renderAccountSectionHead = (): HTMLElement => {
   const avatarCnt: HTMLElement = createElem('div', 'avatar__container');
   const avatarWrapperHeader: HTMLElement = renderAvatar();
   const avatarChildeWrapp: HTMLElement = renderChildAvatar('Дети');
-  avatarChildeWrapp.onclick = () =>
+
+  avatarChildeWrapp.onclick = () => {
     handleChangeParentControl({
       parentControls: store.getState().user.personal.data?.parentControls === CHILD ? PARENT : CHILD,
-    }); // обновили стейт
+    });
+    route(PATH_NAMES.main);
+  }; // обновили стейт
+
   const profileContainer: HTMLElement = renderProfileMenu();
   avatarCnt.append(avatarWrapperHeader, avatarChildeWrapp, profileContainer);
 
@@ -42,24 +43,7 @@ export const renderAccountSectionHead = (): HTMLElement => {
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;
-    // if (userState.data === null) {
-    //   accoutSection.append(loginBtn);
-    // }
-
     !userState.data ? accoutSection.append(loginBtn) : accoutSection.append(avatarCnt);
-    // avatarChildeWrapp.onclick = () => handleChangeParentControl({ parentControls: CHILDE }); // обновили стейт
-
-    // if (userState.data === null) {
-    //   accoutSection.append(loginBtn);
-    // }
-
-    // if (userState.data?.parentControls === CHILDE) {
-    //   avatarCnt.append(avatarChildeWrapp);
-    //   accoutSection.append(avatarCnt);
-    // } else {
-    //   accoutSection.append(avatarCnt);
-    // }
-    // добавить проверку на родительский контроль
   });
 
   return accoutSection;

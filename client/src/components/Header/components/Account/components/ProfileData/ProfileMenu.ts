@@ -65,6 +65,11 @@ export const renderProfileMenu = (): HTMLElement => {
       personalName.innerHTML = userState.data?.name as string;
       personalEmail.innerHTML = userState.data?.email as string;
     }
+
+    if (userState.data?.parentControls === CHILD) {
+      profileContainer.classList.remove('show__menu');
+      // если кликаем на детский режим в меню, убираем меню
+    }
   });
 
   return profileContainer;
