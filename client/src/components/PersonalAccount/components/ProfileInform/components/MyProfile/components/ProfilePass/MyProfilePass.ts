@@ -75,6 +75,8 @@ export const renderProfileDataPass = (): ReturnElements => {
   (newPassIcon as HTMLElement).onclick = () => changeInputType(newPassInput);
   (newPassRepeatIcon as HTMLElement).onclick = () => changeInputType(newPassRepeatInput);
 
+  const arrInput = [newPassRepeatInput, passInput, newPassInput];
+
   const bntCtnPass: HTMLElement = createElem('div', 'profile__btn-save');
   const bntSavePass: HTMLElement = createButton('сохранить', () => {
     if (statePassword.newPassword !== statePassword.repeatPass) {
@@ -87,11 +89,7 @@ export const renderProfileDataPass = (): ReturnElements => {
       newPassLabel.innerHTML = 'Новый пароль';
       newPassRepet.classList.remove('invalide-data');
       newPass.classList.remove('invalide-data');
-      handleChangeUserPassword(statePassword);
-      // TODO: перенести в функцию handleChangeUserPassword
-      newPassRepeatInput.value = '';
-      passInput.value = '';
-      newPassInput.value = '';
+      handleChangeUserPassword(statePassword, arrInput);
     }
   });
   bntSavePass.setAttribute('disabled', 'true');
@@ -137,6 +135,8 @@ export const renderProfileDataPass = (): ReturnElements => {
   store.subscribe(() => {
     const userState = store.getState().auth.user.error;
     // console.log(userState?.message);
+
+    console.log(store.getState().auth.user.isLoading);
 
     if (userState?.message) {
       passLabel.innerHTML = (userState as ErrorMessage).message;

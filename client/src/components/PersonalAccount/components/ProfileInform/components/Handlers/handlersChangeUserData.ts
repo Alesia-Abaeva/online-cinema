@@ -23,14 +23,18 @@ export const handleChangeUserData = async (body: AuthGetPersonToken) => {
   }
 };
 
-export const handleChangeUserPassword = async (body: AuthGetPersonToken) => {
+export const handleChangeUserPassword = async (body: AuthGetPersonToken, array: HTMLInputElement[]) => {
   try {
     await updateUserPass(body);
     appDispatch(setPasswordError(null));
 
     const success = document.querySelector('.change_password') as HTMLElement;
-    success.innerHTML = 'Данные обновлены успешно';
+    success.innerHTML = 'Данные успешно обновлены ＼(￣▽￣)／';
     success.classList.add('active-pass-modal');
+    array.forEach((input) => {
+      /* eslint-disable */
+      input.value = '';
+    });
 
     setTimeout(() => {
       success.innerHTML = '';
