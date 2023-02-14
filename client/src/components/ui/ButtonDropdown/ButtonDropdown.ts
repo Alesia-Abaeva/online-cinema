@@ -8,6 +8,7 @@ import { createElem } from 'src/utils/create-element';
 import { isFilmInFolder } from 'src/utils/is-film-in-folder';
 import styles from './ButtonDropdown.module.scss';
 import { closeDropdown } from './Handlers/close-dropdown';
+import { renderAddToFolderModalContent } from './components/AddToFolderModal/AddToFolderModal';
 
 export const renderButtonDropdown = (filmId: number): HTMLElement => {
   const dropdown: HTMLElement = createElem('div', styles['button-dropdown']);
@@ -26,10 +27,8 @@ export const renderButtonDropdown = (filmId: number): HTMLElement => {
       action.onclick = () => {
         closeDropdown();
         const main = document.querySelector('.main') as HTMLElement;
-        const h1 = createElem('h1', 'test');
-        h1.innerHTML = 'текст';
         if (main) {
-          const { modalFragment, modal, overlay } = renderModal(h1); // MODAL CONTENT GOES HERE
+          const { modalFragment, modal, overlay } = renderModal(renderAddToFolderModalContent(filmId));
           main.append(modalFragment);
           setTimeout(() => toggleModal(modal, overlay), 0);
         }

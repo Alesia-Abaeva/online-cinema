@@ -20,6 +20,13 @@ interface AuthGetPersonToken {
     watchedRecently: number[];
     [key: string]: number[];
   };
+  userFolders?: [
+    {
+      _id: number;
+      displayedName: string;
+      films: number[];
+    }
+  ];
   name?: string;
   password?: string;
   updatedAt?: string;
