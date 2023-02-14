@@ -1,4 +1,5 @@
 import { deleteUser, updateUser, updateUserParentsCntr, updateUserPass, updateUserTariff } from 'src/api/back/auth';
+import { updateFoldersData } from 'src/api/back/folders';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch } from 'src/logic/redux';
@@ -38,6 +39,15 @@ export const handleChangeParentControl = async (body: AuthGetPersonToken) => {
 export const handleChangeTariff = async (body: AuthGetPersonToken) => {
   try {
     const { data } = await updateUserTariff(body);
+    appDispatch(setUserInfo({ data }));
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
+export const handleUpdateFolders = async (body: FolderData) => {
+  try {
+    const { data } = await updateFoldersData(body);
     appDispatch(setUserInfo({ data }));
   } catch (err) {
     console.warn(err);

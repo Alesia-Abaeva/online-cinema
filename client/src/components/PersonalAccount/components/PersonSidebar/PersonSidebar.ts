@@ -4,6 +4,7 @@ import { appDispatch, store } from 'src/logic/redux';
 import { setUserInfo } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
+import { linkHandler } from 'src/utils/link-handler';
 import { renderUserAvatarBlock } from './components/UserAvatarData/UserAvatarData';
 import styles from './PersonSidebar.module.scss';
 
@@ -38,6 +39,8 @@ export const renderPersonSidebar = (): HTMLElement => {
       link.classList.add('active-block');
     }
     item.append(link);
+
+    item.onclick = linkHandler;
     menuCtn.append(item);
   });
 

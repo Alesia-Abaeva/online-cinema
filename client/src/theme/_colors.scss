@@ -46,6 +46,7 @@ $black-90: rgba(0, 0, 0, 0.9);
   --always-black: #000;
   --always-white: #fff;
   --always-grey: #444;
+  --active-list-text: #d9d9d9;
 
   --film-page-secondary-text: rgba(255, 255, 255, 0.64);
 
@@ -55,6 +56,12 @@ $black-90: rgba(0, 0, 0, 0.9);
   --inverted-icon: invert(100%);
   --search-icon-hover: invert(100%);
   --gradient-primary: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
+  --gradient-primary-lighten: linear-gradient(
+    to right,
+    rgba(71, 118, 230, 0.3) 0%,
+    rgba(142, 84, 233, 0.3) 51%,
+    rgba(71, 118, 230, 0.3) 100%
+  );
   --silver-gradient: linear-gradient(45deg, rgba(160, 160, 160, 1) 0%, rgba(232, 232, 232, 1) 56%);
   --gold-gradient: linear-gradient(165deg, #ffd25e 16.44%, #b59646 63.42%);
   --gradient-red: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
@@ -86,6 +93,7 @@ $black-90: rgba(0, 0, 0, 0.9);
   --always-black: #000;
   --always-white: #fff;
   --always-grey: #444;
+  --active-list-text: #444;
 
   --film-page-secondary-text: #1f1f1f;
 
@@ -95,6 +103,12 @@ $black-90: rgba(0, 0, 0, 0.9);
   --inverted-icon: invert(0%);
   --search-icon-hover: invert(0%) brightness(100%);
   --gradient-primary: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
+  --gradient-primary-lighten: linear-gradient(
+    to right,
+    rgba(71, 118, 230, 0.3) 0%,
+    rgba(142, 84, 233, 0.3) 51%,
+    rgba(71, 118, 230, 0.3) 100%
+  );
   --silver-gradient: linear-gradient(45deg, rgba(160, 160, 160, 1) 0%, rgba(232, 232, 232, 1) 56%);
   --gold-gradient: linear-gradient(165deg, #ffd25e 16.44%, #b59646 63.42%);
   --gradient-red: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);

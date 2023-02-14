@@ -20,7 +20,7 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
 
   listHeader.append(listTitle, listImgCont);
 
-  const progressBar: HTMLElement = renderProgressBar(`Вы посмотрели 0 фильмов из ${listItems.item.total}`);
+  const progressBar: HTMLElement = renderProgressBar(listItems);
 
   const listItemsContainer: HTMLElement = createElem('div', 'list-content__list-items');
 

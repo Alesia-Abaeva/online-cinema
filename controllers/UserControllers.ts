@@ -161,8 +161,8 @@ export const updateUserPassword = async (
     const user = await User.findById(req.user.userId);
 
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log("isMatch", isMatch);
-    console.log("user", user);
+    console.log('isMatch', isMatch);
+    console.log('user', user);
 
     if (!isMatch) {
       return res
@@ -180,7 +180,7 @@ export const updateUserPassword = async (
       }
     );
 
-    console.log("userUpdate", userUpdate);
+    console.log('userUpdate', userUpdate);
 
     // TODO: отредактировать для изменения данных пользователя
 
@@ -251,7 +251,46 @@ export const deleteUser = async (
 ) => {
   try {
     await User.deleteOne({ _id: req.user.userId });
-    res.status(200).json({ message: "Пользователь удален" });
+    res.status(200).json({ message: 'Пользователь удален' });
+  } catch (e) {
+    res.status(500).json({ message: `Ошибка при запросе к базу данных: ${e}` });
+  }
+};
+
+export const updateUserFolders = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  if (!req?.body?.folderName || !req?.body?.id) {
+    return res
+      .status(400)
+      .json({ message: 'Folder name and movie id is required' });
+  }
+
+  try {
+    const filmId = req.body.id;
+    const folderName = req.body.folderName;
+
+    const user = await User.findById(req.user.userId);
+    const arr = user.folders[folderName];
+    const prevArr = JSON.parse(JSON.stringify(arr));
+
+    const idx = arr.indexOf(filmId);
+    idx !== -1 ? arr.splice(idx, 1) : arr.push(filmId);
+
+    const result = await User.findOneAndUpdate(
+      {
+        _id: req.user.userId,
+        [`folders.${folderName}`]: prevArr,
+      },
+      {
+        $set: { [`folders.${folderName}`]: arr },
+      },
+      {
+        new: true,
+      }
+    );
+    res.status(200).json(result);
   } catch (e) {
     res.status(500).json({ message: `Ошибка при запросе к базу данных: ${e}` });
   }

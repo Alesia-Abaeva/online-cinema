@@ -10,6 +10,8 @@ import { addListenerCollection, addListenerSlideDown, addListenerTop10 } from '.
 import { genresData } from '../../const/genres-data';
 import { Accordion } from '../ui/Accordion/Accordion';
 import { renderDevices } from './components/Devices/Devices';
+import { renderModal } from '../ui/ModalFilm/ModalFilm';
+
 
 export const renderMainPage = (
   data: {
@@ -20,6 +22,8 @@ export const renderMainPage = (
   const main: HTMLElement = createElem('main', styles['main']);
   main.classList.add('main_banner');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
+
+  const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
   const subsHero: HTMLElement = renderHeroSection();
   mainContainer.append(subsHero);
@@ -47,7 +51,7 @@ export const renderMainPage = (
 
   Accordion(accordion, REFERENC_TITLE, REFERENC_DESCRIP);
 
-  main.append(accordionSection);
+  main.append(accordionSection, container);
 
   main.append(renderDevices());
 
