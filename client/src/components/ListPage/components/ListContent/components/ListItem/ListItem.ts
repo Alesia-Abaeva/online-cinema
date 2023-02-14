@@ -1,4 +1,4 @@
-import { createBtnInterest } from 'src/components/MainPage/components/MainBanner/components/buttons/buttons';
+import { createBtnInterest } from 'src/components/ui/Buttons/Buttons';
 import { setRatingColor } from 'src/components/ui/RatingColor/RatingColor';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';

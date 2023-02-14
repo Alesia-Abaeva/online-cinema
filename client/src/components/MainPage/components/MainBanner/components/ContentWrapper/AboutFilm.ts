@@ -1,6 +1,6 @@
 import { createElem } from 'src/utils/create-element';
 import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-data';
-import { createBtnTrailer, createBtnBookmark, createBtnInterest, createBtnWatch } from '../buttons/buttons';
+import { createBtnTrailer, createBtnBookmark, createBtnInterest, createBtnWatch } from '../../../../../ui/Buttons/Buttons';
 import styles from './AboutFilm.module.scss';
 
 export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
