@@ -1,7 +1,7 @@
 export const NAVBAR_BTNS_AUTH: NavbarBtns[] = [
-  { link: '/', text: 'Главная' },
-  { link: '/personal', text: 'Мое' },
-  { link: '/all-lists', text: 'Списки' },
+  { link: '/', text: 'Главная', id: 'main-nav' },
+  { link: '/personal', text: 'Мое', id: 'person-nav' },
+  { link: '/all-lists', text: 'Списки', id: 'list-nav' },
 ];
 
 export const NAVBAR_BTNS: NavbarBtns[] = [

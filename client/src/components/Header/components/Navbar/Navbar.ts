@@ -1,3 +1,5 @@
+// import { store } from 'src/logic/redux';
+// import { store } from 'src/logic/redux';
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { linkHandler } from '../../../../utils/link-handler';
@@ -9,16 +11,21 @@ import styles from './Navbar.module.scss';
 
 export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElement => {
   const navBar: HTMLElement = createElem('nav', styles[`${navType ? `${navType}-nav` : 'nav'}`]);
+  // navBar.classList.add('skeleton');
+
   const navUl: HTMLElement = createElem('ul', 'nav__list');
 
   if (navType) navUl.classList.add(`nav__list_${navType}`);
 
   navBtns.forEach((el) => {
     const li: HTMLElement = createElem('li', 'nav__list-item');
+
+    li.id = el.id as string;
     const a: HTMLElement = createLink(el.link, 'nav__list-link', false, el.text);
     if (window.location.pathname === el.link) {
       a.classList.add('nav__list-link_active');
     }
+
     li.append(a);
     navUl.append(li);
   });
@@ -44,5 +51,15 @@ export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElemen
   navSearch.append(searchIcon);
 
   navBar.append(navUl, navSearch);
+
+  // store.subscribe(() => {
+  //   const userState = store.getState().user.personal.data;
+  //   const pesronNav = document.getElementById('person-nav') as HTMLElement;
+
+  //   if (userState && pesronNav) {
+  //     pesronNav.style.display = 'block';
+  //   }
+  // });
+
   return navBar;
 };

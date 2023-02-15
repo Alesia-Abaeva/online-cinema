@@ -30,6 +30,8 @@ export const renderAccountSectionHead = (): HTMLElement => {
     profileContainer.classList.remove('show__menu');
   };
 
+  // accoutSection.append(store.getState().user.personal.data ? avatarCnt : loginBtn);
+
   store.subscribe(() => {
     const userState = store.getState().user.personal;
     !userState.data ? accoutSection.append(loginBtn) : accoutSection.append(avatarCnt);

@@ -24,8 +24,28 @@ export const renderHeader = (): HTMLElement => {
   const accoutSection: HTMLElement = renderAccountSectionHead();
   const hamburger: HTMLElement = rednerHamburgerNavbar();
   const searchInput: HTMLElement = renderSearchBar();
-  const navBar = rednerNavbar(store.getState().user.personal.data ? NAVBAR_BTNS_AUTH : NAVBAR_BTNS, '');
-  headerContainer.append(logo, navBar, accoutSection, hamburger, searchInput);
+
+  store.subscribe(() => {
+    const userState = store.getState().user.personal;
+
+    if (userState.isLoading) {
+      headerContainer.innerHTML = '';
+      headerContainer.append(logo, accoutSection, hamburger, searchInput);
+    }
+
+    if (userState.data === null) {
+      headerContainer.innerHTML = '';
+      headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS, ''), accoutSection, hamburger, searchInput);
+    } else {
+      headerContainer.innerHTML = '';
+      headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS_AUTH, ''), accoutSection, hamburger, searchInput);
+    }
+  });
+
+  // const navBar = rednerNavbar(store.getState().user.personal.data ? NAVBAR_BTNS_AUTH : NAVBAR_BTNS, '');
+  // const navBar = rednerNavbar(NAVBAR_BTNS_AUTH, '');
+
+  // headerContainer.append(logo, navBar, accoutSection, hamburger, searchInput);
 
   header.append(headerContainer, renderHeaderAnimation());
 
