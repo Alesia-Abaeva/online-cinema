@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { createUserFolder } from 'src/api/back/folders';
+import { handleCreateUserFolder } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
 
 export const onSubmitCreateFolder = (e: Event): void => {
   e.preventDefault();
@@ -7,5 +7,6 @@ export const onSubmitCreateFolder = (e: Event): void => {
   const displayedNameImput = document.getElementById('create-user-folder') as HTMLInputElement;
   const displayedName = displayedNameImput.value;
   const id = Date.now();
-  createUserFolder({ id, displayedName });
+  displayedNameImput.value = '';
+  handleCreateUserFolder({ id, displayedName });
 };

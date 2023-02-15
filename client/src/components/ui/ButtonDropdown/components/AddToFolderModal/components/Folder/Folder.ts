@@ -22,5 +22,6 @@ export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
       : `${el.films.length} ${formatRuWord(el.films.length, ['фильм', 'фильма', 'фильмов'])}`;
 
   folder.append(folderTitle, amountOfFilms);
+
   return folder;
 };
