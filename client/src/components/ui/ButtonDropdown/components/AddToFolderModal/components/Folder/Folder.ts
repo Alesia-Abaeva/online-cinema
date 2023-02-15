@@ -3,6 +3,7 @@ import { handleDeleteUserFolder } from 'src/components/PersonalAccount/component
 import { editIcon, folderIcon, tick, trashCan } from 'src/const/icons/icons';
 import { createElem } from 'src/utils/create-element';
 import { formatRuWord } from 'src/utils/formatRUWorld';
+import { enableEditForm } from '../../Handlers/enableEditForm';
 import styles from './Folder.module.scss';
 
 export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
@@ -27,6 +28,10 @@ export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
   const editCont: HTMLElement = createElem('div', 'all-folders__folder-edit');
   editCont.classList.add('icon-cont');
   editCont.innerHTML = `${editIcon}`;
+
+  editCont.onclick = (e: Event) => {
+    enableEditForm(el.displayedName, el._id);
+  };
 
   const deleteCont: HTMLElement = createElem('div', 'all-folders__folder-delete');
   deleteCont.classList.add('icon-cont');

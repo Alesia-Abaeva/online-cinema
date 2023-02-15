@@ -1,5 +1,11 @@
 @import '/src/theme/variable';
 
+#update-user-folder,
 #create-user-folder {
   width: 20rem;
+}
+
+#update-user-folder-form {
+  position: relative;
+  z-index: 2;
 }

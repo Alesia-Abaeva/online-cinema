@@ -1,5 +1,11 @@
 import { deleteUser, updateUser, updateUserParentsCntr, updateUserPass, updateUserTariff } from 'src/api/back/auth';
-import { createUserFolder, deleteUserFolder, updateFoldersData, updateUserFolder } from 'src/api/back/folders';
+import {
+  createUserFolder,
+  deleteUserFolder,
+  updateFoldersData,
+  updateUserFolder,
+  updateUserFolderName,
+} from 'src/api/back/folders';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch } from 'src/logic/redux';
@@ -75,6 +81,16 @@ export const handleCreateUserFolder = async (body: UserFolderData) => {
 export const handleDeleteUserFolder = async (body: UserFolderData) => {
   try {
     const updateRes = await deleteUserFolder(body);
+    appDispatch(setUserInfo({ data: updateRes.data }));
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
+export const handleUpdateUserFolderName = async (body: UserFolderData) => {
+  try {
+    const updateRes = await updateUserFolderName(body);
+    console.log(updateRes);
     appDispatch(setUserInfo({ data: updateRes.data }));
   } catch (err) {
     console.warn(err);

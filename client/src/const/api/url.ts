@@ -26,5 +26,6 @@ export const UPDATE_FOLDER = 'api/auth/person/folders';
 export const CREATE_USER_FOLDER = 'api/auth/person/user-folders/create';
 export const UPDATE_USER_FOLDER = 'api/auth/person/user-folders/update';
 export const DELETE_USER_FOLDER = 'api/auth/person/user-folders/delete';
+export const UPDATE_USER_FOLDER_NAME = 'api/auth/person/user-folders/update-name';
 
 export const UPLOAD_IMG = 'upload';
