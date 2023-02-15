@@ -21,6 +21,7 @@ export const renderFolderActions = (): HTMLElement => {
 
   const createFolderBntCtn: HTMLElement = createElem('div', 'profile__btn-save');
   const bntSaveData: HTMLElement = createButton('создать');
+  bntSaveData.id = 'create-folder-btn';
   bntSaveData.setAttribute('disabled', 'true');
 
   createFolderNameInput.oninput = () => {

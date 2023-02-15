@@ -6,7 +6,10 @@ export const onSubmitCreateFolder = (e: Event): void => {
 
   const displayedNameImput = document.getElementById('create-user-folder') as HTMLInputElement;
   const displayedName = displayedNameImput.value;
+  const createBtn = document.getElementById('create-folder-btn') as HTMLElement;
   const id = Date.now();
   displayedNameImput.value = '';
+  createBtn.setAttribute('disabled', 'true');
+
   handleCreateUserFolder({ id, displayedName });
 };
