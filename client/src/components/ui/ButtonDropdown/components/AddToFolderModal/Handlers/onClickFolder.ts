@@ -1,17 +1,27 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-param-reassign */
+import { updateUserFolder } from 'src/api/back/folders';
 import { tick } from 'src/const/icons/icons';
+import { appDispatch } from 'src/logic/redux';
+import { setUserInfo } from 'src/logic/redux/actions';
 import { formatRuWord } from 'src/utils/formatRUWorld';
 
-export const onClickFolder = (e: Event): void => {
-  const target = e.target as HTMLElement;
-  if (target.classList.contains('all-folders__folder')) {
-    const amountOfFilms = target.querySelector('.all-folders__folder-film-counter') as HTMLElement;
-    const { checked } = target.dataset;
+export const onClickFolder = async (folder: HTMLElement, filmId: number): Promise<void> => {
+  const folderId = folder.dataset.id;
+  if (folderId) {
+    const amountOfFilms = folder.querySelector('.all-folders__folder-film-counter') as HTMLElement;
 
-    target.dataset.checked = checked === 'true' ? 'false' : 'true';
+    folder.dataset.checked = folder.dataset.checked === 'true' ? 'false' : 'true';
 
-    const filmCount = target.dataset.length ? +target.dataset.length : 0;
+    const updateRes = await updateUserFolder({ id: +folderId, filmId });
 
-    amountOfFilms.innerHTML =
-      checked === 'true' ? `${tick}` : `${filmCount} ${formatRuWord(filmCount, ['фильм', 'фильма', 'фильмов'])}`;
+    const filmCount = updateRes.data.userFolders?.find((el) => el._id === +folderId)?.films.length;
+    if (filmCount !== undefined) {
+      amountOfFilms.innerHTML =
+        folder.dataset.checked === 'true'
+          ? `${tick}`
+          : `${filmCount} ${formatRuWord(filmCount, ['фильм', 'фильма', 'фильмов'])}`;
+      appDispatch(setUserInfo({ data: updateRes.data }));
+    }
   }
 };

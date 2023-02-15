@@ -11,6 +11,7 @@ export const renderModal = (insideModal: HTMLElement, modalClass?: string): { [k
 
   overlay.onclick = (): void => {
     toggleModal(modal, overlay);
+    setTimeout(() => modalFragment.remove(), 300);
   };
 
   if (modalClass) modal.classList.add(modalClass);
@@ -24,6 +25,7 @@ export const renderModal = (insideModal: HTMLElement, modalClass?: string): { [k
 
   closeModalBtn.onclick = (): void => {
     toggleModal(modal, overlay);
+    setTimeout(() => modalFragment.remove(), 300);
   };
 
   modal.append(modalContenet, closeModalBtn);

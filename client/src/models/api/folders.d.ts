@@ -5,5 +5,17 @@ interface FolderData {
 
 interface UserFolderData {
   id: number;
-  displayedName: string;
+  displayedName?: string;
+  filmId?: number;
+}
+
+interface PromiseFolderRes {
+  id: string;
+  stateSnapshot: {
+    data: AuthGetPersonToken;
+    response: Response;
+  };
+  start: number;
+  stop: number;
+  duration: number;
 }

@@ -9,7 +9,6 @@ export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
   folder.dataset.id = el._id.toString();
 
   folder.dataset.checked = el.films.indexOf(filmId) !== -1 ? 'true' : 'false';
-
   folder.dataset.length = el.films.length.toString();
 
   const folderTitle: HTMLElement = createElem('p', 'all-folders__folder-title');
