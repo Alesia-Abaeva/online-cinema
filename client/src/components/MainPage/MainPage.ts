@@ -68,7 +68,7 @@ export const renderMainPage = (
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;
-    console.log(userState);
+    console.log(userState, 'main');
   });
 
   return main;

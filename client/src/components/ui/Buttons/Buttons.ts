@@ -34,20 +34,23 @@ export const createBtnTrailer = () => {
 };
 
 export const createBtnBookmark = () => {
-  const btnBookmark = createButton(
-    bookmarkIcon,
-    (): void => {
-      console.log('Bookmark');
-    },
-    `${styles.actionBtn}`
-  ) as HTMLButtonElement;
-  btnBookmark.classList.add(`${styles.actionBtn__round}`);
+  const btnBookmark = createButton(bookmarkIcon) as HTMLButtonElement;
+  btnBookmark.classList.add(`${styles.actionBtn__round}`, `${styles.actionBtn}`);
+
+  btnBookmark.onclick = () =>
+    store.getState().user.personal.data
+      ? console.log('Здесь будет логика добавления в избранное')
+      : route(PATH_NAMES.register);
+
   return btnBookmark;
 };
 
 export const createBtnInterest = (filmId: number) => {
   const btnWrapper: HTMLElement = createElem('div', 'action-btn-wrapper');
   const btnInterest = createButton(threeDotsIcon, undefined, `${styles.actionBtn}`) as HTMLButtonElement;
+
+  // не рисуем кнопку дропдаун, если пользователь не авторизован
+  !store.getState().user.personal.data && (btnWrapper.style.display = 'none');
 
   btnInterest.onclick = (e: Event) => {
     const target = e.target as HTMLElement;
@@ -61,6 +64,7 @@ export const createBtnInterest = (filmId: number) => {
   };
   btnInterest.classList.add(`${styles.actionBtn__round}`);
   btnWrapper.append(btnInterest);
+
   return btnWrapper;
 };
 
@@ -72,6 +76,7 @@ export const createBtnTabAboutFilm = () => {
     },
     `${styles.tabBtn}`
   ) as HTMLButtonElement;
+
   btnTabAboutFilm.onclick = (e: Event) => {
     const target = e.target as HTMLElement;
     const container = target.closest('.mainBanner__container') as HTMLElement;
