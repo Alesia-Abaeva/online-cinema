@@ -26,6 +26,10 @@
 
   .referens__data-item {
     font-size: 1.3rem;
+
+    .referens__data-item-title {
+      padding: 2rem 0;
+    }
   }
 
   @media (max-width: $phone-width) {

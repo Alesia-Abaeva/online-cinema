@@ -44,7 +44,7 @@ export const renderMainPage = (
       );
       slidersCont.append(slider);
     }
-    if (el.title === 'genres') {
+    if (el.title === 'genres' && store.getState().user.personal.data) {
       const slider: HTMLElement = addListenerCollection(renderSlider(genresData, el.displayedTitle, el.title));
       slidersCont.append(slider);
     }
@@ -57,14 +57,10 @@ export const renderMainPage = (
   const accordionSection: HTMLElement = createElem('div', 'accordion-section');
   const accordion: HTMLElement = createElem('div', 'accordion-container');
   accordionSection.append(accordion);
-
   Accordion(accordion, REFERENC_TITLE, REFERENC_DESCRIP);
 
-  main.append(accordionSection, container);
-
-  main.append(renderDevices());
-
-  main.append(renderInfiniteGallery(galleryData));
+  !store.getState().user.personal.data &&
+    main.append(renderDevices(), renderInfiniteGallery(galleryData), accordionSection, container);
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;
