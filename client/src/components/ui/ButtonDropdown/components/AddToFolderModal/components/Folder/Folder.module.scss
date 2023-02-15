@@ -1,0 +1,41 @@
+@import '/src/theme/variable';
+
+.all-folders__folder {
+  height: 48px;
+  min-width: 400px;
+  border-bottom: 1px solid var(--border-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  svg {
+    transform: scale(0.8);
+    margin-right: 0.5rem;
+    filter: var(--inverted-icon);
+  }
+
+  &:hover {
+    border-bottom: 1px solid var(--bg-contrast);
+  }
+}
+
+.all-folders__folder-title {
+  font-size: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  pointer-events: none;
+}
+
+.all-folders__folder-film-counter {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  padding-right: 1rem;
+  pointer-events: none;
+
+  svg {
+    filter: var(--inverted-icon);
+  }
+}
