@@ -71,9 +71,4 @@ export const SLIDERS_ORDER = [
     title: 'family',
     url: '/slider/family',
   },
-  {
-    displayedTitle: 'Приключения',
-    title: 'adventures',
-    url: '/slider/adventures',
-  },
 ];

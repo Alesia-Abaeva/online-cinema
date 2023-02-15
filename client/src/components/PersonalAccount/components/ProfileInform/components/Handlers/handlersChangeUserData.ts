@@ -1,4 +1,3 @@
-import { deleteUser, updateUser, updateUserParentsCntr, updateUserPass, updateUserTariff } from 'src/api/back/auth';
 import {
   createUserFolder,
   deleteUserFolder,
@@ -6,6 +5,7 @@ import {
   updateUserFolder,
   updateUserFolderName,
 } from 'src/api/back/folders';
+import { deleteUser, updateUser, updateUserParentsCntr, updateUserTariff } from 'src/api/back/auth';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch } from 'src/logic/redux';
@@ -38,9 +38,7 @@ export const handleChangeUserPassword = async (body: AuthGetPersonToken, array: 
     setTimeout(() => {
       success.innerHTML = '';
       success.classList.remove('active-pass-modal');
-    }, 2000);
-
-    // показываем модалку
+    }, 2000); // показываем модалку
   } catch (err) {
     console.warn(err);
   }
