@@ -19,3 +19,14 @@ interface PromiseFolderRes {
   stop: number;
   duration: number;
 }
+
+interface ResponseFolder {
+  folderName: string;
+  data: ResponseMovie[];
+}
+
+interface ResponseUserFolder {
+  displayedName: string;
+  films: ResponseMovie[];
+  _id: number;
+}

@@ -90,7 +90,6 @@ export const handleDeleteUserFolder = async (body: UserFolderData) => {
 export const handleUpdateUserFolderName = async (body: UserFolderData) => {
   try {
     const updateRes = await updateUserFolderName(body);
-    console.log(updateRes);
     appDispatch(setUserInfo({ data: updateRes.data }));
   } catch (err) {
     console.warn(err);
