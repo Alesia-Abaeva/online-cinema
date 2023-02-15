@@ -1,6 +1,8 @@
 import { createElem } from 'src/utils/create-element';
 import { SLIDERS_ORDER } from 'src/const/main-page-data';
 import { isError } from 'src/utils/type-checkers';
+import { store } from 'src/logic/redux';
+
 import { REFERENC_DESCRIP, REFERENC_TITLE } from 'src/const/referens';
 import { top10Data } from 'src/const/top10-data';
 import { galleryData } from 'src/const/gallery-data';
@@ -63,6 +65,11 @@ export const renderMainPage = (
   main.append(renderDevices());
 
   main.append(renderInfiniteGallery(galleryData));
+
+  store.subscribe(() => {
+    const userState = store.getState().user.personal;
+    console.log(userState);
+  });
 
   return main;
 };

@@ -13,6 +13,7 @@ export const app = async (): Promise<void> => {
       };
     })
   );
+
   const data = await promises;
   renderApp(() => renderMainPage(data));
 };

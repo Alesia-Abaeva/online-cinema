@@ -2,6 +2,9 @@ import { renderOverlay } from 'src/components/Overlay/Overlay';
 import { createButton } from 'src/components/ui/Button/Button';
 import { addFilmModal } from 'src/components/ui/ModalFilm/Handlers/show-hide-modal';
 import { bookmarkIcon, threeDotsIcon, watchFilmIcon } from 'src/const/icons/icons';
+import { PATH_NAMES } from 'src/const/path-names';
+import { store } from 'src/logic/redux';
+import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
 import { renderButtonDropdown } from '../ButtonDropdown/ButtonDropdown';
 import { closeDropdown } from '../ButtonDropdown/Handlers/close-dropdown';
@@ -12,7 +15,9 @@ const watchFilmContent = `${watchFilmIcon}Смотреть фильм`;
 export const createBtnWatch = (filmId: number, filmImg: string) => {
   const btnWatch = createButton(watchFilmContent) as HTMLButtonElement;
   btnWatch.classList.add(`${styles.actionBtn__film}`, `${styles.actionBtn}`);
-  btnWatch.onclick = () => addFilmModal(filmId, filmImg);
+
+  btnWatch.onclick = () =>
+    store.getState().user.personal.data ? addFilmModal(filmId, filmImg) : route(PATH_NAMES.register);
   return btnWatch;
 };
 

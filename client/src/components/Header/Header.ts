@@ -33,6 +33,7 @@ export const renderHeader = (): HTMLElement => {
       headerContainer.append(logo, accoutSection, hamburger, searchInput);
     }
 
+    // TODO -  изменять не всегда!
     if (userState.data === null) {
       headerContainer.innerHTML = '';
       headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS, ''), accoutSection, hamburger, searchInput);
