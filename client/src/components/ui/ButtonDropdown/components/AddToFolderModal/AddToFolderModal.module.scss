@@ -7,7 +7,7 @@
 
 .add-to-folder-modal__content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 2rem;
 }
 
@@ -27,4 +27,5 @@
   overflow-y: scroll;
   max-height: 390px;
   margin-bottom: 1rem;
+  width: 100%;
 }

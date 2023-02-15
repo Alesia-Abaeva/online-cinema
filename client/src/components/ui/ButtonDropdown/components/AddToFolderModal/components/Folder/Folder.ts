@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { folderIcon, tick } from 'src/const/icons/icons';
+import { editIcon, folderIcon, tick, trashCan } from 'src/const/icons/icons';
 import { createElem } from 'src/utils/create-element';
 import { formatRuWord } from 'src/utils/formatRUWorld';
 import styles from './Folder.module.scss';
@@ -14,6 +14,8 @@ export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
   const folderTitle: HTMLElement = createElem('p', 'all-folders__folder-title');
   folderTitle.innerHTML = `${folderIcon} ${el.displayedName}`;
 
+  const folderActions: HTMLElement = createElem('div', 'all-folders__folder-actions');
+
   const amountOfFilms: HTMLElement = createElem('p', 'all-folders__folder-film-counter');
 
   amountOfFilms.innerHTML =
@@ -21,7 +23,15 @@ export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
       ? `${tick}`
       : `${el.films.length} ${formatRuWord(el.films.length, ['фильм', 'фильма', 'фильмов'])}`;
 
-  folder.append(folderTitle, amountOfFilms);
+  const editCont: HTMLElement = createElem('div', 'all-folders__folder-edit');
+  editCont.classList.add('icon-cont');
+  editCont.innerHTML = `${editIcon}`;
+  const deleteCont: HTMLElement = createElem('div', 'all-folders__folder-delete');
+  deleteCont.classList.add('icon-cont');
+  deleteCont.innerHTML = `${trashCan}`;
+
+  folderActions.append(amountOfFilms, editCont, deleteCont);
+  folder.append(folderTitle, folderActions);
 
   return folder;
 };

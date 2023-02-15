@@ -2,6 +2,7 @@ import { createInputComponent } from 'src/components/PersonalAccount/components/
 import { createButton } from 'src/components/ui/Button/Button';
 import { createElem } from 'src/utils/create-element';
 import { onSubmitCreateFolder } from '../../Handlers/onSubmitCreateFolder';
+import styles from './FolderActions.module.scss';
 
 export const renderFolderActions = (): HTMLElement => {
   const foldersActions: HTMLElement = createElem('div', 'folders-actions');
@@ -16,7 +17,7 @@ export const renderFolderActions = (): HTMLElement => {
   });
   createFolderNameInput.setAttribute('maxLength', '31');
   createFolderNameInput.placeholder = 'Введите название папки';
-  createFolderNameInput.id = 'create-user-folder';
+  createFolderNameInput.id = styles['create-user-folder'];
 
   const createFolderBntCtn: HTMLElement = createElem('div', 'profile__btn-save');
   const bntSaveData: HTMLElement = createButton('создать');
