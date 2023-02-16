@@ -11,6 +11,5 @@ export const updateCollectionPageUI = (data: FindedMovies[]) => {
   const prevBtn = document.getElementById('prev') as HTMLElement;
   const nextBtn = document.getElementById('next') as HTMLElement;
 
-  console.log(paginationState);
   setPaginationBtns(prevBtn, nextBtn, paginationState.page, paginationState.limit, paginationState.total);
 };

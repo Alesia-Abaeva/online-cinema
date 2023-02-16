@@ -116,4 +116,8 @@
     opacity: 1;
     right: 0;
   }
+
+  .slider__header_disabled::after {
+    opacity: 0;
+  }
 }

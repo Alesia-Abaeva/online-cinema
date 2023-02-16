@@ -1,6 +1,6 @@
 import { paginationState } from 'src/const/default-query-options';
 
-export const paginate = (page: number, limit: number, data: FindedMovies[]) => {
+export const paginate = (page: number, limit: number, data: FindedMovies[] | ResponseUserFolder[]) => {
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
 

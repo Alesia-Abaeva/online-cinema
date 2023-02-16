@@ -2,10 +2,15 @@ import { getPersonalData } from 'src/api/back/folders';
 import { renderAddToFolderModalContent } from 'src/components/ui/ButtonDropdown/components/AddToFolderModal/AddToFolderModal';
 import { renderModal } from 'src/components/ui/Modal/Modal';
 import { toggleModal } from 'src/components/ui/Modal/ToggleModal';
+import { renderPagination } from 'src/components/ui/Pagination/Pagination';
+import { paginationState } from 'src/const/default-query-options';
 import { editIcon } from 'src/const/icons/icons';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
+import { paginate } from 'src/utils/paginate';
+import { setPaginationBtns } from 'src/utils/set-paginaton-btns';
 import { renderUserFolder } from '../UserFolder/UserFolder';
+import { updateUserFoldersUI } from './updateUserFoldersUI';
 import styles from './UserFolders.module.scss';
 
 export const renderUserFolders = (userFoldersData: ResponseUserFolder[] | undefined): HTMLElement => {
@@ -31,25 +36,48 @@ export const renderUserFolders = (userFoldersData: ResponseUserFolder[] | undefi
   const foldersCont: HTMLElement = createElem('div', styles['personal__folders-cont']);
 
   if (userFoldersData) {
-    userFoldersData.forEach((el) => {
+    paginationState.limit = 8;
+    const sliced = paginate(
+      paginationState.page,
+      paginationState.limit,
+      userFoldersData
+    ) as unknown as ResponseUserFolder[];
+    paginationState.total = userFoldersData.length;
+    sliced.forEach((el) => {
       const folder: HTMLElement = renderUserFolder(el);
       foldersCont.append(folder);
     });
   }
 
+  const pagination = renderPagination(() => updateUserFoldersUI(userFoldersData), false, false);
+
   store.subscribe(async () => {
     const res = await getPersonalData();
     if (res) {
       const newFolderData = res.userFoldersData;
+      paginationState.page = 1;
+      paginationState.limit = 8;
+      const sliced = paginate(
+        paginationState.page,
+        paginationState.limit,
+        newFolderData
+      ) as unknown as ResponseUserFolder[];
+      paginationState.total = newFolderData.length;
+
       foldersCont.innerHTML = '';
-      newFolderData.forEach((el) => {
+      sliced.forEach((el) => {
         const folder: HTMLElement = renderUserFolder(el);
         foldersCont.append(folder);
       });
+
+      const prevBtn = document.getElementById('prev') as HTMLElement;
+      const nextBtn = document.getElementById('next') as HTMLElement;
+
+      setPaginationBtns(prevBtn, nextBtn, paginationState.page, paginationState.limit, paginationState.total);
     }
   });
 
-  folders.append(foldersHeader, foldersCont);
+  folders.append(foldersHeader, foldersCont, pagination);
 
   return folders;
 };

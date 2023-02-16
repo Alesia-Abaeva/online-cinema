@@ -7,7 +7,7 @@ export const renderCollectionFilms = (data: FindedMovies[], slices: boolean) => 
 
   let renderData = JSON.parse(JSON.stringify(data)) as FindedMovies[];
   if (slices) {
-    renderData = paginate(paginationState.page, paginationState.limit, data);
+    renderData = paginate(paginationState.page, paginationState.limit, data) as FindedMovies[];
   }
 
   renderData.forEach((elem) => {
