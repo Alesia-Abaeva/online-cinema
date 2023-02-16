@@ -75,3 +75,5 @@ export const eyeClosed = `<svg width="800px" height="800px" viewBox="0 0 20 20" 
 </svg>`;
 
 export const addToFolder = `<svg width="800px" height="800px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M128 192v640h768V320H485.76L357.504 192H128zm-32-64h287.872l128.384 128H928a32 32 0 0 1 32 32v576a32 32 0 0 1-32 32H96a32 32 0 0 1-32-32V160a32 32 0 0 1 32-32zm384 416V416h64v128h128v64H544v128h-64V608H352v-64h128z"/></svg>`;
+
+export const toColletion = `<svg width="2.4rem" height="2.4rem" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="arrow-icon" data-tid="2d894f95"><path fill-rule="evenodd" clip-rule="evenodd" d="m13.848 2.65 8.5 8.5.85.85-.85.848-8.5 8.5-1.697-1.697 6.452-6.452H2.5v-2.4h16.103L12.15 4.348l1.697-1.697Z" fill="#fff"></path></svg>`;

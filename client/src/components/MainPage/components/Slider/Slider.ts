@@ -4,6 +4,7 @@ import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';
 import { Iitem } from '../../../../const/genres-data';
+import { renderToCoolectionItem } from './SliderItem/ToCoolectionItem/SliderItemToCoollection';
 
 export const renderSlider = (
   filmsData: ResponseMovie[] | Iitem[] | IitemTop10[],
@@ -33,7 +34,7 @@ export const renderSlider = (
     header.innerHTML = slaiderName;
   }
 
-  const totalSlides = filmsData.length;
+  let totalSlides = filmsData.length;
   const itemLeftPadding = 8;
   let position = 0;
   let itemWidth: number;
@@ -42,6 +43,11 @@ export const renderSlider = (
 
   const arr: ResponseMovie[] | Iitem[] | IitemTop10[] = filmsData.slice(0);
   arr.forEach((element) => items.append(renderSliderItem(element)));
+
+  if (id !== 'top-10' && id !== 'genres') {
+    items.append(renderToCoolectionItem(id));
+    totalSlides += 1;
+  }
 
   const updateItemsOpacity = async (): Promise<void> => {
     btnLeft.disabled = true;
