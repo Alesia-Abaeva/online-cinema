@@ -1,9 +1,18 @@
+import { paginationState } from 'src/const/default-query-options';
 import { createElem } from 'src/utils/create-element';
+import { paginate } from 'src/utils/paginate';
 
-export const renderCollectionFilms = (data: FindedMovies[]) => {
+export const renderCollectionFilms = (data: FindedMovies[], slices: boolean) => {
   const list: HTMLElement = createElem('div', 'collection__list');
 
-  data.forEach((elem) => {
+  let renderData = JSON.parse(JSON.stringify(data)) as FindedMovies[];
+  console.log(slices);
+  if (slices) {
+    renderData = paginate(paginationState.page, paginationState.limit, data);
+  }
+
+  console.log(renderData);
+  renderData.forEach((elem) => {
     const img = createElem('img', 'collection__item__img') as HTMLImageElement;
     const url = `${
       elem.poster

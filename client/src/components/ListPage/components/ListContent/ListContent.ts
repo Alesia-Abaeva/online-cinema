@@ -1,8 +1,8 @@
-import { paginaitonState } from 'src/const/default-query-options';
+import { paginationState } from 'src/const/default-query-options';
 import { createElem } from 'src/utils/create-element';
 import { updateListPageUI } from '../../updateListPageUI';
 import { renderListItem } from './components/ListItem/ListItem';
-import { renderPagination } from './components/Pagination/Pagination';
+import { renderPagination } from '../../../ui/Pagination/Pagination';
 import { renderProgressBar } from './components/ProgressBar/ProgressBar';
 import styles from './ListContent.module.scss';
 
@@ -29,8 +29,8 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
     listItemsContainer.append(listItem);
   });
 
-  paginaitonState.total = listItems.item.total;
-  const pagination: HTMLElement = renderPagination(updateListPageUI);
+  paginationState.total = listItems.item.total;
+  const pagination: HTMLElement = renderPagination(updateListPageUI, true);
 
   litsContent.append(listHeader, progressBar, listItemsContainer, pagination);
 

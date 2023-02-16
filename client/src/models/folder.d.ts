@@ -8,3 +8,7 @@ interface UserFolders {
   displayedName: string;
   films: number[];
 }
+
+type DefaultFoldersNames = 'bookmarks' | 'watched' | 'watchedRecently';
+
+type DefaultFolders = { [name in DefaultFoldersNames]: string };

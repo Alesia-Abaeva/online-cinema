@@ -8,10 +8,10 @@ export const PATH_NAMES: PathNames = {
   name: '/name', // dynamic
   lists: '/all-lists',
   personal: '/personal',
-  folders: '/folders', // dynamic
   subscriptions: '/subscriptions',
   collection: '/collection', // dynamic
   slider: '/slider', // dynamic
+  folder: '/folder', // dynamic
   authorized: '/authorized',
   notauthorized: '/notauthorized',
 
