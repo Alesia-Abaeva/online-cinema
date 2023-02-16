@@ -5,11 +5,10 @@ import { renderAboutFilm } from './components/ContentWrapper/AboutFilm';
 import styles from './MainBanner.module.scss';
 import { renderDetails } from './components/Details/Details';
 
-export const renderMainBanner = async (movieId: string): Promise<HTMLElement> => {
+export const renderMainBanner = async (movieId: string, isTabs: boolean): Promise<HTMLElement> => {
   const mainBanner: HTMLElement = createElem('div', styles.mainBanner);
   const wrapper: HTMLElement = createElem('div', styles.mainBanner__wrapper);
   const container: HTMLElement = createElem('div', styles.mainBanner__container);
-  const tabs: HTMLElement = renderTabs();
   const content: HTMLElement = createElem('div', styles.mainBanner__content);
 
   const background: HTMLElement = createElem('div', styles.mainBanner__background);
@@ -21,23 +20,30 @@ export const renderMainBanner = async (movieId: string): Promise<HTMLElement> =>
   const contentWrapper: HTMLElement = renderAboutFilm(res);
 
   background.style.backgroundImage = `url(${res.backdrop?.url})`;
-  container.append(background, content, tabs);
+
+  container.append(background, content);
+
+  if (isTabs) {
+    const tabs: HTMLElement = renderTabs();
+    container.append(tabs);
+
+    tabs.addEventListener('click', (event: Event): void => {
+      event.stopPropagation();
+      const target = event.target as HTMLElement;
+
+      if (target.classList.contains('details')) {
+        content.innerHTML = '';
+        content.append(renderDetails(res));
+      } else if (target.classList.contains('about-film')) {
+        content.innerHTML = '';
+        content.append(renderAboutFilm(res));
+      }
+    });
+  }
+
   content.append(contentWrapper);
   wrapper.append(container);
   mainBanner.append(wrapper);
-
-  tabs.addEventListener('click', (event: Event): void => {
-    event.stopPropagation();
-    const target = event.target as HTMLElement;
-
-    if (target.classList.contains('details')) {
-      content.innerHTML = '';
-      content.append(renderDetails(res));
-    } else if (target.classList.contains('about-film')) {
-      content.innerHTML = '';
-      content.append(renderAboutFilm(res));
-    }
-  });
 
   return mainBanner;
 };

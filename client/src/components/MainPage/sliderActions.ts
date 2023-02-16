@@ -14,6 +14,10 @@ export const addListenerSlideDown = (slider: HTMLElement): HTMLElement => {
       const parent = target.closest('.slider') as HTMLElement;
       route(`/slider/${parent.dataset.id}`);
     }
+    if (target.classList.contains('filmDetails__link')) {
+      const parent = target.closest('.filmDetails__link') as HTMLElement;
+      route(`/films/${parent.dataset.id}`);
+    }
     if (target.classList.contains('sliderItem__image')) {
       const allSliders = document.querySelectorAll('.slider');
       allSliders.forEach(
@@ -28,7 +32,7 @@ export const addListenerSlideDown = (slider: HTMLElement): HTMLElement => {
       );
 
       setTimeout(() => {
-        slideDown.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        item.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 300);
     }
   });
