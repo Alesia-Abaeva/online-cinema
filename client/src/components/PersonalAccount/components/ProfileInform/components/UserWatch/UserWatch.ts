@@ -1,6 +1,3 @@
-// import { renderCollection } from 'src/components/CollectionPage/collectionPage';
-// import { renderCollectionFilms } from 'src/components/CollectionPage/component/Collection';
-// import { animeData, Iitem } from 'src/components/MainPage/mockData';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { arrowBtn } from '../Handlers/arrow-btn';
@@ -23,14 +20,12 @@ export const renderUserWatchEmpty = (message?: string): HTMLElement => {
 };
 
 // TODO: переиспользовать готовый компонент
-// export const renderUserWatchFilms = (films: Iitem[]): HTMLElement => {
-//   const data: HTMLElement = createElem('div', 'profile-info__data');
-//   const collection: HTMLElement = renderCollectionFilms(films);
+export const renderUserWatchFilms = (): HTMLElement => {
+  const data: HTMLElement = createElem('div', 'profile-info__data');
+  data.innerHTML = 'Представь здесь фильмы';
 
-//   data.append(collection);
-
-//   return data;
-// };
+  return data;
+};
 
 export const renderUserWatch = () => {
   const userProfile: HTMLElement = createElem('div', styles['profile-watch']);
@@ -41,16 +36,21 @@ export const renderUserWatch = () => {
   const btn = arrowBtn();
   title.append(btn);
 
+  userProfile.append(title);
+
   const empty: HTMLElement = renderUserWatchEmpty();
-  // const film: HTMLElement = renderUserWatchFilms(animeData);
+  const film: HTMLElement = renderUserWatchFilms();
+
+  const stateWatchFilms = store.getState().user.personal.data?.folders?.watched.length;
+  userProfile.append(stateWatchFilms ? film : empty);
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;
 
     if (userState.data?.folders?.watched.length) {
-      // userProfile.append(title, film);
+      userProfile.contains(empty) ? userProfile.removeChild(empty) : userProfile.append(film);
     } else {
-      userProfile.append(title, empty);
+      userProfile.contains(film) ? userProfile.removeChild(film) : userProfile.append(empty);
     }
   });
 
