@@ -2,7 +2,7 @@ import { lists } from 'src/pages/lists';
 import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
 import { user, userPromo, userReference, userSettings, userSubscribe, userWatch } from 'src/pages/user-account';
-import { subscriptions } from 'src/pages/subscriptions';
+// import { subscriptions } from 'src/pages/subscriptions';
 import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
 import { authorized } from 'src/pages/authorized';
@@ -57,25 +57,25 @@ export const ROUTER_PATHS: Paths = {
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userWatch]: {
-    template: userWatch,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? userWatch : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userSettings]: {
-    template: userSettings,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? userSettings : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userPromo]: {
-    template: userPromo,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? userPromo : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userReference]: {
-    template: userReference,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? userReference : notauthorized,
     title: `user | ${projectTitle}`,
   },
-  [PATH_NAMES.subscriptions]: {
-    template: subscriptions,
-    title: `subscriptions | ${projectTitle}`,
-  },
+  // [PATH_NAMES.subscriptions]: {
+  //   template: subscriptions,
+  //   title: `subscriptions | ${projectTitle}`,
+  // },
   [PATH_NAMES.collection]: {
     template: collection,
     title: `collection | ${projectTitle}`,
@@ -93,7 +93,7 @@ export const ROUTER_PATHS: Paths = {
     title: `folder | ${projectTitle}`,
   },
   [PATH_NAMES.userSubscribe]: {
-    template: userSubscribe,
+    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? userSubscribe : notauthorized,
     title: `collection | ${projectTitle}`,
   },
   [PATH_NAMES.authorized]: {

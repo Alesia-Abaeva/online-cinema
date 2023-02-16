@@ -11,11 +11,17 @@
   @include default-page-container;
 
   .stub__message {
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.5rem;
     text-align: center;
     font-size: 1.8rem;
     font-weight: 400;
     max-width: 600px;
     text-transform: uppercase;
+  }
+
+  .button {
+    height: 3rem;
+    padding: 0;
+    width: 15rem;
   }
 }
