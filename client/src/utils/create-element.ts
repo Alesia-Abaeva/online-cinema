@@ -8,13 +8,19 @@ export const createElem = (element: string, className: string): HTMLElement => {
 
 /** Вставить элемент перед дочерним элементом родительского контейнера */
 export const insertBefore = ({
-  node,
+  nodes,
   siblingNumber,
   parentNode,
 }: {
-  node: HTMLElement;
+  nodes: HTMLElement[] | HTMLElement;
   siblingNumber: number;
   parentNode: HTMLElement;
 }) => {
-  parentNode.insertBefore(node, parentNode.childNodes[siblingNumber - 1]);
+  if (Array.isArray(nodes)) {
+    nodes.forEach((node) => parentNode.insertBefore(node, parentNode.childNodes[siblingNumber - 1]));
+
+    return null;
+  }
+
+  return parentNode.insertBefore(nodes, parentNode.childNodes[siblingNumber - 1]);
 };

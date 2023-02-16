@@ -1,8 +1,7 @@
-import { handleChangeParentControl } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
 import { ViewType } from 'src/const/main-page-data';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch, store } from 'src/logic/redux';
-import { setViewType } from 'src/logic/redux/actions';
+import { changeParentControl } from 'src/logic/redux/actions';
 import { CHILD, PARENT } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
@@ -39,7 +38,7 @@ export const renderAvatar = (): HTMLElement => {
 };
 
 export const renderChildAvatar = (text: string): HTMLElement => {
-  const userStateOnLoad = store.getState().user.personal.data;
+  const { viewType } = store.getState().uiConfig;
 
   const avatarWrap: HTMLElement = createElem('div', 'avatar__wrapper');
   avatarWrap.classList.add('child-avatar__wrapper');
@@ -53,7 +52,7 @@ export const renderChildAvatar = (text: string): HTMLElement => {
 
   avatarWrap.append(avatar, name);
 
-  if (userStateOnLoad?.parentControls === PARENT) {
+  if (viewType === ViewType.USER) {
     name.innerHTML = text;
     avatar.classList.remove('child-avatar-avtive');
     ageCnt.innerHTML = '';
@@ -65,30 +64,28 @@ export const renderChildAvatar = (text: string): HTMLElement => {
     avatarWrap.append(ageCnt);
   }
 
-  avatarWrap.onclick = () => {
-    const isCurrentChild = store.getState().user.personal.data?.parentControls === CHILD;
-
-    handleChangeParentControl({
-      parentControls: isCurrentChild ? PARENT : CHILD,
-    });
-
-    appDispatch(setViewType(isCurrentChild ? ViewType.USER : ViewType.CHILD));
+  avatarWrap.onclick = async () => {
+    await appDispatch(changeParentControl());
     route(PATH_NAMES.main);
   }; // обновили стейт
 
   store.subscribe(() => {
-    const userState = store.getState().user.personal;
+    const { viewType: currentViewType } = store.getState().uiConfig;
 
-    if (userState.data?.parentControls === CHILD) {
+    if (currentViewType === ViewType.CHILD) {
       avatar.classList.add('child-avatar-avtive');
       ageCnt.append(age);
       avatarWrap.append(ageCnt);
       name.innerHTML = '';
-    } else {
-      name.innerHTML = text;
-      avatar.classList.remove('child-avatar-avtive');
-      ageCnt.innerHTML = '';
+
+      return null;
     }
+
+    name.innerHTML = text;
+    avatar.classList.remove('child-avatar-avtive');
+    ageCnt.innerHTML = '';
+
+    return null;
   });
   return avatarWrap;
 };

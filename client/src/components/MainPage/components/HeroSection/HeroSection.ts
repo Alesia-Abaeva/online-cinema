@@ -11,16 +11,16 @@ export const renderHeroSection = (): HTMLElement => {
 
   // TODO: изменить эту функцию, чтобы рендерлся блок с видео
   const authUser: HTMLElement = renderHeroSectionAuthUser();
+  heroSection.append(store.getState().uiConfig.isAuth ? authUser : forNewUsers);
 
   store.subscribe(() => {
-    const userState = store.getState().user.personal;
+    const { isAuth } = store.getState().uiConfig;
 
-    if (userState.data === null) {
-      // если не авторизован
-      heroSection.append(forNewUsers);
-    } else {
-      heroSection.append(authUser);
+    if (!isAuth) {
+      return heroSection.contains(authUser) ? heroSection.removeChild(authUser) : heroSection.append(forNewUsers);
     }
+
+    return heroSection.contains(forNewUsers) ? heroSection.removeChild(forNewUsers) : heroSection.append(authUser);
   });
 
   return heroSection;

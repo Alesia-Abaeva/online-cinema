@@ -1,83 +1,87 @@
 import { createElem, insertBefore } from 'src/utils/create-element';
-// import { SLIDERS_ORDER } from 'src/const/main-page-data';
-// import { isError } from 'src/utils/type-checkers';
 import { store } from 'src/logic/redux';
-
+import { TOP10 } from 'src/const/top10-data';
 import { REFERENC_DESCRIP, REFERENC_TITLE } from 'src/const/referens';
-// import { top10Data } from 'src/const/top10-data';
+import { DATA_MAIN, SLIDERS, ViewType } from 'src/const/main-page-data';
 import { galleryData } from 'src/const/gallery-data';
-import { getSlider } from 'src/api/back/slider';
-import { SLIDERS } from 'src/const/main-page-data';
-import { renderSlider } from './components/Slider/Slider';
+import { genresData } from 'src/const/genres-data';
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
-import { addListenerSlideDown } from './sliderActions';
-// import { genresData } from '../../const/genres-data';
 import { Accordion } from '../ui/Accordion/Accordion';
+import { renderModal } from '../ui/ModalFilm/ModalFilm';
+import { addListenerCollection, addListenerSlideDown, addListenerTop10 } from './sliderActions';
+import { renderSlider } from './components/Slider/Slider';
 import { renderInfiniteGallery } from './components/InfiniteGallery/InfiniteGallery';
 import { renderDevices } from './components/Devices/Devices';
-import { renderModal } from '../ui/ModalFilm/ModalFilm';
 
-// import { getSlider } from 'src/api/back/slider';
+let viewType: ViewType;
+
+const renderSliders = (main: HTMLElement) => {
+  const state = store.getState();
+  const currentView = state.uiConfig.viewType; // текущий вид
+  const view = SLIDERS[currentView];
+  const setSliders = state.sliders;
+
+  // слайдеры
+  const sliders = setSliders[currentView].map((filmsSet, index) => {
+    const viewIndex = view[index];
+    return addListenerSlideDown(renderSlider(filmsSet.docs, viewIndex.displayedTitle, viewIndex.title), 'slider');
+  });
+
+  sliders?.length && insertBefore({ nodes: sliders as HTMLElement[], parentNode: main, siblingNumber: 2 });
+};
 
 export const renderMainPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', styles['main']);
   main.classList.add('main_banner');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
 
-  const { container } = renderModal();
+  const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
   const subsHero: HTMLElement = renderHeroSection();
-  main.append(subsHero);
+  mainContainer.append(subsHero);
+
+  const infinitySlider = renderInfiniteGallery(galleryData);
+  const deviceBanner = renderDevices();
+  const sliderTop10 = addListenerTop10(renderSlider(TOP10, DATA_MAIN.TOP10.displayedTitle, DATA_MAIN.TOP10.title));
+  const sliderGenre = addListenerCollection(
+    renderSlider(genresData, DATA_MAIN.GENRE.displayedTitle, DATA_MAIN.GENRE.title)
+  );
+  const accordionSection: HTMLElement = createElem('div', 'accordion-section');
+  const accordion: HTMLElement = createElem('div', 'accordion-container');
+  Accordion(accordion, REFERENC_TITLE, REFERENC_DESCRIP);
+  accordionSection.append(accordion);
 
   main.append(mainContainer, container);
 
-  // Слайдеры
+  !store.getState().uiConfig.isAuth && main.append(deviceBanner, infinitySlider, accordionSection, container);
 
-  // const { viewType } = store.getState().uiConfig;
+  renderSliders(main);
 
-  // const slidersSet = SLIDERS[viewType];
-
-  // slidersSet.map(async ({ displayedTitle, title }) => {
-  //   try {
-  //     const data = (await getSlider({ id: title, page: 1, limit: 10 })) as ResponseFindedFullMovies;
-
-  //     const slider: HTMLElement = addListenerSlideDown(renderSlider(data.docs, displayedTitle, title));
-
-  //     insertBefore({ node: slider, parentNode: main, siblingNumber: 3 });
-  //   } catch (e) {
-  //     console.log(e as ErrorMessage);
-  //   }
-  // });
-
-  // SLIDERS_ORDER.forEach((el) => {
-  //   const sliderData = data.find((item) => item.title === el.title);
-  //   if (sliderData && !isError(sliderData.data)) {
-  //     const slider: HTMLElement = addListenerSlideDown(renderSlider(sliderData.data.docs, el.displayedTitle, el.title));
-  //     main.append(slider);
-  //   }
-  //   if (el.title === 'genres' && store.getState().user.personal.data) {
-  //     const slider: HTMLElement = addListenerCollection(renderSlider(genresData, el.displayedTitle, el.title));
-  //     main.append(slider);
-  //   }
-  //   if (el.title === 'top-10') {
-  //     const slider: HTMLElement = addListenerTop10(renderSlider(top10Data, el.displayedTitle, el.title));
-  //     main.append(slider);
-  //   }
-  // });
-
-  const accordionSection: HTMLElement = createElem('div', 'accordion-section');
-  const accordion: HTMLElement = createElem('div', 'accordion-container');
-  accordionSection.append(accordion);
-  Accordion(accordion, REFERENC_TITLE, REFERENC_DESCRIP);
-
-  // !store.getState().user.personal.data &&
-  //   main.append(renderDevices(), renderInfiniteGallery(galleryData), accordionSection, container);
+  if (store.getState().uiConfig.isAuth && store.getState().uiConfig.viewType === ViewType.USER) {
+    insertBefore({ nodes: sliderGenre, parentNode: main, siblingNumber: 6 });
+    insertBefore({ nodes: sliderTop10, parentNode: main, siblingNumber: 4 });
+  }
 
   store.subscribe(() => {
-    const userState = store.getState().user.personal;
-    // рендерятся блоки для неавторизованных пользователей
-    !userState.data && main.append(renderDevices(), renderInfiniteGallery(galleryData), accordionSection);
+    const state = store.getState();
+    const currentView = state.uiConfig.viewType;
+
+    // если текущий viewType совпадает с закешированным, значит слайдеры обновлять не надо
+    if (viewType === currentView) {
+      // если не изменяем вид, то ничего не делаем
+      return null;
+    }
+
+    const setSliders = state.sliders;
+
+    // Если баннеры загружены, значит отрисовываем их и актуализируем закешированный viewType
+    if (setSliders[currentView].length) {
+      renderSliders(main);
+
+      viewType = currentView;
+    }
+    return null;
   });
 
   return main;

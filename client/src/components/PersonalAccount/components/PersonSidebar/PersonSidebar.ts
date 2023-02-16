@@ -38,6 +38,7 @@ export const renderPersonSidebar = (): HTMLElement => {
     if (window.location.pathname === element.link) {
       link.classList.add('active-block');
     }
+
     item.append(link);
 
     item.onclick = linkHandler;

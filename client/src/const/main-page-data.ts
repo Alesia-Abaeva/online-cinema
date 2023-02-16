@@ -1,27 +1,20 @@
-// export const MAIN_SLIDERS = ['horror', 'turkey-serials', 'super-hero', 'new-shows'];
 export enum ViewType {
-  ALL = 'ALL',
   USER = 'USER',
   GUEST = 'GUEST',
   CHILD = 'CHILD',
 }
 
-export const SLIDERS = {
-  // вынести их этой переменной
-  [ViewType.ALL]: [
-    {
-      displayedTitle: 'Топ 10',
-      title: 'top-10',
-      url: '/slider/top-10',
-      // data: ///
-    },
-    {
-      displayedTitle: 'Жанры',
-      title: 'genres',
-      url: '/slider/genres',
-    },
-  ],
+export interface SlidersSetsData {
+  displayedTitle: string;
+  title: string;
+  url: string;
+}
 
+export type SlidersSets = {
+  [Propetry in ViewType]: SlidersSetsData[];
+};
+
+export const SLIDERS: SlidersSets = {
   [ViewType.USER]: [
     {
       displayedTitle: 'Новые сериалы',
@@ -103,6 +96,19 @@ export const SLIDERS = {
       url: '/slider/zero-age',
     },
   ],
+};
+
+export const DATA_MAIN = {
+  TOP10: {
+    displayedTitle: 'Топ 10',
+    title: 'top-10',
+    url: '/slider/top-10',
+  },
+  GENRE: {
+    displayedTitle: 'Жанры',
+    title: 'genres',
+    url: '/slider/genres',
+  },
 };
 
 export const SLIDERS_ORDER = [

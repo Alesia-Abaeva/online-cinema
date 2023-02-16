@@ -2,13 +2,15 @@ import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { login } from 'src/logic/redux/actions';
-import { setLocalStorage } from 'src/logic/local-storage/local-storage';
-import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+// import { setLocalStorage } from 'src/logic/local-storage/local-storage';
+// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { store, appDispatch } from 'src/logic/redux';
+import { route } from 'src/router/route';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
 import { mailIcon, passwordIcon } from '../../const/icons/icons';
 import styles from './Login.module.scss';
+
 // import { route } from 'src/router/route';
 
 export const renderLoginPage = (): HTMLElement => {
@@ -90,7 +92,8 @@ export const renderLoginPage = (): HTMLElement => {
   main.append(mainContainer);
 
   store.subscribe(() => {
-    const loginState = store.getState().auth.login;
+    const state = store.getState();
+    const loginState = state.auth.login;
 
     const loginLoading = loginState.isLoading;
     button.innerText = loginLoading ? 'Загрузка' : 'Войти';
@@ -101,9 +104,8 @@ export const renderLoginPage = (): HTMLElement => {
     } else {
       errorWrapp.style.visibility = 'hidden';
 
-      if (loginState.isAuth) {
-        setLocalStorage(loginState.data?.token as string, LOCAL_STORAGE_KEYS.TOKEN);
-        window.location.href = '/';
+      if (state.uiConfig.isAuth) {
+        route(`/`);
       }
     }
   });

@@ -25,7 +25,7 @@ export const updateUser = async (body: Partial<AuthGetPersonToken>) =>
 export const updateUserPass = async (body: Partial<AuthGetPersonToken>) =>
   backCall.put<Partial<AuthGetPersonToken>, { message: string }>(PERSON_DATA_PASS, body);
 
-export const updateUserParentsCntr = async (body: Partial<AuthGetPersonToken>) =>
+export const updateParentsControl = async (body: Partial<AuthGetPersonToken>) =>
   backCall.put<Partial<AuthGetPersonToken>, AuthGetPersonToken>(PERSON_DATA_PARENT, body);
 
 export const updateUserTariff = async (body: Partial<AuthGetPersonToken>) =>

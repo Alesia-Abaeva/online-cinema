@@ -7,13 +7,14 @@ import { arrowBtn } from '../Handlers/arrow-btn';
 import styles from './UserWatch.module.scss';
 
 // пустой контейнер
-export const renderUserWatchEmpty = (): HTMLElement => {
+export const renderUserWatchEmpty = (message?: string): HTMLElement => {
   const data: HTMLElement = createElem('div', 'profile-info__data');
   const dataTitle: HTMLElement = createElem('h2', 'profile-watch__title');
   dataTitle.innerHTML = 'Здесь пока ничего нет';
   const dataDescroption: HTMLElement = createElem('div', 'profile-watch__description');
-  dataDescroption.innerHTML =
-    'Фильмы и сериалы появятся автоматически — просто начните их смотреть. Или  нажмите на иконку';
+  dataDescroption.innerHTML = !message
+    ? 'Фильмы и сериалы появятся автоматически — просто начните их смотреть. Или  нажмите на иконку'
+    : message;
   const icon: HTMLElement = createElem('div', 'profile-watch__icon');
 
   data.append(dataTitle, dataDescroption, icon);

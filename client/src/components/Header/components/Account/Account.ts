@@ -30,22 +30,16 @@ export const renderAccountSectionHead = (): HTMLElement => {
     profileContainer.classList.remove('show__menu');
   };
 
-  accoutSection.append(store.getState().user.personal.data ? avatarCnt : loginBtn);
+  accoutSection.append(store.getState().uiConfig.isAuth ? avatarCnt : loginBtn);
 
   store.subscribe(() => {
-    const userState = store.getState().user.personal;
+    const { isAuth } = store.getState().uiConfig;
 
-    if (!userState.data) {
-      if (accoutSection.contains(avatarCnt)) {
-        accoutSection.removeChild(avatarCnt);
-      }
-      accoutSection.append(loginBtn);
-    } else {
-      if (accoutSection.contains(loginBtn)) {
-        accoutSection.removeChild(loginBtn);
-      }
-      accoutSection.append(avatarCnt);
+    if (!isAuth) {
+      return accoutSection.contains(avatarCnt) ? accoutSection.removeChild(avatarCnt) : accoutSection.append(loginBtn);
     }
+
+    return accoutSection.contains(loginBtn) ? accoutSection.removeChild(loginBtn) : accoutSection.append(avatarCnt);
   });
 
   return accoutSection;

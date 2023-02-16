@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { ViewType } from 'src/const/main-page-data';
-import { AuthTypes, UiConfigTypes, UserTypes } from './types-redux';
+import { AuthTypes, SliderType, UiConfigTypes, UserTypes } from './types-redux';
 
 // TODO:  вынести интерфейсы
 interface AuthState {
@@ -9,12 +9,21 @@ interface AuthState {
 }
 interface UiConfigState {
   viewType: ViewType;
+  isAuth: boolean;
 }
 
 interface UserState {
   personal: ApiResponse<AuthGetPersonToken>;
   password: ApiResponse<{ message: string }>;
 }
+
+type SliderState = {
+  [ViewType.USER]: ResponseFindedFullMovies[];
+  [ViewType.CHILD]: ResponseFindedFullMovies[];
+  [ViewType.GUEST]: ResponseFindedFullMovies[];
+  isLoading: boolean;
+  error: Nullable<ErrorMessage>;
+};
 
 const initialAuthState: AuthState = {
   login: { data: null, error: null, isLoading: false },
@@ -23,12 +32,23 @@ const initialAuthState: AuthState = {
 
 const initialUiConfigState: UiConfigState = {
   viewType: ViewType.GUEST,
+  isAuth: false,
 };
 
 const initialUserState: UserState = {
-  personal: { data: null, error: null, isLoading: false, isAuth: false },
+  personal: { data: null, error: null, isLoading: false },
   password: { data: null, error: null, isLoading: false },
 };
+
+const initialSliderState: SliderState = {
+  [ViewType.USER]: [],
+  [ViewType.CHILD]: [],
+  [ViewType.GUEST]: [],
+  isLoading: false,
+  error: null,
+};
+
+// ResponseFindedFullMovies
 
 const authReducer = (state = initialAuthState, action: TypesRedux) => {
   switch (action.type) {
@@ -47,8 +67,6 @@ const userReducer = (state = initialUserState, action: TypesRedux) => {
       return { ...state, personal: { ...state.personal, ...(action.payload as ApiResponse<AuthGetPersonToken>) } };
     case UserTypes.SET_PASS_INFO:
       return { ...state, password: { ...state.password, ...(action.payload as ApiResponse<{ message: string }>) } };
-    // case UserTypes.ERROR_PASS:
-    //   return { ...state, user: { ...state.user, error: action.payload as ErrorMessage } };
     default:
       return state;
   }
@@ -58,6 +76,20 @@ const uiConfigReducer = (state = initialUiConfigState, action: TypesRedux) => {
   switch (action.type) {
     case UiConfigTypes.SET_VIEW_TYPE:
       return { ...state, viewType: action.payload as ViewType };
+    case UiConfigTypes.SET_AUTH:
+      return {
+        ...state,
+        isAuth: action.payload as boolean,
+      };
+    default:
+      return state;
+  }
+};
+
+const sliderReducer = (state = initialSliderState, action: TypesRedux) => {
+  switch (action.type) {
+    case SliderType.SET_SLIDER:
+      return { ...state, ...(action.payload as ApiResponse<ResponseFindedFullMovies[]>) };
     default:
       return state;
   }
@@ -69,4 +101,5 @@ export const rootReducer = combineReducers({
   auth: authReducer,
   uiConfig: uiConfigReducer,
   user: userReducer,
+  sliders: sliderReducer,
 });

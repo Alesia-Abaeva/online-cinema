@@ -1,5 +1,4 @@
-// import { store } from 'src/logic/redux';
-// import { store } from 'src/logic/redux';
+import { NAVBAR_BTNS, NAVBAR_BTNS_AUTH } from 'src/const/nav-bar-btns';
 import { store } from 'src/logic/redux';
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
@@ -10,7 +9,21 @@ import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
 import { renderSearchBox } from '../SearchBar/components/SearchBox/SearchBox';
 import styles from './Navbar.module.scss';
 
-export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElement => {
+const renderNavBtns = (parent: HTMLElement) => {
+  const navBtns = store.getState().uiConfig.isAuth ? NAVBAR_BTNS_AUTH : NAVBAR_BTNS;
+
+  navBtns.forEach((el) => {
+    const li: HTMLElement = createElem('li', 'nav__list-item');
+
+    const a: HTMLElement = createLink(el.link, 'nav__list-link', false, el.text);
+    window.location.pathname === el.link && a.classList.add('nav__list-link_active');
+
+    li.append(a);
+    parent.append(li);
+  });
+};
+
+export const renderNavbar = (navType = ''): HTMLElement => {
   const navBar: HTMLElement = createElem('nav', styles[`${navType ? `${navType}-nav` : 'nav'}`]);
   // navBar.classList.add('skeleton');
 
@@ -18,18 +31,7 @@ export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElemen
 
   if (navType) navUl.classList.add(`nav__list_${navType}`);
 
-  navBtns.forEach((el) => {
-    const li: HTMLElement = createElem('li', 'nav__list-item');
-
-    li.id = el.id as string;
-    const a: HTMLElement = createLink(el.link, 'nav__list-link', false, el.text);
-    if (window.location.pathname === el.link) {
-      a.classList.add('nav__list-link_active');
-    }
-
-    li.append(a);
-    navUl.append(li);
-  });
+  renderNavBtns(navUl);
 
   navUl.onclick = linkHandler;
 
@@ -54,14 +56,9 @@ export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElemen
   navBar.append(navUl, navSearch);
 
   store.subscribe(() => {
-    const userState = store.getState().uiConfig;
-    // user.personal.data;
-    const pesronNav = document.getElementById('person-nav') as HTMLElement;
+    navUl.innerHTML = '';
 
-    // if (userState !== ) {
-    //   pesronNav.style.display = 'block';
-    // }
-    console.log(userState, pesronNav);
+    renderNavBtns(navUl);
   });
 
   return navBar;

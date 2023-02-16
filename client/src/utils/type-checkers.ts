@@ -1,5 +1,4 @@
 import { Iitem } from 'src/const/genres-data';
-import { IitemTop10 } from 'src/const/top10-data';
 
 export const isError = (
   obj: ErrorMessage | ResponseFindedMovies | ResponseMovie | ResponseFindedFullMovies

@@ -1,13 +1,6 @@
 import { num1, num2, num3, num4, num5, num6, num7, num8, num9, num10 } from './icons/icons-top10';
 
-export interface IitemTop10 {
-  id: number;
-  img: string;
-  displayedTitle: string;
-  numImg: string;
-}
-
-export const top10Data: IitemTop10[] = [
+export const TOP10: IitemTop10[] = [
   {
     id: 4426319,
     img: 'https://st.kp.yandex.net/images/film_iphone/iphone360_4426319.jpg',

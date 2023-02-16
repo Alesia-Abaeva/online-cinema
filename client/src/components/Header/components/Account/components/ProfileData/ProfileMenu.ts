@@ -1,8 +1,14 @@
-import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+// import { ViewType } from 'src/const/main-page-data';
 import { ViewType } from 'src/const/main-page-data';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch, store } from 'src/logic/redux';
-import { setViewType } from 'src/logic/redux/actions';
+import {
+  setLogoutState,
+  setUserInfo,
+  setViewType,
+  // setViewType
+} from 'src/logic/redux/actions';
 import { CHILD } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
@@ -46,13 +52,19 @@ export const renderProfileMenu = (): HTMLElement => {
   const avatarWrapperMenu: HTMLElement = renderAvatar();
 
   profileOut.onclick = () => {
-    localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
+    appDispatch(setLogoutState());
+
+    appDispatch(setUserInfo({ data: null }));
+
     appDispatch(setViewType(ViewType.GUEST));
-    window.location.reload();
+    route(`/`);
 
     // вышли из аккаунта
     // TODO: сделать всплывающее окно точно хотите выйти
   };
+  const userState = store.getState().user.personal;
+  personalName.innerHTML = userState.data?.name as string;
+  personalEmail.innerHTML = userState.data?.email as string;
 
   personalDataWpar.append(personalName, personalEmail);
   profileMenu.append(childeProfile, profileAccount, profileHistory, profileSet, subscribeAccount, profileOut);
@@ -60,14 +72,14 @@ export const renderProfileMenu = (): HTMLElement => {
   profileContainer.append(personalData, profileMenu);
 
   store.subscribe(() => {
-    const userState = store.getState().user.personal;
+    const currentUserState = store.getState().user.personal;
 
-    if (userState.data !== null) {
-      personalName.innerHTML = userState.data?.name as string;
-      personalEmail.innerHTML = userState.data?.email as string;
+    if (currentUserState.data) {
+      personalName.innerHTML = currentUserState.data?.name as string;
+      personalEmail.innerHTML = currentUserState.data?.email as string;
     }
 
-    if (userState.data?.parentControls === CHILD) {
+    if (currentUserState.data?.parentControls === CHILD) {
       profileContainer.classList.remove('show__menu');
       // если кликаем на детский режим в меню, убираем меню
     }

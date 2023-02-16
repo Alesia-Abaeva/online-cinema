@@ -12,6 +12,7 @@ export enum UserTypes {
 
 export enum UiConfigTypes {
   SET_VIEW_TYPE = 'SET_VIEW_TYPE',
+  SET_AUTH = 'SET_AUTH',
 }
 
 export enum Modals {
@@ -20,3 +21,7 @@ export enum Modals {
 // тип для редакса
 export const CHILD = 'CHILD';
 export const PARENT = 'PARENT';
+
+export enum SliderType {
+  SET_SLIDER = 'SET_SLIDER',
+}

@@ -1,5 +1,4 @@
 import { Iitem } from 'src/const/genres-data';
-import { IitemTop10 } from 'src/const/top10-data';
 import { createElem } from 'src/utils/create-element';
 import { isGenres, isTop10 } from 'src/utils/type-checkers';
 import styles from './SliderItem.module.scss';
