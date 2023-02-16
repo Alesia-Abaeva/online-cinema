@@ -1,9 +1,9 @@
 @import '/src/theme/variable';
 
 .all-folders__folder {
-  height: 48px;
+  min-height: 48px;
   width: 100%;
-  min-width: 400px;
+  min-width: 500px;
   border-bottom: 1px solid var(--border-primary);
   cursor: pointer;
   display: flex;
@@ -62,5 +62,34 @@
   border-radius: 5px;
   &:hover {
     background-color: var(--bg-ternary);
+  }
+}
+
+@media (max-width: 550px) {
+  .all-folders__folder-actions {
+    margin-right: 0;
+  }
+
+  .all-folders__folder {
+    min-height: calc(48px * 1.5);
+    min-width: 400px;
+  }
+
+  .folder-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .all-folders__folder {
+    min-height: calc(48px * 1.5);
+    min-width: 350px;
+  }
+}
+
+@media (max-width: $iphoneSE) {
+  .all-folders__folder {
+    min-height: calc(48px * 1);
+    min-width: 330px;
   }
 }

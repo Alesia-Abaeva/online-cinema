@@ -23,7 +23,7 @@ export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
   amountOfFilms.innerHTML =
     folder.dataset.checked === 'true'
       ? `${tick}`
-      : `${el.films.length} ${formatRuWord(el.films.length, ['фильм', 'фильма', 'фильмов'])}`;
+      : `${el.films.length}&nbsp${formatRuWord(el.films.length, ['фильм', 'фильма', 'фильмов'])}`;
 
   const editCont: HTMLElement = createElem('div', 'all-folders__folder-edit');
   editCont.classList.add('icon-cont');

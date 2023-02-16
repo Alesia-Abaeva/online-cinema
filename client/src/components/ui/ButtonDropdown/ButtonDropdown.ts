@@ -28,7 +28,7 @@ export const renderButtonDropdown = (filmId: number): HTMLElement => {
         closeDropdown();
         const main = document.querySelector('.main') as HTMLElement;
         if (main) {
-          const { modalFragment, modal, overlay } = renderModal(renderAddToFolderModalContent(filmId));
+          const { modalFragment, modal, overlay } = renderModal(renderAddToFolderModalContent(filmId), 'modal_folders');
           main.append(modalFragment);
           setTimeout(() => toggleModal(modal, overlay), 0);
         }
