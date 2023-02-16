@@ -7,12 +7,16 @@ import { handleChangeFile } from '../../PersonSidebar';
 import styles from './UserAvatarData.module.scss';
 
 export const renderUserAvatarBlock = (): HTMLElement => {
+  const userData = store.getState().user.personal.data;
+
   const userAvatarCnt: HTMLElement = createElem('div', styles['profile-sidebar__user-avatar']);
 
-  const userCnt: HTMLElement = createElem('div', 'profile-sidebar__user-data'); // будет еще ФИО
+  const userCnt: HTMLElement = createElem('div', 'profile-sidebar__user-data');
   const userName: HTMLElement = createElem('span', 'profile-sidebar__user-name');
+  userName.innerHTML = userData?.name ? userData?.name : 'Самый анонимный аноним';
+
   const userEmail: HTMLElement = createElem('span', 'profile-sidebar__user-email');
-  // userEmail.innerHTML = store.getState().user.personal.data?.email as string;
+  userEmail.innerHTML = userData?.email ? userData?.email : 'Здесь будет ваша почта';
 
   // input
   const imgInputCnt: HTMLElement = createElem('div', 'user-avatar__ctn'); // контейнер для инпута и для лого
@@ -35,11 +39,7 @@ export const renderUserAvatarBlock = (): HTMLElement => {
   store.subscribe(() => {
     const userState = store.getState().user.personal;
 
-    // userState.data?.avatarUrl && (avatar.style.backgroundImage = userState.data?.avatarUrl);
-    // userEmail.innerHTML = store.getState().user.personal.data?.email as string;
-
     if (userState.data?.email) {
-      // userName.innerHTML = userState.data?.name as string;
       userEmail.innerHTML = userState.data?.email as string;
     }
 
