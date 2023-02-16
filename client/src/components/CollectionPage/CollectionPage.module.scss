@@ -15,11 +15,18 @@
     padding: 0 20px 20px 20px;
   }
   &__title {
+    cursor: pointer;
     padding-top: 30px;
     letter-spacing: -0.5px;
     font-size: 48px;
     line-height: 54px;
     margin-left: 20px;
+
+    svg {
+      transform: scale(2);
+      filter: invert(100%);
+      margin-right: 1rem;
+    }
   }
   &__list {
     display: grid;

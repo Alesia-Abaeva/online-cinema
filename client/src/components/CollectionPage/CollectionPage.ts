@@ -1,3 +1,4 @@
+import { arrowIcon } from 'src/const/icons/icons';
 import { createElem } from 'src/utils/create-element';
 import { renderPagination } from '../ui/Pagination/Pagination';
 import styles from './CollectionPage.module.scss';
@@ -12,7 +13,9 @@ export const renderCollection = (data: FindedMovies[], name: string, paginate: b
   const container: HTMLElement = createElem('div', 'collection__container');
   const title: HTMLElement = createElem('h1', 'collection__title');
 
-  name && (title.innerHTML = name);
+  title.onclick = () => window.history.back();
+
+  name && (title.innerHTML = `${arrowIcon}${name}`);
   const listCont = createElem('div', 'collection__list-container');
   listCont.id = 'list-container';
   const list: HTMLElement = renderCollectionFilms(data, paginate);

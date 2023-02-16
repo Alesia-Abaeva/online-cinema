@@ -6,12 +6,10 @@ export const renderCollectionFilms = (data: FindedMovies[], slices: boolean) => 
   const list: HTMLElement = createElem('div', 'collection__list');
 
   let renderData = JSON.parse(JSON.stringify(data)) as FindedMovies[];
-  console.log(slices);
   if (slices) {
     renderData = paginate(paginationState.page, paginationState.limit, data);
   }
 
-  console.log(renderData);
   renderData.forEach((elem) => {
     const img = createElem('img', 'collection__item__img') as HTMLImageElement;
     const url = `${

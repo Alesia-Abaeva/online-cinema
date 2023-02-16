@@ -1,3 +1,4 @@
+import { DEFAULT_FOLDERS } from 'src/const/default-folders';
 import { createElem } from 'src/utils/create-element';
 import { renderSlider } from '../MainPage/components/Slider/Slider';
 import { addListenerSlideDown } from '../MainPage/sliderActions';
@@ -16,10 +17,8 @@ export const renderPersonal = (
   if (folders) {
     folders.forEach((el) => {
       const sliderData = el.data;
-      let displayedTitle = 'Коллекция';
-      if (el.folderName === 'bookmarks') displayedTitle = 'Закладки';
-      else if (el.folderName === 'watched') displayedTitle = 'Просмотрено';
-      else if (el.folderName === 'watchedRecently') displayedTitle = 'Просмотрено недавано';
+      const keyword = el.folderName as DefaultFoldersNames;
+      const displayedTitle = DEFAULT_FOLDERS[keyword];
 
       const slider: HTMLElement = addListenerSlideDown(
         renderSlider(sliderData, displayedTitle, el.folderName),
