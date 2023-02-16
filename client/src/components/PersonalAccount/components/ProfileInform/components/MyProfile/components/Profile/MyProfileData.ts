@@ -80,15 +80,27 @@ export const renderProfileData = (): ReturnElements => {
     }
   };
 
+  const userData = store.getState().user.personal.data;
+
+  emailInput.value = userData?.email as string;
+  nameInput.value = userData?.name ? userData?.name : '';
+  lastnameInput.value = userData?.lastName ? userData.lastName : '';
+
   data.append(email, name, lastname, bntCtn);
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;
 
-    if (userState.data !== null) {
+    if (userState.data?.email) {
       emailInput.setAttribute('value', `${userState.data?.email}`);
+    }
+
+    if (userState.data?.name) {
       nameInput.setAttribute('value', `${userState.data?.name}`);
-      userState.data?.lastName && lastnameInput.setAttribute('value', `${userState.data?.lastName}`);
+    }
+
+    if (userState.data?.lastName) {
+      lastnameInput.setAttribute('value', `${userState.data.lastName}`);
     }
   });
 
