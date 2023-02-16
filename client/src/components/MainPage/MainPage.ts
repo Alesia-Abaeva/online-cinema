@@ -21,7 +21,7 @@ export const renderMainPage = (
   main.classList.add('main_banner');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
 
-  const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
+  const { container } = renderModal();
 
   const subsHero: HTMLElement = renderHeroSection();
   mainContainer.append(subsHero);
