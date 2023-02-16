@@ -3,3 +3,13 @@
 .personal {
   @include default-page-container;
 }
+
+.slider-empty {
+  display: flex;
+  flex-direction: column;
+  margin: 0 calc(2.5% + 15px);
+}
+
+#bookmarks {
+  margin-top: $header-height;
+}

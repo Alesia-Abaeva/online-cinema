@@ -31,7 +31,10 @@ export const renderMainPage = (
   SLIDERS_ORDER.forEach((el) => {
     const sliderData = data.find((item) => item.title === el.title);
     if (sliderData && !isError(sliderData.data)) {
-      const slider: HTMLElement = addListenerSlideDown(renderSlider(sliderData.data.docs, el.displayedTitle, el.title));
+      const slider: HTMLElement = addListenerSlideDown(
+        renderSlider(sliderData.data.docs, el.displayedTitle, el.title),
+        'slider'
+      );
       main.append(slider);
     }
     if (el.title === 'genres') {
