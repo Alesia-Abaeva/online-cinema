@@ -5,7 +5,7 @@ import { createElem } from 'src/utils/create-element';
 import { setPaginationBtns } from 'src/utils/set-paginaton-btns';
 import styles from './Pagination.module.scss';
 
-export const renderPagination = (updateFunc: () => void, query: boolean): HTMLElement => {
+export const renderPagination = (updateFunc: () => void, query: boolean, scroll: boolean): HTMLElement => {
   const pagination: HTMLElement = createElem('div', styles['paginaiton']);
 
   const prevBtn: HTMLElement = createButton(
@@ -20,7 +20,7 @@ export const renderPagination = (updateFunc: () => void, query: boolean): HTMLEl
       }
       paginationState.page--;
       updateFunc();
-      window.scrollTo(0, 0);
+      if (scroll) window.scrollTo(0, 0);
     },
     'pagination__btn'
   );
@@ -38,7 +38,7 @@ export const renderPagination = (updateFunc: () => void, query: boolean): HTMLEl
       }
       paginationState.page++;
       updateFunc();
-      window.scrollTo(0, 0);
+      if (scroll) window.scrollTo(0, 0);
     },
     'pagination__btn'
   );

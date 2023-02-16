@@ -29,14 +29,17 @@ export const renderSlider = (
 
   if (id === 'top-10') {
     const titleImg = createElem('div', 'slider__header__img');
+    header.classList.add('slider__header_disabled');
     header.append(titleImg);
   } else {
     header.innerHTML = slaiderName;
   }
+
   if (filmsData.length === 0) {
     const sliderEmpty = renderUserWatchEmpty(
       'Добавить можно нажав на ... на фильме или посмотрев его для недавно просмотренных'
     );
+    header.classList.add('slider__header_disabled');
     sliderEmpty.classList.add('slider-empty');
     slider.append(sliderEmpty);
   }

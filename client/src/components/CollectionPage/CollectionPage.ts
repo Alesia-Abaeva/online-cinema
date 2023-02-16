@@ -23,7 +23,7 @@ export const renderCollection = (data: FindedMovies[], name: string, paginate: b
   window.scrollTo(0, 0);
   container.append(title, listCont);
   if (paginate) {
-    const pagination = renderPagination(() => updateCollectionPageUI(data), false);
+    const pagination = renderPagination(() => updateCollectionPageUI(data), false, false);
     container.append(pagination);
   }
 

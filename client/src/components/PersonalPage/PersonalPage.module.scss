@@ -1,7 +1,7 @@
 @import '/src/theme/variable';
 
 .personal {
-  @include default-page-container;
+  margin-top: 2rem;
 }
 
 .slider-empty {
@@ -12,4 +12,15 @@
 
 #bookmarks {
   margin-top: $header-height;
+
+  .slider__header {
+    color: var(--text-primary);
+    &::after {
+      filter: var(--inverted-icon);
+    }
+  }
+}
+
+#watchedRecently {
+  padding-bottom: 4rem;
 }

@@ -30,7 +30,7 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
   });
 
   paginationState.total = listItems.item.total;
-  const pagination: HTMLElement = renderPagination(updateListPageUI, true);
+  const pagination: HTMLElement = renderPagination(updateListPageUI, true, true);
 
   litsContent.append(listHeader, progressBar, listItemsContainer, pagination);
 

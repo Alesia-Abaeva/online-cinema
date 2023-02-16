@@ -24,7 +24,7 @@
 
     svg {
       transform: scale(2);
-      filter: invert(100%);
+      filter: var(--inverted-icon);
       margin-right: 1rem;
     }
   }

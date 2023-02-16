@@ -28,6 +28,8 @@ export const renderMainPage = (
 
   main.append(mainContainer);
 
+  const slidersCont: HTMLElement = createElem('div', 'sliders-container');
+
   SLIDERS_ORDER.forEach((el) => {
     const sliderData = data.find((item) => item.title === el.title);
     if (sliderData && !isError(sliderData.data)) {
@@ -35,17 +37,18 @@ export const renderMainPage = (
         renderSlider(sliderData.data.docs, el.displayedTitle, el.title),
         'slider'
       );
-      main.append(slider);
+      slidersCont.append(slider);
     }
     if (el.title === 'genres') {
       const slider: HTMLElement = addListenerCollection(renderSlider(genresData, el.displayedTitle, el.title));
-      main.append(slider);
+      slidersCont.append(slider);
     }
     if (el.title === 'top-10') {
       const slider: HTMLElement = addListenerTop10(renderSlider(top10Data, el.displayedTitle, el.title));
-      main.append(slider);
+      slidersCont.append(slider);
     }
   });
+  main.append(slidersCont);
   const accordionSection: HTMLElement = createElem('div', 'accordion-section');
   const accordion: HTMLElement = createElem('div', 'accordion-container');
   accordionSection.append(accordion);

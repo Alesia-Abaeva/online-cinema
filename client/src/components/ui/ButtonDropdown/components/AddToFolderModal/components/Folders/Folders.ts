@@ -1,7 +1,7 @@
 import { store } from 'src/logic/redux';
 import { renderFolder } from '../Folder/Folder';
 
-export const renderFolders = (foldersCont: HTMLElement, filmId: number): void => {
+export const renderFolders = (foldersCont: HTMLElement, filmId: number | undefined): void => {
   const { data } = store.getState().auth.user;
   const userFolders = data ? data.userFolders : '';
   if (userFolders) {

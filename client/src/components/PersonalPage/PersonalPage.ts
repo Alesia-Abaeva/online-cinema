@@ -3,6 +3,7 @@ import { createElem } from 'src/utils/create-element';
 import { renderSlider } from '../MainPage/components/Slider/Slider';
 import { addListenerSlideDown } from '../MainPage/sliderActions';
 import { renderModal } from '../ui/ModalFilm/ModalFilm';
+import { renderUserFolders } from './components/UserFolders/UserFolders';
 import styles from './PersonalPage.module.scss';
 
 export const renderPersonal = (
@@ -10,9 +11,10 @@ export const renderPersonal = (
   userFolders: ResponseUserFolder[] | undefined
 ): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
-  console.log(folders, userFolders);
 
   const { container } = renderModal();
+
+  const slidersCont: HTMLElement = createElem('div', 'sliders-container');
 
   if (folders) {
     folders.forEach((el) => {
@@ -20,17 +22,24 @@ export const renderPersonal = (
       const keyword = el.folderName as DefaultFoldersNames;
       const displayedTitle = DEFAULT_FOLDERS[keyword];
 
+      const renderSliderData = sliderData.reverse().slice(0, 10);
       const slider: HTMLElement = addListenerSlideDown(
-        renderSlider(sliderData, displayedTitle, el.folderName),
+        renderSlider(renderSliderData, displayedTitle, el.folderName),
         'folder'
       );
-      if (el.folderName === 'bookmarks') slider.id = el.folderName;
-      main.append(slider);
+      slider.id = el.folderName;
+      slidersCont.append(slider);
     });
   }
 
+  main.append(slidersCont);
+
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['personal']);
+
+  const foldersCont: HTMLElement = renderUserFolders(userFolders);
+
+  mainContent.append(foldersCont);
   mainContainer.append(mainContent);
   main.append(mainContainer, container);
 

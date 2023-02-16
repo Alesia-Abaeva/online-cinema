@@ -6,11 +6,12 @@ import { formatRuWord } from 'src/utils/formatRUWorld';
 import { enableEditForm } from '../../Handlers/enableEditForm';
 import styles from './Folder.module.scss';
 
-export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
+export const renderFolder = (el: UserFolder, filmId: number | undefined): HTMLElement => {
   const folder: HTMLElement = createElem('div', styles['all-folders__folder']);
   folder.dataset.id = el._id.toString();
-
-  folder.dataset.checked = el.films.indexOf(filmId) !== -1 ? 'true' : 'false';
+  if (filmId) {
+    folder.dataset.checked = el.films.indexOf(filmId) !== -1 ? 'true' : 'false';
+  }
   folder.dataset.length = el.films.length.toString();
 
   const folderTitle: HTMLElement = createElem('p', 'all-folders__folder-title');
@@ -29,7 +30,7 @@ export const renderFolder = (el: UserFolder, filmId: number): HTMLElement => {
   editCont.classList.add('icon-cont');
   editCont.innerHTML = `${editIcon}`;
 
-  editCont.onclick = (e: Event) => {
+  editCont.onclick = () => {
     enableEditForm(el.displayedName, el._id);
   };
 

@@ -8,7 +8,7 @@ import styles from './AddToFolderModal.module.scss';
 import { renderFolderActions } from './components/FolderActions/FolderActions';
 import { renderFolders } from './components/Folders/Folders';
 
-export const renderAddToFolderModalContent = (filmId: number): HTMLElement => {
+export const renderAddToFolderModalContent = (filmId: number | undefined): HTMLElement => {
   const modalAddToFolder: HTMLElement = createElem('div', 'add-to-folder-modal');
 
   const title: HTMLElement = createElem('h2', styles['add-to-folder-modal__title']);
@@ -39,9 +39,11 @@ export const renderAddToFolderModalContent = (filmId: number): HTMLElement => {
   saveFoldersBntCtn.append(bntSaveData);
 
   allFoldersCont.onclick = (e: Event) => {
-    const target = e.target as HTMLElement;
-    if (target.classList.contains('all-folders__folder') && target.dataset.id) {
-      handleUpdateUserFolders({ id: +target.dataset.id, filmId });
+    if (filmId) {
+      const target = e.target as HTMLElement;
+      if (target.classList.contains('all-folders__folder') && target.dataset.id) {
+        handleUpdateUserFolders({ id: +target.dataset.id, filmId });
+      }
     }
   };
 
