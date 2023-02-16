@@ -1,7 +1,8 @@
 import { dataPersonHandler, loginHandler, registerHandler, updateUserPass } from 'src/api/back/auth';
+import { ViewType } from 'src/const/main-page-data';
 // import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { AppDispatch } from '.';
-import { AuthTypes, Modals, UiConfigTypes, UserTypes } from './types-redux';
+import { AuthTypes, UiConfigTypes, UserTypes } from './types-redux';
 
 // Здесь будут храниться функции, которые создают определенные action
 
@@ -33,18 +34,19 @@ export const setPasswordInfo = (payload: ApiResponse<{ message: string }>) => {
   };
 };
 
-// export const setPasswordError = (payload: Nullable<ErrorMessage>) => {
-//   return {
-//     type: AuthTypes.ERROR_PASS,
-//     payload,
-//   };
-// };
+export const setViewType = (payload: ViewType) => {
+  return {
+    type: UiConfigTypes.SET_VIEW_TYPE,
+    payload,
+  };
+};
 
 export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
   try {
     dispatch(setLoginInfo({ isLoading: true }));
     const { data } = await loginHandler(body);
     dispatch(setLoginInfo({ error: null, data, isLoading: false, isAuth: true }));
+    dispatch(setViewType(ViewType.USER));
   } catch (e) {
     dispatch(setLoginInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
@@ -55,6 +57,7 @@ export const register = (body: AuthRequest) => async (dispatch: AppDispatch) => 
     dispatch(setRegisterInfo({ isLoading: true }));
     const { data } = await registerHandler(body);
     dispatch(setRegisterInfo({ error: null, data, isLoading: false, isAuth: true }));
+    dispatch(setViewType(ViewType.USER));
   } catch (e) {
     dispatch(setRegisterInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
@@ -70,11 +73,6 @@ export const getDataPerson = () => async (dispatch: AppDispatch) => {
     // localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
   }
 };
-
-export const setModal = (payload: Nullable<Modals>) => ({
-  type: UiConfigTypes.SET_MODAL,
-  payload,
-});
 
 export const changePassword = (body: AuthGetPersonToken) => async (dispatch: AppDispatch) => {
   try {

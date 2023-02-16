@@ -12,6 +12,7 @@ export const renderUserAvatarBlock = (): HTMLElement => {
   const userCnt: HTMLElement = createElem('div', 'profile-sidebar__user-data'); // будет еще ФИО
   const userName: HTMLElement = createElem('span', 'profile-sidebar__user-name');
   const userEmail: HTMLElement = createElem('span', 'profile-sidebar__user-email');
+  // userEmail.innerHTML = store.getState().user.personal.data?.email as string;
 
   // input
   const imgInputCnt: HTMLElement = createElem('div', 'user-avatar__ctn'); // контейнер для инпута и для лого
@@ -33,11 +34,17 @@ export const renderUserAvatarBlock = (): HTMLElement => {
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;
-    userState.data?.avatarUrl && (avatar.style.backgroundImage = userState.data?.avatarUrl);
 
-    if (userState.data !== null) {
-      userName.innerHTML = userState.data?.name as string;
+    // userState.data?.avatarUrl && (avatar.style.backgroundImage = userState.data?.avatarUrl);
+    // userEmail.innerHTML = store.getState().user.personal.data?.email as string;
+
+    if (userState.data?.email) {
+      // userName.innerHTML = userState.data?.name as string;
       userEmail.innerHTML = userState.data?.email as string;
+    }
+
+    if (userState.data?.name) {
+      userName.innerHTML = userState.data?.name as string;
     }
   });
 

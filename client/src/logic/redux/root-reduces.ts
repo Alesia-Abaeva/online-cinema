@@ -1,14 +1,16 @@
-/* eslint-disable default-param-last */
 import { combineReducers } from 'redux';
-import { AuthTypes, Modals, UiConfigTypes, UserTypes } from './types-redux';
+import { ViewType } from 'src/const/main-page-data';
+import { AuthTypes, UiConfigTypes, UserTypes } from './types-redux';
 
-export interface AuthState {
+// TODO:  вынести интерфейсы
+interface AuthState {
   login: ApiResponse<AuthResponse>;
   register: ApiResponse<AuthResponse>;
 }
 interface UiConfigState {
-  modal: Nullable<Modals>;
+  viewType: ViewType;
 }
+
 interface UserState {
   personal: ApiResponse<AuthGetPersonToken>;
   password: ApiResponse<{ message: string }>;
@@ -20,7 +22,7 @@ const initialAuthState: AuthState = {
 };
 
 const initialUiConfigState: UiConfigState = {
-  modal: null,
+  viewType: ViewType.GUEST,
 };
 
 const initialUserState: UserState = {
@@ -54,8 +56,8 @@ const userReducer = (state = initialUserState, action: TypesRedux) => {
 
 const uiConfigReducer = (state = initialUiConfigState, action: TypesRedux) => {
   switch (action.type) {
-    case UiConfigTypes.SET_MODAL:
-      return { ...state, modal: action.payload as Nullable<Modals> };
+    case UiConfigTypes.SET_VIEW_TYPE:
+      return { ...state, viewType: action.payload as ViewType };
     default:
       return state;
   }

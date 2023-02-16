@@ -1,15 +1,21 @@
 import { handleChangeParentControl } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
+import { ViewType } from 'src/const/main-page-data';
 import { PATH_NAMES } from 'src/const/path-names';
-import { store } from 'src/logic/redux';
+import { appDispatch, store } from 'src/logic/redux';
+import { setViewType } from 'src/logic/redux/actions';
 import { CHILD, PARENT } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
+import user from 'assets/img/user.svg';
 import styles from './Avatar.module.scss';
 
 export const renderAvatar = (): HTMLElement => {
+  const userStateAvatar = store.getState().user.personal.data?.avatarUrl;
   const avatarWrap: HTMLElement = createElem('div', 'avatar__wrapper');
   const avatarCircle: HTMLElement = createElem('div', 'avatar__circle');
   const avatar: HTMLElement = createElem('div', styles['avatar__profile']);
+
+  avatar.style.backgroundImage = userStateAvatar ? `url(http://localhost:3000${userStateAvatar})` : `url(${user})`;
 
   avatarCircle.append(avatar);
   avatarWrap.append(avatarCircle);
@@ -42,9 +48,13 @@ export const renderChildAvatar = (text: string): HTMLElement => {
   ageCnt.append(age);
 
   avatarWrap.onclick = () => {
+    const isCurrentChild = store.getState().user.personal.data?.parentControls === CHILD;
+
     handleChangeParentControl({
-      parentControls: store.getState().user.personal.data?.parentControls === CHILD ? PARENT : CHILD,
+      parentControls: isCurrentChild ? PARENT : CHILD,
     });
+
+    appDispatch(setViewType(isCurrentChild ? ViewType.USER : ViewType.CHILD));
     route(PATH_NAMES.main);
   }; // обновили стейт
 
@@ -55,13 +65,11 @@ export const renderChildAvatar = (text: string): HTMLElement => {
 
     if (userState.data?.parentControls === CHILD) {
       avatar.classList.add('child-avatar-avtive');
-      // ageCnt.style.visibility = 'visible';
       avatarWrap.append(ageCnt);
       name.innerHTML = '';
     } else {
       name.innerHTML = text;
       avatar.classList.remove('child-avatar-avtive');
-      // ageCnt.style.visibility = 'hidden';
       ageCnt.innerHTML = '';
     }
   });

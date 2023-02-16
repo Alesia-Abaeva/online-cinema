@@ -13,14 +13,17 @@
   },
   "root": true,
   "rules": {
-    "import/no-unresolved": "off",
-    "import/extensions": "off",
-    "import/prefer-default-export": "off",
+    // default rules
+    "no-shadow": "off",
     "no-debugger": "off",
     "no-console": 0,
     "dot-notation": "off",
     "no-plusplus": "off",
     "class-methods-use-this": "off",
+    "no-unused-vars": "off",
+    "global-require": "off",
+    "no-return-await": "off",
+    "default-param-last": "off",
     "no-unused-expressions": [
       "error",
       { "allowShortCircuit": true, "allowTernary": true, "allowTaggedTemplates": true, "enforceForJSX": true }
@@ -31,15 +34,23 @@
         "endOfLine": "auto"
       }
     ],
+
+    // import rules
+    "import/order": "warn",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
         "devDependencies": true
       }
     ],
-    "global-require": "off",
+
+    // ts rules
     "@typescript-eslint/no-explicit-any": "error",
-    "no-return-await": "off"
+    "@typescript-eslint/no-shadow": "warn",
+    "@typescript-eslint/no-unused-vars": "warn"
   }
   // "settings": {
   //   "import/resolver": {

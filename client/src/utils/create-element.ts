@@ -5,3 +5,16 @@ export const createElem = (element: string, className: string): HTMLElement => {
 
   return createdElement;
 };
+
+/** Вставить элемент перед дочерним элементом родительского контейнера */
+export const insertBefore = ({
+  node,
+  siblingNumber,
+  parentNode,
+}: {
+  node: HTMLElement;
+  siblingNumber: number;
+  parentNode: HTMLElement;
+}) => {
+  parentNode.insertBefore(node, parentNode.childNodes[siblingNumber - 1]);
+};

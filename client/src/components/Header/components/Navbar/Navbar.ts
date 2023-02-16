@@ -1,5 +1,6 @@
 // import { store } from 'src/logic/redux';
 // import { store } from 'src/logic/redux';
+import { store } from 'src/logic/redux';
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { linkHandler } from '../../../../utils/link-handler';
@@ -52,14 +53,16 @@ export const rednerNavbar = (navBtns: NavbarBtns[], navType: string): HTMLElemen
 
   navBar.append(navUl, navSearch);
 
-  // store.subscribe(() => {
-  //   const userState = store.getState().user.personal.data;
-  //   const pesronNav = document.getElementById('person-nav') as HTMLElement;
+  store.subscribe(() => {
+    const userState = store.getState().uiConfig;
+    // user.personal.data;
+    const pesronNav = document.getElementById('person-nav') as HTMLElement;
 
-  //   if (userState && pesronNav) {
-  //     pesronNav.style.display = 'block';
-  //   }
-  // });
+    // if (userState !== ) {
+    //   pesronNav.style.display = 'block';
+    // }
+    console.log(userState, pesronNav);
+  });
 
   return navBar;
 };

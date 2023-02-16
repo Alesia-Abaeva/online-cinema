@@ -1,5 +1,10 @@
-import { NAVBAR_BTNS, NAVBAR_BTNS_AUTH } from 'src/const/nav-bar-btns';
+import {
+  NAVBAR_BTNS,
+  NAVBAR_BTNS_AUTH,
+  // NAVBAR_BTNS_AUTH
+} from 'src/const/nav-bar-btns';
 import { store } from 'src/logic/redux';
+// import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { renderAccountSectionHead } from './components/Account/Account';
@@ -25,22 +30,35 @@ export const renderHeader = (): HTMLElement => {
   const hamburger: HTMLElement = rednerHamburgerNavbar();
   const searchInput: HTMLElement = renderSearchBar();
 
-  store.subscribe(() => {
-    const userState = store.getState().user.personal;
+  headerContainer.append(
+    logo,
+    rednerNavbar(store.getState().user.personal.data ? NAVBAR_BTNS_AUTH : NAVBAR_BTNS, ''),
+    accoutSection,
+    hamburger,
+    searchInput
+  );
 
-    if (userState.isLoading) {
-      headerContainer.innerHTML = '';
-      headerContainer.append(logo, accoutSection, hamburger, searchInput);
-    }
+  // store.subscribe(() => {
+  //   const userState = store.getState().user.personal;
 
-    if (userState.data === null) {
-      headerContainer.innerHTML = '';
-      headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS, ''), accoutSection, hamburger, searchInput);
-    } else {
-      headerContainer.innerHTML = '';
-      headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS_AUTH, ''), accoutSection, hamburger, searchInput);
-    }
-  });
+  //   if (userState.isLoading) {
+  //     headerContainer.innerHTML = '';
+  //     headerContainer.append(logo, accoutSection, hamburger, searchInput);
+  //   }
+
+  //   // if (userState.data === null) {
+  //   //   headerContainer.innerHTML = '';
+  //   //   headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS, ''), accoutSection, hamburger, searchInput);
+  //   // } else {
+  //   //   headerContainer.innerHTML = '';
+  //   //   headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS_AUTH, ''), accoutSection, hamburger, searchInput);
+  //   // }
+
+  //   if (userState.data !== null) {
+  //     headerContainer.innerHTML = '';
+  //     headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS_AUTH, ''), accoutSection, hamburger, searchInput);
+  //   }
+  // });
 
   // const navBar = rednerNavbar(store.getState().user.personal.data ? NAVBAR_BTNS_AUTH : NAVBAR_BTNS, '');
   // const navBar = rednerNavbar(NAVBAR_BTNS_AUTH, '');

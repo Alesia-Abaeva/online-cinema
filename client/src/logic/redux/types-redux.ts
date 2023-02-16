@@ -1,5 +1,3 @@
-/* eslint-disable no-shadow */
-
 export enum AuthTypes {
   INIT = 'INIT',
   LOGIN = 'LOGIN',
@@ -13,7 +11,7 @@ export enum UserTypes {
 }
 
 export enum UiConfigTypes {
-  SET_MODAL = 'SET_MODAL',
+  SET_VIEW_TYPE = 'SET_VIEW_TYPE',
 }
 
 export enum Modals {

@@ -1,6 +1,8 @@
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+import { ViewType } from 'src/const/main-page-data';
 import { PATH_NAMES } from 'src/const/path-names';
-import { store } from 'src/logic/redux';
+import { appDispatch, store } from 'src/logic/redux';
+import { setViewType } from 'src/logic/redux/actions';
 import { CHILD } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
@@ -45,7 +47,9 @@ export const renderProfileMenu = (): HTMLElement => {
 
   profileOut.onclick = () => {
     localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
+    appDispatch(setViewType(ViewType.GUEST));
     window.location.reload();
+
     // вышли из аккаунта
     // TODO: сделать всплывающее окно точно хотите выйти
   };
