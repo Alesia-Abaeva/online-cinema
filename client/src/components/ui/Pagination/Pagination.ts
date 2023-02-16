@@ -51,6 +51,7 @@ export const renderPagination = (updateFunc: () => void, query: boolean, scroll:
       setPaginationBtns(prevBtn, nextBtn, curPageOpt.page, curPageOpt.limit, paginationState.total);
     }
   } else {
+    console.log(paginationState);
     setPaginationBtns(prevBtn, nextBtn, paginationState.page, paginationState.limit, paginationState.total);
   }
 

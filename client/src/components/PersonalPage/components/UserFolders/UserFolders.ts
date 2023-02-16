@@ -52,28 +52,31 @@ export const renderUserFolders = (userFoldersData: ResponseUserFolder[] | undefi
   const pagination = renderPagination(() => updateUserFoldersUI(userFoldersData), false, false);
 
   store.subscribe(async () => {
-    const res = await getPersonalData();
-    if (res) {
-      const newFolderData = res.userFoldersData;
-      paginationState.page = 1;
-      paginationState.limit = 8;
-      const sliced = paginate(
-        paginationState.page,
-        paginationState.limit,
-        newFolderData
-      ) as unknown as ResponseUserFolder[];
-      paginationState.total = newFolderData.length;
+    if (window.location.pathname === '/personal') {
+      const res = await getPersonalData();
+      if (res) {
+        console.log('here');
+        const newFolderData = res.userFoldersData;
+        paginationState.page = 1;
+        paginationState.limit = 8;
+        const sliced = paginate(
+          paginationState.page,
+          paginationState.limit,
+          newFolderData
+        ) as unknown as ResponseUserFolder[];
+        paginationState.total = newFolderData.length;
 
-      foldersCont.innerHTML = '';
-      sliced.forEach((el) => {
-        const folder: HTMLElement = renderUserFolder(el);
-        foldersCont.append(folder);
-      });
+        foldersCont.innerHTML = '';
+        sliced.forEach((el) => {
+          const folder: HTMLElement = renderUserFolder(el);
+          foldersCont.append(folder);
+        });
 
-      const prevBtn = document.getElementById('prev') as HTMLElement;
-      const nextBtn = document.getElementById('next') as HTMLElement;
+        const prevBtn = document.getElementById('prev') as HTMLElement;
+        const nextBtn = document.getElementById('next') as HTMLElement;
 
-      setPaginationBtns(prevBtn, nextBtn, paginationState.page, paginationState.limit, paginationState.total);
+        setPaginationBtns(prevBtn, nextBtn, paginationState.page, paginationState.limit, paginationState.total);
+      }
     }
   });
 
