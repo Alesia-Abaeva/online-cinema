@@ -11,6 +11,8 @@
 
 .subs-hero__contents-container {
   height: 56.25vw;
+  margin-top: $header-height;
+  max-height: 800px;
 }
 
 .subs-hero__title {
@@ -71,5 +73,19 @@
   .subs-hero__sub-title {
     margin: 0;
     width: 100%;
+  }
+
+  .subs-hero__contents-container {
+    height: 75vw;
+  }
+}
+
+@media (max-width: $iphoneXR) {
+  .subs-hero__contents-container {
+    height: 90vw;
+  }
+
+  .subs-hero__sub-title {
+    font-size: 1rem;
   }
 }

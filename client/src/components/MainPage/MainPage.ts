@@ -27,7 +27,7 @@ export const renderMainPage = (
   const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
   const subsHero: HTMLElement = renderHeroSection();
-  mainContainer.append(subsHero);
+  main.append(subsHero);
 
   main.append(mainContainer);
 

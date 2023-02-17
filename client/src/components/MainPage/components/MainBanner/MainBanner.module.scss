@@ -133,8 +133,9 @@
     &__content {
       justify-content: center;
     }
-    // &__background__gradient {
-    // }
+    &__background__gradient {
+      background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.82) 29%, rgba(0, 0, 0, 0) 50%);
+    }
   }
 }
 
