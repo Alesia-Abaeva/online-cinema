@@ -6,7 +6,7 @@ import {
   UPDATE_USER_FOLDER,
   UPDATE_USER_FOLDER_NAME,
 } from 'src/const/api/url';
-import { loadState } from 'src/logic/local-storage/local-storage';
+import { store } from 'src/logic/redux';
 import { backCall } from '../api';
 import { getMovie } from '../films';
 
@@ -32,14 +32,17 @@ export const getPersonalData = async (): Promise<
     }
   | undefined
 > => {
-  const peristedState = loadState();
+  const peristedState = store.getState().user.personal;
+
   let folders: FoldersType | undefined;
   let userFolders: UserFolder[] | undefined;
+
   if (peristedState) {
-    const { data } = peristedState.auth.user;
-    folders = data?.folders;
-    userFolders = data?.userFolders;
+    const dataUser = peristedState.data;
+    folders = dataUser?.folders;
+    userFolders = dataUser?.userFolders;
   }
+
   if (folders && userFolders) {
     const allFolders = Array.from(Object.entries(folders));
     const foldersData = await Promise.all(

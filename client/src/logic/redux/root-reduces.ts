@@ -3,11 +3,11 @@ import { ViewType } from 'src/const/main-page-data';
 import { AuthTypes, SliderType, UiConfigTypes, UserTypes } from './types-redux';
 
 // TODO:  вынести интерфейсы
-interface AuthState {
+export interface AuthState {
   login: ApiResponse<AuthResponse>;
   register: ApiResponse<AuthResponse>;
 }
-interface UiConfigState {
+export interface UiConfigState {
   viewType: ViewType;
   isAuth: boolean;
 }

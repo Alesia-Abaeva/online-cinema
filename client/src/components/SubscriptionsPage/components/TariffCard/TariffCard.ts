@@ -2,7 +2,6 @@ import { createButton } from 'src/components/ui/Button/Button';
 import { Tariff } from 'src/const/subscriptions-data';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
-import { renderCheckoutModalContent } from '../CheckoutModal/CheckoutModal';
 import { toggleModal } from '../../../ui/Modal/ToggleModal';
 import styles from './TariffCard.module.scss';
 
