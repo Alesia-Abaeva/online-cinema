@@ -49,7 +49,7 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
   const itemRatingCont: HTMLElement = createElem('div', 'list-item__rating-cont');
   const itemRating: HTMLElement = createElem('p', 'rating');
   itemRating.innerHTML = ratingValue.toFixed(1);
-  setRatingColor(itemRating, ratingValue);
+  setRatingColor(itemRating, ratingValue, 'text');
   itemRatingCont.append(itemRating);
 
   const itemControls: HTMLElement = createElem('div', 'list-item__controls');

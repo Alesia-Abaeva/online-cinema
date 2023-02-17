@@ -7,7 +7,7 @@ export const renderRating = (rating: number): HTMLElement => {
   itemRating.classList.add('rating_bg');
   itemRating.innerHTML = rating.toFixed(1);
 
-  setRatingColor(itemRating, rating);
+  setRatingColor(itemRating, rating, 'text');
   itemRatingCont.append(itemRating);
   return itemRatingCont;
 };

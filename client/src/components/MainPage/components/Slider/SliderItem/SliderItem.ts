@@ -1,3 +1,4 @@
+import { setRatingColor } from 'src/components/ui/RatingColor/RatingColor';
 import { Iitem } from 'src/const/genres-data';
 import { IitemTop10 } from 'src/const/top10-data';
 import { createElem } from 'src/utils/create-element';
@@ -43,6 +44,7 @@ export const renderSliderItem = (movie: ResponseMovie | Iitem | IitemTop10): HTM
         ? movie.poster.previewUrl
         : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
     }`;
+    if (!movie.poster) image.style.filter = 'invert(100%)';
     image.src = url;
     item.dataset.id = `${movie.id}`;
     wrapper.append(image);
@@ -50,9 +52,11 @@ export const renderSliderItem = (movie: ResponseMovie | Iitem | IitemTop10): HTM
     if (movie.rating.kp) {
       const badget: HTMLElement = createElem('div', styles.sliderItem__badget);
       const badgetSpan: HTMLElement = createElem('span', styles.sliderItem__badget__raiting);
-      badgetSpan.innerHTML = movie.rating.kp ? movie.rating.kp.toFixed(1) : '';
-      badget.append(badgetSpan);
-      wrapper.append(badget);
+      const ratingValue = movie.rating.kp;
+      badgetSpan.innerHTML = ratingValue ? ratingValue.toFixed(1) : '';
+      const coloredBage: HTMLElement = setRatingColor(badget, ratingValue, 'background');
+      coloredBage.append(badgetSpan);
+      wrapper.append(coloredBage);
     }
 
     wrapper.style.aspectRatio = '9/13';
