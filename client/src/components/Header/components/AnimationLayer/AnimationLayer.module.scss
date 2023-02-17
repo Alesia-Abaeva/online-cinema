@@ -34,7 +34,9 @@
   top: 5px;
   left: 0;
   width: 100%;
+  min-width: 1040px;
   height: 100%;
+  overflow: visible;
 
   &__layer1,
   &__layer2,
@@ -42,7 +44,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size: contain;
     animation-duration: 8s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -52,17 +54,25 @@
 
   &__layer1 {
     background-image: url('../../../../assets/img/layer1.png');
-    background-repeat: no-repeat;
     animation-name: layer1animation;
   }
   &__layer2 {
     background-image: url('../../../../assets/img/layer2.png');
-    background-repeat: no-repeat;
     animation-name: layer2animation;
   }
   &__layer3 {
     background-image: url('../../../../assets/img/layer3.png');
-    background-repeat: no-repeat;
     animation-name: layer3animation;
+  }
+}
+
+@media (max-width: 1040px) {
+  .headerAnimation {
+    top: -10px;
+  }
+}
+@media (max-width: 600) {
+  .headerAnimation {
+    top: -15px;
   }
 }
