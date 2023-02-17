@@ -22,11 +22,11 @@ export const createBtnWatch = (filmId: number, filmImg: string) => {
   btnWatch.classList.add(`${styles.actionBtn__film}`, `${styles.actionBtn}`);
 
   btnWatch.onclick = () =>
-  /* eslint-disable */
+    /* eslint-disable */
     store.getState().user.personal.data
       ? store.getState().user.personal.data?.tariff === 'premium'
         ? addFilmModal(filmId, filmImg)
-        : route(PATH_NAMES.userSubscribe)
+        : route(PATH_NAMES.subscriptions)
       : route(PATH_NAMES.register);
   return btnWatch;
 };

@@ -1,5 +1,6 @@
 import { lists } from 'src/pages/lists';
 import { list } from 'src/pages/list';
+import { subscriptions } from 'src/pages/subscriptions';
 import { user, userPromo, userReference, userSettings, userSubscribe, userWatch } from 'src/pages/user-account';
 import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
@@ -16,7 +17,6 @@ import { register } from '../pages/register';
 import { film } from '../pages/film-page';
 import { PATH_NAMES } from './path-names';
 import { projectTitle } from './project-title';
-import { subscriptions } from 'src/pages/subscriptions';
 
 export const ROUTER_PATHS = (): Paths => ({
   [PATH_NAMES.loader]: {

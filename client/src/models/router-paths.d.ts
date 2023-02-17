@@ -5,7 +5,3 @@ interface Paths {
     title: string;
   };
 }
-
-interface PathNames {
-  [key: string]: string;
-}

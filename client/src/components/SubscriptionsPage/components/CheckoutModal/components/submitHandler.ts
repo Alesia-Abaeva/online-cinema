@@ -20,7 +20,7 @@ export const onSubmitCheckout = (e: Event): void => {
 
   if (validateCardNumber(cardNum) && validateExpDate(expNum) && validateCvc(paymentSystem, cardCvc)) {
     // render success page
-    const modal = document.querySelector('.checkout-modal') as HTMLElement;
+    const modal = document.querySelector('.checkout-modal-cont') as HTMLElement;
     modal.innerHTML = '';
     const heading: HTMLElement = createElem('h2', 'checkout-modal__heading');
     heading.style.marginTop = '2rem';
