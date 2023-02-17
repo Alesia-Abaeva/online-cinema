@@ -1,9 +1,11 @@
 import { createElem } from 'src/utils/create-element';
 import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-data';
-import { createBtnTrailer, createBtnBookmark, createBtnInterest, createBtnWatch } from '../../../../../ui/Buttons/Buttons';
+import { createBtnTrailer, createBtnInterest, createBtnWatch } from '../buttons/buttons';
 import styles from './AboutFilm.module.scss';
 
 export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
+  const btnSlice1 = createElem('div', styles.contentWrapper__actions__slice1);
+  const btnSlice2 = createElem('div', styles.contentWrapper__actions__slice2);
   const buttons: HTMLElement = createElem('div', styles.contentWrapper__actions);
   const content: HTMLElement = createElem('div', styles.contentWrapper);
 
@@ -11,7 +13,7 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
 
   const btnWatch = createBtnWatch(res.id, filmImg) as HTMLButtonElement;
   const btnTrailer = createBtnTrailer() as HTMLButtonElement;
-  const btnBookmark = createBtnBookmark() as HTMLButtonElement;
+  // const btnBookmark = createBtnBookmark() as HTMLButtonElement;
   const btnInterest = createBtnInterest(res.id) as HTMLButtonElement;
 
   const description = res.shortDescription ? res.shortDescription : res.description;
@@ -37,7 +39,7 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
       </div>
       <div class=${styles.contentWrapper__meta__main}>
         <div class=${styles.contentWrapper__year__genres}>
-          <span>${res.year ? res.year : ''},${res.genres[0] && res.genres[0].name ? res.genres[0].name : ''},${
+          <span>${res.year ? res.year : ''}, ${res.genres[0] && res.genres[0].name ? res.genres[0].name : ''}, ${
     res.genres[1] && res.genres[1].name ? res.genres[1].name : ''
   }</span>
           <span>${res.countries[0] && res.countries[0].name ? res.countries[0].name : ''}</span>
@@ -52,7 +54,10 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
   `;
 
   content.innerHTML = aboutFilmTemplate;
-  buttons.append(btnWatch, btnTrailer, btnBookmark, btnInterest);
+
+  btnSlice1.append(btnWatch);
+  btnSlice2.append(btnTrailer, btnInterest);
+  buttons.append(btnSlice1, btnSlice2);
   content.append(buttons);
 
   return content;

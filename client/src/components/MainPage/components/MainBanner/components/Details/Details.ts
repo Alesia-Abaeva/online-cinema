@@ -8,6 +8,8 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
   const raiting = res.rating.kp ? res.rating.kp.toFixed(1) : '';
   const votes = res.votes.kp ? res.votes.kp : 0;
 
+  const detailsLinkSvg = `<svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class=${styles.filmDetails__link__svg} fill="#fff" data-tid="9aedcbf3"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.501 3.664h11.834v11.833h-2V7.078L5 16.413l-1.414-1.414 9.335-9.335H4.5v-2Z"></path></svg>`;
+
   const createListItem = (text: string) => {
     const listItem = `<li  class=${styles.body__right__item}>${text}</li>`;
     return listItem;
@@ -23,11 +25,12 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
     .map((el) => el.name);
 
   const detailsTemplate = `
-  <div class=${styles.filmDetails__title}>
-    <h1>${title}</h1>
-  </div>
+
   <div class=${styles.filmDetails__body}>
   <div class=${styles.filmDetails__body__left}>
+  <div class=${styles.filmDetails__title}>
+  <h1>${title}</h1>
+</div>
   <div class=${styles.filmDetails__meta}>
   <div class=${styles.filmDetails__meta__base}>
     <div class=${styles.filmDetails__rating}>
@@ -41,18 +44,19 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
   </div>
 </div>
 <p class=${styles.filmDetails__description}>${description}</p>
+<a class=${styles.filmDetails__link} data-id=${res.id}>Подробнее на RS FILMS${detailsLinkSvg}</a>
   </div>
 <div class=${styles.filmDetails__body__right}>
   <div  class=${styles.body__right__container}>
     <div  class=${styles.body__right__block}>
       <div class=${styles.body__right__title}>В главных ролях</div>
-      <ul  class=${styles.body__right__list}>
+      <ul class=${styles.body__right__list}>
         ${actors.map((el) => createListItem(el)).join(' ')}
       </ul>
     </div>
     <div  class=${styles.body__right__block}>
-      <div  class=${styles.body__right__title}>Режиссёры</div>
-      <ul  class=${styles.body__right__list}>
+      <div class=${styles.body__right__title}>Режиссёры</div>
+      <ul class=${styles.body__right__list}>
         ${directors.map((el) => createListItem(el)).join(' ')}
       </ul>
     </div>

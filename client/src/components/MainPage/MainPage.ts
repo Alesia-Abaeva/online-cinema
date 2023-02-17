@@ -27,7 +27,7 @@ export const renderMainPage = (
   const { container } = renderModal();
 
   const subsHero: HTMLElement = renderHeroSection();
-  mainContainer.append(subsHero);
+  main.append(subsHero);
 
   main.append(mainContainer);
 

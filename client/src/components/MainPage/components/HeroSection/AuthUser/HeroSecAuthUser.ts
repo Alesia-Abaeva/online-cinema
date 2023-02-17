@@ -1,13 +1,16 @@
+import { randomMainFilms } from 'src/const/random-main-films';
 import { createElem } from 'src/utils/create-element';
+import { renderMainBanner } from '../../MainBanner/MainBanner';
+import styles from './HeroSecAuthUser.module.scss';
 
 export const renderHeroSectionAuthUser = (): HTMLElement => {
-  const container = createElem('div', 'subs-hero__contents-container');
+  const wrapper = createElem('div', styles['subs-hero__mainBanner']);
 
-  // TODO: Поменять текст на наш
-  const h1: HTMLElement = createElem('h1', 'subs-hero__title');
-  h1.innerHTML = 'Здесь будет блок с рандомным фильмом';
+  setTimeout(async () => {
+    const randomID = randomMainFilms[Math.floor(Math.random() * randomMainFilms.length)];
+    const banner = await renderMainBanner(`${randomID}`, false);
+    wrapper.append(banner);
+  }, 0);
 
-  container.append(h1);
-
-  return container;
+  return wrapper;
 };

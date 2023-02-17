@@ -7,25 +7,27 @@ import styles from './SliderItem.module.scss';
 export const renderSliderItem = (movie: ResponseMovie | Iitem | IitemTop10): HTMLElement => {
   const item: HTMLElement = createElem('div', styles.sliderItem);
   const wrapper: HTMLElement = createElem('div', styles.sliderItem__wrapper);
-  const image: HTMLImageElement = document.createElement('img');
-
-  const imgSvg: HTMLElement = createElem('div', styles.sliderItem__img__svg);
-
-  const imgContainer: HTMLElement = createElem('div', styles.sliderItem__img__container);
-
-  image.classList.add('sliderItem__image');
+  const image = createElem('img', styles.sliderItem__image) as HTMLImageElement;
 
   if (isTop10(movie)) {
+    const imgSvg: HTMLElement = createElem('div', styles.sliderItem__img__svg);
+    const imgTop10: HTMLImageElement = createElem('img', styles.sliderItem__img__top10) as HTMLImageElement;
+    const imgTop10Container: HTMLElement = createElem('div', styles.sliderItem__img__top10container);
+    const imgtop10wrapper: HTMLElement = createElem('div', styles.sliderItem__img__top10wrapper);
+
     item.classList.add('sliderItem__scale__behavior');
     const url = `${
       movie.img ? movie.img : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
     }`;
-    image.src = url;
-    image.classList.add('sliderItem__img__top10');
+
+    imgTop10.src = url;
     item.dataset.id = `${movie.id}`;
-    imgContainer.append(image);
+    imgTop10Container.append(imgTop10);
     imgSvg.innerHTML = movie.numImg;
-    wrapper.append(imgSvg, imgContainer);
+    imgtop10wrapper.append(imgSvg, imgTop10Container);
+    wrapper.append(imgtop10wrapper);
+
+    wrapper.style.aspectRatio = '12/9';
   } else if (isGenres(movie)) {
     const url = `${
       movie.img ? movie.img : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
@@ -33,6 +35,8 @@ export const renderSliderItem = (movie: ResponseMovie | Iitem | IitemTop10): HTM
     image.src = url;
     item.dataset.id = `${movie.id}`;
     wrapper.append(image);
+
+    wrapper.style.aspectRatio = '1.2/1';
   } else {
     const url = `${
       movie.poster
@@ -50,6 +54,8 @@ export const renderSliderItem = (movie: ResponseMovie | Iitem | IitemTop10): HTM
       badget.append(badgetSpan);
       wrapper.append(badget);
     }
+
+    wrapper.style.aspectRatio = '9/13';
   }
 
   item.append(wrapper);

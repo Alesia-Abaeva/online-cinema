@@ -1,0 +1,50 @@
+@import '/src/theme/variable';
+
+.toCoolectionItem {
+  display: flex;
+  position: relative;
+  width: var(--item-width);
+  max-width: var(--item-width);
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 8px;
+  outline: none;
+
+  &:hover {
+    scale: 1.07;
+    .toCoolectionItem__imageCircle {
+      background: #222;
+    }
+  }
+
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__image {
+    width: 98%;
+    height: 100%;
+    flex-direction: column;
+    @include flex-center;
+  }
+  &__imageCircle {
+    margin-bottom: 12px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(31, 31, 31, 0.95);
+    @include flex-center;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__imageText {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+  }
+}

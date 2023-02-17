@@ -5,6 +5,8 @@
   display: flex;
   flex-direction: column;
   padding: 72px 60px;
+  width: 100%;
+  height: 100%;
 
   &__title {
     position: relative;
@@ -15,7 +17,6 @@
 
     h1 {
       display: flex;
-      max-width: 260px;
       align-items: flex-end;
       max-height: 76px;
       height: 76px;
@@ -40,9 +41,12 @@
   &__body__left {
     display: flex;
     flex-direction: column;
-    max-width: 520px;
+    max-width: 700px;
   }
   &__body__right {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
     .body__right__container {
       display: flex;
       flex-direction: column;
@@ -85,12 +89,40 @@
   }
   &__description {
     display: -webkit-box;
-    -webkit-line-clamp: 13;
+    -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
     overflow: hidden;
     font-size: 18px;
     line-height: 28px;
     -webkit-text-size-adjust: 100%;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: fit-content;
+    text-decoration: none;
+    cursor: pointer;
+    color: hsla(0deg, 0%, 100%, 0.6);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    transition: 0.3s;
+    &:hover {
+      color: hsla(0deg, 0%, 100%, 0.8);
+    }
+    &:hover > svg {
+      fill: hsla(0deg, 0%, 100%, 0.8);
+      transform: rotate(45deg);
+    }
+
+    &__svg {
+      width: 20px;
+      height: 20px;
+      fill: hsla(0deg, 0%, 100%, 0.6);
+      margin-left: 10px;
+    }
   }
 
   &__rating {
@@ -104,6 +136,7 @@
     align-items: center;
     color: $apple-green;
     font-weight: 600;
+    margin-right: 10px;
   }
 
   &__rating__votes {
@@ -119,5 +152,57 @@
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .filmDetails {
+    &__body__left {
+      max-width: 600px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .filmDetails {
+    &__description {
+      -webkit-line-clamp: 7;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .filmDetails {
+    h1 {
+      line-height: 36px;
+    }
+    &__rating {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+    &__body__right {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .filmDetails {
+    padding: 60px 30px;
+    &__description {
+      -webkit-line-clamp: 7;
+    }
+    &__body__left {
+      max-width: 700px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .filmDetails {
+    &__body__left {
+      max-width: 100%;
+    }
   }
 }

@@ -57,6 +57,7 @@
     align-items: center;
     position: relative;
     padding: 16px 0px;
+    width: 100%;
   }
 
   &__wrapper:hover > button > svg {
@@ -64,12 +65,13 @@
   }
 
   &__wrapper:hover > .slider__items .item-opacity {
-    filter: brightness(0.4);
+    filter: brightness(0.3);
   }
 
   &__items {
     display: flex;
     align-items: center;
+    width: 100%;
   }
 
   .slider__btn__left {
