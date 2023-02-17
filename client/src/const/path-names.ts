@@ -22,4 +22,5 @@ export const PATH_NAMES: PathNames = {
   userSettings: '/user/settings',
   userReference: '/user/reference',
   userPromo: '/user/promo',
+  loader: '/loader',
 };

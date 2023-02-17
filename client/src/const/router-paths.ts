@@ -11,7 +11,7 @@ import { slider } from 'src/pages/slider';
 import { personal } from 'src/pages/personal';
 import { folder } from 'src/pages/folder';
 import { store } from 'src/logic/redux';
-import { notFound } from '../pages/404';
+import { loaderPage, notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
 import { register } from '../pages/register';
@@ -21,6 +21,10 @@ import { projectTitle } from './project-title';
 // import { LOCAL_STORAGE_KEYS } from './local-storage';
 
 export const ROUTER_PATHS = (): Paths => ({
+  [PATH_NAMES.loader]: {
+    template: loaderPage,
+    title: `loader | ${projectTitle}`,
+  },
   [PATH_NAMES.notFound]: {
     template: notFound,
     title: `404 | ${projectTitle}`,

@@ -16,7 +16,7 @@ const token = getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN);
 (async () => {
   try {
     // переход на загрулшку для ожидания загрузки контента
-    pathResolver(PATH_NAMES.notFound);
+    pathResolver(PATH_NAMES.loader);
 
     // загрузка контента
     token && (await appDispatch(getDataPerson(token)));
