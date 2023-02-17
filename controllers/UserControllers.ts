@@ -17,7 +17,7 @@ export const register = async (req: express.Request, res: express.Response) => {
       });
     }
 
-    const { email, password, name, tariff } = req.body;
+    const { email, password, name } = req.body;
 
     const candidate = await User.findOne({ email }); //прoверяем есть ли такой юзер уже
 
@@ -29,7 +29,13 @@ export const register = async (req: express.Request, res: express.Response) => {
 
     const hashedPassword = await bcrypt.hash(password, 12); //хэшируем пароль
 
-    const user = new User({ email, password: hashedPassword, name, tariff });
+    const user = new User({
+      email,
+      password: hashedPassword,
+      name,
+      tariff: "base",
+      parentControls: "PARENT",
+    });
 
     await user.save();
 

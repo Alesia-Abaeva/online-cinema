@@ -54,7 +54,10 @@ export const renderProfileData = (): ReturnElements => {
   lastnameInput.setAttribute('minLength', '2');
 
   const bntCtn: HTMLElement = createElem('div', 'profile__btn-save');
-  const bntSaveData: HTMLElement = createButton('сохранить', () => handleChangeUserData(dataPerson));
+  const bntSaveData: HTMLElement = createButton('сохранить', (event: Event) => {
+    event.preventDefault();
+    handleChangeUserData(dataPerson);
+  });
   bntSaveData.setAttribute('disabled', 'true');
   bntCtn.append(bntSaveData);
 

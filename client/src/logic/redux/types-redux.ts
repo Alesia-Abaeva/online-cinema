@@ -19,8 +19,11 @@ export enum Modals {
   FILM = 'FILM',
 }
 // тип для редакса
-export const CHILD = 'CHILD';
-export const PARENT = 'PARENT';
+
+export enum AgeTypes {
+  CHILD = 'CHILD',
+  PARENT = 'PARENT',
+}
 
 export enum SliderType {
   SET_SLIDER = 'SET_SLIDER',

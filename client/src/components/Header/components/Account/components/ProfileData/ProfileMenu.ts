@@ -9,7 +9,7 @@ import {
   setViewType,
   // setViewType
 } from 'src/logic/redux/actions';
-import { CHILD } from 'src/logic/redux/types-redux';
+import { AgeTypes } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
 import { renderAvatar, renderChildAvatar } from '../Avatar/Avatar';
@@ -29,6 +29,9 @@ export const renderProfileMenu = (): HTMLElement => {
   const childeProfileAvatar: HTMLElement = renderChildAvatar('Дети 12+');
   const childeProfile: HTMLElement = createElem('li', 'profile-menu__item');
   childeProfile.append(childeProfileAvatar);
+
+  // TODO: возможно вынести в компонент!
+  store.getState().user.personal.data?.tariff === 'premium' && profileMenu.append(childeProfile);
 
   const profileHistory: HTMLElement = createElem('li', 'profile-menu__item');
   profileHistory.innerHTML = 'История просмотра';
@@ -67,7 +70,14 @@ export const renderProfileMenu = (): HTMLElement => {
   personalEmail.innerHTML = userState.data?.email as string;
 
   personalDataWpar.append(personalName, personalEmail);
-  profileMenu.append(childeProfile, profileAccount, profileHistory, profileSet, subscribeAccount, profileOut);
+  profileMenu.append(
+    // childeProfile,
+    profileAccount,
+    profileHistory,
+    profileSet,
+    subscribeAccount,
+    profileOut
+  );
   personalData.append(personalDataWpar, avatarWrapperMenu);
   profileContainer.append(personalData, profileMenu);
 
@@ -79,7 +89,7 @@ export const renderProfileMenu = (): HTMLElement => {
       personalEmail.innerHTML = currentUserState.data?.email as string;
     }
 
-    if (currentUserState.data?.parentControls === CHILD) {
+    if (currentUserState.data?.parentControls === AgeTypes.CHILD) {
       profileContainer.classList.remove('show__menu');
       // если кликаем на детский режим в меню, убираем меню
     }

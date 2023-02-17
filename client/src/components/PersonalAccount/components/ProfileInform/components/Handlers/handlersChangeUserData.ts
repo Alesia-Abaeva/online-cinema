@@ -9,7 +9,7 @@ import { deleteUser, updateUser, updateUserTariff } from 'src/api/back/auth';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch } from 'src/logic/redux';
-import { changePassword, setUserInfo } from 'src/logic/redux/actions';
+import { setUserInfo } from 'src/logic/redux/actions';
 import { route } from 'src/router/route';
 
 export const handleChangeUserData = async (body: AuthGetPersonToken) => {
@@ -18,27 +18,6 @@ export const handleChangeUserData = async (body: AuthGetPersonToken) => {
     // удаляем пустые строчки
     const { data } = await updateUser(newBody);
     appDispatch(setUserInfo({ data }));
-  } catch (err) {
-    console.warn(err);
-  }
-};
-
-export const handleChangeUserPassword = async (body: AuthGetPersonToken, array: HTMLInputElement[]) => {
-  try {
-    await appDispatch(changePassword(body));
-
-    const success = document.querySelector('.change_password') as HTMLElement;
-    success.innerHTML = 'Данные успешно обновлены ＼(￣▽￣)／';
-    success.classList.add('active-pass-modal');
-    array.forEach((input) => {
-      /* eslint-disable */
-      input.value = '';
-    });
-
-    setTimeout(() => {
-      success.innerHTML = '';
-      success.classList.remove('active-pass-modal');
-    }, 2000); // показываем модалку
   } catch (err) {
     console.warn(err);
   }

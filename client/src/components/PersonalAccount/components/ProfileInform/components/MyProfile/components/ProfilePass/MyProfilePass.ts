@@ -1,10 +1,10 @@
 import { createButton } from 'src/components/ui/Button/Button';
 import { showPass } from 'src/const/icons/icons';
-import { store } from 'src/logic/redux';
+import { appDispatch, store } from 'src/logic/redux';
+import { changePassword } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
 import { changeInputType } from '../../../Handlers/changeTypesInput';
 import { createInputComponent } from '../../../Handlers/createInputeComponent';
-import { handleChangeUserPassword } from '../../../Handlers/handlersChangeUserData';
 
 export const renderProfileDataPass = (): ReturnElements => {
   const statePassword = {
@@ -75,10 +75,9 @@ export const renderProfileDataPass = (): ReturnElements => {
   (newPassIcon as HTMLElement).onclick = () => changeInputType(newPassInput);
   (newPassRepeatIcon as HTMLElement).onclick = () => changeInputType(newPassRepeatInput);
 
-  const arrInput = [newPassRepeatInput, passInput, newPassInput];
-
   const bntCtnPass: HTMLElement = createElem('div', 'profile__btn-save');
-  const bntSavePass: HTMLElement = createButton('сохранить', () => {
+  const bntSavePass: HTMLElement = createButton('сохранить', (event) => {
+    event.preventDefault();
     if (statePassword.newPassword !== statePassword.repeatPass) {
       newPassRepeatLabel.innerHTML = 'Данные не совпадают';
       newPassLabel.innerHTML = 'Данные не совпадают';
@@ -89,7 +88,7 @@ export const renderProfileDataPass = (): ReturnElements => {
       newPassLabel.innerHTML = 'Новый пароль';
       newPassRepet.classList.remove('invalide-data');
       newPass.classList.remove('invalide-data');
-      handleChangeUserPassword(statePassword, arrInput);
+      appDispatch(changePassword(statePassword));
     }
   });
   bntSavePass.setAttribute('disabled', 'true');
@@ -143,16 +142,32 @@ export const renderProfileDataPass = (): ReturnElements => {
   });
 
   store.subscribe(() => {
-    const passwordErrorState = store.getState().user.password.error;
-    console.log(passwordErrorState?.message);
+    const passwordState = store.getState().user.password;
 
-    if (passwordErrorState?.message) {
-      passLabel.innerHTML = (passwordErrorState as ErrorMessage).message;
-      pass.classList.add('invalide-data');
-    } else {
+    if (passwordState.error?.message) {
+      passLabel.innerHTML = passwordState.error.message;
+      return pass.classList.add('invalide-data');
+    }
+
+    if (passwordState.data?.message) {
+      const arrInput = [newPassRepeatInput, passInput, newPassInput];
+
       passLabel.innerHTML = 'Текущий пароль';
       pass.classList.remove('invalide-data');
+      success.innerHTML = 'Данные успешно обновлены ＼(￣▽￣)／';
+      success.classList.add('active-pass-modal');
+      arrInput.forEach((input) => {
+        // eslint-disable-next-line no-param-reassign
+        input.value = '';
+      });
+
+      setTimeout(() => {
+        success.innerHTML = '';
+        success.classList.remove('active-pass-modal');
+      }, 2000); // показываем модалку
+      return null;
     }
+    return null;
   });
 
   return { title, data };

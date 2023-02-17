@@ -10,7 +10,7 @@ import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { SLIDERS, SlidersSetsData, ViewType } from 'src/const/main-page-data';
 import { AppDispatch, RootState } from '.';
 import { setLocalStorage } from '../local-storage/local-storage';
-import { AuthTypes, CHILD, PARENT, SliderType, UiConfigTypes, UserTypes } from './types-redux';
+import { AgeTypes, AuthTypes, SliderType, UiConfigTypes, UserTypes } from './types-redux';
 
 // Здесь будут храниться функции, которые создают определенные action
 
@@ -80,7 +80,7 @@ export const getDataPerson = (token: string) => async (dispatch: AppDispatch) =>
     dispatch(setUserInfo({ isLoading: true }));
     const { data } = await dataPersonHandler();
     dispatch(setLoginState(token));
-    dispatch(setViewType(data.parentControls === PARENT ? ViewType.USER : ViewType.CHILD));
+    dispatch(setViewType(data.parentControls === AgeTypes.PARENT ? ViewType.USER : ViewType.CHILD));
     dispatch(setUserInfo({ error: null, data, isLoading: false }));
   } catch (e) {
     // remove key
@@ -119,7 +119,7 @@ export const register = (body: AuthRequest) => async (dispatch: AppDispatch) => 
 
 export const changePassword = (body: AuthGetPersonToken) => async (dispatch: AppDispatch) => {
   try {
-    dispatch(setPasswordInfo({ isLoading: true }));
+    dispatch(setPasswordInfo({ data: null, isLoading: true }));
     const { data } = await updateUserPass(body);
     dispatch(setPasswordInfo({ error: null, data, isLoading: false }));
   } catch (e) {
@@ -162,10 +162,10 @@ export const changeParentControl = () => async (dispatch: AppDispatch, getState:
     dispatch(setUserInfo({ isLoading: true }));
 
     const { data } = await updateParentsControl({
-      parentControls: viewType === ViewType.CHILD ? PARENT : CHILD,
+      parentControls: viewType === ViewType.CHILD ? AgeTypes.PARENT : AgeTypes.CHILD,
     });
 
-    const newViewType = data.parentControls === PARENT ? ViewType.USER : ViewType.CHILD;
+    const newViewType = data.parentControls === AgeTypes.PARENT ? ViewType.USER : ViewType.CHILD;
 
     dispatch(setUserInfo({ error: null, data, isLoading: false }));
     dispatch(setViewType(newViewType));
@@ -173,3 +173,5 @@ export const changeParentControl = () => async (dispatch: AppDispatch, getState:
     dispatch(setUserInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
 };
+
+// TODO: ПРИ РЕГИСТРАЦИИ СТАВИТЬ ДЕФОЛТНОЕ РОДИТЕЛЬСКОЕ ПОЛЕ

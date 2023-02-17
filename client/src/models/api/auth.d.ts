@@ -4,6 +4,7 @@ interface AuthRequest {
   name?: string;
   tariff?: string;
   promocode?: string[];
+  parentControls?: string;
 }
 
 interface AuthResponse {

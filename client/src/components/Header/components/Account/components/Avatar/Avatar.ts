@@ -2,7 +2,7 @@ import { ViewType } from 'src/const/main-page-data';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch, store } from 'src/logic/redux';
 import { changeParentControl } from 'src/logic/redux/actions';
-import { CHILD, PARENT } from 'src/logic/redux/types-redux';
+import { AgeTypes } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
 import user from 'assets/img/user.svg';
@@ -18,7 +18,7 @@ export const renderAvatar = (): HTMLElement => {
     ? `url(http://localhost:3000${userStateOnLoad.avatarUrl})`
     : `url(${user})`;
 
-  avatarWrap.style.display = userStateOnLoad?.parentControls === PARENT ? `flex` : `none`;
+  avatarWrap.style.display = userStateOnLoad?.parentControls === AgeTypes.PARENT ? `flex` : `none`;
 
   avatarCircle.append(avatar);
   avatarWrap.append(avatarCircle);
@@ -28,7 +28,7 @@ export const renderAvatar = (): HTMLElement => {
     userState.data?.avatarUrl &&
       (avatar.style.backgroundImage = `url(http://localhost:3000${userState.data?.avatarUrl})`);
 
-    if (userState.data?.parentControls === CHILD) {
+    if (userState.data?.parentControls === AgeTypes.CHILD) {
       avatarWrap.style.display = 'none';
     } else {
       avatarWrap.style.display = 'flex';
@@ -87,5 +87,8 @@ export const renderChildAvatar = (text: string): HTMLElement => {
 
     return null;
   });
+
+  store.getState().user.personal.data?.tariff === 'base' && (avatarWrap.innerHTML = '');
+
   return avatarWrap;
 };

@@ -4,6 +4,7 @@ import { createLink } from 'src/utils/create-link-element';
 import { setLocalStorage } from 'src/logic/local-storage/local-storage';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { linkHandler } from 'src/utils/link-handler';
+import { route } from 'src/router/route';
 import { createElem } from '../../utils/create-element';
 import { mailIcon, passwordIcon, userIcon } from '../../const/icons/icons';
 import { createButton } from '../ui/Button/Button';
@@ -15,7 +16,6 @@ export const renderRegisterPage = (): HTMLElement => {
     name: '',
     email: '',
     password: '',
-    tariff: 'base',
   };
 
   const main: HTMLElement = createElem('main', 'main');
@@ -86,7 +86,6 @@ export const renderRegisterPage = (): HTMLElement => {
           email: stateInput.email,
           password: stateInput.password,
           name: stateInput.name,
-          tariff: stateInput.tariff,
         })
       );
     },
@@ -101,7 +100,6 @@ export const renderRegisterPage = (): HTMLElement => {
           email: stateInput.email,
           password: stateInput.password,
           name: stateInput.name,
-          tariff: stateInput.tariff,
         })
       );
     }
@@ -114,10 +112,6 @@ export const renderRegisterPage = (): HTMLElement => {
   const registrationText = createElem('div', 'reg__text');
   registrationText.innerHTML = `Уже есть аккаунт?&nbsp `;
   registrationContainer.append(registrationText, registrationLink);
-
-  // form.addEventListener('keydown', (event: KeyboardEvent) => {
-  //   console.log(event.key);
-  // });
 
   form.append(wrapperEmail, wrapperName, wrapperPas);
   formContainer.append(logo, errorWrapp, form, button, registrationContainer);
@@ -138,7 +132,7 @@ export const renderRegisterPage = (): HTMLElement => {
       errorWrapp.style.visibility = 'hidden';
       if (regirterState.isAuth) {
         setLocalStorage(regirterState.data?.token as string, LOCAL_STORAGE_KEYS.TOKEN);
-        window.location.href = '/';
+        route(`/`);
       }
     }
   });

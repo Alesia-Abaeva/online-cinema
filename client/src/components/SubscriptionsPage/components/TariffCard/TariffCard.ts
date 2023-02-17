@@ -7,6 +7,7 @@ import { toggleModal } from '../../../ui/Modal/ToggleModal';
 import styles from './TariffCard.module.scss';
 
 export const renderTariffCard = (data: SubsctiptionsPlan, id: number, ids: string): HTMLElement => {
+  const stateTariff = store.getState().user.personal.data?.tariff;
   const tariffCard: HTMLElement = createElem('div', styles['tariff-card']);
   tariffCard.id = ids;
   const cardHeader: HTMLElement = createElem('div', 'tariff-card__header');
@@ -45,7 +46,45 @@ export const renderTariffCard = (data: SubsctiptionsPlan, id: number, ids: strin
     cardBenefit.innerHTML = el.title;
     cardList.append(cardBenefit);
   });
+
   tariffCard.append(cardHeader, cardBody, cardCost);
+
+  // TODO: ОПТИМИЗИРОВАТЬ!
+
+  if ((stateTariff === Tariff.BASE || !stateTariff) && tariffCard.id === Tariff.PREMIUM) {
+    // если у пользователя базовый тариф, рисуем кнопку оформить подписку
+    const cardBtn: HTMLElement = createButton(
+      'Оформить подиску',
+      (): void => {
+        const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
+        const modal = document.querySelector('.checkout-modal') as HTMLElement;
+        toggleModal(modal, overlay);
+      },
+      'tariff-card__btn'
+    );
+    tariffCard.append(cardBtn);
+  }
+
+  // если у пользователя базовый тариф, выделяем его
+  if (stateTariff === Tariff.BASE && tariffCard.id === Tariff.BASE) {
+    tariffCard.classList.add('active-base');
+    const message = createElem('div', 'tariff-card__premium');
+    message.innerHTML = 'Сейчас вы на этом тарифе (◕‿◕)';
+    tariffCard.append(message);
+  }
+
+  // если у пользователя премиум подписка, убираем тариф для всех
+  if (stateTariff === Tariff.PREMIUM && tariffCard.id === Tariff.BASE) {
+    tariffCard.classList.add('hide-tariff');
+  }
+
+  // если у пользователя премиум подписка
+  if (stateTariff === Tariff.PREMIUM && tariffCard.id === Tariff.PREMIUM) {
+    tariffCard.classList.add('active-tariff');
+    const message = createElem('div', 'tariff-card__premium');
+    message.innerHTML = '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧  Поздравляем , вы в премиуме!';
+    tariffCard.append(message);
+  }
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;
