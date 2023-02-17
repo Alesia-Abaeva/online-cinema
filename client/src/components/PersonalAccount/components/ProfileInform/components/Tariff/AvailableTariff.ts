@@ -4,7 +4,7 @@ import { arrowBtn } from '../Handlers/arrow-btn';
 import styles from './AvailableTariff.module.scss';
 
 export const renderAvailibleTariff = () => {
-  const userProfile: HTMLElement = createElem('div', 'profile-promo');
+  const userProfile: HTMLElement = createElem('div', 'profile-subscribe');
 
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Подсписки';

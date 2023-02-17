@@ -34,6 +34,7 @@
   position: relative;
 
   input {
+    font-size: 0.9rem;
     padding: 1rem;
     padding-left: 2.7rem;
     background-color: var(--crystalline-blur);
@@ -61,6 +62,7 @@
   margin-bottom: 1.5rem;
   color: var(--text-white);
   background-color: var(--blue);
+
   &:hover {
     background-color: var(--blue);
   }
@@ -71,7 +73,7 @@
 }
 
 .reg__container {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   display: flex;
   margin-bottom: 1rem;
 }
@@ -95,6 +97,7 @@
   background-color: $yandex-red;
   font-size: 0.7rem;
   text-align: center;
+
   @media (max-width: $phone-width) {
     width: 15rem;
   }

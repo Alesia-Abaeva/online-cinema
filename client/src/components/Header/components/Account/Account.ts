@@ -1,15 +1,13 @@
-// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
-import { renderAvatar } from './components/Avatar/Avatar';
-import styles from './Account.module.scss';
+import { renderAvatar, renderChildAvatar } from './components/Avatar/Avatar';
 import { renderProfileMenu } from './components/ProfileData/ProfileMenu';
+import styles from './Account.module.scss';
 
 export const renderAccountSectionHead = (): HTMLElement => {
   const accoutSection: HTMLElement = createElem('div', styles['header__account']);
-
   //   не авторизованный
   const loginBtn: HTMLElement = createElem('div', 'header__login');
   const loginLink: HTMLElement = createLink('/login', 'header__login-link', false, 'Войти');
@@ -19,10 +17,12 @@ export const renderAccountSectionHead = (): HTMLElement => {
   //   авторизованный
   const avatarCnt: HTMLElement = createElem('div', 'avatar__container');
   const avatarWrapperHeader: HTMLElement = renderAvatar();
-  const profileContainer: HTMLElement = renderProfileMenu();
-  avatarCnt.append(avatarWrapperHeader, profileContainer);
+  const avatarChildeWrapp: HTMLElement = renderChildAvatar('Дети');
 
-  avatarCnt.onmouseover = () => {
+  const profileContainer: HTMLElement = renderProfileMenu();
+  avatarCnt.append(avatarWrapperHeader, avatarChildeWrapp, profileContainer);
+
+  avatarWrapperHeader.onmouseover = () => {
     profileContainer.classList.add('show__menu');
   };
 
@@ -30,14 +30,16 @@ export const renderAccountSectionHead = (): HTMLElement => {
     profileContainer.classList.remove('show__menu');
   };
 
-  store.subscribe(() => {
-    const userState = store.getState().auth.user;
+  accoutSection.append(store.getState().uiConfig.isAuth ? avatarCnt : loginBtn);
 
-    if (userState.data === null) {
-      accoutSection.append(loginBtn);
-    } else {
-      accoutSection.append(avatarCnt);
+  store.subscribe(() => {
+    const { isAuth } = store.getState().uiConfig;
+
+    if (!isAuth) {
+      return accoutSection.contains(avatarCnt) ? accoutSection.removeChild(avatarCnt) : accoutSection.append(loginBtn);
     }
+
+    return accoutSection.contains(loginBtn) ? accoutSection.removeChild(loginBtn) : accoutSection.append(avatarCnt);
   });
 
   return accoutSection;

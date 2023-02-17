@@ -5,6 +5,8 @@ import styles from './ListsPage.module.scss';
 
 export const renderListsPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
+  main.classList.add('loader__main');
+
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['lists-page']);
 

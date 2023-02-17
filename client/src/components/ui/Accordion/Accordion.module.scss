@@ -32,17 +32,12 @@
   position: relative;
   &:hover {
     color: var(--text-contrast-reverse);
-    .show-descriptions {
-      &::after,
-      &::before {
-        transition: background-color 0.5s ease;
-        background-color: var(--text-contrast-reverse);
-      }
-    }
   }
 }
 
 .show-descriptions {
+  transition: transform 0.5s ease;
+
   &::after {
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
@@ -72,6 +67,7 @@
 .active-desc {
   &::after {
     transform: rotate(0deg);
+    transition: transform 0.5s ease;
   }
 }
 

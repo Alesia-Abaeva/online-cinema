@@ -1,6 +1,7 @@
 export const SUBSCRIPTION_PLANS: SubsctiptionsPlan[] = [
   {
     title: 'Для всех',
+    type: 'base',
     cost: 0,
     benefits: [
       { title: 'Поиск фильмов и сериалов', included: true },
@@ -13,6 +14,7 @@ export const SUBSCRIPTION_PLANS: SubsctiptionsPlan[] = [
   },
   {
     title: 'Премиум',
+    type: 'premium',
     cost: 169,
     benefits: [
       { title: 'Поиск фильмов и сериалов', included: true },
@@ -24,3 +26,9 @@ export const SUBSCRIPTION_PLANS: SubsctiptionsPlan[] = [
     ],
   },
 ];
+
+// eslint-disable-next-line no-shadow
+export enum Tariff {
+  BASE = 'base',
+  PREMIUM = 'premium',
+}

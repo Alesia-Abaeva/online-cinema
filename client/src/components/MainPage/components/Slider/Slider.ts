@@ -1,5 +1,4 @@
 import { createElem } from 'src/utils/create-element';
-import { IitemTop10 } from 'src/const/top10-data';
 import { renderUserWatchEmpty } from 'src/components/PersonalAccount/components/ProfileInform/components/UserWatch/UserWatch';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
@@ -35,7 +34,6 @@ export const renderSlider = (
   } else {
     header.innerHTML = slaiderName;
   }
-
 
   let totalSlides = filmsData.length;
 

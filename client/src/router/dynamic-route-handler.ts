@@ -11,7 +11,7 @@ export const dynamicRouteHandler = async (pathname: string, commonPath: string, 
     try {
       const item = await fetchData(options);
       if (!isError(item)) {
-        const route = ROUTER_PATHS[commonPath];
+        const route = ROUTER_PATHS()[commonPath];
         document.title = route.title;
         route.template({ item, pathname });
       } else {

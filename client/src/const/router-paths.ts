@@ -1,8 +1,8 @@
 import { lists } from 'src/pages/lists';
-import { getLocalStorage } from 'src/logic/local-storage/local-storage';
+// import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
 import { user, userPromo, userReference, userSettings, userSubscribe, userWatch } from 'src/pages/user-account';
-import { subscriptions } from 'src/pages/subscriptions';
+// import { subscriptions } from 'src/pages/subscriptions';
 import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
 import { authorized } from 'src/pages/authorized';
@@ -10,16 +10,21 @@ import { notauthorized } from 'src/pages/notauthorized';
 import { slider } from 'src/pages/slider';
 import { personal } from 'src/pages/personal';
 import { folder } from 'src/pages/folder';
-import { notFound } from '../pages/404';
+import { store } from 'src/logic/redux';
+import { loaderPage, notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { login } from '../pages/login';
 import { register } from '../pages/register';
 import { film } from '../pages/film-page';
 import { PATH_NAMES } from './path-names';
 import { projectTitle } from './project-title';
-import { LOCAL_STORAGE_KEYS } from './local-storage';
+// import { LOCAL_STORAGE_KEYS } from './local-storage';
 
-export const ROUTER_PATHS: Paths = {
+export const ROUTER_PATHS = (): Paths => ({
+  [PATH_NAMES.loader]: {
+    template: loaderPage,
+    title: `loader | ${projectTitle}`,
+  },
   [PATH_NAMES.notFound]: {
     template: notFound,
     title: `404 | ${projectTitle}`,
@@ -29,11 +34,12 @@ export const ROUTER_PATHS: Paths = {
     title: `${projectTitle}`,
   },
   [PATH_NAMES.login]: {
-    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? authorized : login,
+    template: store.getState().uiConfig.isAuth ? authorized : login,
     title: `login | ${projectTitle}`,
   },
   [PATH_NAMES.register]: {
-    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? authorized : register, // TODO: поставить страницу заглушки
+    template: store.getState().uiConfig.isAuth ? authorized : register,
+    // getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? authorized : register, // TODO: поставить страницу заглушки
     title: `register | ${projectTitle}`,
   },
   [PATH_NAMES.films]: {
@@ -53,29 +59,29 @@ export const ROUTER_PATHS: Paths = {
     title: `list | ${projectTitle}`,
   },
   [PATH_NAMES.user]: {
-    template: getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? user : notauthorized,
+    template: store.getState().uiConfig.isAuth ? user : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userWatch]: {
-    template: userWatch,
+    template: store.getState().uiConfig.isAuth ? userWatch : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userSettings]: {
-    template: userSettings,
+    template: store.getState().uiConfig.isAuth ? userSettings : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userPromo]: {
-    template: userPromo,
+    template: store.getState().uiConfig.isAuth ? userPromo : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userReference]: {
-    template: userReference,
+    template: store.getState().uiConfig.isAuth ? userReference : notauthorized,
     title: `user | ${projectTitle}`,
   },
-  [PATH_NAMES.subscriptions]: {
-    template: subscriptions,
-    title: `subscriptions | ${projectTitle}`,
-  },
+  // [PATH_NAMES.subscriptions]: {
+  //   template: subscriptions,
+  //   title: `subscriptions | ${projectTitle}`,
+  // },
   [PATH_NAMES.collection]: {
     template: collection,
     title: `collection | ${projectTitle}`,
@@ -93,7 +99,7 @@ export const ROUTER_PATHS: Paths = {
     title: `folder | ${projectTitle}`,
   },
   [PATH_NAMES.userSubscribe]: {
-    template: userSubscribe,
+    template: store.getState().uiConfig.isAuth ? userSubscribe : notauthorized,
     title: `collection | ${projectTitle}`,
   },
   [PATH_NAMES.authorized]: {
@@ -104,4 +110,4 @@ export const ROUTER_PATHS: Paths = {
     template: notauthorized,
     title: `notauthorized | ${projectTitle}`,
   },
-};
+});

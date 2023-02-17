@@ -36,3 +36,56 @@
     flex-direction: column;
   }
 }
+
+.active-tariff {
+  border: 5px solid $blue;
+  align-items: flex-start;
+  background-color: transparent;
+
+  .tariff-card__header {
+    align-items: flex-start;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  .tariff-card__cost {
+    text-align: right;
+  }
+
+  .tariff-card__premium {
+    margin-top: 2rem;
+    @include gradinent-text(var(--gradient-primary));
+    font-family: NetflixSans-Bold;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    text-align: center;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}
+
+.hide-tariff {
+  display: none;
+}
+
+.active-base {
+  // background-color: transparent;
+  border: 5px solid $blue;
+
+  .tariff-card__premium {
+    margin-top: 0.7rem;
+    @include gradinent-text(var(--gradient-primary));
+    font-family: NetflixSans-Bold;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-align: center;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}

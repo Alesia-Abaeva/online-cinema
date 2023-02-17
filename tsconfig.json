@@ -5,6 +5,8 @@
     "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "outDir": "dist",
     "typeRoots": ["./types", "./node_modules/@types"]
   },
