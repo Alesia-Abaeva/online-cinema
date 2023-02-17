@@ -1,5 +1,6 @@
 import { createElem } from 'src/utils/create-element';
 import { IitemTop10 } from 'src/const/top10-data';
+import { renderUserWatchEmpty } from 'src/components/PersonalAccount/components/ProfileInform/components/UserWatch/UserWatch';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
 import { createSliderBtn } from './SliderButton/SliderButton';
@@ -29,12 +30,24 @@ export const renderSlider = (
 
   if (id === 'top-10') {
     const titleImg = createElem('div', 'slider__header__img');
+    header.classList.add('slider__header_disabled');
     header.append(titleImg);
   } else {
     header.innerHTML = slaiderName;
   }
 
+
   let totalSlides = filmsData.length;
+
+  if (filmsData.length === 0) {
+    const sliderEmpty = renderUserWatchEmpty(
+      'Добавить можно нажав на ... на фильме или посмотрев его для недавно просмотренных'
+    );
+    header.classList.add('slider__header_disabled');
+    sliderEmpty.classList.add('slider-empty');
+    slider.append(sliderEmpty);
+  }
+
   const itemLeftPadding = 8;
   let position = 0;
   let itemWidth: number;

@@ -10,6 +10,11 @@ interface ListItems {
   pathname: string;
 }
 
+interface FolderItems {
+  item: ResponseFolder | ResponseUserFolder;
+  pathname: string;
+}
+
 interface FilmItems {
   item: ResponseMovie;
   pathname: string;

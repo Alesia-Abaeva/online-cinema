@@ -4,7 +4,7 @@ export const DEFAULT_OPTIONS: DefOptions = {
   sort: 'DEFAULT',
 };
 
-export const paginaitonState: ListPagination = {
+export const paginationState: ListPagination = {
   page: 1,
   limit: 10,
   total: 0,

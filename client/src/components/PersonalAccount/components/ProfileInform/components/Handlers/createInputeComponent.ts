@@ -6,6 +6,7 @@ export const createInputComponent = (data: InputComponent, hasIcon?: boolean, sv
   const label = createElem('label', 'profile__form-label');
   label.innerHTML = data.label;
   const input = createInputElement(data.attribute);
+  input.setAttribute('spellcheck', 'false');
 
   if (hasIcon) {
     const icon = createElem('div', 'icon__container');

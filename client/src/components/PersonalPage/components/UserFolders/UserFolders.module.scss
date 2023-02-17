@@ -1,0 +1,74 @@
+@import '/src/theme/variable';
+
+.personal__folders-cont {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  gap: 2rem;
+}
+
+.personal__folders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.personal__folders-actions {
+  @include flex-center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+
+  svg {
+    filter: var(--inverted-icon);
+  }
+
+  &:hover {
+    background-color: var(--bg-secondary);
+  }
+}
+
+@media (max-width: 1400px) {
+  .personal__folders-cont {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1325px) {
+  .personal__folders-cont {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1125px) {
+  .personal__folders-cont {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .personal__folders-cont {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .personal__folders-cont {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 510px) {
+  .personal__folders-cont {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .personal__folders-title {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,95 @@
+@import '/src/theme/variable';
+
+.add-to-folder-modal {
+  max-height: 1000px;
+}
+
+.add-to-folder-modal__title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.add-to-folder-modal__content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.all-folders {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.all-folders__title {
+  padding: 0.5rem;
+}
+
+.all-folders__cont {
+  overflow-y: scroll;
+  max-height: 390px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+@media (max-width: $tablet-width) {
+  .add-to-folder-modal__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .all-folders {
+    order: 2;
+  }
+
+  .add-to-folder-modal__title {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .add-to-folder-modal__title {
+    font-size: 1.5rem;
+  }
+
+  .modal_folders {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .add-to-folder-modal__title {
+    font-size: 2rem;
+  }
+
+  .add-to-folder-modal__content {
+    gap: 0rem;
+  }
+
+  .modal_folders {
+    padding: 1rem;
+  }
+
+  .all-folders__cont {
+    max-height: 240px;
+  }
+}
+
+@media (max-width: 450px) {
+  .add-to-folder-modal__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: $iphoneSE) {
+  .add-to-folder-modal__title {
+    font-size: 0.9rem;
+  }
+
+  .all-folders__cont {
+    max-height: 150px;
+  }
+}

@@ -1,0 +1,99 @@
+@import '/src/theme/variable';
+
+.user-folder {
+  @include flex-center;
+  aspect-ratio: 1/1;
+  height: auto;
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
+  border: 1px solid var(--border-primary);
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
+  text-decoration: none;
+  color: var(--text-primary);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.user-folder__title {
+  order: 2;
+  font-size: 1.3rem;
+  line-height: 120%;
+  text-align: center;
+}
+
+.user-folder__empty {
+  color: var(--text-secondary);
+}
+
+.user-folder__card-cont {
+  position: relative;
+  height: 65%;
+  width: 100%;
+}
+
+.user-folder__card {
+  height: 100%;
+  width: 43%;
+  object-fit: cover;
+  position: absolute;
+  left: 35%;
+  background-color: var(--bg-ternary);
+  border-radius: 25px;
+  border: 2px solid var(--text-ternary);
+}
+
+.user-folder__card_first {
+  left: 20%;
+  transform: rotate(-15deg);
+}
+
+.user-folder__card_second {
+  left: 27.5%;
+  transform: rotate(-5deg);
+}
+
+.user-folder__card_img {
+  transform: rotate(5deg) scale(1.05);
+  top: 5%;
+  border: 2px solid transparent;
+}
+
+.user-folder__film-counter-cont {
+  @include flex-center;
+  position: absolute;
+  left: 85%;
+  top: -8px;
+  background-color: var(--always-white);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: var(--always-black);
+  border-radius: 50%;
+  transform: rotate(1deg);
+  border: 1px solid var(--text-ternary);
+}
+
+@media (max-width: 1125px) {
+  .user-folder__title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 868px) {
+  .user-folder__title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 510px) {
+  .user-folder__title {
+    font-size: 1.5rem;
+  }
+}

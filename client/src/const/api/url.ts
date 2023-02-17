@@ -23,5 +23,9 @@ export const GET_COLLECTION = 'api/collections';
 export const PERSON_DATA_TARIFF = 'api/auth/person/tariff';
 export const PERSON_DELETE = 'api/auth/person/delete';
 export const UPDATE_FOLDER = 'api/auth/person/folders';
+export const CREATE_USER_FOLDER = 'api/auth/person/user-folders/create';
+export const UPDATE_USER_FOLDER = 'api/auth/person/user-folders/update';
+export const DELETE_USER_FOLDER = 'api/auth/person/user-folders/delete';
+export const UPDATE_USER_FOLDER_NAME = 'api/auth/person/user-folders/update-name';
 
 export const UPLOAD_IMG = 'upload';
