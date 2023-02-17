@@ -76,7 +76,7 @@ export const ROUTER_PATHS = (): Paths => ({
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.subscriptions]: {
-    template: subscriptions,
+    template: store.getState().uiConfig.isAuth ? subscriptions : notauthorized,
     title: `subscriptions | ${projectTitle}`,
   },
   [PATH_NAMES.collection]: {
@@ -88,7 +88,7 @@ export const ROUTER_PATHS = (): Paths => ({
     title: `slider | ${projectTitle}`,
   },
   [PATH_NAMES.personal]: {
-    template: personal,
+    template: store.getState().uiConfig.isAuth ? personal : notFound,
     title: `personal | ${projectTitle}`,
   },
   [PATH_NAMES.folder]: {
@@ -100,11 +100,12 @@ export const ROUTER_PATHS = (): Paths => ({
     title: `collection | ${projectTitle}`,
   },
   [PATH_NAMES.authorized]: {
-    template: authorized,
+    template: store.getState().uiConfig.isAuth ? notFound : authorized,
     title: `authorized | ${projectTitle}`,
   },
   [PATH_NAMES.notauthorized]: {
-    template: notauthorized,
+    template: store.getState().uiConfig.isAuth ? notauthorized : notFound,
+
     title: `notauthorized | ${projectTitle}`,
   },
 });
