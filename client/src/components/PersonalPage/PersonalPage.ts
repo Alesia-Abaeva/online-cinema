@@ -24,7 +24,7 @@ export const renderPersonal = (
 
       const renderSliderData = sliderData.reverse().slice(0, 10);
       const slider: HTMLElement = addListenerSlideDown(
-        renderSlider(renderSliderData, displayedTitle, el.folderName),
+        renderSlider(renderSliderData, displayedTitle, el.folderName, 'folder'),
         'folder'
       );
       slider.id = el.folderName;

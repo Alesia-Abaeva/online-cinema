@@ -10,7 +10,8 @@ import { renderToCoolectionItem } from './SliderItem/ToCoolectionItem/SliderItem
 export const renderSlider = (
   filmsData: ResponseMovie[] | Iitem[] | IitemTop10[],
   slaiderName: string,
-  id: string
+  id: string,
+  type: string
 ): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
   const header: HTMLElement = createElem('h3', styles.slider__header);
@@ -36,7 +37,6 @@ export const renderSlider = (
     header.innerHTML = slaiderName;
   }
 
-
   let totalSlides = filmsData.length;
 
   if (filmsData.length === 0) {
@@ -57,8 +57,8 @@ export const renderSlider = (
   const arr: ResponseMovie[] | Iitem[] | IitemTop10[] = filmsData.slice(0);
   arr.forEach((element) => items.append(renderSliderItem(element)));
 
-  if (id !== 'top-10' && id !== 'genres') {
-    items.append(renderToCoolectionItem(id));
+  if (id !== 'top-10' && id !== 'genres' && filmsData.length !== 0) {
+    items.append(renderToCoolectionItem(id, type));
     totalSlides += 1;
   }
 

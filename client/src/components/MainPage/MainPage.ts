@@ -37,17 +37,19 @@ export const renderMainPage = (
     const sliderData = data.find((item) => item.title === el.title);
     if (sliderData && !isError(sliderData.data)) {
       const slider: HTMLElement = addListenerSlideDown(
-        renderSlider(sliderData.data.docs, el.displayedTitle, el.title),
+        renderSlider(sliderData.data.docs, el.displayedTitle, el.title, 'slider'),
         'slider'
       );
       slidersCont.append(slider);
     }
     if (el.title === 'genres') {
-      const slider: HTMLElement = addListenerCollection(renderSlider(genresData, el.displayedTitle, el.title));
+      const slider: HTMLElement = addListenerCollection(
+        renderSlider(genresData, el.displayedTitle, el.title, 'slider')
+      );
       slidersCont.append(slider);
     }
     if (el.title === 'top-10') {
-      const slider: HTMLElement = addListenerTop10(renderSlider(top10Data, el.displayedTitle, el.title));
+      const slider: HTMLElement = addListenerTop10(renderSlider(top10Data, el.displayedTitle, el.title, 'slider'));
       slidersCont.append(slider);
     }
   });
