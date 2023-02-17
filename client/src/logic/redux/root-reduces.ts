@@ -2,13 +2,13 @@
 import { combineReducers } from 'redux';
 import { AuthTypes, Modals, UiConfigTypes } from './types-redux';
 
-interface AuthState {
+export interface AuthState {
   login: ApiResponse<AuthResponse>;
   register: ApiResponse<AuthResponse>;
   user: ApiResponse<AuthGetPersonToken>;
 }
 
-interface UiConfigState {
+export interface UiConfigState {
   modal: Nullable<Modals>;
 }
 

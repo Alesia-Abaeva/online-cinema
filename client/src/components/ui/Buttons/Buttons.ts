@@ -3,7 +3,6 @@ import { createButton } from 'src/components/ui/Button/Button';
 import { addFilmModal } from 'src/components/ui/ModalFilm/Handlers/show-hide-modal';
 import { bookmarkIcon, threeDotsIcon, watchFilmIcon } from 'src/const/icons/icons';
 import { createElem } from 'src/utils/create-element';
-import { removeOverlay } from 'src/utils/remove-overlay';
 import { renderButtonDropdown } from '../ButtonDropdown/ButtonDropdown';
 import { closeDropdown } from '../ButtonDropdown/Handlers/close-dropdown';
 import styles from './buttons.module.scss';
@@ -52,7 +51,6 @@ export const createBtnInterest = (filmId: number) => {
     wrapper.append(dropDown);
     const overlay = renderOverlay(() => {
       closeDropdown();
-      removeOverlay('dropdown-overlay');
     }, 'dropdown-overlay');
     wrapper.append(overlay);
   };

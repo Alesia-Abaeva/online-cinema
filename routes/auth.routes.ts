@@ -6,7 +6,7 @@ import {
   login,
   register,
   updateUser,
-  updateUserFolders,
+  updateFolders,
   updateUserParentsContr,
   updateUserPassword,
   updateUserTariff,
@@ -15,6 +15,12 @@ import {
   checkLoginData,
   checkRegisterData,
 } from '../middleware/validation.middelware';
+import {
+  createUserFolder,
+  deleteUserFolder,
+  updateUserFolder,
+  updateUserFolderName,
+} from '../controllers/FoldersController';
 
 export const router = Router();
 
@@ -43,4 +49,16 @@ router.put('/person/tariff', checkAuth, updateUserTariff);
 router.delete('/person/delete', checkAuth, deleteUser);
 
 // api/auth/person/folders
-router.put('/person/folders', checkAuth, updateUserFolders);
+router.put('/person/folders', checkAuth, updateFolders);
+
+// api/auth/person/user-folders/create
+router.put('/person/user-folders/create', checkAuth, createUserFolder);
+
+// api/auth/person/user-folders/delete
+router.put('/person/user-folders/delete', checkAuth, deleteUserFolder);
+
+// api/auth/person/user-folders/update-name
+router.put('/person/user-folders/update-name', checkAuth, updateUserFolderName);
+
+// api/auth/person/user-folders/update
+router.put('/person/user-folders/update', checkAuth, updateUserFolder);

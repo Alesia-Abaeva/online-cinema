@@ -257,7 +257,7 @@ export const deleteUser = async (
   }
 };
 
-export const updateUserFolders = async (
+export const updateFolders = async (
   req: express.Request,
   res: express.Response
 ) => {

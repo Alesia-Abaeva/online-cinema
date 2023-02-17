@@ -6,7 +6,7 @@ import { renderRating } from './components/Rating/Rating';
 import { getPersonsWithJob } from './Handlers/film-data-formaters';
 import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
 import { showCover } from './Handlers/showCover';
-import { createBtnInterest, createBtnWatch } from '../MainPage/components/MainBanner/components/buttons/buttons';
+import { createBtnInterest, createBtnWatch } from '../ui/Buttons/Buttons';
 import { renderModal } from '../ui/ModalFilm/ModalFilm';
 import styles from './FilmPage.module.scss';
 

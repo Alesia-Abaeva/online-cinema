@@ -1,16 +1,14 @@
 import { createElem } from 'src/utils/create-element';
-// import { handleChangeTariff } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
 import { countDateFromNow } from 'src/utils/count-date-from-now';
 import { createButton } from 'src/components/ui/Button/Button';
 import styles from './CheckoutModal.module.scss';
 import { renderCard } from './components/CreditCard/CreditCard';
-import { toggleModal } from './components/ToggleModal';
 import { onSubmitCheckout } from './components/submitHandler';
 
-export const renderCheckoutModal = (): HTMLElement => {
-  const modal: HTMLElement = createElem('div', styles['checkout-modal']);
+export const renderCheckoutModalContent = (): HTMLElement => {
+  const modalConent: HTMLElement = createElem('div', 'checkout-modal-cont');
 
-  const heading: HTMLElement = createElem('h2', 'checkout-modal__heading');
+  const heading: HTMLElement = createElem('h2', styles['checkout-modal__heading']);
   heading.innerHTML = 'Оформление подписки';
 
   const details: HTMLElement = createElem('div', 'checkout-modal__details');
@@ -26,16 +24,6 @@ export const renderCheckoutModal = (): HTMLElement => {
   details3.innerHTML = '. Можно отменить в любой момент';
   details.append(details1, details2, details3);
 
-  const closeModalBtn: HTMLElement = createElem('div', 'checkout-modal__close-btn');
-  const closeIcon: HTMLElement = createElem('p', 'checkout-modal__close-icon');
-  closeIcon.innerHTML = '╳';
-  closeModalBtn.append(closeIcon);
-
-  closeModalBtn.onclick = (): void => {
-    const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
-    toggleModal(modal, overlay);
-  };
-
   const checkoutForm: HTMLElement = createElem('form', 'checkout-modal__form');
   checkoutForm.setAttribute('autocomplete', 'on');
   checkoutForm.setAttribute('novalidate', 'true');
@@ -47,8 +35,8 @@ export const renderCheckoutModal = (): HTMLElement => {
   const card = renderCard();
 
   checkoutForm.append(card, paymentBtn);
-  modal.append(heading, details, closeModalBtn, checkoutForm);
+  modalConent.append(heading, details, checkoutForm);
 
   checkoutForm.onsubmit = onSubmitCheckout;
-  return modal;
+  return modalConent;
 };

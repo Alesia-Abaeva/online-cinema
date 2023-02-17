@@ -122,7 +122,7 @@ export const renderProfileDataPass = (): ReturnElements => {
 
   store.subscribe(() => {
     const userState = store.getState().auth.user.error;
-    console.log(userState?.message);
+    // console.log(userState?.message);
 
     if (userState?.message) {
       passLabel.innerHTML = (userState as ErrorMessage).message;

@@ -1,0 +1,26 @@
+@import '/src/theme/variable';
+
+.personal {
+  margin-top: 2rem;
+}
+
+.slider-empty {
+  display: flex;
+  flex-direction: column;
+  margin: 0 calc(2.5% + 15px);
+}
+
+#bookmarks {
+  margin-top: $header-height;
+
+  .slider__header {
+    color: var(--text-primary);
+    &::after {
+      filter: var(--inverted-icon);
+    }
+  }
+}
+
+#watchedRecently {
+  padding-bottom: 4rem;
+}

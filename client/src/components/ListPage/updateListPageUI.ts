@@ -1,6 +1,6 @@
 import { getList } from 'src/api/back/lists';
 import { ALL_LISTS } from 'src/const/all-lists';
-import { paginaitonState, sortState } from 'src/const/default-query-options';
+import { paginationState, sortState } from 'src/const/default-query-options';
 import { toQueryString } from 'src/router/to-query-string';
 import { extractAfterLastSlash } from 'src/utils/extract-after-last-slash';
 import { setPaginationBtns } from 'src/utils/set-paginaton-btns';
@@ -12,13 +12,13 @@ export const updateListPageUI = async () => {
   const { pathname } = window.location;
   const afterLastSlash = extractAfterLastSlash(pathname);
 
-  toQueryString({ page: paginaitonState.page, limit: paginaitonState.limit, sort: sortState.sort });
+  toQueryString({ page: paginationState.page, limit: paginationState.limit, sort: sortState.sort });
 
   if (afterLastSlash) {
     const res = await getList({
       id: afterLastSlash,
-      page: paginaitonState.page,
-      limit: paginaitonState.limit,
+      page: paginationState.page,
+      limit: paginationState.limit,
       sort: sortState.sort,
     });
     const listData = ALL_LISTS.find((el) => el.url === pathname);
@@ -28,13 +28,13 @@ export const updateListPageUI = async () => {
         item: res,
         pathname,
       };
-      if (res.docs.length === 0 && paginaitonState.page !== 1) {
-        paginaitonState.page--;
+      if (res.docs.length === 0 && paginationState.page !== 1) {
+        paginationState.page--;
         updateListPageUI();
         return;
       }
 
-      paginaitonState.total = res.total;
+      paginationState.total = res.total;
 
       const listCont = document.getElementById('list-content') as HTMLElement;
       listCont.innerHTML = '';
@@ -42,7 +42,8 @@ export const updateListPageUI = async () => {
 
       const prevBtn = document.getElementById('prev') as HTMLElement;
       const nextBtn = document.getElementById('next') as HTMLElement;
-      setPaginationBtns(prevBtn, nextBtn, paginaitonState.page, paginaitonState.limit, paginaitonState.total);
+
+      setPaginationBtns(prevBtn, nextBtn, paginationState.page, paginationState.limit, paginationState.total);
       const bubbleFilter = document.querySelector('.bubble-filter') as HTMLElement;
       updateBubbleFilter(bubbleFilter, sortState.sort);
     }
