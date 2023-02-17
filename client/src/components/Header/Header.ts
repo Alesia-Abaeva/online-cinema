@@ -3,6 +3,7 @@ import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { renderAccountSectionHead } from './components/Account/Account';
+import { renderHeaderAnimation } from './components/AnimationLayer/AnimationLayer';
 import { rednerHamburgerNavbar } from './components/HamburgerNavbar/HamburgerNavbar';
 import { rednerNavbar } from './components/Navbar/Navbar';
 import { renderSearchBar } from './components/SearchBar/SearchBar';
@@ -41,7 +42,7 @@ export const renderHeader = (): HTMLElement => {
     }
   });
 
-  header.append(headerContainer);
+  header.append(headerContainer, renderHeaderAnimation());
 
   return header;
 };
