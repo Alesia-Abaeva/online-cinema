@@ -76,7 +76,6 @@ export const eyeClosed = `<svg width="800px" height="800px" viewBox="0 0 20 20" 
 
 export const addToFolder = `<svg width="800px" height="800px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M128 192v640h768V320H485.76L357.504 192H128zm-32-64h287.872l128.384 128H928a32 32 0 0 1 32 32v576a32 32 0 0 1-32 32H96a32 32 0 0 1-32-32V160a32 32 0 0 1 32-32zm384 416V416h64v128h128v64H544v128h-64V608H352v-64h128z"/></svg>`;
 
-
 export const toColletion = `<svg width="2.4rem" height="2.4rem" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="arrow-icon" data-tid="2d894f95"><path fill-rule="evenodd" clip-rule="evenodd" d="m13.848 2.65 8.5 8.5.85.85-.85.848-8.5 8.5-1.697-1.697 6.452-6.452H2.5v-2.4h16.103L12.15 4.348l1.697-1.697Z" fill="#fff"></path></svg>`;
 
 export const folderIcon = `<svg class="folder-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px">    <path d="M 4 3 C 2.895 3 2 3.895 2 5 L 2 8 L 13 8 L 28 8 L 28 7 C 28 5.895 27.105 5 26 5 L 11.199219 5 L 10.582031 3.9707031 C 10.221031 3.3687031 9.5701875 3 8.8671875 3 L 4 3 z M 3 10 C 2.448 10 2 10.448 2 11 L 2 23 C 2 24.105 2.895 25 4 25 L 26 25 C 27.105 25 28 24.105 28 23 L 28 11 C 28 10.448 27.552 10 27 10 L 3 10 z"/></svg>`;
@@ -92,3 +91,13 @@ export const editIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" heig
 
 export const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m18.707 6.707-1.414-1.414L7 15.586V7H5v12h12v-2H8.414L18.707 6.707z"/></svg>`;
 
+export const playIcon = `<svg width="225" height="225" viewBox="0 0 225 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M75 63.9375V161.062C75 168.469 83.1562 172.969 89.4375 168.937L165.75 120.375C171.563 116.719 171.563 108.281 165.75 104.531L89.4375 56.0625C83.1562 52.0312 75 56.5312 75 63.9375Z" fill="url(#paint0_linear_6_2)"/>
+<defs>
+<linearGradient id="paint0_linear_6_2" x1="61" y1="112" x2="173" y2="112" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4776E6"/>
+<stop offset="0.515625" stop-color="#8E54E9"/>
+<stop offset="1" stop-color="#4776E6"/>
+</linearGradient>
+</defs>
+</svg>`;

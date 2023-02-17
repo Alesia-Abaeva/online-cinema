@@ -1,0 +1,29 @@
+@import '/src/theme/variable';
+
+#trailer-btn-video {
+  position: absolute;
+  z-index: -1;
+  width: 1024px;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  transform: scale(1);
+}
+
+.youtube-player {
+  position: relative;
+  width: 1024px;
+  height: auto;
+  aspect-ratio: 16/9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.youtube-player__main-play-icon {
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
+}

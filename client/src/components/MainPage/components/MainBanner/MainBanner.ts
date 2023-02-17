@@ -6,7 +6,11 @@ import { renderAboutFilm } from './components/ContentWrapper/AboutFilm';
 import styles from './MainBanner.module.scss';
 import { renderDetails } from './components/Details/Details';
 
-export const renderMainBanner = async (movieId: string, isTabs: boolean, type: string): Promise<HTMLElement> => {
+export const renderMainBanner = async (
+  movieId: string,
+  isTabs: boolean,
+  type: string | undefined
+): Promise<HTMLElement> => {
   const mainBanner: HTMLElement = createElem('div', styles.mainBanner);
   const wrapper: HTMLElement = createElem('div', styles.mainBanner__wrapper);
   const container: HTMLElement = createElem('div', styles.mainBanner__container);
@@ -20,11 +24,11 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type: s
   const res: ResponseMovie = await getMovie({ id: movieId });
 
   // render trailer div and timeout trailer
-  if (window.screen.width > 1000) {
+  if (window.screen.width > 1000 && type) {
     setTimeout(() => {
-      const trainerDiv: HTMLElement = document.createElement('div');
-      trainerDiv.id = type;
-      container.append(trainerDiv);
+      const trailerDiv: HTMLElement = document.createElement('div');
+      trailerDiv.id = type;
+      container.append(trailerDiv);
     }, 100);
 
     setTimeout(() => {

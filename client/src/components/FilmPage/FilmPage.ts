@@ -6,7 +6,7 @@ import { renderRating } from './components/Rating/Rating';
 import { getPersonsWithJob } from './Handlers/film-data-formaters';
 import { renderSimilarMovies } from './components/SimilarMovies/SimilarMovies';
 import { showCover } from './Handlers/showCover';
-import { createBtnInterest, createBtnWatch } from '../ui/Buttons/Buttons';
+import { createBtnInterest, createBtnTrailer, createBtnWatch } from '../ui/Buttons/Buttons';
 import { renderModal } from '../ui/ModalFilm/ModalFilm';
 import styles from './FilmPage.module.scss';
 
@@ -50,9 +50,10 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   const actionBtns: HTMLElement = createElem('div', 'id-page__action');
   const btnWatch = createBtnWatch(filmData.id, filmImg);
+  const trailerBtn = createBtnTrailer(filmData);
   const btnInterest = createBtnInterest(filmData.id);
 
-  actionBtns.append(btnWatch, btnInterest);
+  actionBtns.append(btnWatch, trailerBtn, btnInterest);
 
   const shortDescription: HTMLElement = createElem('div', 'id-page__short-desc');
   const shortDescriptionText: HTMLElement = createElem('p', 'id-page__desc-text');
