@@ -25,6 +25,7 @@
     right: 0;
     width: 100%;
     display: flex;
+    z-index: 4;
   }
 
   &__tabs {
@@ -40,6 +41,7 @@
     background-position: 100% 0;
     background-size: cover;
     position: relative;
+    z-index: 0;
 
     &__gradient {
       position: absolute;

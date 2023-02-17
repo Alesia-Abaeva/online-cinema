@@ -20,7 +20,8 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
 
   const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
-  if (window.screen.width > 1000) renderBackgroundPlayer(filmData, backdrop, mainContent);
+  if (window.screen.width > 1000)
+    renderBackgroundPlayer(filmData, 'video-player', showCover(filmData, backdrop, mainContent));
   else showCover(filmData, backdrop, mainContent)();
 
   // 1 column - poster

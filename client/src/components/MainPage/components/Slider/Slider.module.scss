@@ -83,8 +83,9 @@
   }
 }
 
-.sliders-container .slider:nth-of-type(1) {
-  background: linear-gradient(to top, var(--always-black) 0%, var(--always-black) 20%, transparent 100%);
+.sliders-container{
+  position: relative;
+  z-index: 3;
 }
 
 .slider {

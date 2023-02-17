@@ -89,7 +89,7 @@
   }
 
   &__actions {
-    margin-top: auto;
+    // margin-top: auto;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -133,6 +133,9 @@
         display: flex;
         justify-content: center;
       }
+    }
+    &__short__description {
+      text-align: center;
     }
     &__actions {
       justify-content: center;
