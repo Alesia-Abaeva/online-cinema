@@ -8,16 +8,25 @@
     height: 100%;
   }
   &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     margin-top: $header-height;
-    padding: 0 20px;
-    padding-bottom: 20px;
+    padding: 0 20px 20px 20px;
   }
   &__title {
-    padding: 30px 0;
+    cursor: pointer;
+    padding-top: 30px;
     letter-spacing: -0.5px;
     font-size: 48px;
     line-height: 54px;
     margin-left: 20px;
+
+    svg {
+      transform: scale(2);
+      filter: var(--inverted-icon);
+      margin-right: 1rem;
+    }
   }
   &__list {
     display: grid;
@@ -49,7 +58,6 @@
   }
   &__item:hover {
     transform: scale(1.07);
-    transition: 0.3s;
     cursor: pointer;
     -webkit-box-shadow: 0px 0px 50px 40px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 50px 40px rgba(0, 0, 0, 0.5);

@@ -24,28 +24,34 @@ export const renderMainPage = (
   main.classList.add('main_banner');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
 
-  const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
+  const { container } = renderModal();
 
   const subsHero: HTMLElement = renderHeroSection();
   mainContainer.append(subsHero);
 
   main.append(mainContainer);
 
+  const slidersCont: HTMLElement = createElem('div', 'sliders-container');
+
   SLIDERS_ORDER.forEach((el) => {
     const sliderData = data.find((item) => item.title === el.title);
     if (sliderData && !isError(sliderData.data)) {
-      const slider: HTMLElement = addListenerSlideDown(renderSlider(sliderData.data.docs, el.displayedTitle, el.title));
-      main.append(slider);
+      const slider: HTMLElement = addListenerSlideDown(
+        renderSlider(sliderData.data.docs, el.displayedTitle, el.title),
+        'slider'
+      );
+      slidersCont.append(slider);
     }
     if (el.title === 'genres') {
       const slider: HTMLElement = addListenerCollection(renderSlider(genresData, el.displayedTitle, el.title));
-      main.append(slider);
+      slidersCont.append(slider);
     }
     if (el.title === 'top-10') {
       const slider: HTMLElement = addListenerTop10(renderSlider(top10Data, el.displayedTitle, el.title));
-      main.append(slider);
+      slidersCont.append(slider);
     }
   });
+  main.append(slidersCont);
   const accordionSection: HTMLElement = createElem('div', 'accordion-section');
   const accordion: HTMLElement = createElem('div', 'accordion-container');
   accordionSection.append(accordion);

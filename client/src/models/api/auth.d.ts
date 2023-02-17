@@ -11,15 +11,18 @@ interface AuthResponse {
   token: string;
 }
 
+interface FoldersType {
+  bookmarks: number[];
+  watched: number[];
+  watchedRecently: number[];
+  [key: string]: number[];
+}
+
 interface AuthGetPersonToken {
   token?: string;
   email?: string;
-  folders?: {
-    bookmarks: number[];
-    watched: number[];
-    watchedRecently: number[];
-    [key: string]: number[];
-  };
+  folders?: FoldersType;
+  userFolders?: UserFolder[];
   name?: string;
   password?: string;
   updatedAt?: string;

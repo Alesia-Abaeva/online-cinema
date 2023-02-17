@@ -4,8 +4,6 @@ export const paginateData = (req: express.Request, data: any[]) => {
   const page = +req.query.page;
   const limit = +req.query.limit;
 
-  
-
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
   const pages = data.length / limit;

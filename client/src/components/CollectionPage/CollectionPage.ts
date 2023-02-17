@@ -1,8 +1,11 @@
+import { arrowIcon } from 'src/const/icons/icons';
 import { createElem } from 'src/utils/create-element';
+import { renderPagination } from '../ui/Pagination/Pagination';
 import styles from './CollectionPage.module.scss';
 import { renderCollectionFilms } from './component/Collection';
+import { updateCollectionPageUI } from './updateCollectionPageUI';
 
-export const renderCollection = (data: FindedMovies[], name: string): HTMLElement => {
+export const renderCollection = (data: FindedMovies[], name: string, paginate: boolean): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['collection']);
@@ -10,33 +13,21 @@ export const renderCollection = (data: FindedMovies[], name: string): HTMLElemen
   const container: HTMLElement = createElem('div', 'collection__container');
   const title: HTMLElement = createElem('h1', 'collection__title');
 
-  const list: HTMLElement = renderCollectionFilms(data);
+  title.onclick = () => window.history.back();
+
+  name && (title.innerHTML = `${arrowIcon}${name}`);
+  const listCont = createElem('div', 'collection__list-container');
+  listCont.id = 'list-container';
+  const list: HTMLElement = renderCollectionFilms(data, paginate);
 
   window.scrollTo(0, 0);
+  container.append(title, listCont);
+  if (paginate) {
+    const pagination = renderPagination(() => updateCollectionPageUI(data), false, false);
+    container.append(pagination);
+  }
 
-  // data.forEach((elem) => {
-  //   const img = createElem('img', 'collection__item__img') as HTMLImageElement;
-  //   const url = `${
-  //     elem.poster
-  //       ? elem.poster.previewUrl
-  //       : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
-  //   }`;
-  //   img.src = url;
-  //   const item = createElem('a', 'collection__item') as HTMLElement;
-
-  //   if (elem.rating.kp) {
-  //     const raiting = createElem('span', 'collection__item__raiting') as HTMLElement;
-  //     raiting.innerHTML = elem.rating.kp ? elem.rating.kp.toFixed(1) : '';
-  //     item.append(raiting);
-  //   }
-
-  //   item.setAttribute('href', `/films/${elem.id}`);
-  //   item.append(img);
-  //   list.append(item);
-  // });
-  name && (title.innerHTML = name);
-
-  container.append(title, list);
+  listCont.append(list);
   wrapper.append(container);
   mainContent.append(wrapper);
   mainContainer.append(mainContent);

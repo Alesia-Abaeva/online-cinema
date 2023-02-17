@@ -18,3 +18,11 @@ export const isGenres = (dataArr: ResponseMovie | Iitem | IitemTop10): dataArr i
 export const isTop10 = (dataArr: ResponseMovie | Iitem | IitemTop10): dataArr is IitemTop10 => {
   return 'numImg' in dataArr;
 };
+
+export const isResponseFolder = (data: ResponseFolder | ResponseUserFolder): data is ResponseFolder => {
+  return 'folderName' in data;
+};
+
+export const isResponseUserFolder = (data: ResponseFolder | ResponseUserFolder): data is ResponseUserFolder => {
+  return 'displayedName' in data;
+};

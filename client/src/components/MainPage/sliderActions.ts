@@ -1,7 +1,7 @@
 import { route } from 'src/router/route';
 import { createSlideDown } from './components/Slider/SlideDownWindow/SlideDownWindow';
 
-export const addListenerSlideDown = (slider: HTMLElement): HTMLElement => {
+export const addListenerSlideDown = (slider: HTMLElement, type: string): HTMLElement => {
   const slideDown: HTMLElement = createSlideDown();
   slider.append(slideDown);
   slider.addEventListener('click', (event: Event): void => {
@@ -12,7 +12,7 @@ export const addListenerSlideDown = (slider: HTMLElement): HTMLElement => {
 
     if (target.classList.contains('slider__header')) {
       const parent = target.closest('.slider') as HTMLElement;
-      route(`/slider/${parent.dataset.id}`);
+      route(`/${type}/${parent.dataset.id}`);
     }
     if (target.classList.contains('sliderItem__image')) {
       const allSliders = document.querySelectorAll('.slider');
