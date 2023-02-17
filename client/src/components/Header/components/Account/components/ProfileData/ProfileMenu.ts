@@ -29,6 +29,7 @@ export const renderProfileMenu = (): HTMLElement => {
   const childeProfileAvatar: HTMLElement = renderChildAvatar('Дети 12+');
   const childeProfile: HTMLElement = createElem('li', 'profile-menu__item');
   childeProfile.append(childeProfileAvatar);
+  childeProfile.style.marginBottom = '1rem'; // TODO: должен быть отступ !
 
   // TODO: возможно вынести в компонент!
   store.getState().user.personal.data?.tariff === 'premium' && profileMenu.append(childeProfile);

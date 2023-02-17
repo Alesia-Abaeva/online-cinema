@@ -1,8 +1,6 @@
 import { lists } from 'src/pages/lists';
-// import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
 import { user, userPromo, userReference, userSettings, userSubscribe, userWatch } from 'src/pages/user-account';
-// import { subscriptions } from 'src/pages/subscriptions';
 import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
 import { authorized } from 'src/pages/authorized';
@@ -18,7 +16,7 @@ import { register } from '../pages/register';
 import { film } from '../pages/film-page';
 import { PATH_NAMES } from './path-names';
 import { projectTitle } from './project-title';
-// import { LOCAL_STORAGE_KEYS } from './local-storage';
+import { subscriptions } from 'src/pages/subscriptions';
 
 export const ROUTER_PATHS = (): Paths => ({
   [PATH_NAMES.loader]: {
@@ -39,7 +37,6 @@ export const ROUTER_PATHS = (): Paths => ({
   },
   [PATH_NAMES.register]: {
     template: store.getState().uiConfig.isAuth ? authorized : register,
-    // getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? authorized : register, // TODO: поставить страницу заглушки
     title: `register | ${projectTitle}`,
   },
   [PATH_NAMES.films]: {
@@ -78,10 +75,10 @@ export const ROUTER_PATHS = (): Paths => ({
     template: store.getState().uiConfig.isAuth ? userReference : notauthorized,
     title: `user | ${projectTitle}`,
   },
-  // [PATH_NAMES.subscriptions]: {
-  //   template: subscriptions,
-  //   title: `subscriptions | ${projectTitle}`,
-  // },
+  [PATH_NAMES.subscriptions]: {
+    template: subscriptions,
+    title: `subscriptions | ${projectTitle}`,
+  },
   [PATH_NAMES.collection]: {
     template: collection,
     title: `collection | ${projectTitle}`,
