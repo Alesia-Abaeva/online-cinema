@@ -1,7 +1,9 @@
 import YouTubePlayer from 'youtube-player';
 import { YouTubePlayer as TypeYouTubePlayer } from 'youtube-player/dist/types';
+import { destroyPlayer } from './Handlers/destroy-player';
 import { fullscreenPlayer } from './Handlers/fullscreen';
-import { handelProgressbar } from './Handlers/handle-progressbar';
+import { handelAudioProgressbar } from './Handlers/handle-audio-progressbar';
+import { handelVideoProgressbar } from './Handlers/handle-video-progressbar';
 import { modalPlayer } from './Handlers/modalscreen';
 import { mutePlayer } from './Handlers/mute';
 import { pausePlayer } from './Handlers/pause';
@@ -14,6 +16,12 @@ export const intervalState: {
   timer: NodeJS.Timer | null;
 } = {
   timer: null,
+};
+
+export const prevVolumeValue: {
+  volume: number;
+} = {
+  volume: 50,
 };
 
 export const renderYouTubePlayer = (
@@ -53,11 +61,11 @@ export const renderYouTubePlayer = (
     if (autoPlay === 1) {
       // Settings as a background player
       playerEl.mute();
-      console.log('play');
       playerEl.playVideo();
     } else {
+      // Custom player settings
       updateTimerDisplay(playerEl);
-      updateProgressBar(playerEl);
+      playerEl.setVolume(prevVolumeValue.volume);
       if (intervalState.timer) {
         clearInterval(intervalState.timer);
       }
@@ -75,7 +83,6 @@ export const renderYouTubePlayer = (
         }
       };
 
-      // Custom player settings
       // Central play btn
       const mainPlayBtn = document.getElementById('main-play-btn') as HTMLElement;
       mainPlayBtn.onclick = (event: Event) => {
@@ -109,6 +116,7 @@ export const renderYouTubePlayer = (
         }
       };
 
+      // Fullscreen btn
       const fullscreenBtn = document.getElementById('controls-fullscreen-mode') as HTMLElement;
 
       fullscreenBtn.onclick = (event: Event) => {
@@ -120,11 +128,24 @@ export const renderYouTubePlayer = (
           modalPlayer();
         }
       };
-      const progressbar = document.getElementById('video-progressbar') as HTMLInputElement;
 
-      progressbar.onchange = (event: Event) => {
+      // Progressbar on video
+      const progressbarVideo = document.getElementById('video-progressbar') as HTMLInputElement;
+
+      progressbarVideo.onchange = (event: Event) => {
         const input = event.target as HTMLInputElement;
-        handelProgressbar(playerEl, input);
+        handelVideoProgressbar(playerEl, input);
+        setTimeout(() => {
+          playPlayer(playerEl);
+        }, 10);
+      };
+
+      // Progressbar for volume
+      const progressbarAudio = document.getElementById('volume-progressbar') as HTMLInputElement;
+
+      progressbarAudio.onchange = (event: Event) => {
+        const input = event.target as HTMLInputElement;
+        handelAudioProgressbar(playerEl, input);
         setTimeout(() => {
           playPlayer(playerEl);
         }, 10);
@@ -142,7 +163,6 @@ export const renderYouTubePlayer = (
   // If there is a problem playing the video
   let counter = 0;
   player.on('error', (err) => {
-    console.log(err);
     counter++;
     if (counter > 2) {
       player.destroy();
@@ -150,21 +170,19 @@ export const renderYouTubePlayer = (
     }
   });
 
+  let playerDestroyer: NodeJS.Timer;
+  if (autoPlay === 0) {
+    playerDestroyer = setTimeout(() => {
+      destroyPlayer(player);
+    }, 2000);
+  }
+
   // On video end delete
-  player.on('stateChange', async (e: CustomEvent & { data: number }) => {
-    if (autoPlay !== 1) {
-      console.log(e);
-      // if (e.data === 5) {
-      //   const time = await player.getDuration();
-      //   const formatedTime = toSecondsAndMinutes(time);
-      //   const timeEl = document.querySelector('.controls__timestamp') as HTMLElement;
-      //   timeEl.innerHTML = formatedTime;
-      // }
-      // if (e.data === 1) {
-      //   const formatedTime = toSecondsAndMinutes(time);
-      //   const timeEl = document.querySelector('.controls__timestamp') as HTMLElement;
-      //   timeEl.innerHTML = formatedTime;
-      // }
+  player.on('stateChange', (e: CustomEvent & { data: number }) => {
+    if (autoPlay === 0) {
+      if (e.data === 5) {
+        clearTimeout(playerDestroyer);
+      }
     }
     if (e.data === 0) {
       player.destroy();

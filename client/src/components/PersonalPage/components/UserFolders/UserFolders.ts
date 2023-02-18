@@ -55,7 +55,6 @@ export const renderUserFolders = (userFoldersData: ResponseUserFolder[] | undefi
     if (window.location.pathname === '/personal') {
       const res = await getPersonalData();
       if (res) {
-        console.log('here');
         const newFolderData = res.userFoldersData;
         paginationState.page = 1;
         paginationState.limit = 8;

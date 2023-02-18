@@ -25,10 +25,7 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
 
   const controlsProgressBar = createElem('input', 'controls__progressbar') as HTMLInputElement;
   controlsProgressBar.setAttribute('type', 'range');
-  controlsProgressBar.setAttribute('min', '0');
-  controlsProgressBar.setAttribute('max', '100');
-  controlsProgressBar.value = '0';
-  controlsProgressBar.setAttribute('step', '0.1');
+  controlsProgressBar.setAttribute('value', '0');
   controlsProgressBar.id = 'video-progressbar';
 
   controlsProgressBar.oninput = (e: Event) => {
@@ -47,12 +44,16 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
   volumeIconEl.id = 'controls-volume-mute';
   volumeIconEl.innerHTML = volumeIcon;
 
-  const volumeControl = createElem('input', 'controls__volume-control');
+  const volumeControl = createElem('input', 'controls__volume-control') as HTMLInputElement;
   volumeControl.setAttribute('type', 'range');
   volumeControl.setAttribute('min', '0');
   volumeControl.setAttribute('max', '100');
   volumeControl.setAttribute('step', '0.1');
+  volumeControl.value = '50';
   volumeControl.id = 'volume-progressbar';
+  volumeControl.style.background = `linear-gradient(to right, #4776e6 0%, #8e54e9 ${
+    +50 - 25
+  }%, #4776e6 ${50}%, hsla(0, 0%, 100%, 0.3) ${50}%, hsla(0, 0%, 100%, 0.3) 100%)`;
 
   volumeControl.oninput = (e: Event) => {
     const input = e.target as HTMLInputElement;

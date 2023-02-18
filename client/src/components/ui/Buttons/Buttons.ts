@@ -7,6 +7,7 @@ import { bookmarkIcon, threeDotsIcon, watchFilmIcon } from 'src/const/icons/icon
 import { createElem } from 'src/utils/create-element';
 import { renderButtonDropdown } from '../ButtonDropdown/ButtonDropdown';
 import { closeDropdown } from '../ButtonDropdown/Handlers/close-dropdown';
+import { renderErrorMes } from '../Modal/components/ModalError/ModalError';
 import { renderModal } from '../Modal/Modal';
 import { toggleModal } from '../Modal/ToggleModal';
 import styles from './buttons.module.scss';
@@ -26,28 +27,32 @@ export const createBtnTrailer = (film: ResponseMovie) => {
   btnTrailer.onclick = (): void => {
     const main = document.querySelector('.main') as HTMLElement;
     if (main) {
-      const customPlayer: HTMLElement = renderCustomYouTubePlayer();
-
-      setTimeout(() => {
-        const { videos } = film;
-        if (videos) {
-          const trailer = videos.trailers;
-          if (trailer && trailer.length !== 0) {
+      const { videos } = film;
+      if (videos) {
+        let customPlayer: HTMLElement;
+        let modalType: string | undefined;
+        const trailer = videos.trailers;
+        if (trailer && trailer.length !== 0) {
+          customPlayer = renderCustomYouTubePlayer();
+          modalType = 'modal_dark';
+          setTimeout(() => {
             renderYouTubePlayer(
               'trailer-btn-video',
-              `${trailer[0].url}?&controls=0&showinfo=1&autohide=1&version=3`,
+              `${trailer[0].url}?&controls=0&showinfo=0&version=3`,
               undefined,
               undefined,
               0,
               () => console.log('the end'),
               () => console.log('not working')
             );
-          }
+          }, 0);
+        } else {
+          customPlayer = renderErrorMes('К сожалению мы не нашли данный трейлер (μ_μ)');
         }
-      }, 0);
-      const { modalFragment, modal, overlay } = renderModal(customPlayer, 'modal_dark');
-      main.append(modalFragment);
-      setTimeout(() => toggleModal(modal, overlay), 0);
+        const { modalFragment, modal, overlay } = renderModal(customPlayer, modalType);
+        main.append(modalFragment);
+        setTimeout(() => toggleModal(modal, overlay), 0);
+      }
     }
   };
   btnTrailer.classList.add(`${styles.actionBtn__trailer}`);
@@ -86,13 +91,7 @@ export const createBtnInterest = (filmId: number) => {
 };
 
 export const createBtnTabAboutFilm = () => {
-  const btnTabAboutFilm = createButton(
-    'О фильме',
-    (): void => {
-      console.log('AboutFilm');
-    },
-    `${styles.tabBtn}`
-  ) as HTMLButtonElement;
+  const btnTabAboutFilm = createButton('О фильме', undefined, `${styles.tabBtn}`) as HTMLButtonElement;
   btnTabAboutFilm.onclick = (e: Event) => {
     const target = e.target as HTMLElement;
     const container = target.closest('.mainBanner__container') as HTMLElement;
@@ -103,13 +102,7 @@ export const createBtnTabAboutFilm = () => {
 };
 
 export const createBtnTabDetails = () => {
-  const btnTabDetails = createButton(
-    'Детали',
-    (): void => {
-      console.log('Details');
-    },
-    `${styles.tabBtn}`
-  ) as HTMLButtonElement;
+  const btnTabDetails = createButton('Детали', undefined, `${styles.tabBtn}`) as HTMLButtonElement;
   btnTabDetails.onclick = (e: Event) => {
     const target = e.target as HTMLElement;
     const container = target.closest('.mainBanner__container') as HTMLElement;
