@@ -75,14 +75,15 @@
 .controls__volume-control {
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: linear-gradient(
-    to right,
-    #4776e6 0%,
-    #8e54e9 20%,
-    #4776e6 50%,
-    var(--progress-lin-bg) 50%,
-    var(--progress-lin-bg) 100%
-  );
+  // background: linear-gradient(
+  //   to right,
+  //   #4776e6 0%,
+  //   #8e54e9 20%,
+  //   #4776e6 50%,
+  //   var(--progress-lin-bg) 50%,
+  //   var(--progress-lin-bg) 100%
+  // );
+  background: var(--progress-lin-bg);
   border-radius: 8px;
   height: 7px;
   outline: none;

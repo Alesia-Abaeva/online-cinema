@@ -27,8 +27,8 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
   controlsProgressBar.setAttribute('type', 'range');
   controlsProgressBar.setAttribute('min', '0');
   controlsProgressBar.setAttribute('max', '100');
+  controlsProgressBar.value = '0';
   controlsProgressBar.setAttribute('step', '0.1');
-  controlsProgressBar.setAttribute('value', '0');
   controlsProgressBar.id = 'video-progressbar';
 
   controlsProgressBar.oninput = (e: Event) => {
@@ -52,7 +52,6 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
   volumeControl.setAttribute('min', '0');
   volumeControl.setAttribute('max', '100');
   volumeControl.setAttribute('step', '0.1');
-  volumeControl.setAttribute('value', '0');
   volumeControl.id = 'volume-progressbar';
 
   volumeControl.oninput = (e: Event) => {

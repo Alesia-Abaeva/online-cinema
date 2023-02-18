@@ -1,11 +1,20 @@
 import YouTubePlayer from 'youtube-player';
 import { YouTubePlayer as TypeYouTubePlayer } from 'youtube-player/dist/types';
 import { fullscreenPlayer } from './Handlers/fullscreen';
+import { handelProgressbar } from './Handlers/handle-progressbar';
 import { modalPlayer } from './Handlers/modalscreen';
 import { mutePlayer } from './Handlers/mute';
 import { pausePlayer } from './Handlers/pause';
 import { playPlayer } from './Handlers/play';
 import { unmutePlayer } from './Handlers/unmute';
+import { updateProgressBar } from './Handlers/update-progressbar';
+import { updateTimerDisplay } from './Handlers/update-timestamp';
+
+export const intervalState: {
+  timer: NodeJS.Timer | null;
+} = {
+  timer: null,
+};
 
 export const renderYouTubePlayer = (
   name: string,
@@ -37,7 +46,7 @@ export const renderYouTubePlayer = (
     });
   }
 
-  player.on('ready', (e: CustomEvent) => {
+  player.on('ready', async (e: CustomEvent) => {
     const iframe = document.getElementById(name) as HTMLIFrameElement;
     iframe.style.display = 'block';
     const playerEl = e.target as unknown as TypeYouTubePlayer;
@@ -47,6 +56,19 @@ export const renderYouTubePlayer = (
       console.log('play');
       playerEl.playVideo();
     } else {
+      updateTimerDisplay(playerEl);
+      updateProgressBar(playerEl);
+      if (intervalState.timer) {
+        clearInterval(intervalState.timer);
+      }
+
+      const updateInterval = setInterval(() => {
+        updateTimerDisplay(playerEl);
+        updateProgressBar(playerEl);
+      }, 1000);
+
+      intervalState.timer = updateInterval;
+
       document.onfullscreenchange = () => {
         if (!document.fullscreen) {
           modalPlayer();
@@ -98,6 +120,15 @@ export const renderYouTubePlayer = (
           modalPlayer();
         }
       };
+      const progressbar = document.getElementById('video-progressbar') as HTMLInputElement;
+
+      progressbar.onchange = (event: Event) => {
+        const input = event.target as HTMLInputElement;
+        handelProgressbar(playerEl, input);
+        setTimeout(() => {
+          playPlayer(playerEl);
+        }, 10);
+      };
 
       // Pause on video click
       const video = document.querySelector('.youtube-player') as HTMLElement;
@@ -120,7 +151,21 @@ export const renderYouTubePlayer = (
   });
 
   // On video end delete
-  player.on('stateChange', (e: CustomEvent & { data: number }) => {
+  player.on('stateChange', async (e: CustomEvent & { data: number }) => {
+    if (autoPlay !== 1) {
+      console.log(e);
+      // if (e.data === 5) {
+      //   const time = await player.getDuration();
+      //   const formatedTime = toSecondsAndMinutes(time);
+      //   const timeEl = document.querySelector('.controls__timestamp') as HTMLElement;
+      //   timeEl.innerHTML = formatedTime;
+      // }
+      // if (e.data === 1) {
+      //   const formatedTime = toSecondsAndMinutes(time);
+      //   const timeEl = document.querySelector('.controls__timestamp') as HTMLElement;
+      //   timeEl.innerHTML = formatedTime;
+      // }
+    }
     if (e.data === 0) {
       player.destroy();
       if (onEnd) onEnd();

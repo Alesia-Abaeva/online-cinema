@@ -35,7 +35,7 @@ export const createBtnTrailer = (film: ResponseMovie) => {
           if (trailer && trailer.length !== 0) {
             renderYouTubePlayer(
               'trailer-btn-video',
-              `${trailer[0].url}?&controls=0&showinfo=0&autohide=1`,
+              `${trailer[0].url}?&controls=0&showinfo=1&autohide=1&version=3`,
               undefined,
               undefined,
               0,
