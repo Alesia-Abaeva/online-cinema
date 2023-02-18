@@ -164,6 +164,7 @@ export const renderYouTubePlayer = (
   let counter = 0;
   player.on('error', (err) => {
     counter++;
+    console.log(err);
     if (counter > 2) {
       player.destroy();
       if (onError) onError();

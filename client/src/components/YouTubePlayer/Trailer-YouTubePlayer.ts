@@ -18,6 +18,7 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
 
   const bottomControls: HTMLElement = createElem('div', 'youtube-player__controls');
   bottomControls.classList.add('controls');
+
   const controlsPlayPause: HTMLElement = createElem('div', 'controls__play');
   controlsPlayPause.id = 'controls-play-pause';
   controlsPlayPause.classList.add('controls-icon');

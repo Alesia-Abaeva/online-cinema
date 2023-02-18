@@ -1,4 +1,4 @@
-export const playIcon = `<svg width="225" height="225" viewBox="0 0 225 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const playIcon = `<svg width="110" height="60" viewBox="0 0 225 225" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M75 63.9375V161.062C75 168.469 83.1562 172.969 89.4375 168.937L165.75 120.375C171.563 116.719 171.563 108.281 165.75 104.531L89.4375 56.0625C83.1562 52.0312 75 56.5312 75 63.9375Z" fill="url(#paint0_linear_6_2)"/>
 <defs>
 <linearGradient id="paint0_linear_6_2" x1="61" y1="112" x2="173" y2="112" gradientUnits="userSpaceOnUse">

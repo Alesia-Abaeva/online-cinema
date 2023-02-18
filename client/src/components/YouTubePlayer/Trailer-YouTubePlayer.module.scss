@@ -7,6 +7,7 @@
   height: auto;
   aspect-ratio: 16/9;
   border-radius: 10px;
+
   &.video-fullscreen {
     width: 100vw;
     height: auto;
@@ -24,16 +25,24 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
   &:hover .controls {
     bottom: 0;
     transition: all 0.2s ease-out;
   }
 }
 
+.youtube-player__main-play {
+  background-color: var(--always-black);
+  border-radius: 20px;
+}
+
 .youtube-player__main-play-icon {
   cursor: pointer;
+  margin-top: 5px;
+
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 }
 
@@ -43,11 +52,10 @@
   bottom: -80px;
   width: 100%;
   height: 48px;
-  // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.6) 80%);
   background: var(--always-black);
   transition: all 0.2s ease-in 1s;
   display: grid;
-  grid-template-columns: 0.2fr 4fr 0.2fr 0.2fr 1fr 0.2fr;
+  grid-template-columns: 0.2fr 4fr 0.2fr 0.2fr 0.8fr 0.2fr;
   gap: 0.3rem;
   justify-content: center;
   align-items: center;
@@ -62,12 +70,14 @@
   height: 2rem;
   border-radius: 5px;
   cursor: pointer;
+
   &:hover {
+    background: var(--gradient-primary);
+
     svg {
       transition: all 100ms ease;
       transform: scale(1.1);
     }
-    background: var(--gradient-primary);
   }
 }
 
@@ -75,19 +85,11 @@
 .controls__volume-control {
   -webkit-appearance: none;
   -moz-appearance: none;
-  // background: linear-gradient(
-  //   to right,
-  //   #4776e6 0%,
-  //   #8e54e9 20%,
-  //   #4776e6 50%,
-  //   var(--progress-lin-bg) 50%,
-  //   var(--progress-lin-bg) 100%
-  // );
   background: var(--progress-lin-bg);
   border-radius: 8px;
   height: 7px;
+  width: 100%;
   outline: none;
-  transition: background 450ms ease-in;
 
   &:focus {
     outline: none;
@@ -100,5 +102,36 @@
     height: 15px;
     width: 15px;
     border-radius: 50%;
+  }
+}
+
+@media (max-width: 1040px) {
+  #trailer-btn-video,
+  .youtube-player {
+    width: 854px;
+  }
+}
+
+@media (max-width: 870px) {
+  #trailer-btn-video,
+  .youtube-player {
+    width: 640px;
+  }
+}
+
+@media (max-width: 660px) {
+  #trailer-btn-video,
+  .youtube-player {
+    width: 95vw;
+  }
+
+  .controls {
+    padding: 0;
+  }
+}
+
+@media (max-width: 460px) {
+  .youtube-player__main-play {
+    transform: scale(0.8);
   }
 }

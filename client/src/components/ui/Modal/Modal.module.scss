@@ -23,7 +23,7 @@
     background-color: $black;
     top: 2%;
     right: 1.5%;
-    padding: .9rem 1.1rem .9rem 1.1rem;
+    padding: 0.9rem 1.1rem 0.9rem 1.1rem;
     border-radius: 10px;
   }
 }
@@ -64,14 +64,31 @@
   color: var(--bg-contrast);
 }
 
+@media (max-width: 660px) {
+  .modal_dark {
+    .modal__close-btn {
+      font-size: 1rem;
+      padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+    }
+  }
+}
+
 @media (max-width: 430px) {
   .modal {
     padding: 2rem;
+  }
+
+  .modal_dark {
+    padding: 0;
   }
 }
 
 @media (max-width: 400px) {
   .modal {
     padding: 1rem;
+  }
+
+  .modal_dark {
+    padding: 0;
   }
 }
