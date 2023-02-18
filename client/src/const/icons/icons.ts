@@ -90,14 +90,3 @@ export const trashCan = `<svg xmlns="http://www.w3.org/2000/svg" width="16" heig
 export const editIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" data-name="Layer 1" viewBox="0 0 24 24"><path d="M3.5,24h15A3.51,3.51,0,0,0,22,20.487V12.95a1,1,0,0,0-2,0v7.537A1.508,1.508,0,0,1,18.5,22H3.5A1.508,1.508,0,0,1,2,20.487V5.513A1.508,1.508,0,0,1,3.5,4H11a1,1,0,0,0,0-2H3.5A3.51,3.51,0,0,0,0,5.513V20.487A3.51,3.51,0,0,0,3.5,24Z"/><path d="M9.455,10.544l-.789,3.614a1,1,0,0,0,.271.921,1.038,1.038,0,0,0,.92.269l3.606-.791a1,1,0,0,0,.494-.271l9.114-9.114a3,3,0,0,0,0-4.243,3.07,3.07,0,0,0-4.242,0l-9.1,9.123A1,1,0,0,0,9.455,10.544Zm10.788-8.2a1.022,1.022,0,0,1,1.414,0,1.009,1.009,0,0,1,0,1.413l-.707.707L19.536,3.05Zm-8.9,8.914,6.774-6.791,1.4,1.407-6.777,6.793-1.795.394Z"/></svg>`;
 
 export const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m18.707 6.707-1.414-1.414L7 15.586V7H5v12h12v-2H8.414L18.707 6.707z"/></svg>`;
-
-export const playIcon = `<svg width="225" height="225" viewBox="0 0 225 225" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M75 63.9375V161.062C75 168.469 83.1562 172.969 89.4375 168.937L165.75 120.375C171.563 116.719 171.563 108.281 165.75 104.531L89.4375 56.0625C83.1562 52.0312 75 56.5312 75 63.9375Z" fill="url(#paint0_linear_6_2)"/>
-<defs>
-<linearGradient id="paint0_linear_6_2" x1="61" y1="112" x2="173" y2="112" gradientUnits="userSpaceOnUse">
-<stop stop-color="#4776E6"/>
-<stop offset="0.515625" stop-color="#8E54E9"/>
-<stop offset="1" stop-color="#4776E6"/>
-</linearGradient>
-</defs>
-</svg>`;

@@ -1,5 +1,11 @@
 import YouTubePlayer from 'youtube-player';
 import { YouTubePlayer as TypeYouTubePlayer } from 'youtube-player/dist/types';
+import { fullscreenPlayer } from './Handlers/fullscreen';
+import { modalPlayer } from './Handlers/modalscreen';
+import { mutePlayer } from './Handlers/mute';
+import { pausePlayer } from './Handlers/pause';
+import { playPlayer } from './Handlers/play';
+import { unmutePlayer } from './Handlers/unmute';
 
 export const renderYouTubePlayer = (
   name: string,
@@ -18,12 +24,14 @@ export const renderYouTubePlayer = (
   });
 
   if (startSeconds && endSeconds) {
+    // Settings as a background player
     player.loadVideoByUrl({
       mediaContentUrl: url,
       startSeconds,
       endSeconds,
     });
   } else {
+    // Custom player settings
     player.cueVideoByUrl({
       mediaContentUrl: url,
     });
@@ -34,22 +42,68 @@ export const renderYouTubePlayer = (
     iframe.style.display = 'block';
     const playerEl = e.target as unknown as TypeYouTubePlayer;
     if (autoPlay === 1) {
+      // Settings as a background player
       playerEl.mute();
       console.log('play');
       playerEl.playVideo();
     } else {
-      const mainPlayBtn = document.getElementById('main-play-btn') as HTMLElement;
-      mainPlayBtn.onclick = (event: Event) => {
-        mainPlayBtn.classList.add('hidden');
-        playerEl.playVideo();
-        event.stopPropagation();
+      document.onfullscreenchange = () => {
+        if (!document.fullscreen) {
+          modalPlayer();
+        }
       };
 
+      // Custom player settings
+      // Central play btn
+      const mainPlayBtn = document.getElementById('main-play-btn') as HTMLElement;
+      mainPlayBtn.onclick = (event: Event) => {
+        event.stopPropagation();
+        playPlayer(playerEl);
+      };
+
+      // Bottom controls play/pause btn
+      const playBtn = document.getElementById('controls-play-pause') as HTMLElement;
+
+      playBtn.onclick = (event: Event) => {
+        event.stopPropagation();
+        const target = event.target as HTMLElement;
+        if (target.classList.contains('controls__play')) {
+          playPlayer(playerEl);
+        } else if (target.classList.contains('controls__pause')) {
+          pausePlayer(playerEl);
+        }
+      };
+
+      // Bottom controls volume btn on/off
+      const volumeBtn = document.getElementById('controls-volume-mute') as HTMLElement;
+
+      volumeBtn.onclick = (event: Event) => {
+        event.stopPropagation();
+        const target = event.target as HTMLElement;
+        if (target.classList.contains('controls__volume')) {
+          mutePlayer(playerEl);
+        } else if (target.classList.contains('controls__mute')) {
+          unmutePlayer(playerEl);
+        }
+      };
+
+      const fullscreenBtn = document.getElementById('controls-fullscreen-mode') as HTMLElement;
+
+      fullscreenBtn.onclick = (event: Event) => {
+        event.stopPropagation();
+        const target = event.target as HTMLElement;
+        if (target.classList.contains('controls__fullscreen')) {
+          fullscreenPlayer();
+        } else if (target.classList.contains('controls__modalscreen')) {
+          modalPlayer();
+        }
+      };
+
+      // Pause on video click
       const video = document.querySelector('.youtube-player') as HTMLElement;
       video.onclick = (event: Event) => {
-        console.log(event.target);
-        mainPlayBtn.classList.remove('hidden');
-        playerEl.pauseVideo();
+        event.stopPropagation();
+        pausePlayer(playerEl);
       };
     }
   });
