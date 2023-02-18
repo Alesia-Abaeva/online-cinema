@@ -160,23 +160,28 @@ export const renderYouTubePlayer = (
     }
   });
 
-  // If there is a problem playing the video
-  let counter = 0;
-  player.on('error', (err) => {
-    counter++;
-    console.log(err);
-    if (counter > 2) {
-      player.destroy();
-      if (onError) onError();
-    }
-  });
-
   let playerDestroyer: NodeJS.Timer;
   if (autoPlay === 0) {
     playerDestroyer = setTimeout(() => {
       destroyPlayer(player);
     }, 2000);
   }
+
+  // If there is a problem playing the video
+  let counter = 0;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  player.on('error', (err: any) => {
+    counter++;
+    if (autoPlay === 0 && err.data === 150) {
+      console.log('ERRin', err);
+      destroyPlayer(player);
+    }
+    console.log('ERR', err);
+    if (counter > 2) {
+      player.destroy();
+      if (onError) onError();
+    }
+  });
 
   // On video end delete
   player.on('stateChange', (e: CustomEvent & { data: number }) => {
