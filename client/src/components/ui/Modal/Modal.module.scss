@@ -26,6 +26,10 @@
     padding: 0.9rem 1.1rem 0.9rem 1.1rem;
     border-radius: 10px;
   }
+
+  .modal__close-icon {
+    color: var(--always-white);
+  }
 }
 
 .modal__overlay {
