@@ -184,10 +184,15 @@ export const renderYouTubePlayer = (
       if (e.data === 5) {
         clearTimeout(playerDestroyer);
       }
-    }
-    if (e.data === 0) {
-      player.destroy();
-      if (onEnd) onEnd();
+      if (e.data === 0) {
+        player.seekTo(0, true);
+        pausePlayer(player);
+      }
+    } else if (autoPlay === 1) {
+      if (e.data === 0) {
+        player.destroy();
+        if (onEnd) onEnd();
+      }
     }
   });
 };
