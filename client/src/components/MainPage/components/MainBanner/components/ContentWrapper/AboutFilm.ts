@@ -12,7 +12,7 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
   const filmImg = res.backdrop ? res.backdrop.url : '';
 
   const btnWatch = createBtnWatch(res.id, filmImg) as HTMLButtonElement;
-  const btnTrailer = createBtnTrailer() as HTMLButtonElement;
+  const btnTrailer = createBtnTrailer(res) as HTMLButtonElement;
   // const btnBookmark = createBtnBookmark() as HTMLButtonElement;
   const btnInterest = createBtnInterest(res.id) as HTMLButtonElement;
 

@@ -68,7 +68,7 @@
   align-items: center;
   gap: 0.6rem;
   border: 1px solid $blue;
-  background-color: $conditionalborder;
+  background-color: var(--bg-ternary);
   text-transform: uppercase;
   font-size: 1.5rem;
 

@@ -8,6 +8,10 @@
   gap: 2rem;
 }
 
+.personal__folders-cont_empty {
+  @include flex-center;
+}
+
 .personal__folders-header {
   display: flex;
   justify-content: space-between;

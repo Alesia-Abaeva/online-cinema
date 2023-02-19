@@ -7,20 +7,12 @@ import styles from './HeroSection.module.scss';
 export const renderHeroSection = (): HTMLElement => {
   const heroSection: HTMLElement = createElem('section', styles['subs-hero']);
 
-  const forNewUsers: HTMLElement = renderHeroSectionNewUser();
-
-  // TODO: изменить эту функцию, чтобы рендерлся блок с видео
-  const authUser: HTMLElement = renderHeroSectionAuthUser();
-  heroSection.append(store.getState().uiConfig.isAuth ? authUser : forNewUsers);
+  heroSection.append(store.getState().uiConfig.isAuth ? renderHeroSectionAuthUser() : renderHeroSectionNewUser());
 
   store.subscribe(() => {
     const { isAuth } = store.getState().uiConfig;
-
-    if (!isAuth) {
-      return heroSection.contains(authUser) ? heroSection.removeChild(authUser) : heroSection.append(forNewUsers);
-    }
-
-    return heroSection.contains(forNewUsers) ? heroSection.removeChild(forNewUsers) : heroSection.append(authUser);
+    heroSection.innerHTML = '';
+    heroSection.append(isAuth ? renderHeroSectionAuthUser() : renderHeroSectionNewUser());
   });
 
   return heroSection;

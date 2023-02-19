@@ -83,16 +83,20 @@
   }
 }
 
-.sliders-container .slider:nth-of-type(1) {
-  background: linear-gradient(to top, var(--always-black) 0%, var(--always-black) 20%, transparent 100%);
+.sliders-container {
+  position: relative;
+  z-index: 3;
 }
 
 .slider {
   background: var(--always-black);
 }
 
-.sliders-container .slider:last-of-type {
-  background: linear-gradient(to bottom, var(--always-black) 0%, var(--always-black) 20%, transparent 100%);
+.slider_theme {
+  .slider__header {
+    color: var(--text-primary);
+  }
+  background: var(--bg-primary);
 }
 
 .translate-speed {

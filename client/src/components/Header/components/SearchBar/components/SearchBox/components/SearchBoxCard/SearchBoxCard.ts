@@ -24,7 +24,7 @@ export const renderSearchBoxCard = (cardData: FindedMovies): HTMLElement => {
 
   const filmRating: HTMLElement = createElem('div', 'search-box__card-rating');
   filmRating.innerHTML = cardData.rating.kp.toFixed(1);
-  setRatingColor(filmRating, cardData.rating.kp);
+  setRatingColor(filmRating, cardData.rating.kp, 'text');
 
   const filmYear: HTMLElement = createElem('div', 'search-box__card-year');
   const year = cardData.year ? cardData.year.toString() : 'N/A';

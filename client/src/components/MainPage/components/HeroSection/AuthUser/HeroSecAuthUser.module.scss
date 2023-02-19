@@ -5,3 +5,19 @@
   padding-top: $header-height;
   height: 100%;
 }
+
+// #slider-video,
+#main-banner-video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 700px !important;
+  animation: fadeInBlack 1s;
+  transform: scale(1.2);
+}
+
+#main-banner-video {
+  transform: scale(2);
+}

@@ -25,7 +25,10 @@ const renderSliders = (main: HTMLElement) => {
   // слайдеры
   const sliders = setSliders[currentView].map((filmsSet, index) => {
     const viewIndex = view[index];
-    return addListenerSlideDown(renderSlider(filmsSet.docs, viewIndex.displayedTitle, viewIndex.title), 'slider');
+    return addListenerSlideDown(
+      renderSlider(filmsSet.docs, viewIndex.displayedTitle, viewIndex.title, 'slider'),
+      'slider'
+    );
   });
 
   sliders?.length && insertBefore({ nodes: sliders as HTMLElement[], parentNode: main, siblingNumber: 2 });
@@ -34,25 +37,27 @@ const renderSliders = (main: HTMLElement) => {
 export const renderMainPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', styles['main']);
   main.classList.add('main_banner');
-  const mainContainer: HTMLElement = createElem('div', 'main__container');
+  // const mainContainer: HTMLElement = createElem('div', 'main__container');
 
   const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
   const subsHero: HTMLElement = renderHeroSection();
-  mainContainer.append(subsHero);
+  // mainContainer.append(subsHero);
 
   const infinitySlider = renderInfiniteGallery(galleryData);
   const deviceBanner = renderDevices();
-  const sliderTop10 = addListenerTop10(renderSlider(TOP10, DATA_MAIN.TOP10.displayedTitle, DATA_MAIN.TOP10.title));
+  const sliderTop10 = addListenerTop10(
+    renderSlider(TOP10, DATA_MAIN.TOP10.displayedTitle, DATA_MAIN.TOP10.title, 'slider')
+  );
   const sliderGenre = addListenerCollection(
-    renderSlider(genresData, DATA_MAIN.GENRE.displayedTitle, DATA_MAIN.GENRE.title)
+    renderSlider(genresData, DATA_MAIN.GENRE.displayedTitle, DATA_MAIN.GENRE.title, 'slider')
   );
   const accordionSection: HTMLElement = createElem('div', 'accordion-section');
   const accordion: HTMLElement = createElem('div', 'accordion-container');
   Accordion(accordion, REFERENC_TITLE, REFERENC_DESCRIP);
   accordionSection.append(accordion);
 
-  main.append(mainContainer, container);
+  main.append(subsHero, container);
 
   !store.getState().uiConfig.isAuth && main.append(deviceBanner, infinitySlider, accordionSection, container);
 

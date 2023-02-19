@@ -9,9 +9,11 @@ import { renderToCoolectionItem } from './SliderItem/ToCoolectionItem/SliderItem
 export const renderSlider = (
   filmsData: ResponseMovie[] | Iitem[] | IitemTop10[],
   slaiderName: string,
-  id: string
+  id: string,
+  type: string
 ): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
+  if (type === 'folder') slider.classList.add('slider_theme');
   const header: HTMLElement = createElem('h3', styles.slider__header);
   if (id === 'genres') header.classList.add('slider__header_disabled');
   const container: HTMLElement = createElem('div', styles.slider__container);
@@ -39,7 +41,7 @@ export const renderSlider = (
 
   if (filmsData.length === 0) {
     const sliderEmpty = renderUserWatchEmpty(
-      'Добавить можно нажав на ... на фильме или посмотрев его для недавно просмотренных'
+      'Добавить можно, нажав на ... на фильме или посмотрев его для недавно просмотренных'
     );
     header.classList.add('slider__header_disabled');
     sliderEmpty.classList.add('slider-empty');
@@ -55,8 +57,8 @@ export const renderSlider = (
   const arr: ResponseMovie[] | Iitem[] | IitemTop10[] = filmsData.slice(0);
   arr.forEach((element) => items.append(renderSliderItem(element)));
 
-  if (id !== 'top-10' && id !== 'genres') {
-    items.append(renderToCoolectionItem(id));
+  if (id !== 'top-10' && id !== 'genres' && filmsData.length !== 0) {
+    items.append(renderToCoolectionItem(id, type));
     totalSlides += 1;
   }
 

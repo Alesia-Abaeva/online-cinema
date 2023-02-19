@@ -8,7 +8,7 @@ export const renderHeroSectionAuthUser = (): HTMLElement => {
 
   setTimeout(async () => {
     const randomID = randomMainFilms[Math.floor(Math.random() * randomMainFilms.length)];
-    const banner = await renderMainBanner(`${randomID}`, false);
+    const banner = await renderMainBanner(`${randomID}`, false, 'main-banner-video');
     wrapper.append(banner);
   }, 0);
 
