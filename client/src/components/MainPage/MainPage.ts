@@ -26,7 +26,7 @@ const renderSliders = (main: HTMLElement) => {
   const sliders = setSliders[currentView].map((filmsSet, index) => {
     const viewIndex = view[index];
     return addListenerSlideDown(
-      renderSlider(filmsSet.docs, viewIndex.displayedTitle, viewIndex.title, 'slider'),
+      renderSlider(filmsSet.docs.slice(0, 10), viewIndex.displayedTitle, viewIndex.title, 'slider'),
       'slider'
     );
   });
