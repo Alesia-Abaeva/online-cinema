@@ -2,13 +2,15 @@ import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { login } from 'src/logic/redux/actions';
-import { setLocalStorage } from 'src/logic/local-storage/local-storage';
-import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
+// import { setLocalStorage } from 'src/logic/local-storage/local-storage';
+// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { store, appDispatch } from 'src/logic/redux';
+import { route } from 'src/router/route';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
 import { mailIcon, passwordIcon } from '../../const/icons/icons';
 import styles from './Login.module.scss';
+
 // import { route } from 'src/router/route';
 
 export const renderLoginPage = (): HTMLElement => {
@@ -29,6 +31,8 @@ export const renderLoginPage = (): HTMLElement => {
   const errorWrapp = createElem('div', 'form__error');
   errorWrapp.innerHTML = '.';
 
+  const form = createElem('form', 'form');
+
   // email
   const wrapperEmail = createElem('form', 'form__wrapp');
   const labelEmail = createElem('label', 'form_label');
@@ -38,7 +42,6 @@ export const renderLoginPage = (): HTMLElement => {
   inputEmail.oninput = () => {
     stateInput.email = inputEmail.value;
   };
-  inputEmail.setAttribute('value', 'test@test.tu'); // TODO: убрать перед релизом
 
   wrapperEmail.append(labelEmail, iconEmail, inputEmail);
 
@@ -53,7 +56,6 @@ export const renderLoginPage = (): HTMLElement => {
     id: 'password',
     name: 'password',
   });
-  iconPass.setAttribute('value', '123456'); // TODO: убрать перед релизом
 
   inputPas.oninput = () => {
     stateInput.password = inputPas.value;
@@ -69,6 +71,13 @@ export const renderLoginPage = (): HTMLElement => {
     'form_button'
   );
 
+  form.onkeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      appDispatch(login({ email: stateInput.email, password: stateInput.password }));
+    }
+  };
+
   const registrationContainer = createElem('div', 'reg__container');
   const registrationLink = createLink('/register', 'reg__link', true, 'Зарегистрироваться');
   registrationLink.onclick = linkHandler;
@@ -76,14 +85,15 @@ export const renderLoginPage = (): HTMLElement => {
   const registrationText = createElem('div', 'reg__text');
   registrationText.innerHTML = `, если у вас не аккаунта.`;
   registrationContainer.append(registrationLink, registrationText);
-
-  formContainer.append(logo, errorWrapp, wrapperEmail, wrapperPas, button, registrationContainer);
+  form.append(wrapperEmail, wrapperPas);
+  formContainer.append(logo, errorWrapp, form, button, registrationContainer);
   mainContent.append(formContainer);
   mainContainer.append(mainContent);
   main.append(mainContainer);
 
   store.subscribe(() => {
-    const loginState = store.getState().auth.login;
+    const state = store.getState();
+    const loginState = state.auth.login;
 
     const loginLoading = loginState.isLoading;
     button.innerText = loginLoading ? 'Загрузка' : 'Войти';
@@ -94,14 +104,11 @@ export const renderLoginPage = (): HTMLElement => {
     } else {
       errorWrapp.style.visibility = 'hidden';
 
-      if (loginState.isAuth) {
-        setLocalStorage(loginState.data?.token as string, LOCAL_STORAGE_KEYS.TOKEN);
-        window.location.href = '/';
+      if (state.uiConfig.isAuth) {
+        route(`/`);
       }
     }
   });
 
   return main;
 };
-
-// test@test.tu

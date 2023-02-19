@@ -54,7 +54,10 @@ export const renderProfileData = (): ReturnElements => {
   lastnameInput.setAttribute('minLength', '2');
 
   const bntCtn: HTMLElement = createElem('div', 'profile__btn-save');
-  const bntSaveData: HTMLElement = createButton('сохранить', () => handleChangeUserData(dataPerson));
+  const bntSaveData: HTMLElement = createButton('сохранить', (event: Event) => {
+    event.preventDefault();
+    handleChangeUserData(dataPerson);
+  });
   bntSaveData.setAttribute('disabled', 'true');
   bntCtn.append(bntSaveData);
 
@@ -80,15 +83,27 @@ export const renderProfileData = (): ReturnElements => {
     }
   };
 
+  const userData = store.getState().user.personal.data;
+
+  emailInput.value = userData?.email as string;
+  nameInput.value = userData?.name ? userData?.name : '';
+  lastnameInput.value = userData?.lastName ? userData.lastName : '';
+
   data.append(email, name, lastname, bntCtn);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
-    if (userState.data !== null) {
+    if (userState.data?.email) {
       emailInput.setAttribute('value', `${userState.data?.email}`);
+    }
+
+    if (userState.data?.name) {
       nameInput.setAttribute('value', `${userState.data?.name}`);
-      userState.data?.lastName && lastnameInput.setAttribute('value', `${userState.data?.lastName}`);
+    }
+
+    if (userState.data?.lastName) {
+      lastnameInput.setAttribute('value', `${userState.data.lastName}`);
     }
   });
 

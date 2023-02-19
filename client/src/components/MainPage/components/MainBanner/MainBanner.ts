@@ -32,7 +32,10 @@ export const renderMainBanner = async (
     }, 100);
 
     setTimeout(() => {
-      renderBackgroundPlayer(res, type, () => () => console.log());
+      const mountEl = document.getElementById('main-banner-video') as HTMLElement;
+      if (mountEl) {
+        renderBackgroundPlayer(res, type, () => () => console.log());
+      }
     }, 100);
   }
 

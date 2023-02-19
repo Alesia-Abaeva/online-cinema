@@ -1,5 +1,4 @@
 import { createElem } from 'src/utils/create-element';
-import { IitemTop10 } from 'src/const/top10-data';
 import { renderUserWatchEmpty } from 'src/components/PersonalAccount/components/ProfileInform/components/UserWatch/UserWatch';
 import { renderSliderItem } from './SliderItem/SliderItem';
 import styles from './Slider.module.scss';
@@ -14,6 +13,7 @@ export const renderSlider = (
   type: string
 ): HTMLElement => {
   const slider: HTMLElement = createElem('div', styles.slider);
+  if (type === 'folder') slider.classList.add('slider_theme');
   const header: HTMLElement = createElem('h3', styles.slider__header);
   if (id === 'genres') header.classList.add('slider__header_disabled');
   const container: HTMLElement = createElem('div', styles.slider__container);
@@ -41,7 +41,7 @@ export const renderSlider = (
 
   if (filmsData.length === 0) {
     const sliderEmpty = renderUserWatchEmpty(
-      'Добавить можно нажав на ... на фильме или посмотрев его для недавно просмотренных'
+      'Добавить можно, нажав на ... на фильме или посмотрев его для недавно просмотренных'
     );
     header.classList.add('slider__header_disabled');
     sliderEmpty.classList.add('slider-empty');

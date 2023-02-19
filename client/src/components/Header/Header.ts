@@ -1,10 +1,10 @@
-import { NAVBAR_BTNS, NAVBAR_BTNS_AUTH } from 'src/const/nav-bar-btns';
-import { store } from 'src/logic/redux';
+// import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { renderAccountSectionHead } from './components/Account/Account';
+import { renderHeaderAnimation } from './components/AnimationLayer/AnimationLayer';
 import { rednerHamburgerNavbar } from './components/HamburgerNavbar/HamburgerNavbar';
-import { rednerNavbar } from './components/Navbar/Navbar';
+import { renderNavbar } from './components/Navbar/Navbar';
 import { renderSearchBar } from './components/SearchBar/SearchBar';
 import styles from './Header.module.scss';
 
@@ -24,24 +24,9 @@ export const renderHeader = (): HTMLElement => {
   const hamburger: HTMLElement = rednerHamburgerNavbar();
   const searchInput: HTMLElement = renderSearchBar();
 
-  store.subscribe(() => {
-    const userState = store.getState().auth.user;
+  headerContainer.append(logo, renderNavbar(), accoutSection, hamburger, searchInput);
 
-    if (userState.isLoading) {
-      headerContainer.innerHTML = '';
-      headerContainer.append(logo, accoutSection, hamburger, searchInput);
-    }
-
-    if (userState.data === null) {
-      headerContainer.innerHTML = '';
-      headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS, ''), accoutSection, hamburger, searchInput);
-    } else {
-      headerContainer.innerHTML = '';
-      headerContainer.append(logo, rednerNavbar(NAVBAR_BTNS_AUTH, ''), accoutSection, hamburger, searchInput);
-    }
-  });
-
-  header.append(headerContainer);
+  header.append(headerContainer, renderHeaderAnimation());
 
   return header;
 };

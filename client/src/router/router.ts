@@ -9,7 +9,7 @@ import { dynamicRouteHandler } from './dynamic-route-handler';
 
 /** Рендер темплейтов страниц */
 export const pathResolver = (pathname: string): void => {
-  const route = ROUTER_PATHS[pathname] || ROUTER_PATHS[PATH_NAMES.notFound];
+  const route = ROUTER_PATHS()[pathname] || ROUTER_PATHS()[PATH_NAMES.notFound];
 
   if (pathname.startsWith(PATH_NAMES.films)) {
     dynamicRouteHandler(pathname, PATH_NAMES.films, getMovie);

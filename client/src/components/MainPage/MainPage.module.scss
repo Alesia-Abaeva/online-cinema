@@ -24,6 +24,14 @@
   background-color: var(--bg-primary);
   padding: 4rem 4rem 6rem;
 
+  .referens__data-item {
+    font-size: 1.3rem;
+
+    .referens__data-item-title {
+      padding: 2rem 0;
+    }
+  }
+
   @media (max-width: $phone-width) {
     width: 80%;
     padding: 2rem 2rem 4rem;

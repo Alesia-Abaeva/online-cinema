@@ -1,4 +1,5 @@
 import { getPersonalData } from 'src/api/back/folders';
+import { renderUserWatchEmpty } from 'src/components/PersonalAccount/components/ProfileInform/components/UserWatch/UserWatch';
 import { renderAddToFolderModalContent } from 'src/components/ui/ButtonDropdown/components/AddToFolderModal/AddToFolderModal';
 import { renderModal } from 'src/components/ui/Modal/Modal';
 import { toggleModal } from 'src/components/ui/Modal/ToggleModal';
@@ -35,7 +36,7 @@ export const renderUserFolders = (userFoldersData: ResponseUserFolder[] | undefi
   foldersHeader.append(foldersTitle, foldersAction);
   const foldersCont: HTMLElement = createElem('div', styles['personal__folders-cont']);
 
-  if (userFoldersData) {
+  if (userFoldersData && userFoldersData.length > 0) {
     paginationState.limit = 8;
     const sliced = paginate(
       paginationState.page,
@@ -43,10 +44,17 @@ export const renderUserFolders = (userFoldersData: ResponseUserFolder[] | undefi
       userFoldersData
     ) as unknown as ResponseUserFolder[];
     paginationState.total = userFoldersData.length;
+
     sliced.forEach((el) => {
       const folder: HTMLElement = renderUserFolder(el);
       foldersCont.append(folder);
     });
+  } else {
+    foldersCont.classList.add('personal__folders-cont_empty');
+    const sliderEmpty = renderUserWatchEmpty(
+      'Чтобы создать папку нажмите на кнопку редактировать или на странице фильма добавить в папку'
+    );
+    foldersCont.append(sliderEmpty);
   }
 
   const pagination = renderPagination(() => updateUserFoldersUI(userFoldersData), false, false);
@@ -66,10 +74,19 @@ export const renderUserFolders = (userFoldersData: ResponseUserFolder[] | undefi
         paginationState.total = newFolderData.length;
 
         foldersCont.innerHTML = '';
-        sliced.forEach((el) => {
-          const folder: HTMLElement = renderUserFolder(el);
-          foldersCont.append(folder);
-        });
+        if (sliced.length > 0) {
+          foldersCont.classList.remove('personal__folders-cont_empty');
+          sliced.forEach((el) => {
+            const folder: HTMLElement = renderUserFolder(el);
+            foldersCont.append(folder);
+          });
+        } else {
+          foldersCont.classList.add('personal__folders-cont_empty');
+          const sliderEmpty = renderUserWatchEmpty(
+            'Чтобы создать папку нажмите на кнопку редактировать или на странице фильма добавить в папку'
+          );
+          foldersCont.append(sliderEmpty);
+        }
 
         const prevBtn = document.getElementById('prev') as HTMLElement;
         const nextBtn = document.getElementById('next') as HTMLElement;

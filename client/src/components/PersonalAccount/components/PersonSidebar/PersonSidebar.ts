@@ -38,6 +38,7 @@ export const renderPersonSidebar = (): HTMLElement => {
     if (window.location.pathname === element.link) {
       link.classList.add('active-block');
     }
+
     item.append(link);
 
     item.onclick = linkHandler;
@@ -48,12 +49,15 @@ export const renderPersonSidebar = (): HTMLElement => {
   const tariff = createElem('div', 'profile-sidebar__tariff');
   const tariffIconCnt = createElem('div', 'tariff_icon');
   const tariffName = createElem('div', 'tariff_name');
-  tariffName.innerHTML = 'Для всех';
+  tariffName.innerHTML = store.getState().user?.personal?.data?.tariff === 'premium' ? 'Премиум' : 'Для всех';
   tariff.append(tariffIconCnt, tariffName);
 
   store.subscribe(() => {
-    const userState = store.getState().auth.user;
+    const userState = store.getState().user.personal;
 
+    if (userState.isLoading || !userState) {
+      tariffName.innerHTML = '';
+    }
     if (userState.data && userState.data.tariff) {
       userState.data.tariff === 'base' ? (tariffName.innerHTML = 'Для всех') : (tariffName.innerHTML = 'Премиум');
     }

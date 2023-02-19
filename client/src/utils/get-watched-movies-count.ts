@@ -1,8 +1,9 @@
 import { store } from 'src/logic/redux';
 
 export const getWatchedMoviesCount = (listIds: number[]): number => {
-  const { data } = store.getState().auth.user;
+  const { data } = store.getState().user.personal;
   const folders = data ? data.folders : '';
+
   const watched = folders ? folders.watched : '';
   let counter = 0;
   if (watched) {

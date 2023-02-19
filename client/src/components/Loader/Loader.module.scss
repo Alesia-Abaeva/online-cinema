@@ -1,0 +1,41 @@
+@import '/src/theme/variable';
+
+.loader__main {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader__container {
+  display: flex;
+
+  span {
+    background: var(--bg-contrast);
+    height: 25px;
+    width: 50px;
+    margin-left: 10px;
+
+    animation: moving 1s linear infinite alternate-reverse;
+    animation-delay: calc(0.1s * var(--i));
+  }
+}
+
+@keyframes moving {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+    filter: blur(0px);
+  }
+  50%,
+  75% {
+    transform: translateY(10px);
+    filter: blur();
+  }
+
+  100% {
+    opacity: 1;
+    border-radius: 30%;
+    transform: translateY(0);
+  }
+}

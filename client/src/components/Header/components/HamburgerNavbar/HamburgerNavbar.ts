@@ -1,10 +1,9 @@
-import { NAVBAR_BTNS } from '../../../../const/nav-bar-btns';
 import { createElem } from '../../../../utils/create-element';
-import { rednerNavbar } from '../Navbar/Navbar';
+import { renderNavbar } from '../Navbar/Navbar';
 import styles from './HamburgerNavbar.module.scss';
 
 export const rednerHamburgerNavbar = (): HTMLElement => {
-  const hamburgerNav: HTMLElement = rednerNavbar(NAVBAR_BTNS, 'hamburger');
+  const hamburgerNav: HTMLElement = renderNavbar('hamburger');
 
   const hamburgerMenu: HTMLElement = createElem('div', styles['hamburger-menu']);
   for (let i = 0; i < 3; i++) {

@@ -3,7 +3,7 @@
 .slider {
   position: relative;
   // overflow: hidden;
-  
+
   &__header {
     display: inline-block;
     padding: 1.5rem $slider-padding 0.1rem;
@@ -83,7 +83,7 @@
   }
 }
 
-.sliders-container{
+.sliders-container {
   position: relative;
   z-index: 3;
 }
@@ -92,8 +92,11 @@
   background: var(--always-black);
 }
 
-.sliders-container .slider:last-of-type {
-  background: linear-gradient(to bottom, var(--always-black) 0%, var(--always-black) 20%, transparent 100%);
+.slider_theme {
+  .slider__header {
+    color: var(--text-primary);
+  }
+  background: var(--bg-primary);
 }
 
 .translate-speed {

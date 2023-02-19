@@ -7,8 +7,7 @@
   flex-direction: column;
   min-height: calc(100vh - 70px);
   @include default-page-container;
-  // TODO: ! 
-
+  // TODO: !
 }
 
 .form__wrapp-reg {
@@ -18,13 +17,14 @@
   position: relative;
 
   input {
+    font-size: 0.9rem;
     padding: 1rem;
     padding-left: 2.7rem;
     background-color: var(--crystalline-blur);
     color: var(--text-constast);
 
     @media (max-width: $phone-width) {
-      width: 15rem;
+      width: 75vw;
     }
   }
   &:invalid {

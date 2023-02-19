@@ -4,6 +4,7 @@ import { createLink } from 'src/utils/create-link-element';
 import { setLocalStorage } from 'src/logic/local-storage/local-storage';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { linkHandler } from 'src/utils/link-handler';
+import { route } from 'src/router/route';
 import { createElem } from '../../utils/create-element';
 import { mailIcon, passwordIcon, userIcon } from '../../const/icons/icons';
 import { createButton } from '../ui/Button/Button';
@@ -15,7 +16,6 @@ export const renderRegisterPage = (): HTMLElement => {
     name: '',
     email: '',
     password: '',
-    tariff: 'base',
   };
 
   const main: HTMLElement = createElem('main', 'main');
@@ -30,6 +30,8 @@ export const renderRegisterPage = (): HTMLElement => {
 
   const errorWrapp = createElem('div', 'form__error');
   errorWrapp.innerHTML = '.';
+
+  const form = createElem('form', 'form');
 
   // email
   const wrapperEmail = createElem('form', styles['form__wrapp-reg']);
@@ -84,12 +86,24 @@ export const renderRegisterPage = (): HTMLElement => {
           email: stateInput.email,
           password: stateInput.password,
           name: stateInput.name,
-          tariff: stateInput.tariff,
         })
       );
     },
     'form_button'
   );
+
+  form.onkeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      appDispatch(
+        register({
+          email: stateInput.email,
+          password: stateInput.password,
+          name: stateInput.name,
+        })
+      );
+    }
+  };
 
   const registrationContainer = createElem('div', 'reg__container');
   const registrationLink = createLink('/login', 'reg__link', true, 'Войти');
@@ -99,7 +113,8 @@ export const renderRegisterPage = (): HTMLElement => {
   registrationText.innerHTML = `Уже есть аккаунт?&nbsp `;
   registrationContainer.append(registrationText, registrationLink);
 
-  formContainer.append(logo, errorWrapp, wrapperEmail, wrapperName, wrapperPas, button, registrationContainer);
+  form.append(wrapperEmail, wrapperName, wrapperPas);
+  formContainer.append(logo, errorWrapp, form, button, registrationContainer);
   mainContent.append(formContainer);
   mainContainer.append(mainContent);
   main.append(mainContainer);
@@ -117,7 +132,7 @@ export const renderRegisterPage = (): HTMLElement => {
       errorWrapp.style.visibility = 'hidden';
       if (regirterState.isAuth) {
         setLocalStorage(regirterState.data?.token as string, LOCAL_STORAGE_KEYS.TOKEN);
-        window.location.href = '/';
+        route(`/`);
       }
     }
   });
