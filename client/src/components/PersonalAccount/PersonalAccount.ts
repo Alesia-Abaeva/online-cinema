@@ -5,7 +5,6 @@ import styles from './PersonalAccount.module.scss';
 
 export const renderPersonalAccountPage = (func?: () => HTMLElement) => {
   const main: HTMLElement = createElem('main', 'main');
-  //   main.classList.add('main_backdrop');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['personal-account']);
   mainContent.classList.add('show-personal');

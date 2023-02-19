@@ -6,7 +6,7 @@ import styles from './SubscriptionsPage.module.scss';
 
 export const renderSubscriptions = (): HTMLElement => {
   const main: HTMLElement = createElem('div', 'main');
-  main.classList.add('main_backdrop');
+  main.classList.add('main_banner');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['subscriptions']);
 

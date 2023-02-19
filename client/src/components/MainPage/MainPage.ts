@@ -36,7 +36,6 @@ const renderSliders = (main: HTMLElement) => {
 
 export const renderMainPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', styles['main']);
-  main.classList.add('main_banner');
   // const mainContainer: HTMLElement = createElem('div', 'main__container');
 
   const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
