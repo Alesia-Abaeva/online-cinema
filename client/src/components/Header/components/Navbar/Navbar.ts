@@ -4,9 +4,8 @@ import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { linkHandler } from '../../../../utils/link-handler';
 import { removeOverlay } from '../../../../utils/remove-overlay';
-import { renderOverlay } from '../../../Overlay/Overlay';
+import { openSearchbar } from '../../Handlers/open-searchbar';
 import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
-import { renderSearchBox } from '../SearchBar/components/SearchBox/SearchBox';
 import styles from './Navbar.module.scss';
 
 const renderNavBtns = (parent: HTMLElement) => {
@@ -38,22 +37,22 @@ export const renderNavbar = (navType = ''): HTMLElement => {
   const navSearch: HTMLElement = createElem('div', 'search-btn');
   const searchIcon: HTMLElement = createElem('div', 'search-btn__icon');
 
-  navSearch.onclick = async () => {
-    toggleSearchBar();
-    const app = document.getElementById('app') as HTMLElement;
-    const overlay = renderOverlay(() => {
-      toggleSearchBar();
-      removeOverlay('search-overlay');
-    }, 'search-overlay');
-    app.append(overlay);
-    const searchBoxCont = document.getElementById('search-box') as HTMLElement;
-    searchBoxCont.innerHTML = '';
-    const searchBox = await renderSearchBox(null);
-    searchBoxCont.append(searchBox);
-  };
+  navSearch.onclick = openSearchbar;
   navSearch.append(searchIcon);
 
   navBar.append(navUl, navSearch);
+
+  document.onkeydown = (e: KeyboardEvent) => {
+    if (e.key.toLowerCase() === 'p' && e.shiftKey && e.metaKey) {
+      const isOpen = document.getElementById('search-overlay');
+      if (isOpen instanceof HTMLElement) {
+        toggleSearchBar();
+        removeOverlay('search-overlay');
+      } else {
+        openSearchbar();
+      }
+    }
+  };
 
   store.subscribe(() => {
     navUl.innerHTML = '';

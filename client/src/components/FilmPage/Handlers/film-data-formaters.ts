@@ -6,7 +6,10 @@ export const formatCountry = (countries: ChildeAttribures[]): string => {
 };
 
 export const formatGenres = (genres: ChildeAttribures[]): string => {
-  const str = genres.map((el) => el.name).join(', ');
+  const str = genres
+    .filter((el) => el.name && !Number.isFinite(Number(el.name)))
+    .map((el) => el.name && el.name.toString().trim())
+    .join(', ');
   return `${str.slice(0, 1).toUpperCase()}${str.slice(1)}`;
 };
 
@@ -16,7 +19,7 @@ export const formatBudget = (budget: { currency: string; value: number }): strin
 
 export const formatWorldFees = (fees: FeesApi): string => {
   if ('world' in fees && 'currency' in fees.world && 'value' in fees.world) {
-    return fees.world.currency && fees.world.value ? `${fees.world.currency}${formatPriceNum(fees.world.value)}` : '';
+    return fees.world.currency && fees.world.value ? `${fees.world.currency}${formatPriceNum(+fees.world.value)}` : '';
   }
   return '';
 };

@@ -20,7 +20,6 @@ export const renderSearchBox = async (
   if (res) {
     films = res;
   } else {
-    // USE STATE HERE ???
     const suggestionsTitle: HTMLElement = createElem('div', styles['seach-box__suggestions']);
     suggestionsTitle.innerHTML = 'Возможно вам понравится';
     searchBox.append(suggestionsTitle);
