@@ -5,7 +5,8 @@ import { createElem } from 'src/utils/create-element';
 
 export const renderHeroSectionNewUser = (): HTMLElement => {
   const container = createElem('div', 'subs-hero__contents-container');
-  // TODO: Поменять текст на наш
+  container.classList.add('main_banner');
+
   const h1: HTMLElement = createElem('h1', 'subs-hero__title');
   h1.innerHTML = 'Фильмы и сериалы по подписке';
   const subTitle: HTMLElement = createElem('h2', 'subs-hero__sub-title');

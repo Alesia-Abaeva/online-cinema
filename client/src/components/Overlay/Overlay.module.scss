@@ -9,6 +9,10 @@
   z-index: 1;
 }
 
+#search-overlay {
+  z-index: 4;
+}
+
 #dropdown-overlay {
   top: -100vh;
   left: -100vh;

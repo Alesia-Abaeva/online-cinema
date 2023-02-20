@@ -6,4 +6,9 @@ module.exports = {
   // transform: {
   //   '^.+\\.scss$': 'jest-scss-transform',
   // },
+  moduleNameMapper: {
+    'src/(.*)': '<rootDir>/src/$1',
+    'assets/(.*)': '<rootDir>/src/assets/$1',
+    'utils/(.*)': '<rootDir>/src/utils/$1',
+  },
 };

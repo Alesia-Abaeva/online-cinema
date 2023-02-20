@@ -2,7 +2,7 @@
 
 .loader__main {
   display: flex;
-  height: 100vh;
+  min-height: calc(100vh - $footer-height);
   justify-content: center;
   align-items: center;
 }
