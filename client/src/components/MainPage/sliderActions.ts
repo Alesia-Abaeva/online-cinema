@@ -18,6 +18,9 @@ export const addListenerSlideDown = (slider: HTMLElement, type: string): HTMLEle
       const parent = target.closest('.filmDetails__link') as HTMLElement;
       route(`/films/${parent.dataset.id}`);
     }
+    if (target.classList.contains('filmDetails__person__link')) {
+      route(`/name/${target.dataset.id}`);
+    }
     if (target.classList.contains('sliderItem__image')) {
       const allSliders = document.querySelectorAll('.slider');
       allSliders.forEach(

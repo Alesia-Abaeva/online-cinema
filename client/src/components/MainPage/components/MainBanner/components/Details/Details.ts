@@ -10,19 +10,25 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
 
   const detailsLinkSvg = `<svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class=${styles.filmDetails__link__svg} fill="#fff" data-tid="9aedcbf3"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.501 3.664h11.834v11.833h-2V7.078L5 16.413l-1.414-1.414 9.335-9.335H4.5v-2Z"></path></svg>`;
 
-  const createListItem = (text: string) => {
-    const listItem = `<li  class=${styles.body__right__item}>${text}</li>`;
+  const createListItem = (text: string, id: number) => {
+    const listItem = `<li class=${styles.body__right__item}><a class=${
+      styles.filmDetails__person__link
+    } data-id=${id} href=name/${id}>${text || ''}</a></li>`;
     return listItem;
   };
 
   const actors = res.persons
     .filter((el) => el.enProfession === 'actor')
     .slice(0, 10)
-    .map((el) => el.name);
+    .map((el) => {
+      return { name: el.name, id: el.id };
+    });
   const directors = res.persons
     .filter((el) => el.enProfession === 'director')
     .slice(0, 2)
-    .map((el) => el.name);
+    .map((el) => {
+      return { name: el.name, id: el.id };
+    });
 
   const detailsTemplate = `
 
@@ -51,13 +57,13 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
     <div  class=${styles.body__right__block}>
       <div class=${styles.body__right__title}>В главных ролях</div>
       <ul class=${styles.body__right__list}>
-        ${actors.map((el) => createListItem(el)).join(' ')}
+        ${actors.map((el) => createListItem(el.name, el.id)).join('')}
       </ul>
     </div>
     <div  class=${styles.body__right__block}>
       <div class=${styles.body__right__title}>Режиссёры</div>
       <ul class=${styles.body__right__list}>
-        ${directors.map((el) => createListItem(el)).join(' ')}
+        ${directors.map((el) => createListItem(el.name, el.id)).join('')}
       </ul>
     </div>
   </div>
