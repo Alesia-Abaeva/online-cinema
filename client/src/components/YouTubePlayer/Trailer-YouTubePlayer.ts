@@ -79,5 +79,6 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
   );
 
   customPlayer.append(playBtn, bottomControls);
+
   return customPlayer;
 };
