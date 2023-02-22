@@ -1,5 +1,6 @@
 import { playIcon, playIconSm, toFullscreenModeIcon, volumeIcon } from 'src/const/icons/player-icons';
 import { createElem } from 'src/utils/create-element';
+import { createPlayerBtn } from './components/PlayerBtn/PlayerBtn';
 import styles from './Trailer-YouTubePlayer.module.scss';
 
 export const renderCustomYouTubePlayer = (): HTMLElement => {
@@ -19,10 +20,12 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
   const bottomControls: HTMLElement = createElem('div', 'youtube-player__controls');
   bottomControls.classList.add('controls');
 
-  const controlsPlayPause: HTMLElement = createElem('div', 'controls__play');
-  controlsPlayPause.id = 'controls-play-pause';
-  controlsPlayPause.classList.add('controls-icon');
-  controlsPlayPause.innerHTML = playIconSm;
+  const controlsPlayPause: HTMLElement = createPlayerBtn(
+    'controls__play',
+    'controls-play-pause',
+    playIconSm,
+    'Play (k)'
+  );
 
   const controlsProgressBar = createElem('input', 'controls__progressbar') as HTMLInputElement;
   controlsProgressBar.setAttribute('type', 'range');
@@ -40,10 +43,7 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
   const controlsTimestamp = createElem('span', 'controls__timestamp');
   controlsTimestamp.innerHTML = '00:00';
 
-  const volumeIconEl = createElem('div', 'controls__volume');
-  volumeIconEl.classList.add('controls-icon');
-  volumeIconEl.id = 'controls-volume-mute';
-  volumeIconEl.innerHTML = volumeIcon;
+  const volumeIconEl: HTMLElement = createPlayerBtn('controls__volume', 'controls-volume-mute', volumeIcon, 'Mute (m)');
 
   const volumeControl = createElem('input', 'controls__volume-control') as HTMLInputElement;
   volumeControl.setAttribute('type', 'range');
@@ -64,10 +64,12 @@ export const renderCustomYouTubePlayer = (): HTMLElement => {
     }%, #4776e6 ${value}%, hsla(0, 0%, 100%, 0.3) ${value}%, hsla(0, 0%, 100%, 0.3) 100%)`;
   };
 
-  const fullscreenMode = createElem('div', 'controls__fullscreen');
-  fullscreenMode.id = 'controls-fullscreen-mode';
-  fullscreenMode.classList.add('controls-icon');
-  fullscreenMode.innerHTML = toFullscreenModeIcon;
+  const fullscreenMode: HTMLElement = createPlayerBtn(
+    'controls__fullscreen',
+    'controls-fullscreen-mode',
+    toFullscreenModeIcon,
+    'Fullscreen (f)'
+  );
 
   bottomControls.append(
     controlsPlayPause,
