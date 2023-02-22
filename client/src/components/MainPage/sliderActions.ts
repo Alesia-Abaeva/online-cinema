@@ -23,17 +23,21 @@ export const addListenerSlideDown = (slider: HTMLElement, type: string): HTMLEle
       allSliders.forEach(
         async (elem): Promise<void> => elem.querySelector('.slideDown')?.classList.remove('show-slidedown')
       );
-      currentTarget.querySelector('.slideDown')?.classList.add('show-slidedown');
-      const item = target.closest('.sliderItem') as HTMLElement;
-      currentTarget.querySelector('.slideDown')?.dispatchEvent(
-        new CustomEvent('showFilmInfo', {
-          detail: { id: item.dataset.id },
-        })
-      );
 
-      setTimeout(() => {
-        item.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
+      const slideDownPart = currentTarget.querySelector('.slideDown') as HTMLElement;
+      if (slideDownPart) {
+        slideDownPart.classList.add('show-slidedown');
+        const item = target.closest('.sliderItem') as HTMLElement;
+
+        currentTarget.querySelector('.slideDown')?.dispatchEvent(
+          new CustomEvent('showFilmInfo', {
+            detail: { id: item.dataset.id },
+          })
+        );
+        setTimeout(() => {
+          slideDownPart.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
     }
   });
 
