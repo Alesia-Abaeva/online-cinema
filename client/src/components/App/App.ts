@@ -21,5 +21,9 @@ export const renderApp = (func: () => HTMLElement): Element => {
 
   appContiner.append(header, main, footer);
 
+  window.onerror = (msg, url, lineNo, columnNo, error) => {
+    console.log(msg, url, lineNo, columnNo, error);
+  };
+
   return appContiner;
 };

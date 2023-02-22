@@ -8,4 +8,5 @@ export const FIELD = {
   TYPE: 'type',
   MOVIE_ID: 'movieId',
   VOTES_IMDB: 'votes.imdb',
+  AGE: 'ageRating',
 } as const;
