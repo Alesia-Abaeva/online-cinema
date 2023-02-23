@@ -12,6 +12,7 @@ export const renderListCard = (cardData: ListCard): HTMLElement => {
   const img: HTMLElement = createElem('img', 'list-card__img');
   img.setAttribute('src', cardData.imgUrl);
   imgCont.append(img);
+  img.classList.add('skeleton');
 
   const listInfo: HTMLElement = createElem('div', 'list-card__info');
   const listTitle: HTMLElement = createElem('div', 'list-card__title');

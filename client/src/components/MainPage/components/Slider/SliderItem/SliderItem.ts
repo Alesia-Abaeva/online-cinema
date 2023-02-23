@@ -8,6 +8,7 @@ export const renderSliderItem = (movie: ResponseMovie | Iitem | IitemTop10): HTM
   const item: HTMLElement = createElem('div', styles.sliderItem);
   const wrapper: HTMLElement = createElem('div', styles.sliderItem__wrapper);
   const image = createElem('img', styles.sliderItem__image) as HTMLImageElement;
+  image.classList.add('skeleton');
 
   if (isTop10(movie)) {
     const imgSvg: HTMLElement = createElem('div', styles.sliderItem__img__svg);

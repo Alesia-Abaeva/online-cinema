@@ -7,6 +7,7 @@ export const renderSearchBoxCard = (cardData: FindedMovies): HTMLElement => {
   const searchCard: HTMLElement = createLink(`/films/${cardData.id}`, styles['search-box__card'], false, '');
   const cardPosterCont: HTMLElement = createElem('div', 'search-box__card-poster-cont');
   const cardPosterImg: HTMLElement = createElem('img', 'search-box__card-poster');
+  cardPosterImg.classList.add('skeleton');
   const url = `${
     cardData.poster
       ? cardData.poster.previewUrl

@@ -17,6 +17,7 @@ export const renderListContent = (listItems: ListItems, listData: ListCard): HTM
   const listImg: HTMLElement = createElem('img', 'list-content__img');
   listImg.setAttribute('src', listData.imgUrl);
   listImgCont.append(listImg);
+  listImg.classList.add('skeleton');
 
   listHeader.append(listTitle, listImgCont);
 

@@ -27,6 +27,7 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
       : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
   }`;
   itemImg.setAttribute('src', url);
+  itemImg.classList.add('skeleton');
   itemImgCont.append(itemImg);
 
   const itemInfo: HTMLElement = createElem('div', 'list-item__info');

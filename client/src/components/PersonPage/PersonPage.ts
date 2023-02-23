@@ -18,6 +18,7 @@ export const renderPersonPage = (personData: ResponsePerson): HTMLElement => {
       : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
   }`;
   personPhoto.setAttribute('src', url);
+  personPhoto.classList.add('skeleton');
 
   const personDescription: HTMLElement = createElem('div', 'id-page__description');
   const personHeader: HTMLElement = createElem('div', 'id-page__header');
