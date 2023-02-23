@@ -35,6 +35,16 @@
   margin: 0 auto;
   transform: translateY(-1200px);
   transition: transform 0.4s ease-in;
+
+  .loader__container {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+  }
 }
 
 .close-modal_films {

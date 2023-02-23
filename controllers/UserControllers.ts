@@ -84,16 +84,16 @@ export const login = async (req: express.Request, res: express.Response) => {
 
     //   создаем токен для авторизованного пользователя
     const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
-      expiresIn: "3h", //время существования токена
+      expiresIn: "10h", //время существования токена
     });
 
-    // const refreshToken = jwt.sign(
-    //   { userId: user.id },
-    //   config.get("jwtSecret"),
-    //   {
-    //     expiresIn: "1h", //время существования токена
-    //   }
-    // ); // TODO: добавить рефреш токен
+    const refreshToken = jwt.sign(
+      { userId: user.id },
+      config.get("jwtSecret"),
+      {
+        expiresIn: "10h", //время существования токена
+      }
+    ); // TODO: добавить рефреш токен
 
     res.json({ token, userId: user.id });
   } catch (e) {
