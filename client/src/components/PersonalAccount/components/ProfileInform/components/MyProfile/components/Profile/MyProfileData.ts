@@ -9,6 +9,7 @@ export const renderProfileData = (): ReturnElements => {
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Мой профиль';
   const btn = arrowBtn();
+  const success = createElem('div', 'change_personl-data');
 
   title.append(btn);
   const data: HTMLElement = createElem('form', 'profile-info__data');
@@ -57,6 +58,14 @@ export const renderProfileData = (): ReturnElements => {
   const bntSaveData: HTMLElement = createButton('сохранить', (event: Event) => {
     event.preventDefault();
     handleChangeUserData(dataPerson);
+    success.innerHTML = 'Данные успешно обновлены ＼(￣▽￣)／';
+    success.classList.add('active-pass-modal');
+
+    setTimeout(() => {
+      success.innerHTML = '';
+      success.classList.remove('active-pass-modal');
+      bntSaveData.setAttribute('disabled', 'true');
+    }, 2000); // показываем модалку
   });
   bntSaveData.setAttribute('disabled', 'true');
   bntCtn.append(bntSaveData);
@@ -89,7 +98,7 @@ export const renderProfileData = (): ReturnElements => {
   nameInput.value = userData?.name ? userData?.name : '';
   lastnameInput.value = userData?.lastName ? userData.lastName : '';
 
-  data.append(email, name, lastname, bntCtn);
+  data.append(email, name, lastname, bntCtn, success);
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;

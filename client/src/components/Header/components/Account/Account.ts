@@ -1,11 +1,11 @@
 import { store } from 'src/logic/redux';
+import { Tariff } from 'src/const/subscriptions-data';
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { renderAvatar, renderChildAvatar } from './components/Avatar/Avatar';
 import { renderProfileMenu } from './components/ProfileData/ProfileMenu';
 import styles from './Account.module.scss';
-import { Tariff } from 'src/const/subscriptions-data';
 
 export const renderAccountSectionHead = (): HTMLElement => {
   const tariff = store.getState().user.personal.data?.tariff;
