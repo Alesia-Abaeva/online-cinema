@@ -101,12 +101,21 @@ export const renderLoginPage = (): HTMLElement => {
     if (loginState.error) {
       errorWrapp.style.visibility = 'visible';
       errorWrapp.innerHTML = loginState.error?.message as string;
-    } else {
-      errorWrapp.style.visibility = 'hidden';
 
-      if (state.uiConfig.isAuth) {
-        route(`/`);
-      }
+      return null;
+    }
+
+    errorWrapp.style.visibility = 'hidden';
+    return null;
+  });
+
+  let isAuthRedirected = false;
+
+  store.subscribe(() => {
+    if (!isAuthRedirected && store.getState().uiConfig.isAuth) {
+      route(`/`);
+
+      isAuthRedirected = true;
     }
   });
 
