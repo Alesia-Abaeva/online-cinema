@@ -105,7 +105,6 @@ export const ROUTER_PATHS = (): Paths => ({
   },
   [PATH_NAMES.notauthorized]: {
     template: store.getState().uiConfig.isAuth ? notauthorized : notFound,
-
     title: `notauthorized | ${projectTitle}`,
   },
 });

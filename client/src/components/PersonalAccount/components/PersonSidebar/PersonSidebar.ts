@@ -1,5 +1,6 @@
 import { uploadHandler } from 'src/api/back/auth';
 import { SIDEBAR_BTNS } from 'src/const/nav-bar-btns';
+import { Tariff } from 'src/const/subscriptions-data';
 import { appDispatch, store } from 'src/logic/redux';
 import { setUserInfo } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
@@ -49,7 +50,7 @@ export const renderPersonSidebar = (): HTMLElement => {
   const tariff = createElem('div', 'profile-sidebar__tariff');
   const tariffIconCnt = createElem('div', 'tariff_icon');
   const tariffName = createElem('div', 'tariff_name');
-  tariffName.innerHTML = store.getState().user?.personal?.data?.tariff === 'premium' ? 'Премиум' : 'Для всех';
+  tariffName.innerHTML = store.getState().user?.personal?.data?.tariff === Tariff.PREMIUM ? 'Премиум' : 'Для всех';
   tariff.append(tariffIconCnt, tariffName);
 
   store.subscribe(() => {
@@ -59,7 +60,7 @@ export const renderPersonSidebar = (): HTMLElement => {
       tariffName.innerHTML = '';
     }
     if (userState.data && userState.data.tariff) {
-      userState.data.tariff === 'base' ? (tariffName.innerHTML = 'Для всех') : (tariffName.innerHTML = 'Премиум');
+      userState.data.tariff === Tariff.BASE ? (tariffName.innerHTML = 'Для всех') : (tariffName.innerHTML = 'Премиум');
     }
   });
 
