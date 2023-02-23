@@ -4,10 +4,16 @@ import { createElem } from 'src/utils/create-element';
 import { removeFilmModal } from './Handlers/show-hide-modal';
 import styles from './ModalFilm.module.scss';
 
+// const errorModalFilms = () => {
+//   const container = createElem('div', 'mоdal-films_error');
+//   container.innerText = 'Упс, ошибочка';
+
+//   return container;
+// };
+
 export const renderModal = (): CommonsHtml => {
   const container: HTMLElement = createElem('div', 'mоdal-films_container');
   const window: HTMLElement = createElem('div', styles['mоdal-films_window']);
-  // window.innerText = 'Это я';
 
   const dotsLoader = renderLoaderDots();
   window.append(dotsLoader);
@@ -17,12 +23,22 @@ export const renderModal = (): CommonsHtml => {
   const closeIcon: HTMLElement = createElem('p', 'checkout-modal__close-icon');
   closeIcon.innerHTML = '╳';
 
+  // const error = errorModalFilms();
+
+  // setTimeout(() => {
+  //   window.removeChild(dotsLoader);
+  //   window.append(error);
+  // }, 8000);
+  // TODO: сделать, когда заработают фильмы
+
   close.append(closeIcon);
   window.append(close, body);
   overlay.append(window);
   container.append(overlay);
 
-  close.onclick = () => removeFilmModal(body, overlay, window);
+  close.onclick = () => {
+    removeFilmModal(body, overlay, window);
+  };
 
   return { container, overlay, window, body };
 };
