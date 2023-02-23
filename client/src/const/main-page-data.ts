@@ -95,6 +95,31 @@ export const SLIDERS: SlidersSets = {
       title: 'zero-age',
       url: '/slider/zero-age',
     },
+    {
+      displayedTitle: 'Зарубежные мультики',
+      title: 'foreign-cartoons',
+      url: '/slider/foreign-cartoons',
+    },
+    {
+      displayedTitle: 'Фильмы для всех возрастов',
+      title: 'for-all-ages',
+      url: '/slider/for-all-ages',
+    },
+    {
+      displayedTitle: 'Мульт сериалы',
+      title: 'animated-series',
+      url: '/slider/animated-series',
+    },
+    {
+      displayedTitle: 'Сказки',
+      title: 'fairy-tales',
+      url: '/slider/fairy-tales',
+    },
+    {
+      displayedTitle: 'Мультики от Pixar',
+      title: 'pixar',
+      url: '/slider/pixar',
+    },
   ],
 };
 

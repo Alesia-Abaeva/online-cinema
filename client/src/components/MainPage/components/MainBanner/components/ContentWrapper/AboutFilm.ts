@@ -20,8 +20,9 @@ export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLEleme
     btnSlice2.append(btnInterest);
   }
 
-  const description = res.shortDescription ? res.shortDescription : res.description;
-  const title = res.logo && res.logo.url ? `<img src="${res.logo.url}" alt="${res.name}" />` : res.name;
+  const description = res.shortDescription ? res.shortDescription : res.description || '';
+  const title =
+    res.logo && res.logo.url ? `<img src="${res.logo.url}" alt="${res.name || 'image'}" />` : res.name || '';
   const raiting = res.rating.kp ? res.rating.kp.toFixed(1) : '';
   const votes = res.votes.kp ? getReadableVotes(res.votes.kp) : '';
   const ageRating = res.ageRating ? `${res.ageRating}+` : '';
@@ -43,7 +44,7 @@ export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLEleme
       </div>
       <div class=${styles.contentWrapper__meta__main}>
         <div class=${styles.contentWrapper__year__genres}>
-          <span>${res.year ? res.year : ''}, ${res.genres[0] && res.genres[0].name ? res.genres[0].name : ''}, ${
+          <span>${res.year || ''}, ${res.genres[0] && res.genres[0].name ? res.genres[0].name : ''}, ${
     res.genres[1] && res.genres[1].name ? res.genres[1].name : ''
   }</span>
           <span>${res.countries[0] && res.countries[0].name ? res.countries[0].name : ''}</span>
