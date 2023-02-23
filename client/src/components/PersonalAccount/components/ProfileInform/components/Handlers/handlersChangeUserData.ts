@@ -9,8 +9,9 @@ import { deleteUser, updateUser, updateUserTariff } from 'src/api/back/auth';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
 import { appDispatch } from 'src/logic/redux';
-import { setUserInfo } from 'src/logic/redux/actions';
+import { setLogoutState, setUserInfo, setViewType } from 'src/logic/redux/actions';
 import { route } from 'src/router/route';
+import { ViewType } from 'src/const/main-page-data';
 
 export const handleChangeUserData = async (body: AuthGetPersonToken) => {
   try {
@@ -80,6 +81,9 @@ export const handleUpdateUserFolderName = async (body: UserFolderData) => {
 export const handleDelete = async () => {
   try {
     await deleteUser();
+    appDispatch(setLogoutState());
+    appDispatch(setUserInfo({ data: null }));
+    appDispatch(setViewType(ViewType.GUEST));
     localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN);
     route(PATH_NAMES.main);
   } catch (err) {
