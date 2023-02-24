@@ -19,6 +19,5 @@ export const renderAvailibleTariff = () => {
 
   userProfile.append(title, data);
 
-  // TODO:  подписка на событие! и вывод результата в label
   return userProfile;
 };

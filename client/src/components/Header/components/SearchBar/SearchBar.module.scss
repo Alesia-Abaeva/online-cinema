@@ -19,7 +19,7 @@
   font-size: 1.2rem;
 
   &::placeholder {
-    color: var(--text-primary);;
+    color: var(--text-primary);
     opacity: 0;
   }
 }
@@ -90,6 +90,7 @@ input[type='search']::-webkit-search-results-decoration {
   width: 0px;
   opacity: 0;
   font-size: 1.2rem;
+  // height: 75vh;
 }
 
 .search__box-container_open {

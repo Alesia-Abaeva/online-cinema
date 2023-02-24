@@ -6,11 +6,7 @@ import { renderAboutFilm } from './components/ContentWrapper/AboutFilm';
 import styles from './MainBanner.module.scss';
 import { renderDetails } from './components/Details/Details';
 
-export const renderMainBanner = async (
-  movieId: string,
-  isTabs: boolean,
-  type: string | undefined
-): Promise<HTMLElement> => {
+export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: string): Promise<HTMLElement> => {
   const mainBanner: HTMLElement = createElem('div', styles.mainBanner);
   const wrapper: HTMLElement = createElem('div', styles.mainBanner__wrapper);
   const container: HTMLElement = createElem('div', styles.mainBanner__container);

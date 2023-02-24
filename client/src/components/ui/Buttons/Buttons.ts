@@ -5,6 +5,7 @@ import { renderCustomYouTubePlayer } from 'src/components/YouTubePlayer/Trailer-
 import { renderYouTubePlayer } from 'src/components/YouTubePlayer/YouTubePlayer';
 import { bookmarkIcon, threeDotsIcon, watchFilmIcon } from 'src/const/icons/icons';
 import { PATH_NAMES } from 'src/const/path-names';
+import { Tariff } from 'src/const/subscriptions-data';
 import { store } from 'src/logic/redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
@@ -22,11 +23,11 @@ export const createBtnWatch = (filmId: number, filmImg: string) => {
   btnWatch.classList.add(`${styles.actionBtn__film}`, `${styles.actionBtn}`);
 
   btnWatch.onclick = () =>
-  /* eslint-disable */
+    /* eslint-disable */
     store.getState().user.personal.data
-      ? store.getState().user.personal.data?.tariff === 'premium'
+      ? store.getState().user.personal.data?.tariff === Tariff.PREMIUM
         ? addFilmModal(filmId, filmImg)
-        : route(PATH_NAMES.userSubscribe)
+        : route(PATH_NAMES.subscriptions)
       : route(PATH_NAMES.register);
   return btnWatch;
 };
