@@ -282,7 +282,6 @@ export const updateFolders = async (
     const prevArr = JSON.parse(JSON.stringify(arr));
 
     const idx = arr.indexOf(filmId);
-    // idx !== -1 ? arr.splice(idx, 1) : arr.push(filmId);
 
     if (folderName === 'watchedRecently') {
       idx !== -1 ? arr : arr.push(filmId);
