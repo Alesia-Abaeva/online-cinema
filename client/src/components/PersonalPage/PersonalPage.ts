@@ -22,7 +22,8 @@ export const renderPersonal = (
       const keyword = el.folderName as DefaultFoldersNames;
       const displayedTitle = DEFAULT_FOLDERS[keyword];
 
-      const renderSliderData = sliderData.reverse().slice(0, 10);
+      const renderSliderData =
+        keyword === 'watchedRecently' ? sliderData.slice(0, 10).reverse() : sliderData.slice(0, 10);
       const slider: HTMLElement = addListenerSlideDown(
         renderSlider(renderSliderData, displayedTitle, el.folderName, 'folder'),
         'folder'
