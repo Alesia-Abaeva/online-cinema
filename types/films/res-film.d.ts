@@ -3,7 +3,7 @@ interface ResponseMovie {
   alternativeName: string;
   backdrop: { previewUrl: string; url: string } | null;
   budget: { currency: string; value: number };
-  collections: string[]; // TODO - исправить тип
+  collections: string[];
   countries: ChildeAttribures[];
   createDate: string;
   description: string | null;
@@ -19,7 +19,7 @@ interface ResponseMovie {
   id: number;
   images: ImagesApi;
   imagesInfo: ImagesApi;
-  lists: string[]; // TODO - исправить тип
+  lists: string[];
   logo: { url: string | null };
   movieLength: number;
   name: string;
@@ -54,21 +54,21 @@ interface ResponseMovie {
 
 export type FindedMoviesBack = Pick<
   ResponseMovie,
-  | 'alternativeName'
-  | 'description'
-  | 'enName'
-  | 'logo'
-  | 'movieLength'
-  | 'name'
-  | 'names'
-  | 'poster'
-  | 'rating'
-  | 'releaseYears'
-  | 'shortDescription'
-  | 'type'
-  | 'votes'
-  | 'watchability'
-  | 'year'
-  | 'externalId'
-  | 'id'
+  | "alternativeName"
+  | "description"
+  | "enName"
+  | "logo"
+  | "movieLength"
+  | "name"
+  | "names"
+  | "poster"
+  | "rating"
+  | "releaseYears"
+  | "shortDescription"
+  | "type"
+  | "votes"
+  | "watchability"
+  | "year"
+  | "externalId"
+  | "id"
 >;

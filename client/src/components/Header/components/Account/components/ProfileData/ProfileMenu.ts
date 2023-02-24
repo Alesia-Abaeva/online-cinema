@@ -2,6 +2,7 @@
 // import { ViewType } from 'src/const/main-page-data';
 import { ViewType } from 'src/const/main-page-data';
 import { PATH_NAMES } from 'src/const/path-names';
+import { Tariff } from 'src/const/subscriptions-data';
 import { appDispatch, store } from 'src/logic/redux';
 import {
   setLogoutState,
@@ -29,9 +30,9 @@ export const renderProfileMenu = (): HTMLElement => {
   const childeProfileAvatar: HTMLElement = renderChildAvatar('Дети 12+');
   const childeProfile: HTMLElement = createElem('li', 'profile-menu__item');
   childeProfile.append(childeProfileAvatar);
+  childeProfile.style.marginBottom = '1rem';
 
-  // TODO: возможно вынести в компонент!
-  store.getState().user.personal.data?.tariff === 'premium' && profileMenu.append(childeProfile);
+  store.getState().user.personal.data?.tariff === Tariff.PREMIUM && profileMenu.append(childeProfile);
 
   const profileHistory: HTMLElement = createElem('li', 'profile-menu__item');
   profileHistory.innerHTML = 'История просмотра';

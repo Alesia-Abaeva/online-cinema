@@ -1,8 +1,7 @@
 import { lists } from 'src/pages/lists';
-// import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { list } from 'src/pages/list';
+import { subscriptions } from 'src/pages/subscriptions';
 import { user, userPromo, userReference, userSettings, userSubscribe, userWatch } from 'src/pages/user-account';
-// import { subscriptions } from 'src/pages/subscriptions';
 import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
 import { authorized } from 'src/pages/authorized';
@@ -18,8 +17,9 @@ import { register } from '../pages/register';
 import { film } from '../pages/film-page';
 import { PATH_NAMES } from './path-names';
 import { projectTitle } from './project-title';
-// import { LOCAL_STORAGE_KEYS } from './local-storage';
+import { ViewType } from './main-page-data';
 
+/* eslint-disable no-nested-ternary */
 export const ROUTER_PATHS = (): Paths => ({
   [PATH_NAMES.loader]: {
     template: loaderPage,
@@ -39,7 +39,6 @@ export const ROUTER_PATHS = (): Paths => ({
   },
   [PATH_NAMES.register]: {
     template: store.getState().uiConfig.isAuth ? authorized : register,
-    // getLocalStorage(LOCAL_STORAGE_KEYS.TOKEN) ? authorized : register, // TODO: поставить страницу заглушки
     title: `register | ${projectTitle}`,
   },
   [PATH_NAMES.films]: {
@@ -59,29 +58,49 @@ export const ROUTER_PATHS = (): Paths => ({
     title: `list | ${projectTitle}`,
   },
   [PATH_NAMES.user]: {
-    template: store.getState().uiConfig.isAuth ? user : notauthorized,
+    template: store.getState().uiConfig.isAuth
+      ? store.getState().uiConfig.viewType === ViewType.CHILD
+        ? notFound
+        : user
+      : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userWatch]: {
-    template: store.getState().uiConfig.isAuth ? userWatch : notauthorized,
+    template: store.getState().uiConfig.isAuth
+      ? store.getState().uiConfig.viewType === ViewType.CHILD
+        ? notFound
+        : userWatch
+      : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userSettings]: {
-    template: store.getState().uiConfig.isAuth ? userSettings : notauthorized,
+    template: store.getState().uiConfig.isAuth
+      ? store.getState().uiConfig.viewType === ViewType.CHILD
+        ? notFound
+        : userSettings
+      : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userPromo]: {
-    template: store.getState().uiConfig.isAuth ? userPromo : notauthorized,
+    template: store.getState().uiConfig.isAuth
+      ? store.getState().uiConfig.viewType === ViewType.CHILD
+        ? notFound
+        : userPromo
+      : notauthorized,
     title: `user | ${projectTitle}`,
   },
   [PATH_NAMES.userReference]: {
-    template: store.getState().uiConfig.isAuth ? userReference : notauthorized,
+    template: store.getState().uiConfig.isAuth
+      ? store.getState().uiConfig.viewType === ViewType.CHILD
+        ? notFound
+        : userReference
+      : notauthorized,
     title: `user | ${projectTitle}`,
   },
-  // [PATH_NAMES.subscriptions]: {
-  //   template: subscriptions,
-  //   title: `subscriptions | ${projectTitle}`,
-  // },
+  [PATH_NAMES.subscriptions]: {
+    template: store.getState().uiConfig.isAuth ? subscriptions : notauthorized,
+    title: `subscriptions | ${projectTitle}`,
+  },
   [PATH_NAMES.collection]: {
     template: collection,
     title: `collection | ${projectTitle}`,
@@ -91,7 +110,7 @@ export const ROUTER_PATHS = (): Paths => ({
     title: `slider | ${projectTitle}`,
   },
   [PATH_NAMES.personal]: {
-    template: personal,
+    template: store.getState().uiConfig.isAuth ? personal : notFound,
     title: `personal | ${projectTitle}`,
   },
   [PATH_NAMES.folder]: {
@@ -99,15 +118,19 @@ export const ROUTER_PATHS = (): Paths => ({
     title: `folder | ${projectTitle}`,
   },
   [PATH_NAMES.userSubscribe]: {
-    template: store.getState().uiConfig.isAuth ? userSubscribe : notauthorized,
+    template: store.getState().uiConfig.isAuth
+      ? store.getState().uiConfig.viewType === ViewType.CHILD
+        ? notFound
+        : userSubscribe
+      : notauthorized,
     title: `collection | ${projectTitle}`,
   },
   [PATH_NAMES.authorized]: {
-    template: authorized,
+    template: store.getState().uiConfig.isAuth ? notFound : authorized,
     title: `authorized | ${projectTitle}`,
   },
   [PATH_NAMES.notauthorized]: {
-    template: notauthorized,
+    template: store.getState().uiConfig.isAuth ? notauthorized : notFound,
     title: `notauthorized | ${projectTitle}`,
   },
 });

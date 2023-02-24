@@ -1,4 +1,5 @@
 import { store } from 'src/logic/redux';
+import { Tariff } from 'src/const/subscriptions-data';
 import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
@@ -7,6 +8,7 @@ import { renderProfileMenu } from './components/ProfileData/ProfileMenu';
 import styles from './Account.module.scss';
 
 export const renderAccountSectionHead = (): HTMLElement => {
+  const tariff = store.getState().user.personal.data?.tariff;
   const accoutSection: HTMLElement = createElem('div', styles['header__account']);
   //   не авторизованный
   const loginBtn: HTMLElement = createElem('div', 'header__login');
@@ -18,9 +20,10 @@ export const renderAccountSectionHead = (): HTMLElement => {
   const avatarCnt: HTMLElement = createElem('div', 'avatar__container');
   const avatarWrapperHeader: HTMLElement = renderAvatar();
   const avatarChildeWrapp: HTMLElement = renderChildAvatar('Дети');
-
   const profileContainer: HTMLElement = renderProfileMenu();
-  avatarCnt.append(avatarWrapperHeader, avatarChildeWrapp, profileContainer);
+  avatarCnt.append(avatarWrapperHeader);
+  tariff === Tariff.PREMIUM && avatarCnt.append(avatarChildeWrapp); // начальный рендеринг детского профиля
+  avatarCnt.append(profileContainer);
 
   avatarWrapperHeader.onmouseover = () => {
     profileContainer.classList.add('show__menu');

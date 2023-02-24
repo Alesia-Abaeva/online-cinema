@@ -1,4 +1,3 @@
-// import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import styles from './DropdownFilter.module.scss';
 
@@ -46,19 +45,6 @@ export const renderDropdownFilter = (data: DropdownFiltersData): HTMLElement => 
   });
 
   dropdownFilter.append(caption, dropdownList);
-
-  // store.subscribe(() => {
-  //   const userState = store.getState().auth.user;
-
-  //   if (userState.data?.parentControls) {
-  //     targetElement.forEach((item) => {
-  //       item.classList.remove('dropdown-filter__list-item_active');
-  //       if (userState.data?.parentControls === item.textContent) {
-  //         item.classList.add('dropdown-filter__list-item_active');
-  //       }
-  //     });
-  //   }
-  // }); TODO: подписаться на изменения стейта, чтобы при выборе возраста, отображалось верно
 
   return dropdownFilter;
 };

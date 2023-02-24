@@ -84,14 +84,14 @@ export const login = async (req: express.Request, res: express.Response) => {
 
     //   создаем токен для авторизованного пользователя
     const token = jwt.sign({ userId: user.id }, config.get('jwtSecret'), {
-      expiresIn: '3h', //время существования токена
+      expiresIn: '10h', //время существования токена
     });
 
     // const refreshToken = jwt.sign(
     //   { userId: user.id },
-    //   config.get("jwtSecret"),
+    //   config.get("jwtRefreshSecret"),
     //   {
-    //     expiresIn: "1h", //время существования токена
+    //     expiresIn: "10h", //время существования токена
     //   }
     // ); // TODO: добавить рефреш токен
 
@@ -124,7 +124,6 @@ export const updateUser = async (
 ) => {
   try {
     const { name, lastName } = req.body;
-    // TODO: отредактировать для изменения данных пользователя
 
     const user = await User.findByIdAndUpdate(
       req.user.userId,
@@ -136,8 +135,6 @@ export const updateUser = async (
         new: true,
       }
     );
-
-    console.log(user);
 
     res.json(user);
   } catch (e) {
@@ -168,7 +165,7 @@ export const updateUserPassword = async (
 
     const isMatch = await bcrypt.compare(password, user.password);
     console.log('isMatch', isMatch);
-    console.log('user', user);
+
 
     if (!isMatch) {
       return res
@@ -186,10 +183,6 @@ export const updateUserPassword = async (
       }
     );
 
-    console.log('userUpdate', userUpdate);
-
-    // TODO: отредактировать для изменения данных пользователя
-
     res.json({
       message: 'Данные успешно обновлены!',
     });
@@ -205,9 +198,6 @@ export const updateUserParentsContr = async (
   try {
     const { parentControls } = req.body;
 
-    console.log(parentControls);
-    // TODO: отредактировать для изменения данных пользователя
-
     const user = await User.findByIdAndUpdate(
       req.user.userId,
       {
@@ -218,7 +208,6 @@ export const updateUserParentsContr = async (
       }
     );
 
-    console.log(user);
     res.json(user);
   } catch (e) {
     res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });
@@ -232,8 +221,6 @@ export const updateUserTariff = async (
   try {
     const { tariff } = req.body;
 
-    // TODO: отредактировать для изменения данных пользователя
-
     const user = await User.findByIdAndUpdate(
       req.user.userId,
       {
@@ -244,7 +231,6 @@ export const updateUserTariff = async (
       }
     );
 
-    console.log(user);
     res.json(user);
   } catch (e) {
     res.status(500).json({ message: `Ошибка при запросе к базе данных: ${e}` });

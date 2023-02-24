@@ -1,4 +1,4 @@
-export const PATH_NAMES: PathNames = {
+export const PATH_NAMES = {
   notFound: '404',
   main: '/',
   login: '/login',
@@ -14,7 +14,6 @@ export const PATH_NAMES: PathNames = {
   folder: '/folder', // dynamic
   authorized: '/authorized',
   notauthorized: '/notauthorized',
-
   user: '/user', // dinamyc actually not
   userAccount: '/user/aboutme',
   userWatch: '/user/watch',
@@ -23,4 +22,4 @@ export const PATH_NAMES: PathNames = {
   userReference: '/user/reference',
   userPromo: '/user/promo',
   loader: '/loader',
-};
+} as const;

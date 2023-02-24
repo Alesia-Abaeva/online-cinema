@@ -1,4 +1,8 @@
 import { createElem } from 'src/utils/create-element';
+import { store } from 'src/logic/redux';
+import { ViewType } from 'src/const/main-page-data';
+import { route } from 'src/router/route';
+import { PATH_NAMES } from 'src/const/path-names';
 import { renderPersons } from './components/Persons/Persons';
 import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
 import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
@@ -11,6 +15,11 @@ import { renderModal } from '../ui/ModalFilm/ModalFilm';
 import styles from './FilmPage.module.scss';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
+  const { viewType } = store.getState().uiConfig;
+  if ((Number(filmData.ageRating) > 12 || filmData.ageRating === null) && viewType === ViewType.CHILD) {
+    route(PATH_NAMES.main);
+  } // редирект для детского режима
+
   const main: HTMLElement = createElem('main', 'main');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['film-page']);

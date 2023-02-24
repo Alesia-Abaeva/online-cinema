@@ -1,3 +1,4 @@
+import { ViewType } from 'src/const/main-page-data';
 import { NAVBAR_BTNS, NAVBAR_BTNS_AUTH } from 'src/const/nav-bar-btns';
 import { store } from 'src/logic/redux';
 import { createElem } from '../../../../utils/create-element';
@@ -9,7 +10,9 @@ import { toggleSearchBar } from '../../Handlers/toggle-search-bar';
 import styles from './Navbar.module.scss';
 
 const renderNavBtns = (parent: HTMLElement) => {
-  const navBtns = store.getState().uiConfig.isAuth ? NAVBAR_BTNS_AUTH : NAVBAR_BTNS;
+  const storeConfig = store.getState().uiConfig;
+  const navBtns = storeConfig.isAuth && storeConfig.viewType === ViewType.USER ? NAVBAR_BTNS_AUTH : NAVBAR_BTNS;
+  // проверяем есть ли авторизации и какой режим, для вывода пунтка меню Мое
 
   navBtns.forEach((el) => {
     const li: HTMLElement = createElem('li', 'nav__list-item');
@@ -24,7 +27,6 @@ const renderNavBtns = (parent: HTMLElement) => {
 
 export const renderNavbar = (navType = ''): HTMLElement => {
   const navBar: HTMLElement = createElem('nav', styles[`${navType ? `${navType}-nav` : 'nav'}`]);
-  // navBar.classList.add('skeleton');
 
   const navUl: HTMLElement = createElem('ul', 'nav__list');
 

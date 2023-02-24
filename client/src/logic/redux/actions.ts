@@ -83,8 +83,8 @@ export const getDataPerson = (token: string) => async (dispatch: AppDispatch) =>
     dispatch(setViewType(data.parentControls === AgeTypes.PARENT ? ViewType.USER : ViewType.CHILD));
     dispatch(setUserInfo({ error: null, data, isLoading: false }));
   } catch (e) {
-    // remove key
     dispatch(setUserInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
+    dispatch(setLogoutState());
   }
 };
 
@@ -108,8 +108,10 @@ export const register = (body: AuthRequest) => async (dispatch: AppDispatch) => 
   try {
     dispatch(setRegisterInfo({ isLoading: true }));
     const { data } = await registerHandler(body);
+
     dispatch(setLoginState(data?.token));
     dispatch(setRegisterInfo({ error: null, data, isLoading: false }));
+
     dispatch(setViewType(ViewType.USER));
     dispatch(getDataPerson(data?.token));
   } catch (e) {

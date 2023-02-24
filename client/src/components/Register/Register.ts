@@ -1,10 +1,7 @@
 import { appDispatch, store } from 'src/logic/redux';
 import { register } from 'src/logic/redux/actions';
 import { createLink } from 'src/utils/create-link-element';
-import { setLocalStorage } from 'src/logic/local-storage/local-storage';
-import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { linkHandler } from 'src/utils/link-handler';
-import { route } from 'src/router/route';
 import { createElem } from '../../utils/create-element';
 import { mailIcon, passwordIcon, userIcon } from '../../const/icons/icons';
 import { createButton } from '../ui/Button/Button';
@@ -128,13 +125,13 @@ export const renderRegisterPage = (): HTMLElement => {
     if (regirterState.error) {
       errorWrapp.style.visibility = 'visible';
       errorWrapp.innerHTML = regirterState.error?.message as string;
-    } else {
-      errorWrapp.style.visibility = 'hidden';
-      if (regirterState.isAuth) {
-        setLocalStorage(regirterState.data?.token as string, LOCAL_STORAGE_KEYS.TOKEN);
-        route(`/`);
-      }
+
+      return null;
     }
+
+    errorWrapp.style.visibility = 'hidden';
+
+    return null;
   });
 
   return main;
