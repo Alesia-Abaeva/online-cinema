@@ -1,9 +1,10 @@
-import mongoose, { model, Schema, Types } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 const schema = new Schema(
   {
-    text: { type: String, required: true, unique: true },
-    idFilms: { type: String },
+    text: { type: String, required: true },
+    stars: { type: Number, required: true },
+    filmId: { type: String },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -17,4 +18,4 @@ const schema = new Schema(
   }
 );
 
-export default model("User", schema);
+export default model("Reviews", schema);
