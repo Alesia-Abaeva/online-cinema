@@ -72,7 +72,7 @@ export const updateReview = async (
       { new: true }
     );
 
-    res.status(200).send(review);
+    res.status(200).send({ message: "Отзыв успешно обновлен" });
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку
@@ -115,7 +115,22 @@ export const getReviewsByFilm = async (
   res: express.Response
 ) => {
   try {
-    const reviews = await Reviews.find({ filmId: req.params.filmId });
+    const filmReviews = await Reviews.find({ filmId: req.params.filmId });
+
+    const reviews = await Promise.all(
+      filmReviews.map(async (review) => {
+        const user = await User.findById(review.user);
+        return {
+          ...review["_doc"],
+          user: {
+            _id: user._id,
+            name: user.name,
+            lastName: user.lastName,
+            avatarUrl: user.avatarUrl,
+          },
+        };
+      })
+    );
 
     res.status(200).send({ reviews });
   } catch (e) {
