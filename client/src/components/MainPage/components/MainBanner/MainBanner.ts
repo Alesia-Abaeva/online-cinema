@@ -35,7 +35,7 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
     }, 100);
   }
 
-  const contentWrapper: HTMLElement = renderAboutFilm(res);
+  const contentWrapper: HTMLElement = renderAboutFilm(res, isTabs);
 
   background.style.backgroundImage = `url(${res.backdrop?.url})`;
 
@@ -54,7 +54,7 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
         content.append(renderDetails(res));
       } else if (target.classList.contains('about-film')) {
         content.innerHTML = '';
-        content.append(renderAboutFilm(res));
+        content.append(renderAboutFilm(res, isTabs));
       }
     });
   }

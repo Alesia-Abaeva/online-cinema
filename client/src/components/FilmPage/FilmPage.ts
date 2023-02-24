@@ -34,6 +34,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   else showCover(filmData, backdrop, mainContent)();
 
   // 1 column - poster
+  // const posterCont: HTMLElement = createElem('div', 'id-page__poster-cont');
   const filmPoster: HTMLElement = createElem('img', 'id-page__poster');
   const url = `${
     filmData.poster
@@ -41,6 +42,8 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
       : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
   }`;
   filmPoster.setAttribute('src', url);
+  filmPoster.classList.add('skeleton');
+  // posterCont.append(filmPoster);
 
   // 2 column - film data
   const filmDescription: HTMLElement = createElem('div', 'id-page__description');

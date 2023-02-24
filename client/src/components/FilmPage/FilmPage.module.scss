@@ -39,8 +39,8 @@
 }
 
 .id-page__poster {
+  aspect-ratio: auto 650 / 976;
   width: 100%;
-  height: auto;
 }
 
 .id-page__description {
@@ -144,7 +144,6 @@
 }
 
 @media (max-width: 500px) {
-
   .id-page__long-desc {
     gap: 0.5rem;
   }

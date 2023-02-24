@@ -24,8 +24,10 @@
 }
 
 .similar-movies__img {
+  aspect-ratio: auto 650 / 976;
   width: 100%;
-  height: auto;
+  // width: 100%;
+  // height: auto;
   object-fit: cover;
 }
 

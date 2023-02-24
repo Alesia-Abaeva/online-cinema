@@ -23,6 +23,7 @@
 .list-content__img-cont {
   @include flex-center;
   justify-content: flex-end;
+  aspect-ratio: 1/1;
 }
 
 .list-content__img {

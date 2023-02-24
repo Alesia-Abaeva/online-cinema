@@ -6,7 +6,6 @@ import { DATA_MAIN, SLIDERS, ViewType } from 'src/const/main-page-data';
 import { galleryData } from 'src/const/gallery-data';
 import { genresData } from 'src/const/genres-data';
 import { randomizeObj } from 'src/utils/randomize-obj';
-
 import { renderHeroSection } from './components/HeroSection/HeroSection';
 import styles from './MainPage.module.scss';
 import { Accordion } from '../ui/Accordion/Accordion';
@@ -39,12 +38,10 @@ const renderSliders = (main: HTMLElement) => {
 
 export const renderMainPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', styles['main']);
-  // const mainContainer: HTMLElement = createElem('div', 'main__container');
 
   const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
   const subsHero: HTMLElement = renderHeroSection();
-  // mainContainer.append(subsHero);
 
   const infinitySlider = renderInfiniteGallery(galleryData);
   const deviceBanner = renderDevices();

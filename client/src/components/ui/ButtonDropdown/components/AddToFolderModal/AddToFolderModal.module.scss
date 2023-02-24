@@ -32,9 +32,11 @@
   max-height: 390px;
   margin-bottom: 1rem;
   width: 100%;
+
   .profile-info__data {
     display: flex;
     flex-direction: column;
+    padding: 1rem;
   }
 }
 
