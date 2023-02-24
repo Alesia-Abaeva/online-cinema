@@ -13,6 +13,7 @@ import { showCover } from './Handlers/showCover';
 import { createBtnInterest, createBtnTrailer, createBtnWatch } from '../ui/Buttons/Buttons';
 import { renderModal } from '../ui/ModalFilm/ModalFilm';
 import styles from './FilmPage.module.scss';
+import { renderReviewForm } from './components/ReviewForm/ReviewForm';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const { viewType } = store.getState().uiConfig;
@@ -91,6 +92,11 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
     const simiralMoviesSection: HTMLElement = renderSimilarMovies(similarMovies);
     filmDescription.append(simiralMoviesSection);
   }
+
+  // Review form
+  const reviewForm: HTMLElement = renderReviewForm();
+  filmDescription.append(reviewForm);
+
   // 3 column - actors and rating
   const filmRatingAndActors = createElem('div', 'id-page__desc-aside');
 

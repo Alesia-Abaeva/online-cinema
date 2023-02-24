@@ -1,0 +1,43 @@
+@import '/src/theme/variable';
+
+.stars-rating__cont {
+  display: inline-flex;
+  &_disabled {
+    pointer-events: none;
+  }
+}
+
+.stars-rating__icon {
+  pointer-events: none;
+}
+
+.stars-rating__input {
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+.stars-rating__input--none {
+  display: none;
+}
+
+.stars-rating__label {
+  cursor: pointer;
+  padding: 0 0.1em;
+  font-size: 2rem;
+}
+
+.stars-rating__icon-star {
+  fill: #803bee;
+}
+
+.stars-rating__input:checked ~ .stars-rating__label .stars-rating__icon-star {
+  fill: #d9d9d9;
+}
+
+.stars-rating-group:hover .stars-rating__label .stars-rating__icon-star {
+  fill: #803bee;
+}
+
+.stars-rating__input:hover ~ .stars-rating__label .stars-rating__icon-star {
+  fill: #d9d9d9;
+}

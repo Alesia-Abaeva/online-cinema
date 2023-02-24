@@ -1,4 +1,5 @@
 import { renderOverlay } from 'src/components/Overlay/Overlay';
+import { handleUpdateFolders } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
 import { createButton } from 'src/components/ui/Button/Button';
 import { addFilmModal } from 'src/components/ui/ModalFilm/Handlers/show-hide-modal';
 import { renderCustomYouTubePlayer } from 'src/components/YouTubePlayer/Trailer-YouTubePlayer';
@@ -22,13 +23,20 @@ export const createBtnWatch = (filmId: number, filmImg: string) => {
   const btnWatch = createButton(watchFilmContent) as HTMLButtonElement;
   btnWatch.classList.add(`${styles.actionBtn__film}`, `${styles.actionBtn}`);
 
-  btnWatch.onclick = () =>
-    /* eslint-disable */
-    store.getState().user.personal.data
-      ? store.getState().user.personal.data?.tariff === Tariff.PREMIUM
-        ? addFilmModal(filmId, filmImg)
-        : route(PATH_NAMES.subscriptions)
-      : route(PATH_NAMES.register);
+  btnWatch.onclick = () => {
+    const { data } = store.getState().user.personal;
+    if (data) {
+      if (data.tariff === Tariff.PREMIUM) {
+        addFilmModal(filmId, filmImg);
+        handleUpdateFolders({ folderName: 'watchedRecently', id: filmId });
+      } else {
+        route(PATH_NAMES.userSubscribe);
+      }
+    } else {
+      route(PATH_NAMES.register);
+    }
+  };
+
   return btnWatch;
 };
 

@@ -5,6 +5,9 @@ interface AttributeInput {
   id?: string;
   name?: string;
   spellcheck?: string;
+  disabled?: string;
+  checked?: string;
+  value?: string;
 }
 
 interface InputComponent {
