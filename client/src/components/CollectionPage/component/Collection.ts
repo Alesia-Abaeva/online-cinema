@@ -19,6 +19,7 @@ export const renderCollectionFilms = (data: FindedMovies[], slices: boolean) => 
     }`;
     img.src = url;
     const item = createElem('a', 'collection__item') as HTMLElement;
+    img.classList.add('skeleton');
 
     if (elem.rating.kp) {
       const raiting = createElem('span', 'collection__item__raiting') as HTMLElement;

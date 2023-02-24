@@ -11,7 +11,9 @@ export const folder = (data: FolderItems): void => {
     setPaginationState(response.data.length);
 
     const keyword = extractAfterLastSlash(data.pathname) as DefaultFoldersNames;
-    renderApp(() => renderCollection(response.data, DEFAULT_FOLDERS[keyword], true));
+
+    const renderData = keyword === 'watchedRecently' ? response.data.reverse() : response.data;
+    renderApp(() => renderCollection(renderData, DEFAULT_FOLDERS[keyword], true));
   } else if (isResponseUserFolder(response)) {
     setPaginationState(response.films.length);
 
