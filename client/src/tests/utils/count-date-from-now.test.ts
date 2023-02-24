@@ -8,4 +8,7 @@ describe('countDateFromNow function', () => {
     expect(countDateFromNow(new Date(), 0)).toEqual(new Date('2023-01-01'));
     expect(countDateFromNow(new Date(), -1)).toEqual(new Date('2022-12-31'));
   });
+  it('should be instance of Date', () => {
+    expect(countDateFromNow(new Date(), 30)).toBeInstanceOf(Date);
+  });
 });

@@ -5,7 +5,7 @@ describe('getPersonsWithJob', () => {
     {
       id: 1,
       name: 'alex',
-      enName: 'petrov',
+      enName: 'lorem',
       photo: 'assets/img/avatar.svg',
       enProfession: 'actor',
       description: 'best actor',
@@ -13,7 +13,7 @@ describe('getPersonsWithJob', () => {
     {
       id: 2,
       name: 'lex',
-      enName: 'petrov',
+      enName: 'lorem',
       photo: 'assets/img/avatar.svg',
       enProfession: 'actor',
       description: 'best actor',
@@ -21,7 +21,7 @@ describe('getPersonsWithJob', () => {
     {
       id: 3,
       name: 'max',
-      enName: 'petrov',
+      enName: 'lorem',
       photo: 'assets/img/avatar.svg',
       enProfession: 'director',
       description: 'best director',
@@ -37,7 +37,7 @@ describe('getPersonsWithJob', () => {
       {
         id: 1,
         name: 'alex',
-        enName: 'petrov',
+        enName: 'lorem',
         photo: 'assets/img/avatar.svg',
         enProfession: 'actor',
         description: 'best actor',
@@ -45,7 +45,7 @@ describe('getPersonsWithJob', () => {
       {
         id: 2,
         name: 'lex',
-        enName: 'petrov',
+        enName: 'lorem',
         photo: 'assets/img/avatar.svg',
         enProfession: 'actor',
         description: 'best actor',
@@ -55,7 +55,7 @@ describe('getPersonsWithJob', () => {
       {
         id: 3,
         name: 'max',
-        enName: 'petrov',
+        enName: 'lorem',
         photo: 'assets/img/avatar.svg',
         enProfession: 'director',
         description: 'best director',

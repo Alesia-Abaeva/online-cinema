@@ -6,7 +6,6 @@ describe('formatSlogan', () => {
     expect(formatSlogan('hello')).toBe('"hello"');
     expect(formatSlogan('')).toBe('');
     expect(formatSlogan(' ')).toBe('" "');
-    expect(formatSlogan('')).toBe('');
   });
   it('should return an empty string', () => {
     expect(formatSlogan('')).toBe('');

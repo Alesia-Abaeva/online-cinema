@@ -7,5 +7,6 @@ describe('getReadableVotes function', () => {
     expect(getReadableVotes(1523)).toBe('1K');
     expect(getReadableVotes(1000)).toBe('1K');
     expect(getReadableVotes(-70)).toBe('0K');
+    expect(getReadableVotes(NaN)).toBe('0K');
   });
 });

@@ -1,7 +1,7 @@
 import { formatAge } from 'src/components/FilmPage/Handlers/film-data-formaters';
 
 describe('formatAge', () => {
-  it('should return age in readable string', () => {
+  it('should return age in readable form', () => {
     expect(formatAge(21)).toBe('21+');
     expect(formatAge('13')).toBe('13+');
     expect(formatAge('0')).toBe('0+');

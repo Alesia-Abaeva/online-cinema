@@ -5,7 +5,7 @@ const budget2 = { currency: 'r', value: 20000 };
 const budget3 = { currency: '', value: 0 };
 
 describe('formatBudget', () => {
-  it('should return a budget in a readable format', () => {
+  it('should return the budget in a readable form', () => {
     expect(formatBudget(budget1)).toBe('$10 000');
     expect(formatBudget(budget2)).toBe('r20 000');
     expect(formatBudget(budget3)).toBe('0');
