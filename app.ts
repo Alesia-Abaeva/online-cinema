@@ -6,6 +6,7 @@ import { router as listsRouter } from "./routes/lists.routes";
 import { router as slidersRouter } from "./routes/slider.routes";
 import { router as collectionsRouter } from "./routes/collections.routes";
 import { router as reviewsRouter } from "./routes/reviews.routes";
+import { router as promocodeRouter } from "./routes/promocode.router";
 
 import cors from "cors";
 import checkAuth from "./middleware/auth.middelware";
@@ -40,6 +41,7 @@ app.use("/api/lists", listsRouter); // пути для получения дан
 app.use("/api/collections", collectionsRouter); // пути для получения данных о подборках
 app.use("/api/sliders", slidersRouter); // пути для получения данных для слайдеров на главной
 app.use("/api/reviews", reviewsRouter); // пути для получения данных об отзывах
+app.use("/api/promocode", promocodeRouter); // пути для работы с промокодами
 
 // TODO: вынести в роуты
 app.post(
