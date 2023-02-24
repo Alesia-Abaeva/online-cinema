@@ -1,4 +1,5 @@
 import { volumeIcon } from 'src/const/icons/player-icons';
+import { createElem } from 'src/utils/create-element';
 import { YouTubePlayer as TypeYouTubePlayer } from 'youtube-player/dist/types';
 import { prevVolumeValue } from '../YouTubePlayer';
 
@@ -9,6 +10,9 @@ export const unmutePlayer = (player: TypeYouTubePlayer) => {
   volumeBtn.classList.remove('controls__mute');
   volumeBtn.classList.add('controls__volume');
   volumeBtn.innerHTML = volumeIcon;
+  const tooltip: HTMLElement = createElem('span', 'tooltiptext');
+  tooltip.innerHTML = 'Mute (m)';
+  volumeBtn.append(tooltip);
 
   const value = prevVolumeValue.volume;
   progressbarAudio.value = value.toString();

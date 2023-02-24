@@ -8,6 +8,7 @@ import { modalPlayer } from './Handlers/modalscreen';
 import { mutePlayer } from './Handlers/mute';
 import { pausePlayer } from './Handlers/pause';
 import { playPlayer } from './Handlers/play';
+import { playerShortcutsHandler } from './Handlers/shortcuts-handler';
 import { unmutePlayer } from './Handlers/unmute';
 import { updateProgressBar } from './Handlers/update-progressbar';
 import { updateTimerDisplay } from './Handlers/update-timestamp';
@@ -63,6 +64,10 @@ export const renderYouTubePlayer = (
       playerEl.mute();
       playerEl.playVideo();
     } else {
+      document.onkeydown = (event: KeyboardEvent) => {
+        playerShortcutsHandler(event, playerEl);
+      };
+
       // Custom player settings
       updateTimerDisplay(playerEl);
       playerEl.setVolume(prevVolumeValue.volume);

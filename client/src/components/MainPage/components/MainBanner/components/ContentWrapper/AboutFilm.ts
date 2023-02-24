@@ -3,7 +3,7 @@ import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-da
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
 import styles from './AboutFilm.module.scss';
 
-export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
+export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLElement => {
   const btnSlice1 = createElem('div', styles.contentWrapper__actions__slice1);
   const btnSlice2 = createElem('div', styles.contentWrapper__actions__slice2);
   const buttons: HTMLElement = createElem('div', styles.contentWrapper__actions);
@@ -13,7 +13,12 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
 
   const btnWatch = createBtnWatch(res.id, filmImg) as HTMLButtonElement;
   const btnTrailer = createBtnTrailer(res) as HTMLButtonElement;
-  const btnInterest = createBtnInterest(res.id) as HTMLButtonElement;
+  // const btnBookmark = createBtnBookmark() as HTMLButtonElement;
+  btnSlice2.append(btnTrailer);
+  if (dotsBtn) {
+    const btnInterest = createBtnInterest(res.id) as HTMLButtonElement;
+    btnSlice2.append(btnInterest);
+  }
 
   const description = res.shortDescription ? res.shortDescription : res.description || '';
   const title =
@@ -56,7 +61,6 @@ export const renderAboutFilm = (res: ResponseMovie): HTMLElement => {
   content.innerHTML = aboutFilmTemplate;
 
   btnSlice1.append(btnWatch);
-  btnSlice2.append(btnTrailer, btnInterest);
   buttons.append(btnSlice1, btnSlice2);
   content.append(buttons);
 

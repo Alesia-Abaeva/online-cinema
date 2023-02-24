@@ -20,6 +20,7 @@ export const renderSimilarMovies = (movies: SequelsAndPrequels[]): HTMLElement =
         : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640'
     }`;
     movieImg.setAttribute('src', url);
+    movieImg.classList.add('skeleton');
 
     movieImgCont.append(movieImg);
 
