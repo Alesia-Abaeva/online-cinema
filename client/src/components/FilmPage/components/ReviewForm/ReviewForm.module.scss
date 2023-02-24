@@ -1,0 +1,50 @@
+@import '/src/theme/variable';
+
+.review-form-cont {
+  width: 100%;
+}
+
+.review-form {
+  background-color: var(--bg-secondary);
+  margin-top: 1rem;
+  width: 100%;
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.review-form__title-input {
+  width: 100%;
+}
+
+.review-form__text-input {
+  font-family: NetflixSans-Regular;
+  resize: none;
+  height: 290px;
+  width: 100%;
+}
+
+.review-form__submit {
+  // border-radius: 50px;
+  width: auto;
+
+  &:disabled {
+    color: var(--text-ternary);
+    background-image: none;
+    background-color: $tundora-60;
+    cursor: auto;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

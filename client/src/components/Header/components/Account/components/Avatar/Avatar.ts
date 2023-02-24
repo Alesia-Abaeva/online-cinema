@@ -14,9 +14,12 @@ export const renderAvatar = (): HTMLElement => {
   const avatarCircle: HTMLElement = createElem('div', 'avatar__circle');
   const avatar: HTMLElement = createElem('div', styles['avatar__profile']);
 
-  avatar.style.backgroundImage = userStateOnLoad?.avatarUrl
-    ? `url(http://localhost:3000${userStateOnLoad.avatarUrl})`
-    : `url(${user})`;
+  if (userStateOnLoad?.avatarUrl) {
+    avatar.style.backgroundImage = `url(http://localhost:3000${userStateOnLoad.avatarUrl})`;
+  } else {
+    avatar.style.backgroundImage = `url(${user})`;
+    avatar.classList.add('default-avatar');
+  }
 
   avatarWrap.style.display = userStateOnLoad?.parentControls === AgeTypes.PARENT ? `flex` : `none`;
 
@@ -25,9 +28,11 @@ export const renderAvatar = (): HTMLElement => {
 
   store.subscribe(() => {
     const userState = store.getState().user.personal;
-    userState.data?.avatarUrl &&
-      (avatar.style.backgroundImage = `url(http://localhost:3000${userState.data?.avatarUrl})`);
 
+    if (userState.data?.avatarUrl) {
+      avatar.style.backgroundImage = `url(http://localhost:3000${userState.data?.avatarUrl})`;
+      avatar.classList.remove('default-avatar');
+    }
     if (userState.data?.parentControls === AgeTypes.CHILD) {
       avatarWrap.style.display = 'none';
     } else {
