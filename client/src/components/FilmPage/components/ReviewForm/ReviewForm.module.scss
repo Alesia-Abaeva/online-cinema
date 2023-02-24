@@ -34,7 +34,7 @@
   width: auto;
 
   &:disabled {
-    color: var(--text-ternary);
+    color: var(--text-btn-disabled);
     background-image: none;
     background-color: $tundora-60;
     cursor: auto;
