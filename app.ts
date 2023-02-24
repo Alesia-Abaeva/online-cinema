@@ -13,7 +13,7 @@ import checkAuth from "./middleware/auth.middelware";
 import { upload } from "./cors/multer";
 import { start } from "./cors/start";
 import uploadFiles from "./controllers/UploadController";
-import { multerController } from "./middleware/multer.middleware";
+// import { multerController } from "./middleware/multer.middleware";
 
 mongoose.set("strictQuery", true);
 
@@ -44,13 +44,7 @@ app.use("/api/reviews", reviewsRouter); // пути для получения д
 app.use("/api/promocode", promocodeRouter); // пути для работы с промокодами
 
 // TODO: вынести в роуты
-app.post(
-  "/upload",
-  checkAuth,
-  upload.single("image"),
-  multerController,
-  uploadFiles
-); // загрузка изображений на бэк
+app.post("/upload", checkAuth, upload.single("image"), uploadFiles); // загрузка изображений на бэк
 
 start();
 
