@@ -1,3 +1,4 @@
+import { renderAvatar } from 'src/components/Header/components/Account/components/Avatar/Avatar';
 import { renderModal } from 'src/components/ui/Modal/Modal';
 import { toggleModal } from 'src/components/ui/Modal/ToggleModal';
 import { renderStarsRating } from 'src/components/ui/StarsRating/StarsRating';
@@ -21,7 +22,6 @@ export const renderReviewCard = (data: IReviewCard): HTMLElement => {
   const header = createElem('div', 'reviewCard__header');
   const text = createElem('p', 'reviewCard__text');
   const title = createElem('h3', 'reviewCard__title');
-  const image = createElem('div', 'reviewCard__image');
   const headerInfo = createElem('div', 'reviewCard__headerInfo');
   const headerInfoData = createElem('div', 'reviewCard__headerInfoData');
   const name = createElem('div', 'reviewCard__name');
@@ -51,7 +51,7 @@ export const renderReviewCard = (data: IReviewCard): HTMLElement => {
 
   headerInfoData.append(name, date);
   headerInfo.append(headerInfoData, stars);
-  header.append(image, headerInfo);
+  header.append(renderAvatar(), headerInfo);
   content.append(header, text);
   wrapper.append(content);
   container.append(wrapper);
