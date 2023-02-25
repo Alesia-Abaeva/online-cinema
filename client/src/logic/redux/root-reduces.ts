@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { ViewType } from 'src/const/main-page-data';
-import { AuthTypes, SliderType, UiConfigTypes, UserTypes } from './types-redux';
+import { AuthTypes, PromocodeType, ReviewType, SliderType, UiConfigTypes, UserTypes } from './types-redux';
 
 // TODO:  вынести интерфейсы
 export interface AuthState {
@@ -14,7 +14,20 @@ export interface UiConfigState {
 
 interface UserState {
   personal: ApiResponse<AuthGetPersonToken>;
-  password: ApiResponse<{ message: string }>;
+  password: ApiResponse<CommonResponse>;
+}
+
+interface PromocodeState {
+  personal: ApiResponse<PersonalPromocodeResponse>;
+  activation: ApiResponse<CommonResponse>;
+}
+
+interface ReviewsState {
+  personal: ApiResponse<PersonalReviewResponse>;
+  film: ApiResponse<FilmReviewResponse>;
+  createReview: ApiResponse<CommonResponse>;
+  updateReview: ApiResponse<CommonResponse>;
+  deleteReview: ApiResponse<CommonResponse>;
 }
 
 type SliderState = {
@@ -40,6 +53,19 @@ const initialUserState: UserState = {
   password: { data: null, error: null, isLoading: false },
 };
 
+const initialPromocodeState: PromocodeState = {
+  personal: { data: null, error: null, isLoading: false },
+  activation: { data: null, error: null, isLoading: false },
+};
+
+const initialReviewsState: ReviewsState = {
+  personal: { data: null, error: null, isLoading: false },
+  film: { data: null, error: null, isLoading: false },
+  createReview: { data: null, error: null, isLoading: false },
+  updateReview: { data: null, error: null, isLoading: false },
+  deleteReview: { data: null, error: null, isLoading: false },
+};
+
 const initialSliderState: SliderState = {
   [ViewType.USER]: [],
   [ViewType.CHILD]: [],
@@ -47,8 +73,6 @@ const initialSliderState: SliderState = {
   isLoading: false,
   error: null,
 };
-
-// ResponseFindedFullMovies
 
 const authReducer = (state = initialAuthState, action: TypesRedux) => {
   switch (action.type) {
@@ -66,7 +90,7 @@ const userReducer = (state = initialUserState, action: TypesRedux) => {
     case UserTypes.PERSON:
       return { ...state, personal: { ...state.personal, ...(action.payload as ApiResponse<AuthGetPersonToken>) } };
     case UserTypes.SET_PASS_INFO:
-      return { ...state, password: { ...state.password, ...(action.payload as ApiResponse<{ message: string }>) } };
+      return { ...state, password: { ...state.password, ...(action.payload as ApiResponse<CommonResponse>) } };
     default:
       return state;
   }
@@ -95,6 +119,37 @@ const sliderReducer = (state = initialSliderState, action: TypesRedux) => {
   }
 };
 
+const promocodesReducer = (state = initialPromocodeState, action: TypesRedux) => {
+  switch (action.type) {
+    case PromocodeType.SET_PERSONAL_PROMOCODE:
+      return {
+        ...state,
+        personal: { ...state.personal, ...(action.payload as ApiResponse<PersonalPromocodeResponse>) },
+      };
+    case PromocodeType.ACTIVATE_PROMOCODE:
+      return { ...state, activation: { ...state.activation, ...(action.payload as ApiResponse<CommonResponse>) } };
+    default:
+      return state;
+  }
+};
+
+const reviewsReducer = (state = initialReviewsState, action: TypesRedux) => {
+  switch (action.type) {
+    case ReviewType.SET_PERSONAL_REVIEWS:
+      return { ...state, personal: { ...state.personal, ...(action.payload as ApiResponse<PersonalReviewResponse>) } };
+    case ReviewType.SET_FILM_REVIEWS:
+      return { ...state, film: { ...state.film, ...(action.payload as ApiResponse<FilmReviewResponse>) } };
+    case ReviewType.CREATE_REVIEW:
+      return { ...state, createReview: { ...state.createReview, ...(action.payload as ApiResponse<CommonResponse>) } };
+    case ReviewType.UPDATE_REVIEW:
+      return { ...state, updateReview: { ...state.updateReview, ...(action.payload as ApiResponse<CommonResponse>) } };
+    case ReviewType.DELETE_REVIEW:
+      return { ...state, deleteReview: { ...state.deleteReview, ...(action.payload as ApiResponse<CommonResponse>) } };
+    default:
+      return state;
+  }
+};
+
 // Должны проверять какой action нам приходит и менять состояние
 // rootReducer - изменяет все наши состояния
 export const rootReducer = combineReducers({
@@ -102,4 +157,6 @@ export const rootReducer = combineReducers({
   uiConfig: uiConfigReducer,
   user: userReducer,
   sliders: sliderReducer,
+  promocodes: promocodesReducer,
+  reviews: reviewsReducer,
 });

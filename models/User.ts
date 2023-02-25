@@ -1,5 +1,4 @@
-import { model, Schema, Types } from 'mongoose';
-// const { model, Schema, Types } = require("mongoose");
+import { model, Schema, Types } from "mongoose";
 
 const schema = new Schema(
   {
@@ -29,4 +28,4 @@ const schema = new Schema(
   }
 );
 
-export default model('User', schema);
+export default model("User", schema);
