@@ -1,5 +1,5 @@
 import { createButton } from 'src/components/ui/Button/Button';
-import { createInputElement } from 'src/components/ui/Input/Input';
+import { MAX_REVIEW_CHARACTERS } from 'src/const/max-review-characters';
 import { createElem } from 'src/utils/create-element';
 import { renderStarsRating } from '../../../ui/StarsRating/StarsRating';
 import { unlockSumbitBtn } from './Handlers/unlockSubmitBtn';
@@ -9,7 +9,7 @@ export const renderReviewForm = (): HTMLElement => {
   const reviewFormCont: HTMLElement = createElem('div', styles['review-form-cont']);
 
   const reviewFormTitle: HTMLElement = createElem('h2', 'id-page__about-title');
-  reviewFormTitle.innerHTML = 'Написать реценизию';
+  reviewFormTitle.innerHTML = 'Оставить отзыв';
 
   const reviewForm: HTMLElement = createElem('form', 'review-form');
   reviewForm.id = 'review-form';
@@ -28,34 +28,33 @@ export const renderReviewForm = (): HTMLElement => {
 
   starsRating.append(starsRatingTitle, starsRatingCont);
 
-  const reviewTitleInput: HTMLInputElement = createInputElement({
-    type: 'text',
-    placeholder: 'Заголовок',
-    name: 'review-form-title',
-    style: 'review-form__title-input',
-    spellcheck: 'false',
-    id: 'review-form-title',
-    minLength: 2,
-  });
-  reviewTitleInput.classList.add('profile__form-input');
+  const textInputCont: HTMLElement = createElem('div', 'review-form__text-cont');
 
-  reviewTitleInput.oninput = unlockSumbitBtn;
+  const textInputLabel: HTMLElement = createElem('label', 'review-form__text-label');
+  textInputLabel.innerHTML = 'Чтобы оценить фильм, необходимо написать сообщение к отзыву';
 
   const reviewTextInput = createElem('textarea', 'review-form__text-input') as HTMLTextAreaElement;
   reviewTextInput.setAttribute('placeholder', 'Текст');
   reviewTextInput.setAttribute('form', 'review-form');
   reviewTextInput.setAttribute('name', 'review-from-text');
   reviewTextInput.setAttribute('id', 'review-from-text');
+  reviewTextInput.setAttribute('maxlength', `${MAX_REVIEW_CHARACTERS}`);
   reviewTextInput.classList.add('profile__form-input');
   reviewTextInput.classList.add('input');
 
+  const wordCounter: HTMLElement = createElem('div', 'review-form__text-word-counter');
+  wordCounter.id = 'review-word-counter';
+  wordCounter.innerHTML = `${MAX_REVIEW_CHARACTERS}`;
+
   reviewTextInput.oninput = unlockSumbitBtn;
 
-  const reviewSubmitBtn: HTMLElement = createButton('Опубликовать рецензию', undefined, 'review-form__submit');
+  textInputCont.append(textInputLabel, reviewTextInput, wordCounter);
+
+  const reviewSubmitBtn: HTMLElement = createButton('Опубликовать', undefined, 'review-form__submit');
   reviewSubmitBtn.id = 'review-form-submit';
   reviewSubmitBtn.setAttribute('disabled', 'true');
 
-  reviewForm.append(starsRating, reviewTitleInput, reviewTextInput, reviewSubmitBtn);
+  reviewForm.append(starsRating, textInputCont, reviewSubmitBtn);
 
   reviewFormCont.append(reviewFormTitle, reviewForm);
   return reviewFormCont;

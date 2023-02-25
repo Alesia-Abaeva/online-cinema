@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .review-form__title-input {
@@ -42,6 +42,21 @@
   &:hover {
     transform: scale(1.05);
   }
+}
+
+.review-form__text-cont {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.review-form__text-word-counter {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0;
+  color: var(--text-ternary);
 }
 
 @media (max-width: 450px) {
