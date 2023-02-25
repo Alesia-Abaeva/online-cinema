@@ -25,7 +25,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
   mainContent.classList.add('id-page');
   const backdrop: HTMLElement = createElem('div', 'id-page__backdrop');
-  const filmImg = filmData.backdrop ? filmData.backdrop.url : '';
+  // const filmImg = filmData.backdrop ? filmData.backdrop.url : '';
 
   const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 
@@ -61,7 +61,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   filmHeader.append(filmTitle, filmEnTitle);
 
   const actionBtns: HTMLElement = createElem('div', 'id-page__action');
-  const btnWatch = createBtnWatch(filmData.id, filmImg);
+  const btnWatch = createBtnWatch(filmData.id);
   const trailerBtn = createBtnTrailer(filmData);
   const btnInterest = createBtnInterest(filmData.id);
 

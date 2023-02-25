@@ -19,24 +19,17 @@ import styles from './buttons.module.scss';
 
 const watchFilmContent = `${watchFilmIcon}Смотреть фильм`;
 
-export const createBtnWatch = (filmId: number, filmImg: string) => {
+export const createBtnWatch = (filmId: number) => {
   const btnWatch = createButton(watchFilmContent) as HTMLButtonElement;
   btnWatch.classList.add(`${styles.actionBtn__film}`, `${styles.actionBtn}`);
 
-  btnWatch.onclick = () => {
-    const { data } = store.getState().user.personal;
-    if (data) {
-      if (data.tariff === Tariff.PREMIUM) {
-        addFilmModal(filmId, filmImg);
-        handleUpdateFolders({ folderName: 'watchedRecently', id: filmId });
-      } else {
-        route(PATH_NAMES.userSubscribe);
-      }
-    } else {
-      route(PATH_NAMES.register);
-    }
-  };
-
+  btnWatch.onclick = () =>
+    /* eslint-disable */
+    store.getState().user.personal.data
+      ? store.getState().user.personal.data?.tariff === Tariff.PREMIUM
+        ? (addFilmModal(filmId), handleUpdateFolders({ folderName: 'watchedRecently', id: filmId }))
+        : route(PATH_NAMES.userSubscribe)
+      : route(PATH_NAMES.register);
   return btnWatch;
 };
 
