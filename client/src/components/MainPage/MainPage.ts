@@ -22,7 +22,7 @@ const renderSliders = (main: HTMLElement) => {
   const currentView = state.uiConfig.viewType; // текущий вид
   const view = SLIDERS[currentView];
   const setSliders = state.sliders;
-
+  viewType = currentView;
   // слайдеры
   const sliders = setSliders[currentView].map((filmsSet, index) => {
     const viewIndex = view[index];
@@ -80,11 +80,8 @@ export const renderMainPage = (): HTMLElement => {
     const setSliders = state.sliders;
 
     // Если баннеры загружены, значит отрисовываем их и актуализируем закешированный viewType
-    if (setSliders[currentView].length) {
-      renderSliders(main);
+    setSliders[currentView].length && renderSliders(main);
 
-      viewType = currentView;
-    }
     return null;
   });
 

@@ -6,14 +6,13 @@ export const storage = multer.diskStorage({
     cb(null, "uploads");
   },
   filename: (_, file, cb) => {
+    // cb(null, file.originalname.replace(/\s/g, ""));
     cb(
       null,
-      file.originalname.replace(/\s/g, "")
-      // file.fieldname +
-      //   "-" +
-      //   Date.now() +
-      //   path.extname(file.originalname).toLowerCase().trim()
-      // file.originalname
+      file.fieldname.replace(/\s/g, "") +
+        "_" +
+        Date.now() +
+        path.extname(file.originalname).toLowerCase()
     );
   },
 });
