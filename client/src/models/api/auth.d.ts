@@ -35,6 +35,7 @@ interface AuthGetPersonToken {
   repeatPassword?: string;
   promocode?: string[];
   parentControls?: string;
+  message?: string;
 }
 
 interface UploadResponse {

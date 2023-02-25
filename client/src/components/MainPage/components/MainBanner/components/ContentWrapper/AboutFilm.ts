@@ -15,6 +15,7 @@ export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLEleme
   const btnTrailer = createBtnTrailer(res) as HTMLButtonElement;
   // const btnBookmark = createBtnBookmark() as HTMLButtonElement;
   btnSlice2.append(btnTrailer);
+
   if (dotsBtn) {
     const btnInterest = createBtnInterest(res.id) as HTMLButtonElement;
     btnSlice2.append(btnInterest);

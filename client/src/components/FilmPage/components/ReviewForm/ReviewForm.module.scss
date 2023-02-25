@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 1rem;
+  position: relative;
 }
 
 .review-form__title-input {
@@ -57,6 +58,18 @@
   bottom: -1.5rem;
   right: 0;
   color: var(--text-ternary);
+}
+
+.review-form__message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include flex-center;
+  @include crystalline-blur;
+  border-radius: 10px;
+  font-size: 2rem;
 }
 
 @media (max-width: 450px) {

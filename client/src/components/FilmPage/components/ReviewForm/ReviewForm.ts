@@ -2,16 +2,17 @@ import { createButton } from 'src/components/ui/Button/Button';
 import { MAX_REVIEW_CHARACTERS } from 'src/const/max-review-characters';
 import { createElem } from 'src/utils/create-element';
 import { renderStarsRating } from '../../../ui/StarsRating/StarsRating';
+import { onSubmitReview } from './Handlers/onSubmitReview';
 import { unlockSumbitBtn } from './Handlers/unlockSubmitBtn';
 import styles from './ReviewForm.module.scss';
 
-export const renderReviewForm = (): HTMLElement => {
-  const reviewFormCont: HTMLElement = createElem('div', styles['review-form-cont']);
+export const renderReviewForm = (filmId: number): HTMLElement => {
+  const reviewFormCont: HTMLElement = createElem('div', 'review-form-cont');
 
   const reviewFormTitle: HTMLElement = createElem('h2', 'id-page__about-title');
   reviewFormTitle.innerHTML = 'Оставить отзыв';
 
-  const reviewForm: HTMLElement = createElem('form', 'review-form');
+  const reviewForm: HTMLElement = createElem('form', styles['review-form']);
   reviewForm.id = 'review-form';
 
   const starsRating: HTMLElement = createElem('div', styles['stars-rating']);
@@ -55,6 +56,10 @@ export const renderReviewForm = (): HTMLElement => {
   reviewSubmitBtn.setAttribute('disabled', 'true');
 
   reviewForm.append(starsRating, textInputCont, reviewSubmitBtn);
+
+  reviewSubmitBtn.onclick = (e: Event) => {
+    onSubmitReview(e, filmId);
+  };
 
   reviewFormCont.append(reviewFormTitle, reviewForm);
   return reviewFormCont;
