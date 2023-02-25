@@ -23,13 +23,39 @@ export const createBtnWatch = (filmId: number) => {
   const btnWatch = createButton(watchFilmContent) as HTMLButtonElement;
   btnWatch.classList.add(`${styles.actionBtn__film}`, `${styles.actionBtn}`);
 
-  btnWatch.onclick = () =>
+  btnWatch.onclick = () => {
     /* eslint-disable */
     store.getState().user.personal.data
       ? store.getState().user.personal.data?.tariff === Tariff.PREMIUM
         ? (addFilmModal(filmId), handleUpdateFolders({ folderName: 'watchedRecently', id: filmId }))
         : route(PATH_NAMES.userSubscribe)
       : route(PATH_NAMES.register);
+  };
+
+  // const { data } = store.getState().user.personal;
+  // if (data) {
+  //   if (data.tariff === Tariff.PREMIUM) {
+  //     addFilmModal(filmId);
+  //     handleUpdateFolders({ folderName: 'watchedRecently', id: filmId });
+  //   } else {
+  //     route(PATH_NAMES.userSubscribe);
+  //   }
+  // } else {
+  //   route(PATH_NAMES.register);
+  // }
+
+  //   if (!data) {
+  //     route(PATH_NAMES.register);
+  //   } else if (data.tariff === Tariff.PREMIUM) {
+  //     addFilmModal(filmId);
+  //     handleUpdateFolders({ folderName: 'watchedRecently', id: filmId });
+  //   } else {
+  //     route(PATH_NAMES.userSubscribe);
+  //   }
+  // };
+
+  // btnWatch.onclick = () =>
+
   return btnWatch;
 };
 

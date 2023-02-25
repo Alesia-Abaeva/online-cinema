@@ -45,5 +45,10 @@ export const renderAccountSectionHead = (): HTMLElement => {
     return accoutSection.contains(loginBtn) ? accoutSection.removeChild(loginBtn) : accoutSection.append(avatarCnt);
   });
 
+  store.subscribe(() => {
+    const tariff1 = store.getState().user.personal.data?.tariff;
+    tariff1 === Tariff.PREMIUM && avatarCnt.append(avatarChildeWrapp);
+  });
+
   return accoutSection;
 };

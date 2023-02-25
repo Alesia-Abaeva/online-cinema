@@ -5,7 +5,7 @@ export const addFilmModal = (id: number | string) => {
   const overlay = document.getElementById('modal-films') as HTMLElement;
   const modalWindow = document.querySelector('.mоdal-films_window') as HTMLElement;
 
-  if (container && overlay && modalWindow) {
+  if (container && overlay) {
     // рендерим iframe на открытие модального окна
     container.append(renderPlayFilm(id));
 
