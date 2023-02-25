@@ -2,8 +2,7 @@
 
 .reviewCard {
   display: inline-flex;
-  max-width: 400px;
-  min-width: 320px;
+  width: 370px;
   height: 200px;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-primary);
@@ -35,8 +34,9 @@
   }
   &__text__modal {
     -webkit-line-clamp: none;
-    overflow: visible;
     color: var(--text-primary);
+    overflow-y: auto;
+    padding-right: 10px;
   }
   &__link {
     position: absolute;
@@ -44,8 +44,10 @@
     right: 5px;
     color: #868695;
     cursor: pointer;
+    opacity: 0.8;
     &:hover {
-      filter: brightness(80%);
+      opacity: 1;
+      text-decoration: underline;
     }
   }
   &__image {
@@ -72,7 +74,7 @@
   }
   &__headerInfoData {
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: start;
     margin-bottom: 5px;
   }
@@ -83,6 +85,7 @@
   }
   &__date {
     color: #868695;
+    font-size: 14px;
   }
   &__stars {
     display: flex;
@@ -95,4 +98,9 @@
       height: 12px;
     }
   }
+}
+
+.card-modal-size {
+  max-height: 90vh;
+  min-width: 300px;
 }
