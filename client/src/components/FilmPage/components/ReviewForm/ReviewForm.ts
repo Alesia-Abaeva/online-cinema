@@ -18,6 +18,7 @@ export const renderReviewForm = (): HTMLElement => {
   starsRatingTitle.innerHTML = 'Выберете вашу оценку';
 
   const starsRatingCont: HTMLElement = renderStarsRating(0, true);
+  starsRatingCont.classList.add('review-form__stars-rating');
 
   starsRating.append(starsRatingTitle, starsRatingCont);
 

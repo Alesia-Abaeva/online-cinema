@@ -63,6 +63,7 @@
 .id-page__action {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .id-page__rating-cont {
@@ -90,17 +91,16 @@
     position: relative;
   }
 
+  .id-page__persons {
+    display: none;
+  }
+
   .id-page__rating-cont {
     position: absolute;
     top: 2rem;
     right: 2rem;
   }
 
-  .id-page__desc-aside {
-    gap: 3rem;
-    grid-column: 2 / 2;
-    flex-direction: row;
-  }
 
   .id-page__title {
     font-size: 2rem;

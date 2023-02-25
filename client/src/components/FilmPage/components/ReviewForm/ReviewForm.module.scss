@@ -1,9 +1,5 @@
 @import '/src/theme/variable';
 
-.review-form-cont {
-  width: 100%;
-}
-
 .review-form {
   background-color: var(--bg-secondary);
   margin-top: 1rem;
@@ -30,7 +26,6 @@
 }
 
 .review-form__submit {
-  // border-radius: 50px;
   width: auto;
 
   &:disabled {
@@ -46,5 +41,19 @@
 
   &:hover {
     transform: scale(1.05);
+  }
+}
+
+@media (max-width: 450px) {
+  .review-form {
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .review-form__stars-rating {
+    .stars-rating__icon-star {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
