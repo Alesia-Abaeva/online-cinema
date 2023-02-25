@@ -12,6 +12,7 @@ export const createInputElement = (attribute: AttributeInput): HTMLInputElement 
   attribute.disabled && input.setAttribute('disabled', attribute.disabled);
   attribute.checked && input.setAttribute('checked', attribute.checked);
   attribute.value && input.setAttribute('value', attribute.value);
+  attribute.minLength && input.setAttribute('minLength', attribute.minLength.toString());
 
   attribute.style && input.classList.add(attribute.style);
 

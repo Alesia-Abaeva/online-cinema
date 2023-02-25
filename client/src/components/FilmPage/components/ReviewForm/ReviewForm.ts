@@ -2,6 +2,7 @@ import { createButton } from 'src/components/ui/Button/Button';
 import { createInputElement } from 'src/components/ui/Input/Input';
 import { createElem } from 'src/utils/create-element';
 import { renderStarsRating } from '../../../ui/StarsRating/StarsRating';
+import { unlockSumbitBtn } from './Handlers/unlockSubmitBtn';
 import styles from './ReviewForm.module.scss';
 
 export const renderReviewForm = (): HTMLElement => {
@@ -20,6 +21,11 @@ export const renderReviewForm = (): HTMLElement => {
   const starsRatingCont: HTMLElement = renderStarsRating(0, true);
   starsRatingCont.classList.add('review-form__stars-rating');
 
+  starsRatingCont.onclick = () => {
+    starsRatingCont.classList.add('stars-set');
+    unlockSumbitBtn();
+  };
+
   starsRating.append(starsRatingTitle, starsRatingCont);
 
   const reviewTitleInput: HTMLInputElement = createInputElement({
@@ -28,17 +34,25 @@ export const renderReviewForm = (): HTMLElement => {
     name: 'review-form-title',
     style: 'review-form__title-input',
     spellcheck: 'false',
+    id: 'review-form-title',
+    minLength: 2,
   });
   reviewTitleInput.classList.add('profile__form-input');
+
+  reviewTitleInput.oninput = unlockSumbitBtn;
 
   const reviewTextInput = createElem('textarea', 'review-form__text-input') as HTMLTextAreaElement;
   reviewTextInput.setAttribute('placeholder', 'Текст');
   reviewTextInput.setAttribute('form', 'review-form');
   reviewTextInput.setAttribute('name', 'review-from-text');
+  reviewTextInput.setAttribute('id', 'review-from-text');
   reviewTextInput.classList.add('profile__form-input');
   reviewTextInput.classList.add('input');
 
+  reviewTextInput.oninput = unlockSumbitBtn;
+
   const reviewSubmitBtn: HTMLElement = createButton('Опубликовать рецензию', undefined, 'review-form__submit');
+  reviewSubmitBtn.id = 'review-form-submit';
   reviewSubmitBtn.setAttribute('disabled', 'true');
 
   reviewForm.append(starsRating, reviewTitleInput, reviewTextInput, reviewSubmitBtn);

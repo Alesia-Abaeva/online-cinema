@@ -8,6 +8,7 @@ interface AttributeInput {
   disabled?: string;
   checked?: string;
   value?: string;
+  minLength?: number;
 }
 
 interface InputComponent {
