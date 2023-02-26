@@ -61,9 +61,9 @@ export const renderMainBanner = (movieId: string, isTabs: boolean, type?: string
     }
 
     content.append(contentWrapper);
-    wrapper.append(container);
   })();
 
+  wrapper.append(container);
   mainBanner.append(wrapper);
 
   return mainBanner;
