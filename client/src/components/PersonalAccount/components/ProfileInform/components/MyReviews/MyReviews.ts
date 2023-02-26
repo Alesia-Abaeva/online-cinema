@@ -5,6 +5,7 @@ import { appDispatch, store } from 'src/logic/redux';
 import { fetchPersonalReviews } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
 import { paginate } from 'src/utils/paginate';
+import { arrowBtn } from '../Handlers/arrow-btn';
 import { renderUserWatchEmpty } from '../UserWatch/UserWatch';
 import { paginateReviews } from './Handlers/paginateReviews';
 import { renderReviewSlice } from './Handlers/renderReviewSlice';
@@ -15,6 +16,8 @@ export const renderUserReviews = (): HTMLElement => {
 
   const title: HTMLElement = createElem('h2', 'profile-info__title');
   title.innerHTML = 'Ваши отзывы';
+  const btn = arrowBtn();
+  title.append(btn);
 
   const dataCont: HTMLElement = createElem('div', 'profile-info__data');
   dataCont.classList.add('profile-reviews__wrapper');

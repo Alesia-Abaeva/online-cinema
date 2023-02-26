@@ -35,3 +35,22 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
+@media (max-width: 1400px) {
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 475px) {
+  .profile-reviews {
+    .profile-info__data {
+      padding: 1rem;
+    }
+  }
+  .film-reviews {
+    .profile-info__data {
+      padding: 1rem;
+    }
+  }
+}
