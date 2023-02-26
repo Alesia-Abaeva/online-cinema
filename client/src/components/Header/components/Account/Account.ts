@@ -22,6 +22,7 @@ export const renderAccountSectionHead = (): HTMLElement => {
   const avatarChildeWrapp: HTMLElement = renderChildAvatar('Дети');
   const profileContainer: HTMLElement = renderProfileMenu();
   avatarCnt.append(avatarWrapperHeader);
+  avatarCnt.append(avatarChildeWrapp);
   tariff === Tariff.PREMIUM && avatarCnt.append(avatarChildeWrapp); // начальный рендеринг детского профиля
   avatarCnt.append(profileContainer);
 
@@ -47,7 +48,16 @@ export const renderAccountSectionHead = (): HTMLElement => {
 
   store.subscribe(() => {
     const tariff1 = store.getState().user.personal.data?.tariff;
-    tariff1 === Tariff.PREMIUM && avatarCnt.append(avatarChildeWrapp);
+
+    if (tariff1 === Tariff.PREMIUM && !avatarCnt.contains(avatarChildeWrapp)) {
+      return avatarCnt.append(avatarChildeWrapp);
+    }
+
+    if (tariff1 === Tariff.BASE && avatarCnt.contains(avatarChildeWrapp)) {
+      return avatarCnt.removeChild(avatarChildeWrapp);
+    }
+
+    return null;
   });
 
   return accoutSection;

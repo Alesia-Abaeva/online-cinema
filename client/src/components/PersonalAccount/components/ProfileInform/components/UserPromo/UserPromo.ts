@@ -49,7 +49,7 @@ export const renderUserPromo = () => {
 
   const container: HTMLElement = createElem('div', 'promo-cnt');
   const label = createElem('label', 'profile__form-label');
-  label.innerHTML = ' '; // сюда выводить ошибку
+  label.innerHTML = ''; // здесь выводится ошибка или успех
 
   const formCnt = createElem('div', 'profile__promo-cnt');
 
@@ -74,10 +74,21 @@ export const renderUserPromo = () => {
   data.append(dataTitle, dataDescroption, container);
   userProfile.append(title, data);
 
+  const { title: title1, data: data1 } = renderPromoGift();
+
   store.subscribe(() => {
     const code = store.getState().promocodes.personal.data?.code;
-    const { title: title1, data: data1 } = renderPromoGift();
-    code && userProfile.append(title1, data1);
+
+    if (code && !userProfile?.contains(data1)) {
+      return userProfile.append(title1, data1);
+    }
+
+    if (!code && userProfile?.contains(title1) && userProfile?.contains(data1)) {
+      userProfile.removeChild(title1);
+      userProfile.removeChild(data1);
+    }
+
+    return null;
   });
 
   store.subscribe(() => {
@@ -86,19 +97,14 @@ export const renderUserPromo = () => {
 
     if (activationState.data) {
       label.innerHTML = activationState.data.message;
-      label.style.color = 'green';
+      label.style.color = '#8e54e9';
     }
 
     if (activationState.error) {
       label.innerHTML = activationState.error.message;
-      label.style.color = 'red';
+      label.style.color = '#fc3f1d';
     }
   });
 
-  // При первичном вводе генерится слишком много промокодов
-  // Обработка ошибок
-  // Обновление премиума - сейчас только при перезагрузке
-
-  // TODO:  подписка на событие! и вывод результата в label
   return userProfile;
 };

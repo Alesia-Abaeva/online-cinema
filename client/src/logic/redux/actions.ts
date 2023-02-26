@@ -11,7 +11,9 @@ import { handleChangeTariff } from 'src/components/PersonalAccount/components/Pr
 import { PROMOCODE, PROMOCODE_PERSONAL, REVIEW, REVIEW_FOR_FILM } from 'src/const/api/url';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { SLIDERS, SlidersSetsData, ViewType } from 'src/const/main-page-data';
+// import { PATH_NAMES } from 'src/const/path-names';
 import { Tariff } from 'src/const/subscriptions-data';
+// import { route } from 'src/router/route';
 import { AppDispatch, RootState } from '.';
 import { setLocalStorage } from '../local-storage/local-storage';
 import { AgeTypes, AuthTypes, PromocodeType, ReviewType, SliderType, UiConfigTypes, UserTypes } from './types-redux';
@@ -319,8 +321,17 @@ export const activatePromocode = (code: string) => async (dispatch: AppDispatch)
 
     const { data } = await backCall.post<ActivationPromocodeRequest, CommonResponse>(PROMOCODE, { code });
 
+    await handleChangeTariff({ tariff: Tariff.PREMIUM });
+
+    dispatch(setPersonalPromocode({ error: null, data: null, isLoading: false }));
     dispatch(setActivationPromocode({ error: null, data, isLoading: false }));
-    handleChangeTariff({ tariff: Tariff.PREMIUM });
+    //  переход на страничку
+
+    // 1 - не убирается ошибка
+    // 2 - несколько раз выводится штучка
+    // setTimeout(() => {
+    //   route(PATH_NAMES.userPromo);
+    // }, 1000);
   } catch (e) {
     dispatch(setActivationPromocode({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
