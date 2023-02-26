@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { backCall } from 'src/api/api';
 import {
   dataPersonHandler,
@@ -297,6 +298,15 @@ export const deleteReview = (reviewId: string) => async (dispatch: AppDispatch) 
 
     const { data } = await backCall.delete<CommonResponse>(`${REVIEW}/${reviewId}`);
 
+    const arr = store.getState().reviews.personal.data as unknown as PersonalReview[];
+    const { pagination } = store.getState().reviews.personal;
+
+    const deletedItem = arr.findIndex((el) => el._id === reviewId);
+    if (deletedItem !== undefined) {
+      arr.splice(deletedItem, 1);
+    }
+
+    dispatch(setPersonReview({ error: null, data: arr, pagination, isLoading: false }));
     dispatch(setDeleteReview({ error: null, data, isLoading: false }));
   } catch (e) {
     dispatch(setDeleteReview({ error: e as ErrorMessage, data: null, isLoading: false }));

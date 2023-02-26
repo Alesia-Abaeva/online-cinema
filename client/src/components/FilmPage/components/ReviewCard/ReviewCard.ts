@@ -1,8 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 import { renderAvatar } from 'src/components/Header/components/Account/components/Avatar/Avatar';
 import { renderModal } from 'src/components/ui/Modal/Modal';
 import { toggleModal } from 'src/components/ui/Modal/ToggleModal';
 import { renderStarsRating } from 'src/components/ui/StarsRating/StarsRating';
 import { trashCan } from 'src/const/icons/icons';
+import { appDispatch } from 'src/logic/redux';
+import { deleteReview } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
 import styles from './ReviewCard.module.scss';
 
@@ -62,6 +65,10 @@ export const renderReviewCard = (reviewData: PersonalReview, userData: AuthGetPe
   wrapper.append(content, deleteBtn);
   container.append(wrapper);
   reviewCard.append(container);
+
+  deleteBtn.onclick = () => {
+    appDispatch(deleteReview(reviewData._id));
+  };
 
   return reviewCard;
 };

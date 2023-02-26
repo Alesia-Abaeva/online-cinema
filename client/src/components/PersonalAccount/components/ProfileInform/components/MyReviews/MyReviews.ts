@@ -36,8 +36,9 @@ export const renderUserReviews = (): HTMLElement => {
       dataCont.append(reviewsGrid, showMore);
       userReviews.append(dataCont);
     } else {
+      userReviews.innerHTML = '';
       const emptyMes: HTMLElement = renderUserWatchEmpty('Оставить отзыв можно на странице фильма');
-      userReviews.append(emptyMes);
+      userReviews.append(title, emptyMes);
     }
   });
 
