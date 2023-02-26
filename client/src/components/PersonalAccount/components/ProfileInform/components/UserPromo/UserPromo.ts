@@ -1,11 +1,38 @@
 import { createButton } from 'src/components/ui/Button/Button';
 import { createInputElement } from 'src/components/ui/Input/Input';
+import { Tariff } from 'src/const/subscriptions-data';
+import { appDispatch, store } from 'src/logic/redux';
+import { activatePromocode, getPersonalPromocode } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
 import { arrowBtn } from '../Handlers/arrow-btn';
-// import { createInputComponent } from '../Handlers/createInputeComponent';
 import styles from './UserPromo.module.scss';
 
+export const renderPromoGift = () => {
+  const code2 = store.getState().promocodes.personal.data?.code;
+  const title: HTMLElement = createElem('h2', 'profile-info__title-gift');
+  title.innerHTML = 'Подарочек';
+
+  const data: HTMLElement = createElem('div', 'profile-info__data-promo');
+  const dataTitle: HTMLElement = createElem('h2', 'profile-promo__code');
+  code2 && (dataTitle.innerHTML = code2);
+  const dataDescroption: HTMLElement = createElem('div', 'profile-promo__code-description');
+  dataDescroption.innerHTML = 'Мы приготовили для тебя персональный промокодик';
+
+  store.subscribe(() => {
+    const code = store.getState().promocodes.personal.data?.code;
+    code && (dataTitle.innerHTML = code);
+  });
+
+  data.append(dataDescroption, dataTitle);
+  return { title, data };
+};
+
 export const renderUserPromo = () => {
+  store.getState().user.personal.data?.tariff !== Tariff.PREMIUM && appDispatch(getPersonalPromocode());
+  // диспачим промокоды, только когда тариф не премиум
+
+  let promo = '';
+
   const userProfile: HTMLElement = createElem('div', styles['profile-promo']);
 
   const title: HTMLElement = createElem('h2', 'profile-info__title');
@@ -22,7 +49,8 @@ export const renderUserPromo = () => {
 
   const container: HTMLElement = createElem('div', 'promo-cnt');
   const label = createElem('label', 'profile__form-label');
-  label.innerHTML = 'Промокод';
+  label.innerHTML = ' '; // сюда выводить ошибку
+
   const formCnt = createElem('div', 'profile__promo-cnt');
 
   const input = createInputElement({ type: 'text', placeholder: 'Введите промокод' });
@@ -30,15 +58,46 @@ export const renderUserPromo = () => {
   button.setAttribute('disabled', 'true');
 
   input.oninput = () => {
-    if (input.value.length >= 4) {
+    label.innerHTML = '';
+    if (input.value.length >= 2) {
       button.removeAttribute('disabled');
+      promo = input.value;
     } else button.setAttribute('disabled', 'true');
+  };
+
+  button.onclick = () => {
+    appDispatch(activatePromocode(promo));
   };
 
   formCnt.append(input, button);
   container.append(label, formCnt);
   data.append(dataTitle, dataDescroption, container);
   userProfile.append(title, data);
+
+  store.subscribe(() => {
+    const code = store.getState().promocodes.personal.data?.code;
+    const { title: title1, data: data1 } = renderPromoGift();
+    code && userProfile.append(title1, data1);
+  });
+
+  store.subscribe(() => {
+    const activationState = store.getState().promocodes.activation;
+    label.innerHTML = activationState.isLoading ? 'Загрузка' : ' ';
+
+    if (activationState.data) {
+      label.innerHTML = activationState.data.message;
+      label.style.color = 'green';
+    }
+
+    if (activationState.error) {
+      label.innerHTML = activationState.error.message;
+      label.style.color = 'red';
+    }
+  });
+
+  // При первичном вводе генерится слишком много промокодов
+  // Обработка ошибок
+  // Обновление премиума - сейчас только при перезагрузке
 
   // TODO:  подписка на событие! и вывод результата в label
   return userProfile;

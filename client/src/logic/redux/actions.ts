@@ -7,9 +7,11 @@ import {
   updateUserPass,
 } from 'src/api/back/auth';
 import { getSlider } from 'src/api/back/slider';
+import { handleChangeTariff } from 'src/components/PersonalAccount/components/ProfileInform/components/Handlers/handlersChangeUserData';
 import { PROMOCODE, PROMOCODE_PERSONAL, REVIEW, REVIEW_FOR_FILM } from 'src/const/api/url';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { SLIDERS, SlidersSetsData, ViewType } from 'src/const/main-page-data';
+import { Tariff } from 'src/const/subscriptions-data';
 import { AppDispatch, RootState } from '.';
 import { setLocalStorage } from '../local-storage/local-storage';
 import { AgeTypes, AuthTypes, PromocodeType, ReviewType, SliderType, UiConfigTypes, UserTypes } from './types-redux';
@@ -313,12 +315,12 @@ export const getPersonalPromocode = () => async (dispatch: AppDispatch) => {
 /** Активировать промокод */
 export const activatePromocode = (code: string) => async (dispatch: AppDispatch) => {
   try {
-    // TODO: придумать способ очищать data на скрытие всплывающей нотификации об успешном обновлении отзыва
     dispatch(setActivationPromocode({ data: null, isLoading: true }));
 
     const { data } = await backCall.post<ActivationPromocodeRequest, CommonResponse>(PROMOCODE, { code });
 
     dispatch(setActivationPromocode({ error: null, data, isLoading: false }));
+    handleChangeTariff({ tariff: Tariff.PREMIUM });
   } catch (e) {
     dispatch(setActivationPromocode({ error: e as ErrorMessage, data: null, isLoading: false }));
   }

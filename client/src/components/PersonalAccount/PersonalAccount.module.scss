@@ -19,6 +19,7 @@
   @media (max-width: $phone-width) {
     .profile-sidebar__cnt {
       visibility: hidden;
+      transition: none !important;
       z-index: 0;
       width: 0;
     }
