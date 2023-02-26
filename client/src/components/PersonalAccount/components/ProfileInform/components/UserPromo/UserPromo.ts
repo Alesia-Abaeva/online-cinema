@@ -74,18 +74,18 @@ export const renderUserPromo = () => {
   data.append(dataTitle, dataDescroption, container);
   userProfile.append(title, data);
 
-  const { title: title1, data: data1 } = renderPromoGift();
+  const { title: titleGift, data: dataGift } = renderPromoGift();
 
   store.subscribe(() => {
     const code = store.getState().promocodes.personal.data?.code;
 
-    if (code && !userProfile?.contains(data1)) {
-      return userProfile.append(title1, data1);
+    if (code && !userProfile?.contains(dataGift)) {
+      return userProfile.append(titleGift, dataGift);
     }
 
-    if (!code && userProfile?.contains(title1) && userProfile?.contains(data1)) {
-      userProfile.removeChild(title1);
-      userProfile.removeChild(data1);
+    if (!code && userProfile?.contains(titleGift) && userProfile?.contains(dataGift)) {
+      userProfile.removeChild(titleGift);
+      userProfile.removeChild(dataGift);
     }
 
     return null;
