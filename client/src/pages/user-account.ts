@@ -5,6 +5,7 @@ import { renderUserSettings } from 'src/components/PersonalAccount/components/Pr
 import { renderPersonalAccountPage } from 'src/components/PersonalAccount/PersonalAccount';
 import { renderAvailibleTariff } from 'src/components/PersonalAccount/components/ProfileInform/components/Tariff/AvailableTariff';
 import { renderApp } from '../components/App/App';
+import { renderUserReviews } from 'src/components/PersonalAccount/components/ProfileInform/components/MyReviews/MyReviews';
 
 export const user = (): void => {
   renderApp(() => renderPersonalAccountPage());
@@ -28,4 +29,8 @@ export const userReference = (): void => {
 
 export const userSubscribe = (): void => {
   renderApp(() => renderPersonalAccountPage(renderAvailibleTariff));
+};
+
+export const userReviews = (): void => {
+  renderApp(() => renderPersonalAccountPage(renderUserReviews));
 };

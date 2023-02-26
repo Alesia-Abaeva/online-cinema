@@ -1,0 +1,11 @@
+@import '/src/theme/variable';
+
+.profile-reviews {
+  background-color: transparent;
+
+  .profile-info__data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
