@@ -34,7 +34,7 @@
   },
   "version": "1.0.0",
   "description": "My webpack project",
-  "name": "Clone kinopoisk",
+  "name": "clone-kinopoisk",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development --node-env=development",
