@@ -22,4 +22,15 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
+
+  .reviews__show-more:disabled {
+    color: var(--text-btn-disabled);
+    background-image: none;
+    background-color: $tundora-60;
+    cursor: auto;
+
+    &:hover {
+      transform: none;
+    }
+  }
 }
