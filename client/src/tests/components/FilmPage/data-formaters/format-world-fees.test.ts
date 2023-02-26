@@ -31,10 +31,28 @@ describe('formatWorldFees', () => {
     },
   };
 
+  const feesApiData3 = {
+    world: {
+      currency: '$',
+      value: null,
+    },
+    russia: {
+      currency: 'rub',
+      value: null,
+    },
+    usa: {
+      currency: 'eur',
+      value: null,
+    },
+  };
+
   it('should return an empty string', () => {
     expect(formatWorldFees(feesApiData)).toEqual('');
   });
   it('should return a fees as a string', () => {
     expect(formatWorldFees(feesApiData2)).toEqual('$2 142');
+  });
+  it('should return a fees as a string', () => {
+    expect(formatWorldFees(feesApiData3)).toEqual('');
   });
 });

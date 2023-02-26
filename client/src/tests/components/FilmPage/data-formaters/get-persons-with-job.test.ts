@@ -26,6 +26,14 @@ describe('getPersonsWithJob', () => {
       enProfession: 'director',
       description: 'best director',
     },
+    {
+      id: 4,
+      name: '',
+      enName: 'lorem',
+      photo: 'assets/img/avatar.svg',
+      enProfession: 'director',
+      description: 'best director',
+    },
   ];
 
   it('should be an array', () => {

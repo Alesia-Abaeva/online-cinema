@@ -8,8 +8,11 @@ describe('formatCountry', () => {
 
   it('should return a string', () => {
     expect(formatCountry(data1)).toEqual('USA, RUS, ARG');
-    expect(formatCountry(data2)).toEqual('USA, ');
-    expect(formatCountry(data3)).toEqual('12, ');
-    expect(formatCountry(data4)).toEqual(', ');
+    expect(formatCountry(data2)).toEqual('USA');
+    expect(formatCountry(data3)).toEqual('12');
+  });
+
+  it('should return an empty string', () => {
+    expect(formatCountry(data4)).toEqual('');
   });
 });
