@@ -54,6 +54,10 @@ interface PersonalReviewResponse {
   reviews: PersonalReviews;
 }
 
+interface UserFilmReviewResponse {
+  review: FilmReview | null;
+}
+
 interface ActivationPromocodeRequest {
   code: string;
 }

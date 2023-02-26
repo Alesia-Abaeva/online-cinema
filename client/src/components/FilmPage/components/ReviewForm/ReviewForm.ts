@@ -1,3 +1,4 @@
+import { getUserFilmReview } from 'src/api/back/review';
 import { createButton } from 'src/components/ui/Button/Button';
 import { MAX_REVIEW_CHARACTERS } from 'src/const/max-review-characters';
 import { store } from 'src/logic/redux';
@@ -62,10 +63,16 @@ export const renderReviewForm = (filmData: ResponseMovie): HTMLElement => {
     onSubmitReview(e, filmData);
   };
 
-  store.subscribe(() => {
+  store.subscribe(async () => {
     const reviewsState = store.getState().reviews;
-
     const formMes: HTMLElement = createElem('div', 'review-form__message');
+
+    const { data } = await getUserFilmReview(filmData.id);
+    const { review } = data;
+    if (review) {
+      formMes.innerHTML = `Вы уже оставляли отзыв на этот фильм. На один фильм можно оставить только один отзыв.`;
+      reviewForm.append(formMes);
+    }
     if (reviewsState.createReview.error) {
       formMes.innerHTML = `Сервер не отвечает, попробуйте еще раз`;
       reviewForm.append(formMes);

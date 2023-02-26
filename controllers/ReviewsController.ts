@@ -129,7 +129,9 @@ export const getReviewsByFilm = async (
   res: express.Response
 ) => {
   try {
-    const filmReviews = (await Reviews.find({ filmId: req.params.filmId })).reverse();
+    const filmReviews = (
+      await Reviews.find({ filmId: req.params.filmId })
+    ).reverse();
 
     const initialData = await Promise.all(
       filmReviews.map(async (review) => {
@@ -149,6 +151,29 @@ export const getReviewsByFilm = async (
     const reviews = paginateData(req, initialData);
 
     res.status(200).send({ reviews });
+  } catch (e) {
+    res
+      .status(500) // добавляем стандартную серверную ошибку
+      .json({ message: `Не удалось найти отзывы: ${e}` });
+  }
+};
+
+export const getReviewByUserAndFilm = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  if (!req?.params?.filmId) {
+    return res.status(400).json({ message: 'Film id is required' });
+  }
+  try {
+    const initialData = await Reviews.find({ user: req.user.userId });
+
+    const review = initialData.find((el) => el.filmId === req.params.filmId);
+    if (review) {
+      res.status(200).send({ review });
+    } else {
+      res.status(200).send({ review: null });
+    }
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку

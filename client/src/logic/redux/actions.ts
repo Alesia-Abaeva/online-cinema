@@ -233,6 +233,9 @@ export const changeParentControl = () => async (dispatch: AppDispatch, getState:
 export const fetchPersonalReviews = (page: number) => async (dispatch: AppDispatch) => {
   try {
     dispatch(setPersonReview({ isLoading: true }));
+    if (page === 1) {
+      dispatch(setPersonReview({ error: null, data: null, isLoading: false }));
+    }
 
     const { data } = await backCall.get<PersonalReviewResponse>(REVIEW, {
       page,

@@ -19,6 +19,7 @@ export const PERSON_DATA_PASS = 'api/auth/person/pass';
 export const PERSON_DATA_PARENT = 'api/auth/person/parents';
 export const REVIEW = 'api/reviews';
 export const REVIEW_FOR_FILM = 'api/reviews/for-film';
+export const REVIEW_FOR_FILM_AND_USER = 'api/reviews/for-film-user';
 export const PROMOCODE = 'api/promocode';
 export const PROMOCODE_PERSONAL = 'api/promocode/personal';
 export const GET_LISTS = 'api/lists';
