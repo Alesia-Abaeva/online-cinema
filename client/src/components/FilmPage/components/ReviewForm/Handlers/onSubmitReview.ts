@@ -21,6 +21,7 @@ export const onSubmitReview = async (e: Event, filmId: number) => {
   reviewForm.reset();
   wordCounter.innerHTML = `${MAX_REVIEW_CHARACTERS}`;
   reviewSubmitBtn.setAttribute('disabled', 'true');
+  wordCounter.classList.remove('danger');
 
   try {
     const res = await createReview({ filmId: filmId.toString(), text, stars });

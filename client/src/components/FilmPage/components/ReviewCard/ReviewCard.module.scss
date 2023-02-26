@@ -3,13 +3,14 @@
 .reviewCard {
   display: inline-flex;
   width: 370px;
-  height: 200px;
+  height: 220px;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-primary);
   border-radius: 10px;
   text-decoration: none;
   color: var(--text-primary);
   padding: 15px;
+  justify-self: center;
 
   &__wrapper {
     width: 100%;
@@ -30,9 +31,10 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    word-wrap: break-word;
     -webkit-text-size-adjust: 100%;
   }
-  &__text__modal {
+  &__modal {
     -webkit-line-clamp: none;
     color: var(--text-primary);
     overflow-y: auto;
@@ -93,5 +95,11 @@
 
 .card-modal-size {
   max-height: 90vh;
-  min-width: 300px;
+  max-width: 50vw;
+}
+
+.reviewCard__text_modal {
+  inline-size: 45vw;
+  word-wrap: break-word;
+  margin-top: 1rem;
 }

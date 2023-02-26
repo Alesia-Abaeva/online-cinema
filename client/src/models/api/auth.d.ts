@@ -36,6 +36,8 @@ interface AuthGetPersonToken {
   promocode?: string[];
   parentControls?: string;
   message?: string;
+  reviews?: GetReviews[];
+  user?: ReviewUser;
 }
 
 interface UploadResponse {

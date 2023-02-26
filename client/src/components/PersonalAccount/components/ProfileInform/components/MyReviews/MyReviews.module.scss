@@ -8,4 +8,9 @@
     display: flex;
     flex-direction: column;
   }
+
+  .profile-info__data.profile-reviews__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }

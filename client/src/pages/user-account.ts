@@ -2,10 +2,10 @@ import { renderUserWatch } from 'src/components/PersonalAccount/components/Profi
 import { renderUserReferens } from 'src/components/PersonalAccount/components/ProfileInform/components/Reference/Reference';
 import { renderUserPromo } from 'src/components/PersonalAccount/components/ProfileInform/components/UserPromo/UserPromo';
 import { renderUserSettings } from 'src/components/PersonalAccount/components/ProfileInform/components/UserSettings/UserSettings';
+import { renderUserReviews } from 'src/components/PersonalAccount/components/ProfileInform/components/MyReviews/MyReviews';
 import { renderPersonalAccountPage } from 'src/components/PersonalAccount/PersonalAccount';
 import { renderAvailibleTariff } from 'src/components/PersonalAccount/components/ProfileInform/components/Tariff/AvailableTariff';
 import { renderApp } from '../components/App/App';
-import { renderUserReviews } from 'src/components/PersonalAccount/components/ProfileInform/components/MyReviews/MyReviews';
 
 export const user = (): void => {
   renderApp(() => renderPersonalAccountPage());
