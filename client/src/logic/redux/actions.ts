@@ -11,9 +11,7 @@ import { handleChangeTariff } from 'src/components/PersonalAccount/components/Pr
 import { PROMOCODE, PROMOCODE_PERSONAL, REVIEW, REVIEW_FOR_FILM } from 'src/const/api/url';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { SLIDERS, SlidersSetsData, ViewType } from 'src/const/main-page-data';
-// import { PATH_NAMES } from 'src/const/path-names';
 import { Tariff } from 'src/const/subscriptions-data';
-// import { route } from 'src/router/route';
 import { AppDispatch, RootState } from '.';
 import { setLocalStorage } from '../local-storage/local-storage';
 import { AgeTypes, AuthTypes, PromocodeType, ReviewType, SliderType, UiConfigTypes, UserTypes } from './types-redux';
@@ -146,14 +144,15 @@ export const getDataPerson = (token: string) => async (dispatch: AppDispatch) =>
 export const login = (body: AuthRequest) => async (dispatch: AppDispatch) => {
   try {
     dispatch(setLoginInfo({ isLoading: true }));
-    const { data } = await loginHandler(body);
+    const { data: loginData } = await loginHandler(body);
 
-    dispatch(setLoginInfo({ error: null, data, isLoading: false }));
-
-    dispatch(setLoginState(data?.token));
+    dispatch(setLoginState(loginData?.token));
+    const { data: personData } = await dataPersonHandler();
 
     dispatch(setViewType(ViewType.USER));
-    dispatch(getDataPerson(data?.token));
+    dispatch(setUserInfo({ error: null, data: personData, isLoading: false }));
+
+    dispatch(setLoginInfo({ error: null, data: loginData, isLoading: false }));
   } catch (e) {
     dispatch(setLoginInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
@@ -165,10 +164,11 @@ export const register = (body: AuthRequest) => async (dispatch: AppDispatch) => 
     const { data } = await registerHandler(body);
 
     dispatch(setLoginState(data?.token));
-    dispatch(setRegisterInfo({ error: null, data, isLoading: false }));
-
+    const { data: personData } = await dataPersonHandler();
     dispatch(setViewType(ViewType.USER));
-    dispatch(getDataPerson(data?.token));
+    dispatch(setUserInfo({ error: null, data: personData, isLoading: false }));
+
+    dispatch(setRegisterInfo({ error: null, data, isLoading: false }));
   } catch (e) {
     dispatch(setRegisterInfo({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
@@ -325,13 +325,6 @@ export const activatePromocode = (code: string) => async (dispatch: AppDispatch)
 
     dispatch(setPersonalPromocode({ error: null, data: null, isLoading: false }));
     dispatch(setActivationPromocode({ error: null, data, isLoading: false }));
-    //  переход на страничку
-
-    // 1 - не убирается ошибка
-    // 2 - несколько раз выводится штучка
-    // setTimeout(() => {
-    //   route(PATH_NAMES.userPromo);
-    // }, 1000);
   } catch (e) {
     dispatch(setActivationPromocode({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
