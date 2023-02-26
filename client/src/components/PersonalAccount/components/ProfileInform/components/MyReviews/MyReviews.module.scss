@@ -16,22 +16,22 @@
     justify-content: center;
     align-items: center;
   }
+}
 
-  .reviews {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+.reviews__show-more:disabled {
+  color: var(--text-btn-disabled);
+  background-image: none;
+  background-color: $tundora-60;
+  cursor: auto;
+
+  &:hover {
+    transform: none;
   }
+}
 
-  .reviews__show-more:disabled {
-    color: var(--text-btn-disabled);
-    background-image: none;
-    background-color: $tundora-60;
-    cursor: auto;
-
-    &:hover {
-      transform: none;
-    }
-  }
+.reviews {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }

@@ -3,8 +3,8 @@ import { renderReviewCard } from 'src/components/FilmPage/components/ReviewCard/
 export const renderReviewSlice = (
   reviewsGrid: HTMLElement,
   showMore: HTMLElement,
-  reviews: PersonalReview[],
-  user: AuthGetPersonToken,
+  reviews: PersonalReview[] | FilmReview[],
+  user: AuthGetPersonToken | null,
   page: number,
   pages: number
 ) => {

@@ -66,13 +66,6 @@ export const renderReviewForm = (filmData: ResponseMovie): HTMLElement => {
     const reviewsState = store.getState().reviews;
 
     const formMes: HTMLElement = createElem('div', 'review-form__message');
-    formMes.innerHTML = `Отзыв успешно создан!`;
-    reviewForm.append(formMes);
-
-    setTimeout(() => {
-      formMes.remove();
-    }, 2000);
-
     if (reviewsState.createReview.error) {
       formMes.innerHTML = `Сервер не отвечает, попробуйте еще раз`;
       reviewForm.append(formMes);

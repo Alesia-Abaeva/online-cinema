@@ -1,6 +1,8 @@
 import { MAX_REVIEW_CHARACTERS } from 'src/const/max-review-characters';
-import { appDispatch } from 'src/logic/redux';
+import { appDispatch, store } from 'src/logic/redux';
 import { createReview } from 'src/logic/redux/actions';
+import { createElem } from 'src/utils/create-element';
+import { renderFilmReviews } from '../../FilmReviews/FilmReviews';
 
 export const onSubmitReview = async (e: Event, filmData: ResponseMovie) => {
   e.preventDefault();
@@ -22,5 +24,20 @@ export const onSubmitReview = async (e: Event, filmData: ResponseMovie) => {
   reviewSubmitBtn.setAttribute('disabled', 'true');
   wordCounter.classList.remove('danger');
 
-  appDispatch(createReview({ filmId: filmData.id.toString(), filmName: filmData.name, text, stars }));
+  const formMes: HTMLElement = createElem('div', 'review-form__message');
+  formMes.innerHTML = `Отзыв успешно создан!`;
+  reviewForm.append(formMes);
+
+  const { pagination } = store.getState().reviews.film;
+  if (pagination) pagination.page = 1;
+
+  setTimeout(() => {
+    formMes.remove();
+  }, 2000);
+
+  await appDispatch(createReview({ filmId: filmData.id.toString(), filmName: filmData.name, text, stars }));
+  const reviewCont = document.getElementById('review-cont') as HTMLElement;
+  reviewCont.innerHTML = '';
+  const reviews: HTMLElement = renderFilmReviews(filmData.id);
+  reviewCont.append(reviews);
 };

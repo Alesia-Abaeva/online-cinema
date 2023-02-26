@@ -39,7 +39,13 @@ export const createReview = async (
     await review.save();
 
     res.status(201).send({
-      message: 'Отзыв успешно создан!',
+      ...review['_doc'],
+      user: {
+        _id: user._id,
+        name: user.name,
+        lastName: user.lastName,
+        avatarUrl: user.avatarUrl,
+      },
     });
   } catch (e) {
     res
@@ -123,9 +129,9 @@ export const getReviewsByFilm = async (
   res: express.Response
 ) => {
   try {
-    const filmReviews = await Reviews.find({ filmId: req.params.filmId });
+    const filmReviews = (await Reviews.find({ filmId: req.params.filmId })).reverse();
 
-    const reviews = await Promise.all(
+    const initialData = await Promise.all(
       filmReviews.map(async (review) => {
         const user = await User.findById(review.user);
         return {
@@ -139,6 +145,8 @@ export const getReviewsByFilm = async (
         };
       })
     );
+
+    const reviews = paginateData(req, initialData);
 
     res.status(200).send({ reviews });
   } catch (e) {

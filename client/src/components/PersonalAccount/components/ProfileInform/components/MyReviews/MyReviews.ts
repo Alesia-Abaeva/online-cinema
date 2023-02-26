@@ -51,7 +51,7 @@ export const renderUserReviews = (): HTMLElement => {
     }
   });
 
-  showMore.onclick = async () => {
+  showMore.onclick = () => {
     page++;
     appDispatch(fetchPersonalReviews(page));
   };
