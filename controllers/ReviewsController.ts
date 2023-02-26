@@ -108,13 +108,10 @@ export const getReviewsByUser = async (
   req: express.Request,
   res: express.Response
 ) => {
-  if (!req?.query?.page || !req?.query?.limit) {
-    return res.status(400).json({ message: 'Pagination data required' });
-  }
   try {
-    const initialData = await Reviews.find({ user: req.user.userId });
-
-    const reviews = paginateData(req, initialData);
+    const reviews = (
+      await Reviews.find({ user: req.user.userId })
+    ).reverse();
 
     res.status(200).send({ reviews });
   } catch (e) {

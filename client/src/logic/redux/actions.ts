@@ -230,23 +230,13 @@ export const changeParentControl = () => async (dispatch: AppDispatch, getState:
 };
 
 /** Получить все отзывы пользователя (айди берется из токена на беке) */
-export const fetchPersonalReviews = (page: number) => async (dispatch: AppDispatch) => {
+export const fetchPersonalReviews = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(setPersonReview({ isLoading: true }));
-    if (page === 1) {
-      dispatch(setPersonReview({ error: null, data: null, isLoading: false }));
-    }
 
-    const { data } = await backCall.get<PersonalReviewResponse>(REVIEW, {
-      page,
-      limit: REVIEWS_PER_CLICK,
-    });
+    const { data } = await backCall.get<PersonalReviewResponse>(REVIEW);
 
-    const prevArr = store.getState().reviews.personal.data as unknown as PersonalReview[];
-
-    const arr = prevArr ? [...prevArr, ...data.reviews.docs] : data.reviews.docs;
-
-    dispatch(setPersonReview({ error: null, data: arr, pagination: data.reviews, isLoading: false }));
+    dispatch(setPersonReview({ error: null, data: data.reviews, isLoading: false }));
   } catch (e) {
     dispatch(setPersonReview({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
@@ -310,15 +300,13 @@ export const deleteReview = (reviewId: string) => async (dispatch: AppDispatch) 
     const { data } = await backCall.delete<CommonResponse>(`${REVIEW}/${reviewId}`);
 
     const arr = store.getState().reviews.personal.data as unknown as PersonalReview[];
-    const { pagination } = store.getState().reviews.personal;
 
     const deletedItem = arr.findIndex((el) => el._id === reviewId);
     if (deletedItem !== undefined) {
       arr.splice(deletedItem, 1);
     }
-
-    dispatch(setPersonReview({ error: null, data: arr, pagination, isLoading: false }));
     dispatch(setDeleteReview({ error: null, data, isLoading: false }));
+    dispatch(setPersonReview({ error: null, data: arr, isLoading: false }));
   } catch (e) {
     dispatch(setDeleteReview({ error: e as ErrorMessage, data: null, isLoading: false }));
   }

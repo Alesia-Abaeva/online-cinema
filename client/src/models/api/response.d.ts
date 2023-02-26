@@ -39,9 +39,6 @@ interface PersonalReview {
   updatedAt: string;
 }
 
-interface PersonalReviews extends PageLimit {
-  docs: PersonalReview[];
-}
 interface FilmReviews extends PageLimit {
   docs: FilmReview[];
 }
@@ -51,7 +48,7 @@ interface FilmReviewResponse {
 }
 
 interface PersonalReviewResponse {
-  reviews: PersonalReviews;
+  reviews: PersonalReview[];
 }
 
 interface UserFilmReviewResponse {
