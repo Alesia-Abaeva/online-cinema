@@ -36,12 +36,16 @@ interface PersonalReview {
   updatedAt: string;
 }
 
+interface Reviews extends PageLimit {
+  docs: PersonalReview[];
+}
+
 interface FilmReviewResponse {
   reviews: FilmReview[];
 }
 
 interface PersonalReviewResponse {
-  reviews: PersonalReview[];
+  reviews: Reviews;
 }
 
 interface ActivationPromocodeRequest {

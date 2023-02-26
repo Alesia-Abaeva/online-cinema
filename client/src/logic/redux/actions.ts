@@ -10,7 +10,7 @@ import { getSlider } from 'src/api/back/slider';
 import { PROMOCODE, PROMOCODE_PERSONAL, REVIEW, REVIEW_FOR_FILM } from 'src/const/api/url';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { SLIDERS, SlidersSetsData, ViewType } from 'src/const/main-page-data';
-import { AppDispatch, RootState } from '.';
+import { AppDispatch, RootState, store } from '.';
 import { setLocalStorage } from '../local-storage/local-storage';
 import { AgeTypes, AuthTypes, PromocodeType, ReviewType, SliderType, UiConfigTypes, UserTypes } from './types-redux';
 
@@ -37,7 +37,7 @@ export const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
   };
 };
 
-export const setPersonReview = (payload: ApiResponse<PersonalReviewResponse>) => {
+export const setPersonReview = (payload: ApiResponse<PersonalReview[]>) => {
   return {
     type: ReviewType.SET_PERSONAL_REVIEWS,
     payload,
@@ -228,15 +228,21 @@ export const changeParentControl = () => async (dispatch: AppDispatch, getState:
 };
 
 /** Получить все отзывы пользователя (айди берется из токена на беке) */
-export const fetchPersonalReviews = () => async (dispatch: AppDispatch) => {
+export const fetchPersonalReviews = (page: number) => async (dispatch: AppDispatch) => {
   try {
     dispatch(setPersonReview({ isLoading: true }));
 
-    const { data } = await backCall.get<PersonalReviewResponse>(REVIEW);
+    const { data } = await backCall.get<PersonalReviewResponse>(REVIEW, {
+      page,
+      limit: 2,
+    });
 
+    const prevArr = store.getState().reviews.personal.data as unknown as PersonalReview[];
+
+    const arr = prevArr ? [...prevArr, ...data.reviews.docs] : data.reviews.docs;
     // TODO: получить информацию о фильме, расширить модель стейта
 
-    dispatch(setPersonReview({ error: null, data, isLoading: false }));
+    dispatch(setPersonReview({ error: null, data: arr, pagination: data.reviews, isLoading: false }));
   } catch (e) {
     dispatch(setPersonReview({ error: e as ErrorMessage, data: null, isLoading: false }));
   }

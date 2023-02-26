@@ -1,6 +1,6 @@
-import { getUserReviews } from 'src/api/back/review';
 import { createButton } from 'src/components/ui/Button/Button';
-import { store } from 'src/logic/redux';
+import { appDispatch, store } from 'src/logic/redux';
+import { fetchPersonalReviews } from 'src/logic/redux/actions';
 import { createElem } from 'src/utils/create-element';
 import { renderUserWatchEmpty } from '../UserWatch/UserWatch';
 import { renderReviewSlice } from './Handlers/renderReviewSlice';
@@ -23,30 +23,27 @@ export const renderUserReviews = (): HTMLElement => {
 
   const user = store.getState().user.personal.data;
   let page = 1;
-  getUserReviews(page)
-    .then((res) => {
-      const { reviews } = res.data;
-      if (reviews && reviews.docs && user && reviews.docs.length > 0) {
-        renderReviewSlice(reviewsGrid, showMore, reviews, user, page);
-        dataCont.append(reviewsGrid, showMore);
-        userReviews.append(dataCont);
-      } else {
-        const emptyMes: HTMLElement = renderUserWatchEmpty('Оставить отзыв можно на странице фильма');
-        userReviews.append(emptyMes);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  appDispatch(fetchPersonalReviews(page));
+
+  store.subscribe(() => {
+    const reviewsState = store.getState().reviews;
+    const paginationState = store.getState().reviews.personal.pagination;
+    const reviews = reviewsState.personal.data as unknown as PersonalReview[];
+    reviewsGrid.innerHTML = '';
+
+    if (reviews && user && reviews.length > 0 && paginationState) {
+      renderReviewSlice(reviewsGrid, showMore, reviews, user, page, paginationState.pages);
+      dataCont.append(reviewsGrid, showMore);
+      userReviews.append(dataCont);
+    } else {
+      const emptyMes: HTMLElement = renderUserWatchEmpty('Оставить отзыв можно на странице фильма');
+      userReviews.append(emptyMes);
+    }
+  });
 
   showMore.onclick = async () => {
     page++;
-    const moreRes = await getUserReviews(page);
-    const moreReviews = moreRes.data.reviews;
-
-    if (moreReviews && moreReviews.docs && user && moreReviews.docs.length > 0) {
-      renderReviewSlice(reviewsGrid, showMore, moreReviews, user, page);
-    }
+    appDispatch(fetchPersonalReviews(page));
   };
 
   return userReviews;

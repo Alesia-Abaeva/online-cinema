@@ -108,7 +108,7 @@ export const getReviewsByUser = async (
 
     const reviews = paginateData(req, initialData);
 
-    res.status(200).send({ reviews });
+    res.status(200).send(reviews);
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку

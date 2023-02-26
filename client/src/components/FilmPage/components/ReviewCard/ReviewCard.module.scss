@@ -12,6 +12,27 @@
   color: var(--text-primary);
   padding: 15px;
   justify-self: center;
+  position: relative;
+
+  &__delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    @include flex-center;
+    border-radius: 3px;
+    cursor: pointer;
+
+    svg {
+      filter: var(--inverted-icon);
+    }
+
+    &:hover {
+      background-color: var(--bg-ternary);
+    }
+  }
 
   &__wrapper {
     width: 100%;

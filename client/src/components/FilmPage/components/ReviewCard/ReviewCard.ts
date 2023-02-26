@@ -2,10 +2,11 @@ import { renderAvatar } from 'src/components/Header/components/Account/component
 import { renderModal } from 'src/components/ui/Modal/Modal';
 import { toggleModal } from 'src/components/ui/Modal/ToggleModal';
 import { renderStarsRating } from 'src/components/ui/StarsRating/StarsRating';
+import { trashCan } from 'src/const/icons/icons';
 import { createElem } from 'src/utils/create-element';
 import styles from './ReviewCard.module.scss';
 
-export const renderReviewCard = (reviewData: Review, userData: AuthGetPersonToken): HTMLElement => {
+export const renderReviewCard = (reviewData: PersonalReview, userData: AuthGetPersonToken): HTMLElement => {
   const reviewCard = createElem('div', styles.reviewCard);
   const wrapper = createElem('div', 'reviewCard__wrapper');
   const container = createElem('div', 'reviewCard__container');
@@ -18,6 +19,7 @@ export const renderReviewCard = (reviewData: Review, userData: AuthGetPersonToke
   const name = createElem('div', 'reviewCard__name');
   const date = createElem('div', 'reviewCard__date');
   const stars = createElem('div', 'reviewCard__stars');
+  const deleteBtn = createElem('div', 'reviewCard__delete');
 
   const link = createElem('a', 'reviewCard__link');
   link.innerHTML = 'читать дальше';
@@ -32,6 +34,7 @@ export const renderReviewCard = (reviewData: Review, userData: AuthGetPersonToke
   });
   text.append(reviewData.text);
   movieTitle.innerHTML = 'Название фильма';
+  deleteBtn.innerHTML = `${trashCan}`;
 
   if (reviewData.text.length > 120) {
     text.append(link);
@@ -56,7 +59,7 @@ export const renderReviewCard = (reviewData: Review, userData: AuthGetPersonToke
   headerInfo.append(headerInfoData, movieTitle, stars);
   header.append(renderAvatar(), headerInfo);
   content.append(header, text);
-  wrapper.append(content);
+  wrapper.append(content, deleteBtn);
   container.append(wrapper);
   reviewCard.append(container);
 

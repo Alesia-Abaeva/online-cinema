@@ -3,15 +3,16 @@ import { renderReviewCard } from 'src/components/FilmPage/components/ReviewCard/
 export const renderReviewSlice = (
   reviewsGrid: HTMLElement,
   showMore: HTMLElement,
-  reviews: GetReviews,
+  reviews: PersonalReview[],
   user: AuthGetPersonToken,
-  page: number
+  page: number,
+  pages: number
 ) => {
-  reviews.docs.forEach((el) => {
+  reviews.forEach((el) => {
     const reviewCard: HTMLElement = renderReviewCard(el, user);
     reviewsGrid.append(reviewCard);
   });
-  if (page === reviews.pages) {
+  if (page === pages) {
     showMore.setAttribute('disabled', 'true');
   }
 };
