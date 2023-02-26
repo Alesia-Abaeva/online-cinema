@@ -22,7 +22,6 @@ export const renderAccountSectionHead = (): HTMLElement => {
   const avatarChildeWrapp: HTMLElement = renderChildAvatar('Дети');
   const profileContainer: HTMLElement = renderProfileMenu();
   avatarCnt.append(avatarWrapperHeader);
-  avatarCnt.append(avatarChildeWrapp);
   tariff === Tariff.PREMIUM && avatarCnt.append(avatarChildeWrapp); // начальный рендеринг детского профиля
   avatarCnt.append(profileContainer);
 
