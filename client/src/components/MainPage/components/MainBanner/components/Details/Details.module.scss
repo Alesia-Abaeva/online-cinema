@@ -88,7 +88,7 @@
   }
   &__meta__base {
     display: flex;
-    align-items: center;
+    align-items: end;
     flex-wrap: wrap;
   }
   &__description {
@@ -133,6 +133,7 @@
     display: flex;
     align-items: start;
     flex-direction: column;
+    margin-right: 20px;
   }
 
   &__rating__value {
@@ -149,6 +150,18 @@
     font-weight: 500;
     line-height: 16px;
     color: hsla(0, 0%, 100%, 0.6);
+  }
+
+  &__rating__userVotes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    color: hsla(0, 0%, 100%, 0.6);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    gap: 2px;
   }
 
   &__actions {
@@ -184,6 +197,12 @@
       display: flex;
       align-items: center;
       flex-direction: row;
+    }
+    &__rating__userVotes {
+      flex-direction: row;
+    }
+    &__meta__base {
+      align-items: center;
     }
     &__body__right {
       display: none;

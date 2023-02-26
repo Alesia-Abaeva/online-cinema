@@ -1,0 +1,34 @@
+@import '/src/theme/variable';
+.bannerRating {
+  height: 20px;
+  @include flex-center;
+  margin-right: 10px;
+
+  &__content {
+    padding: 4px 7px 4px 6px;
+    font-size: 13px;
+    line-height: 16px;
+    border-radius: 100px;
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+  }
+  &__star {
+    @include flex-center;
+    svg {
+      fill: $white;
+      width: 12px;
+      height: 12px;
+      margin-right: 2px;
+    }
+  }
+  &__green {
+    background: $apple-green;
+  }
+  &__grey {
+    background: grey;
+  }
+  &__red {
+    background: $red;
+  }
+}
