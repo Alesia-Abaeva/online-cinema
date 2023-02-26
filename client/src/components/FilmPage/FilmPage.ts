@@ -94,7 +94,7 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   }
 
   // Review form
-  const reviewForm: HTMLElement = renderReviewForm(filmData.id);
+  const reviewForm: HTMLElement = renderReviewForm(filmData);
   filmDescription.append(reviewForm);
 
   // 3 column - actors and rating

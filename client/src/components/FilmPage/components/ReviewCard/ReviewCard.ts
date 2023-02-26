@@ -36,7 +36,9 @@ export const renderReviewCard = (reviewData: PersonalReview, userData: AuthGetPe
     minute: '2-digit',
   });
   text.append(reviewData.text);
-  movieTitle.innerHTML = 'Название фильма';
+  movieTitle.innerHTML = `${
+    reviewData.filmName.length > 22 ? `${reviewData.filmName.substring(0, 22)}...` : reviewData.filmName
+  }`;
   deleteBtn.innerHTML = `${trashCan}`;
 
   if (reviewData.text.length > 120) {

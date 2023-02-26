@@ -2,7 +2,7 @@ import { createReview } from 'src/api/back/review';
 import { MAX_REVIEW_CHARACTERS } from 'src/const/max-review-characters';
 import { createElem } from 'src/utils/create-element';
 
-export const onSubmitReview = async (e: Event, filmId: number) => {
+export const onSubmitReview = async (e: Event, filmData: ResponseMovie) => {
   e.preventDefault();
 
   const reviewTextInput = document.getElementById('review-from-text') as HTMLInputElement;
@@ -16,7 +16,6 @@ export const onSubmitReview = async (e: Event, filmId: number) => {
 
   const stars = starInput.value;
   const text = reviewTextInput.value;
-  console.log(text, stars, filmId);
 
   reviewForm.reset();
   wordCounter.innerHTML = `${MAX_REVIEW_CHARACTERS}`;
@@ -24,7 +23,7 @@ export const onSubmitReview = async (e: Event, filmId: number) => {
   wordCounter.classList.remove('danger');
 
   try {
-    const res = await createReview({ filmId: filmId.toString(), text, stars });
+    const res = await createReview({ filmId: filmData.id.toString(), filmName: filmData.name, text, stars });
     const formMes: HTMLElement = createElem('div', 'review-form__message');
     formMes.innerHTML = `${res.data.message}`;
     reviewForm.append(formMes);

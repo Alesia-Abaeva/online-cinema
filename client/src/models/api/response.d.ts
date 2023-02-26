@@ -3,6 +3,7 @@ interface FilmReview {
   text: string;
   stars: number;
   filmId: string;
+  filmName: string;
   user: {
     _id: string;
     name: string;
@@ -31,6 +32,7 @@ interface PersonalReview {
   text: string;
   stars: number;
   filmId: string;
+  filmName: string;
   user: string;
   createdAt: string;
   updatedAt: string;

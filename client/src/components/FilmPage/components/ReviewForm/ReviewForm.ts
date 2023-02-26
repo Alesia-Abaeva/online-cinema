@@ -6,7 +6,7 @@ import { onSubmitReview } from './Handlers/onSubmitReview';
 import { unlockSumbitBtn } from './Handlers/unlockSubmitBtn';
 import styles from './ReviewForm.module.scss';
 
-export const renderReviewForm = (filmId: number): HTMLElement => {
+export const renderReviewForm = (filmData: ResponseMovie): HTMLElement => {
   const reviewFormCont: HTMLElement = createElem('div', 'review-form-cont');
 
   const reviewFormTitle: HTMLElement = createElem('h2', 'id-page__about-title');
@@ -58,7 +58,7 @@ export const renderReviewForm = (filmId: number): HTMLElement => {
   reviewForm.append(starsRating, textInputCont, reviewSubmitBtn);
 
   reviewSubmitBtn.onclick = (e: Event) => {
-    onSubmitReview(e, filmId);
+    onSubmitReview(e, filmData);
   };
 
   reviewFormCont.append(reviewFormTitle, reviewForm);

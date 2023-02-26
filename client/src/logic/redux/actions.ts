@@ -241,7 +241,6 @@ export const fetchPersonalReviews = (page: number) => async (dispatch: AppDispat
     const prevArr = store.getState().reviews.personal.data as unknown as PersonalReview[];
 
     const arr = prevArr ? [...prevArr, ...data.reviews.docs] : data.reviews.docs;
-    // TODO: получить информацию о фильме, расширить модель стейта
 
     dispatch(setPersonReview({ error: null, data: arr, pagination: data.reviews, isLoading: false }));
   } catch (e) {

@@ -19,8 +19,9 @@ export const createReview = async (
       });
     }
 
-    const { filmId, text, stars } = req.body as {
+    const { filmId, filmName, text, stars } = req.body as {
       filmId: string;
+      filmName: string;
       text: string;
       stars: string;
     };
@@ -29,6 +30,7 @@ export const createReview = async (
 
     const review = new Reviews({
       filmId,
+      filmName,
       text,
       stars,
       user: user._id,
@@ -108,7 +110,7 @@ export const getReviewsByUser = async (
 
     const reviews = paginateData(req, initialData);
 
-    res.status(200).send(reviews);
+    res.status(200).send({ reviews });
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку
