@@ -2,6 +2,7 @@ import { validationResult } from 'express-validator';
 import express from 'express';
 import User from '../models/User';
 import Reviews from '../models/Reviews';
+import { paginateData } from '../utils/pagination';
 
 export const createReview = async (
   req: express.Request,
@@ -99,25 +100,15 @@ export const getReviewsByUser = async (
   req: express.Request,
   res: express.Response
 ) => {
+  if (!req?.query?.page || !req?.query?.limit) {
+    return res.status(400).json({ message: 'Pagination data required' });
+  }
   try {
-    // const reviews = await Reviews.find({ user: req.user.userId });
-    // const user = await User.findById(req.user.userId);
+    const initialData = await Reviews.find({ user: req.user.userId });
 
-    const [reviews, user] = await Promise.all([
-      Reviews.find({ user: req.user.userId }),
-      User.findById(req.user.userId),
-    ]);
-    console.log(reviews, user);
+    const reviews = paginateData(req, initialData);
 
-    res.status(200).send({
-      reviews,
-      user: {
-        _id: user._id,
-        name: user.name,
-        lastName: user.lastName,
-        avatarUrl: user.avatarUrl,
-      },
-    });
+    res.status(200).send({ reviews });
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку

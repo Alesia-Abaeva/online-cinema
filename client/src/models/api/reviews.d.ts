@@ -4,7 +4,7 @@ interface CreateReviewData {
   stars: string;
 }
 
-interface GetReviews {
+interface Review {
   createdAt: string;
   filmId: string;
   stars: number;
@@ -13,6 +13,10 @@ interface GetReviews {
   user: string;
   __v: number;
   _id: string;
+}
+
+interface GetReviews extends PageLimit {
+  docs: Review[];
 }
 
 interface ReviewUser {

@@ -9,8 +9,17 @@
     flex-direction: column;
   }
 
-  .profile-info__data.profile-reviews__wrapper {
+  .profile-reviews__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reviews {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 }

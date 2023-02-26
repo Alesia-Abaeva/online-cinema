@@ -5,7 +5,7 @@ import { renderStarsRating } from 'src/components/ui/StarsRating/StarsRating';
 import { createElem } from 'src/utils/create-element';
 import styles from './ReviewCard.module.scss';
 
-export const renderReviewCard = (reviewData: GetReviews, userData: ReviewUser): HTMLElement => {
+export const renderReviewCard = (reviewData: Review, userData: AuthGetPersonToken): HTMLElement => {
   const reviewCard = createElem('div', styles.reviewCard);
   const wrapper = createElem('div', 'reviewCard__wrapper');
   const container = createElem('div', 'reviewCard__container');
@@ -22,7 +22,7 @@ export const renderReviewCard = (reviewData: GetReviews, userData: ReviewUser): 
   const link = createElem('a', 'reviewCard__link');
   link.innerHTML = 'читать дальше';
   stars.append(renderStarsRating(Math.round(reviewData.stars), false));
-  name.innerHTML = userData.name.length ? userData.name.split(' ')[0].substring(0, 12) : 'Гость';
+  name.innerHTML = userData.name && userData.name.length ? userData.name.split(' ')[0].substring(0, 12) : 'Гость';
   date.innerHTML = new Date(reviewData.createdAt).toLocaleString('ru-RU', {
     month: 'long',
     day: 'numeric',

@@ -30,6 +30,10 @@
   fill: #803bee;
 }
 
+.label-checked ~ .stars-rating__label .stars-rating__icon-star {
+  fill: #d9d9d9;
+}
+
 .stars-rating__input:checked ~ .stars-rating__label .stars-rating__icon-star {
   fill: #d9d9d9;
 }

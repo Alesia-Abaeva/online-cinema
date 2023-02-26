@@ -2,7 +2,8 @@
 
 .reviewCard {
   display: inline-flex;
-  width: 370px;
+  max-width: 405px;
+  width: 100%;
   height: 220px;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-primary);

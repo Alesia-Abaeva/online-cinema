@@ -7,4 +7,8 @@ export const createReview = async (body: CreateReviewData) =>
 // export const deleteReview = async (body: ) =>
 //   backCall.put<UserFolderData, AuthGetPersonToken>(DELETE_USER_FOLDER, body);
 
-export const getUserReviews = async () => backCall.get<AuthGetPersonToken>(REVIEW);
+export const getUserReviews = async (page: number) =>
+  backCall.get<AuthGetPersonToken>(REVIEW, {
+    page,
+    limit: 2,
+  });

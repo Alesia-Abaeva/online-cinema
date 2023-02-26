@@ -32,6 +32,10 @@ export const renderStarsRating = (displayCount: number, clickable: boolean): HTM
       value: `${i + 1}`,
       type: 'radio',
     });
+
+    !clickable && displayCount - 1 === i
+      ? starsLabel.classList.add('label-checked')
+      : starsLabel.classList.remove('label-checked');
     starsInput.checked = displayCount - 1 === i;
 
     starsCont.append(starsLabel, starsInput);
