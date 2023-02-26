@@ -6,7 +6,7 @@ import { renderAboutFilm } from './components/ContentWrapper/AboutFilm';
 import styles from './MainBanner.module.scss';
 import { renderDetails } from './components/Details/Details';
 
-export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: string): Promise<HTMLElement> => {
+export const renderMainBanner = (movieId: string, isTabs: boolean, type?: string): HTMLElement => {
   const mainBanner: HTMLElement = createElem('div', styles.mainBanner);
   const wrapper: HTMLElement = createElem('div', styles.mainBanner__wrapper);
   const container: HTMLElement = createElem('div', styles.mainBanner__container);
@@ -17,50 +17,53 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
   const backgroundGradient: HTMLElement = createElem('div', styles.mainBanner__background__gradient);
   background.append(backgroundGradient);
 
-  const res: ResponseMovie = await getMovie({ id: movieId });
+  (async () => {
+    const res: ResponseMovie = await getMovie({ id: movieId });
 
-  // render trailer div and timeout trailer
-  if (window.screen.width > 1000 && type) {
-    setTimeout(() => {
-      const trailerDiv: HTMLElement = document.createElement('div');
-      trailerDiv.id = type;
-      container.append(trailerDiv);
-    }, 100);
+    // render trailer div and timeout trailer
+    if (window.screen.width > 1000 && type) {
+      setTimeout(() => {
+        const trailerDiv: HTMLElement = document.createElement('div');
+        trailerDiv.id = type;
+        container.append(trailerDiv);
+      }, 100);
 
-    setTimeout(() => {
-      const mountEl = document.getElementById('main-banner-video') as HTMLElement;
-      if (mountEl) {
-        renderBackgroundPlayer(res, type, () => () => console.log());
-      }
-    }, 100);
-  }
+      setTimeout(() => {
+        const mountEl = document.getElementById('main-banner-video') as HTMLElement;
+        if (mountEl) {
+          renderBackgroundPlayer(res, type, () => () => console.log());
+        }
+      }, 100);
+    }
 
-  const contentWrapper: HTMLElement = renderAboutFilm(res, isTabs);
+    const contentWrapper: HTMLElement = renderAboutFilm(res, isTabs);
 
-  background.style.backgroundImage = `url(${res.backdrop?.url})`;
+    background.style.backgroundImage = `url(${res.backdrop?.url})`;
 
-  container.append(background, content);
+    container.append(background, content);
 
-  if (isTabs) {
-    const tabs: HTMLElement = renderTabs();
-    container.append(tabs);
+    if (isTabs) {
+      const tabs: HTMLElement = renderTabs();
+      container.append(tabs);
 
-    tabs.addEventListener('click', (event: Event): void => {
-      event.stopPropagation();
-      const target = event.target as HTMLElement;
+      tabs.addEventListener('click', (event: Event): void => {
+        event.stopPropagation();
+        const target = event.target as HTMLElement;
 
-      if (target.classList.contains('details')) {
-        content.innerHTML = '';
-        content.append(renderDetails(res));
-      } else if (target.classList.contains('about-film')) {
-        content.innerHTML = '';
-        content.append(renderAboutFilm(res, isTabs));
-      }
-    });
-  }
+        if (target.classList.contains('details')) {
+          content.innerHTML = '';
+          content.append(renderDetails(res));
+        } else if (target.classList.contains('about-film')) {
+          content.innerHTML = '';
+          content.append(renderAboutFilm(res, isTabs));
+        }
+      });
+    }
 
-  content.append(contentWrapper);
-  wrapper.append(container);
+    content.append(contentWrapper);
+    wrapper.append(container);
+  })();
+
   mainBanner.append(wrapper);
 
   return mainBanner;
