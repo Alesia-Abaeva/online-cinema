@@ -1,6 +1,6 @@
-import { createReview } from 'src/api/back/review';
 import { MAX_REVIEW_CHARACTERS } from 'src/const/max-review-characters';
-import { createElem } from 'src/utils/create-element';
+import { appDispatch } from 'src/logic/redux';
+import { createReview } from 'src/logic/redux/actions';
 
 export const onSubmitReview = async (e: Event, filmData: ResponseMovie) => {
   e.preventDefault();
@@ -14,7 +14,7 @@ export const onSubmitReview = async (e: Event, filmData: ResponseMovie) => {
 
   const starInput = starInputs.find((el) => el.checked === true) as HTMLInputElement;
 
-  const stars = starInput.value;
+  const stars = +starInput.value;
   const text = reviewTextInput.value;
 
   reviewForm.reset();
@@ -22,22 +22,5 @@ export const onSubmitReview = async (e: Event, filmData: ResponseMovie) => {
   reviewSubmitBtn.setAttribute('disabled', 'true');
   wordCounter.classList.remove('danger');
 
-  try {
-    const res = await createReview({ filmId: filmData.id.toString(), filmName: filmData.name, text, stars });
-    const formMes: HTMLElement = createElem('div', 'review-form__message');
-    formMes.innerHTML = `${res.data.message}`;
-    reviewForm.append(formMes);
-
-    setTimeout(() => {
-      formMes.remove();
-    }, 2000);
-  } catch (err) {
-    const formMes: HTMLElement = createElem('div', 'review-form__message');
-    formMes.innerHTML = `${err}`;
-    reviewForm.append(formMes);
-
-    setTimeout(() => {
-      formMes.remove();
-    }, 2000);
-  }
+  appDispatch(createReview({ filmId: filmData.id.toString(), filmName: filmData.name, text, stars }));
 };

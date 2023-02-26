@@ -21,6 +21,7 @@ interface BaseReviewInfo {
 
 interface CreateReviewRequest extends BaseReviewInfo {
   filmId: string;
+  filmName: string;
 }
 
 interface UpdateReviewRequest extends BaseReviewInfo {

@@ -40,6 +40,15 @@ export const renderUserReviews = (): HTMLElement => {
       const emptyMes: HTMLElement = renderUserWatchEmpty('Оставить отзыв можно на странице фильма');
       userReviews.append(title, emptyMes);
     }
+    if (reviewsState.deleteReview.error) {
+      const formMes: HTMLElement = createElem('div', 'review-form__message');
+      formMes.innerHTML = 'Сервер не отвечает, попробуйте еще раз';
+      dataCont.append(formMes);
+
+      setTimeout(() => {
+        formMes.remove();
+      }, 2000);
+    }
   });
 
   showMore.onclick = async () => {

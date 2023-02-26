@@ -264,7 +264,6 @@ export const fetchFilmReviews = (filmId: string) => async (dispatch: AppDispatch
 /** Создание отзыва, передаем айди фильма с основной информацией об отзыве */
 export const createReview = (review: CreateReviewRequest) => async (dispatch: AppDispatch) => {
   try {
-    // TODO: придумать способ очищать data на скрытие всплывающей нотификации об успешном обновлении отзыва
     dispatch(setCreateReview({ data: null, isLoading: true }));
 
     const { data } = await backCall.put<CreateReviewRequest, CommonResponse>(REVIEW, review);
@@ -328,7 +327,6 @@ export const getPersonalPromocode = () => async (dispatch: AppDispatch) => {
 /** Активировать промокод */
 export const activatePromocode = (code: string) => async (dispatch: AppDispatch) => {
   try {
-    // TODO: придумать способ очищать data на скрытие всплывающей нотификации об успешном обновлении отзыва
     dispatch(setActivationPromocode({ data: null, isLoading: true }));
 
     const { data } = await backCall.post<ActivationPromocodeRequest, CommonResponse>(PROMOCODE, { code });

@@ -1,5 +1,6 @@
 import { createButton } from 'src/components/ui/Button/Button';
 import { MAX_REVIEW_CHARACTERS } from 'src/const/max-review-characters';
+import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { renderStarsRating } from '../../../ui/StarsRating/StarsRating';
 import { onSubmitReview } from './Handlers/onSubmitReview';
@@ -60,6 +61,27 @@ export const renderReviewForm = (filmData: ResponseMovie): HTMLElement => {
   reviewSubmitBtn.onclick = (e: Event) => {
     onSubmitReview(e, filmData);
   };
+
+  store.subscribe(() => {
+    const reviewsState = store.getState().reviews;
+
+    const formMes: HTMLElement = createElem('div', 'review-form__message');
+    formMes.innerHTML = `Отзыв успешно создан!`;
+    reviewForm.append(formMes);
+
+    setTimeout(() => {
+      formMes.remove();
+    }, 2000);
+
+    if (reviewsState.createReview.error) {
+      formMes.innerHTML = `Сервер не отвечает, попробуйте еще раз`;
+      reviewForm.append(formMes);
+
+      setTimeout(() => {
+        formMes.remove();
+      }, 2000);
+    }
+  });
 
   reviewFormCont.append(reviewFormTitle, reviewForm);
   return reviewFormCont;
