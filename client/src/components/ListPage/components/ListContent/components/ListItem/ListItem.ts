@@ -1,11 +1,14 @@
 import { createBtnInterest } from 'src/components/ui/Buttons/Buttons';
 import { setRatingColor } from 'src/components/ui/RatingColor/RatingColor';
+import { ViewType } from 'src/const/main-page-data';
 import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { updateListItem } from './Handlers/update-list-item';
 import styles from './ListItem.module.scss';
 
 export const renderListItem = (itemData: FindedMovies, i: number, page: number, limit: number): HTMLElement => {
+  const { viewType } = store.getState().uiConfig;
+
   const listItem: HTMLElement = createElem('div', styles['list-item']);
   listItem.dataset.id = itemData.id.toString();
 
@@ -54,9 +57,10 @@ export const renderListItem = (itemData: FindedMovies, i: number, page: number, 
   itemRatingCont.append(itemRating);
 
   const itemControls: HTMLElement = createElem('div', 'list-item__controls');
-  const moreActions: HTMLElement = createBtnInterest(itemData.id);
-
-  itemControls.append(moreActions);
+  if (viewType !== ViewType.CHILD) {
+    const moreActions: HTMLElement = createBtnInterest(itemData.id);
+    itemControls.append(moreActions);
+  }
 
   listItemLink.append(itemNumCont, itemImgCont, itemInfo, itemRatingCont);
   listItem.append(listItemLink, itemControls);

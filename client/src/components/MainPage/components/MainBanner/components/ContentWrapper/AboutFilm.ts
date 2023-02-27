@@ -1,6 +1,8 @@
 import { createElem } from 'src/utils/create-element';
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
 import { getReadableVotes } from 'src/utils/get-readable-votes';
+import { ViewType } from 'src/const/main-page-data';
+import { store } from 'src/logic/redux';
 import { getReadableDuration } from 'src/utils/get-readable-duration';
 import styles from './AboutFilm.module.scss';
 import { renderBannerRating } from '../BannerRating/BannerRating';
@@ -13,6 +15,8 @@ export const renderAboutFilm = (
     response: Response;
   } | null
 ): HTMLElement => {
+  const { viewType } = store.getState().uiConfig;
+
   const btnSlice1 = createElem('div', styles.contentWrapper__actions__slice1);
   const btnSlice2 = createElem('div', styles.contentWrapper__actions__slice2);
   const buttons: HTMLElement = createElem('div', styles.contentWrapper__actions);
@@ -22,7 +26,7 @@ export const renderAboutFilm = (
   const btnTrailer = createBtnTrailer(res) as HTMLButtonElement;
   btnSlice2.append(btnTrailer);
 
-  if (dotsBtn) {
+  if (dotsBtn && viewType !== ViewType.CHILD) {
     const btnInterest = createBtnInterest(res.id) as HTMLButtonElement;
     btnSlice2.append(btnInterest);
   }

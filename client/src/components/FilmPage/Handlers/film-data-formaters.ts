@@ -37,7 +37,7 @@ export const formatMovieLength = (movieLength: number): string => {
 };
 
 export const formatSlogan = (slogan: string): string => {
-  return slogan.trim().length ? `"${slogan}"` : '';
+  return slogan && slogan.trim().length > 0 ? `"${slogan}"` : '';
 };
 
 export const getPersonsWithJob = (persons: PersonDataApi[], profession: string): PersonDataApi[] => {
