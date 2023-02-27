@@ -2,6 +2,7 @@ import { createElem } from 'src/utils/create-element';
 import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-data';
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
 import styles from './AboutFilm.module.scss';
+import { renderBannerRating } from '../BannerRating/BannerRating';
 
 export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLElement => {
   const btnSlice1 = createElem('div', styles.contentWrapper__actions__slice1);
@@ -41,6 +42,7 @@ export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLEleme
         <div class=${styles.contentWrapper__rating__votes}>
           ${votes}
         </div>
+        <div class=${styles.contentWrapper__rating__userVotes}></div>
       </div>
       <div class=${styles.contentWrapper__meta__main}>
         <div class=${styles.contentWrapper__year__genres}>
@@ -59,6 +61,13 @@ export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLEleme
   `;
 
   content.innerHTML = aboutFilmTemplate;
+
+  const ratingBlock = content.querySelector('.contentWrapper__rating__userVotes') as HTMLElement;
+  if (ratingBlock) {
+    const userVote = renderBannerRating(8);
+    ratingBlock.innerHTML = '';
+    ratingBlock.append(userVote);
+  }
 
   btnSlice1.append(btnWatch);
   buttons.append(btnSlice1, btnSlice2);
