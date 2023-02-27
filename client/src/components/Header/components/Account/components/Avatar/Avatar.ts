@@ -6,6 +6,7 @@ import { AgeTypes } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
 import user from 'assets/img/user.svg';
+// import { Tariff } from 'src/const/subscriptions-data';
 import styles from './Avatar.module.scss';
 
 export const renderAvatar = (): HTMLElement => {
@@ -59,20 +60,21 @@ export const renderChildAvatar = (text: string): HTMLElement => {
 
   if (viewType === ViewType.USER) {
     name.innerHTML = text;
-    avatar.classList.remove('child-avatar-avtive');
     ageCnt.innerHTML = '';
+    avatar.classList.remove('child-avatar-avtive');
   } else {
     avatar.classList.add('child-avatar-avtive');
     ageCnt.append(age);
-    name.innerHTML = '';
-
     avatarWrap.append(ageCnt);
+    name.innerHTML = '';
   }
 
-  avatarWrap.onclick = async () => {
+  const handleAvatarClick = async () => {
     await appDispatch(changeParentControl());
     route(PATH_NAMES.main);
-  }; // обновили стейт
+  };
+
+  avatarWrap.onclick = handleAvatarClick; // обновили стейт
 
   store.subscribe(() => {
     const { viewType: currentViewType } = store.getState().uiConfig;
@@ -87,13 +89,17 @@ export const renderChildAvatar = (text: string): HTMLElement => {
     }
 
     name.innerHTML = text;
-    avatar.classList.remove('child-avatar-avtive');
     ageCnt.innerHTML = '';
+    avatar.classList.remove('child-avatar-avtive');
 
     return null;
   });
 
-  store.getState().user.personal.data?.tariff === 'base' && (avatarWrap.innerHTML = '');
+  store.subscribe(() => {
+    const personalIsLoading = store.getState().user.personal.isLoading;
+
+    avatarWrap.onclick = !personalIsLoading ? handleAvatarClick : null;
+  });
 
   return avatarWrap;
 };

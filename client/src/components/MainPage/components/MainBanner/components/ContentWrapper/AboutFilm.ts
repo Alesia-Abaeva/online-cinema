@@ -10,9 +10,9 @@ export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean, userRating
   const buttons: HTMLElement = createElem('div', styles.contentWrapper__actions);
   const content: HTMLElement = createElem('div', styles.contentWrapper);
 
-  const filmImg = res.backdrop ? res.backdrop.url : '';
+  // const filmImg = res.backdrop ? res.backdrop.url : '';
 
-  const btnWatch = createBtnWatch(res.id, filmImg) as HTMLButtonElement;
+  const btnWatch = createBtnWatch(res.id) as HTMLButtonElement;
   const btnTrailer = createBtnTrailer(res) as HTMLButtonElement;
   // const btnBookmark = createBtnBookmark() as HTMLButtonElement;
   btnSlice2.append(btnTrailer);

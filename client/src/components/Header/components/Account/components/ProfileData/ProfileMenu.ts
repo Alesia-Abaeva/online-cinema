@@ -5,6 +5,7 @@ import { PATH_NAMES } from 'src/const/path-names';
 import { Tariff } from 'src/const/subscriptions-data';
 import { appDispatch, store } from 'src/logic/redux';
 import {
+  setActivationPromocode,
   setLogoutState,
   setUserInfo,
   setViewType,
@@ -61,6 +62,8 @@ export const renderProfileMenu = (): HTMLElement => {
     appDispatch(setUserInfo({ data: null }));
 
     appDispatch(setViewType(ViewType.GUEST));
+
+    appDispatch(setActivationPromocode({ error: null }));
     route(`/`);
 
     // вышли из аккаунта
@@ -71,14 +74,7 @@ export const renderProfileMenu = (): HTMLElement => {
   personalEmail.innerHTML = userState.data?.email as string;
 
   personalDataWpar.append(personalName, personalEmail);
-  profileMenu.append(
-    // childeProfile,
-    profileAccount,
-    profileHistory,
-    profileSet,
-    subscribeAccount,
-    profileOut
-  );
+  profileMenu.append(profileAccount, profileHistory, profileSet, subscribeAccount, profileOut);
   personalData.append(personalDataWpar, avatarWrapperMenu);
   profileContainer.append(personalData, profileMenu);
 
@@ -94,6 +90,20 @@ export const renderProfileMenu = (): HTMLElement => {
       profileContainer.classList.remove('show__menu');
       // если кликаем на детский режим в меню, убираем меню
     }
+  });
+
+  store.subscribe(() => {
+    const tariff1 = store.getState().user.personal.data?.tariff;
+
+    if (tariff1 === Tariff.PREMIUM && !profileMenu.contains(childeProfile)) {
+      return profileMenu.prepend(childeProfile);
+    }
+
+    if (tariff1 === Tariff.BASE && profileMenu.contains(childeProfile)) {
+      return profileMenu.removeChild(childeProfile);
+    }
+
+    return null;
   });
 
   return profileContainer;

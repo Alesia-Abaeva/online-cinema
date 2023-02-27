@@ -2,16 +2,12 @@ import { createElem } from 'src/utils/create-element';
 import { createLink } from 'src/utils/create-link-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { login } from 'src/logic/redux/actions';
-// import { setLocalStorage } from 'src/logic/local-storage/local-storage';
-// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { store, appDispatch } from 'src/logic/redux';
 import { route } from 'src/router/route';
 import { createButton } from '../ui/Button/Button';
 import { createInputElement } from '../ui/Input/Input';
 import { mailIcon, passwordIcon } from '../../const/icons/icons';
 import styles from './Login.module.scss';
-
-// import { route } from 'src/router/route';
 
 export const renderLoginPage = (): HTMLElement => {
   const stateInput = {
@@ -111,8 +107,9 @@ export const renderLoginPage = (): HTMLElement => {
 
   let isAuthRedirected = false;
 
-  store.subscribe(() => {
-    if (!isAuthRedirected && store.getState().uiConfig.isAuth) {
+  store.subscribe(async () => {
+    const state = store.getState();
+    if (!isAuthRedirected && state.uiConfig.isAuth && state.user.personal.data) {
       route(`/`);
 
       isAuthRedirected = true;

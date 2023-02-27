@@ -2,6 +2,8 @@
 
 .profile-info__wparr {
   width: 65%;
+  z-index: 1;
+  background-color: var(--bg-primary);
 
   .profile-info__data {
     position: relative;

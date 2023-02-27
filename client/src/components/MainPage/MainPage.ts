@@ -2,7 +2,7 @@ import { createElem, insertBefore } from 'src/utils/create-element';
 import { store } from 'src/logic/redux';
 import { TOP10 } from 'src/const/top10-data';
 import { REFERENC_DESCRIP, REFERENC_TITLE } from 'src/const/referens';
-import { DATA_MAIN, SLIDERS, ViewType } from 'src/const/main-page-data';
+import { DATA_MAIN, SLIDERS, SlidersSetsData, ViewType } from 'src/const/main-page-data';
 import { galleryData } from 'src/const/gallery-data';
 import { genresData } from 'src/const/genres-data';
 import { randomizeObj } from 'src/utils/randomize-obj';
@@ -23,16 +23,16 @@ const renderSliders = (main: HTMLElement) => {
   const view = SLIDERS[currentView];
   const setSliders = state.sliders;
   viewType = currentView;
+
   // слайдеры
   const sliders = setSliders[currentView].map((filmsSet, index) => {
-    const viewIndex = view[index];
-    const randomSliderData = filmsSet.docs.sort(randomizeObj).slice(0, 10);
+    const viewIndex: SlidersSetsData = view[index];
+    const randomSliderData: ResponseMovie[] = filmsSet.docs.sort(randomizeObj).slice(0, 10);
     return addListenerSlideDown(
       renderSlider(randomSliderData, viewIndex.displayedTitle, viewIndex.title, 'slider'),
       'slider'
     );
   });
-
   sliders?.length && insertBefore({ nodes: sliders as HTMLElement[], parentNode: main, siblingNumber: 2 });
 };
 

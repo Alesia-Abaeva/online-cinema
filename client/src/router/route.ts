@@ -1,7 +1,6 @@
 import { getLocalStorage } from 'src/logic/local-storage/local-storage';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { PATH_NAMES } from 'src/const/path-names';
-
 import { pathResolver } from './router';
 
 export const route = (pathname: string): void => {

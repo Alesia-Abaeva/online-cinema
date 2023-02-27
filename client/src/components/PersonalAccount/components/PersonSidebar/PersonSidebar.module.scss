@@ -76,6 +76,10 @@
     width: 15rem;
     margin-right: 0;
   }
+  @media (max-width: 830px) {
+    width: 12rem;
+    margin-right: 0;
+  }
 }
 
 .tariff_icon {
