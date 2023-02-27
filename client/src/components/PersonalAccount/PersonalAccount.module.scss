@@ -9,6 +9,7 @@
   padding: auto 0;
   padding-top: calc(80px + 1rem);
   gap: 2rem;
+  padding-bottom: 200px;
 
   @media (max-width: $phone-width) {
     position: relative;
@@ -33,6 +34,9 @@
 }
 
 .hide-personal {
+  &.personal-account  {
+    padding-bottom: 0;
+  }
   @media (max-width: $phone-width) {
     .profile-sidebar__cnt {
       position: absolute;
