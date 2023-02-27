@@ -45,5 +45,19 @@ export const renderAccountSectionHead = (): HTMLElement => {
     return accoutSection.contains(loginBtn) ? accoutSection.removeChild(loginBtn) : accoutSection.append(avatarCnt);
   });
 
+  store.subscribe(() => {
+    const tariff1 = store.getState().user.personal.data?.tariff;
+
+    if (tariff1 === Tariff.PREMIUM && !avatarCnt.contains(avatarChildeWrapp)) {
+      return avatarCnt.append(avatarChildeWrapp);
+    }
+
+    if (tariff1 === Tariff.BASE && avatarCnt.contains(avatarChildeWrapp)) {
+      return avatarCnt.removeChild(avatarChildeWrapp);
+    }
+
+    return null;
+  });
+
   return accoutSection;
 };

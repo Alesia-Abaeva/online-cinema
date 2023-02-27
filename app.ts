@@ -7,12 +7,13 @@ import { router as slidersRouter } from "./routes/slider.routes";
 import { router as collectionsRouter } from "./routes/collections.routes";
 import { router as reviewsRouter } from "./routes/reviews.routes";
 import { router as promocodeRouter } from "./routes/promocode.router";
-
 import cors from "cors";
 import checkAuth from "./middleware/auth.middelware";
 import { upload } from "./cors/multer";
 import { start } from "./cors/start";
 import uploadFiles from "./controllers/UploadController";
+import path from "path";
+
 // import { multerController } from "./middleware/multer.middleware";
 
 mongoose.set("strictQuery", true);
@@ -42,6 +43,14 @@ app.use("/api/collections", collectionsRouter); // пути для получе�
 app.use("/api/sliders", slidersRouter); // пути для получения данных для слайдеров на главной
 app.use("/api/reviews", reviewsRouter); // пути для получения данных об отзывах
 app.use("/api/promocode", promocodeRouter); // пути для работы с промокодами
+
+if (process.env.NODE_ENV === "production") {
+  app.use("/", express.static(path.join(__dirname, "client", "dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+  });
+}
 
 // TODO: вынести в роуты
 app.post("/upload", checkAuth, upload.single("image"), uploadFiles); // загрузка изображений на бэк

@@ -4,13 +4,6 @@ import { createElem } from 'src/utils/create-element';
 import { removeFilmModal } from './Handlers/show-hide-modal';
 import styles from './ModalFilm.module.scss';
 
-// const errorModalFilms = () => {
-//   const container = createElem('div', 'mоdal-films_error');
-//   container.innerText = 'Упс, ошибочка';
-
-//   return container;
-// };
-
 export const renderModal = (): CommonsHtml => {
   const container: HTMLElement = createElem('div', 'mоdal-films_container');
   const window: HTMLElement = createElem('div', styles['mоdal-films_window']);
@@ -22,14 +15,6 @@ export const renderModal = (): CommonsHtml => {
   const close: HTMLElement = createElem('div', 'mоdal-films_close');
   const closeIcon: HTMLElement = createElem('p', 'checkout-modal__close-icon');
   closeIcon.innerHTML = '╳';
-
-  // const error = errorModalFilms();
-
-  // setTimeout(() => {
-  //   window.removeChild(dotsLoader);
-  //   window.append(error);
-  // }, 8000);
-  // TODO: сделать, когда заработают фильмы
 
   close.append(closeIcon);
   window.append(close, body);

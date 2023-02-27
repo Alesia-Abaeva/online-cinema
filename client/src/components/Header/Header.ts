@@ -1,4 +1,3 @@
-// import { store } from 'src/logic/redux';
 import { createElem } from 'src/utils/create-element';
 import { linkHandler } from 'src/utils/link-handler';
 import { renderAccountSectionHead } from './components/Account/Account';
