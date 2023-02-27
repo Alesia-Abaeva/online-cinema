@@ -1,6 +1,5 @@
 export const BASE_URL = 'https://api.kinopoisk.dev';
 export const API_KEY = 'DENQT2G-3XYM131-GQT69CC-DFS8K0R' as const;
-// export const API_KEY = 'T7RA20P-ETH4ZGD-PP4PDVS-Q3FPSZB' as const;
 
 export const API_REQUEST = {
   MOVIE: 'movie', // ccылка для работы с данными о фильмах
@@ -9,10 +8,7 @@ export const API_REQUEST = {
   IMAGE: 'image',
 } as const;
 
-// export const URL_SERVER: string = 'http://127.0.0.1:3000';
-export const URL_SERVER = 'http://localhost';
-// export const URL_SERVER = 'http://84.38.183.40';
-// export const URL_SERVER_AVATAR = 'http://84.38.183.40';
+export const URL_SERVER = 'http://84.38.183.40';
 // export const URL_SERVER = 'http://localhost:3000';
 
 export const REGISTER = 'api/auth/register';

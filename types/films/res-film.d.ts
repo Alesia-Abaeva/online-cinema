@@ -39,7 +39,7 @@ interface ResponseMovie {
   status: string;
   technology: { has3D: boolean; hasImax: boolean };
   ticketsOnSale: boolean;
-  top10: null; // ????
+  top10: null;
   top250: null | number;
   type: string;
   typeNumber: number;
@@ -47,7 +47,7 @@ interface ResponseMovie {
   updatedAt: string;
   videos: VideosApi;
   votes: RaitingApi;
-  watchability: null; // ??????
+  watchability: null;
   year: number;
   releaseYears?: { start: number; end: number }[];
 }

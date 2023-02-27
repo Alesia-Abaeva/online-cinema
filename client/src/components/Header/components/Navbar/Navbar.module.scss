@@ -63,5 +63,4 @@
 .skeleton {
   @include background-gradient;
   animation: shine-avatar $animation-duration infinite;
-  // color: transparent;
 }

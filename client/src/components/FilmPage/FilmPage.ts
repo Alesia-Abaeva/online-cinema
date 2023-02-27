@@ -27,7 +27,6 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
   mainContent.classList.add('id-page');
   const backdrop: HTMLElement = createElem('div', 'id-page__backdrop');
-  // const filmImg = filmData.backdrop ? filmData.backdrop.url : '';
 
   const { container } = renderModal(); // в модалке рендерится iframe только после нажатия кнопки
 

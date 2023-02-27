@@ -1,13 +1,10 @@
 /* eslint-disable no-underscore-dangle */
-// import { loadState } from 'src/logic/local-storage/local-storage';
 import { store } from 'src/logic/redux';
 import { isNumber } from 'src/utils/is-number';
 import { getMovie } from './films';
 
 export const getFolder = async (options: Options): Promise<ResponseFolder | ResponseUserFolder | undefined> => {
   const peristedState = store.getState().user.personal;
-
-  // loadState();
 
   const folderId = options.id;
 

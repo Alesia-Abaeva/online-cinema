@@ -120,16 +120,8 @@ export const renderProfileDataPass = (): ReturnElements => {
   };
 
   const success = createElem('div', 'change_password');
-  // success.innerHTML = 'Пароль успешно обновлен';
 
-  data.append(
-    // success
-    pass,
-    newPass,
-    newPassRepet,
-    bntCtnPass,
-    success
-  );
+  data.append(pass, newPass, newPassRepet, bntCtnPass, success);
 
   store.subscribe(() => {
     const passwordState = store.getState().user.password;

@@ -66,7 +66,7 @@ interface ResponseMovie {
   alternativeName: string;
   backdrop: { previewUrl: string; url: string } | null;
   budget: { currency: string; value: number };
-  collections: string[]; // TODO - исправить тип
+  collections: string[];
   countries: ChildeAttribures[];
   createDate: string;
   description: string | null;
@@ -79,7 +79,7 @@ interface ResponseMovie {
   id: number;
   images: ImagesApi;
   imagesInfo: ImagesApi;
-  lists: string[]; // TODO - исправить тип
+  lists: string[];
   logo: { url: string | null };
   movieLength: number;
   name: string;
@@ -99,7 +99,7 @@ interface ResponseMovie {
   status: string;
   technology: { has3D: boolean; hasImax: boolean };
   ticketsOnSale: boolean;
-  top10: null; // ????
+  top10: null;
   top250: null | number;
   type: string;
   typeNumber: number;
@@ -107,7 +107,7 @@ interface ResponseMovie {
   updatedAt: string;
   videos: VideosApi;
   votes: RaitingApi;
-  watchability: null; // ??????
+  watchability: null;
   year: number;
   releaseYears?: { start: number; end: number }[];
 }

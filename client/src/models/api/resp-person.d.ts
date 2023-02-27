@@ -14,7 +14,7 @@ interface ResponsePerson {
   photo: string;
   profession: { value: string }[];
   sex: string;
-  spouses: string[]; //????
+  spouses: string[];
   updatedAt: string;
   id?: number | null;
 }

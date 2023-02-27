@@ -36,9 +36,7 @@ export const handleChangeTariff = async (body: AuthGetPersonToken) => {
 export const handleUpdateFolders = async (body: FolderData) => {
   try {
     const { data } = await updateFoldersData(body);
-    // const updateRes = await updateFoldersData(body);
     appDispatch(setUserInfo({ data }));
-    // appDispatch(setUserInfo({ data: updateRes.data }));
   } catch (err) {
     console.warn(err);
   }

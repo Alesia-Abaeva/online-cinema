@@ -32,30 +32,6 @@ export const createBtnWatch = (filmId: number) => {
       : route(PATH_NAMES.register);
   };
 
-  // const { data } = store.getState().user.personal;
-  // if (data) {
-  //   if (data.tariff === Tariff.PREMIUM) {
-  //     addFilmModal(filmId);
-  //     handleUpdateFolders({ folderName: 'watchedRecently', id: filmId });
-  //   } else {
-  //     route(PATH_NAMES.userSubscribe);
-  //   }
-  // } else {
-  //   route(PATH_NAMES.register);
-  // }
-
-  //   if (!data) {
-  //     route(PATH_NAMES.register);
-  //   } else if (data.tariff === Tariff.PREMIUM) {
-  //     addFilmModal(filmId);
-  //     handleUpdateFolders({ folderName: 'watchedRecently', id: filmId });
-  //   } else {
-  //     route(PATH_NAMES.userSubscribe);
-  //   }
-  // };
-
-  // btnWatch.onclick = () =>
-
   return btnWatch;
 };
 

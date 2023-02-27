@@ -65,7 +65,6 @@ const config: Configuration = {
           },
           'sass-loader',
         ],
-        // options: { module: true },
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,

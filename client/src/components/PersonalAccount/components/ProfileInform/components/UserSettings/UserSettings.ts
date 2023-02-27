@@ -18,10 +18,6 @@ export const renderUserSettings = () => {
   const btn = arrowBtn();
   titleTheme.append(btn);
 
-  userProfile.append(
-    // title, ageCnt,
-    titleTheme,
-    themeCnt
-  );
+  userProfile.append(titleTheme, themeCnt);
   return userProfile;
 };

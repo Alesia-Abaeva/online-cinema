@@ -1,16 +1,8 @@
-// import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
-// import { ViewType } from 'src/const/main-page-data';
 import { ViewType } from 'src/const/main-page-data';
 import { PATH_NAMES } from 'src/const/path-names';
 import { Tariff } from 'src/const/subscriptions-data';
 import { appDispatch, store } from 'src/logic/redux';
-import {
-  setActivationPromocode,
-  setLogoutState,
-  setUserInfo,
-  setViewType,
-  // setViewType
-} from 'src/logic/redux/actions';
+import { setActivationPromocode, setLogoutState, setUserInfo, setViewType } from 'src/logic/redux/actions';
 import { AgeTypes } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
