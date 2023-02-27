@@ -1,8 +1,6 @@
 import { createElem } from 'src/utils/create-element';
 import { store } from 'src/logic/redux';
 import { ViewType } from 'src/const/main-page-data';
-import { route } from 'src/router/route';
-import { PATH_NAMES } from 'src/const/path-names';
 import { renderPersons } from './components/Persons/Persons';
 import { renderBackgroundPlayer } from './components/BackgroundPlayer/BackgroundPlayer';
 import { renderFilmDataTable } from './components/FilmDataTable/FilmDataTable';
@@ -15,14 +13,19 @@ import { renderModal } from '../ui/ModalFilm/ModalFilm';
 import styles from './FilmPage.module.scss';
 import { renderReviewForm } from './components/ReviewForm/ReviewForm';
 import { renderFilmReviews } from './components/FilmReviews/FilmReviews';
+import { renderChildrenProtection } from './components/ChildrenProtection/ChildrenProtection';
+import { toggleScroll } from '../ui/Modal/no-scroll-on';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const { viewType } = store.getState().uiConfig;
+  const main: HTMLElement = createElem('main', 'main');
+
   if ((Number(filmData.ageRating) > 12 || filmData.ageRating === null) && viewType === ViewType.CHILD) {
-    route(PATH_NAMES.main);
+    const protectionScreen: HTMLElement = renderChildrenProtection();
+    toggleScroll();
+    main.append(protectionScreen);
   } // редирект для детского режима
 
-  const main: HTMLElement = createElem('main', 'main');
   const mainContainer: HTMLElement = createElem('div', 'main__container');
   const mainContent: HTMLElement = createElem('div', styles['film-page']);
   mainContent.classList.add('id-page');

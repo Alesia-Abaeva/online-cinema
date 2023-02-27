@@ -1,11 +1,11 @@
 import { createElem } from 'src/utils/create-element';
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
 import { getReadableVotes } from 'src/utils/get-readable-votes';
+import { ViewType } from 'src/const/main-page-data';
+import { store } from 'src/logic/redux';
 import { getReadableDuration } from 'src/utils/get-readable-duration';
 import styles from './AboutFilm.module.scss';
 import { renderBannerRating } from '../BannerRating/BannerRating';
-import { store } from 'src/logic/redux';
-import { ViewType } from 'src/const/main-page-data';
 
 export const renderAboutFilm = (
   res: ResponseMovie,

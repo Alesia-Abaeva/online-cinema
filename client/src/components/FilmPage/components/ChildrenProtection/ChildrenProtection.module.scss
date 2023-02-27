@@ -1,0 +1,29 @@
+@import '/src/theme/variable';
+
+.children-protection {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  @include crystalline-blur;
+  @include flex-center;
+}
+
+.children-protection__content {
+  @include flex-center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.children-protection__message {
+  text-align: center;
+}
+
+.children-protection__lock {
+  svg {
+    filter: var(--inverted-icon);
+  }
+}
