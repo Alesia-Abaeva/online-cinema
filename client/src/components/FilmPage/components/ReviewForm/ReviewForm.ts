@@ -16,6 +16,14 @@ export const renderReviewForm = (filmData: ResponseMovie): HTMLElement => {
 
   const reviewForm: HTMLElement = createElem('form', styles['review-form']);
   reviewForm.id = 'review-form';
+  const { isAuth } = store.getState().uiConfig;
+  if (!isAuth) {
+    const formMes: HTMLElement = createElem('div', 'review-form__message');
+    formMes.innerHTML = `Оставлять отзывы могут только авторизованные пользователи`;
+    reviewForm.append(formMes);
+    reviewFormCont.append(reviewFormTitle, reviewForm);
+    return reviewFormCont;
+  }
 
   const starsRating: HTMLElement = createElem('div', styles['stars-rating']);
   const starsRatingTitle: HTMLElement = createElem('h3', 'stars-rating__title');

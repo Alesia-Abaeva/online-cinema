@@ -92,7 +92,6 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
     filmDescription.append(simiralMoviesSection);
   }
 
-  // Review form
   const reviewForm: HTMLElement = renderReviewForm(filmData);
   filmDescription.append(reviewForm);
 
