@@ -21000,63 +21000,6 @@
     },
     {
       "externalId": {
-        "kpHD": null,
-        "imdb": "tt12374774",
-        "tmdb": 784075,
-        "_id": "6376e941ab9a5694e44f84ae"
-      },
-      "logo": {
-        "_id": "6336a286248263ce89bab4a5",
-        "url": null
-      },
-      "poster": {
-        "_id": "6339871fc22d011bb5aa31d2",
-        "url": "https://st.kp.yandex.net/images/film_big/1417085.jpg",
-        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_1417085.jpg"
-      },
-      "rating": {
-        "kp": 5.96,
-        "imdb": 3,
-        "filmCritics": 0,
-        "russianFilmCritics": 0,
-        "await": 0,
-        "_id": "63d3ea4157101ffd395a5731"
-      },
-      "votes": {
-        "kp": 2521,
-        "imdb": 262,
-        "filmCritics": 0,
-        "russianFilmCritics": 0,
-        "await": 0,
-        "_id": "63e6166268d824d6cad6f8f4"
-      },
-      "watchability": {
-        "_id": "6339871fc22d011bb5aa31e6",
-        "items": null
-      },
-      "id": 1417085,
-      "alternativeName": "Attack of the Giant Blurry Finger",
-      "description": "Гигантский нечёткий палец прямиком из космоса спускается на Землю и начинает преследовать молодую женщину.",
-      "enName": null,
-      "movieLength": 60,
-      "name": "Нападение гигантского нечёткого пальца",
-      "names": [
-        {
-          "_id": "6339871fc22d011bb5aa31ce",
-          "name": "Нападение гигантского нечёткого пальца"
-        },
-        {
-          "_id": "6339871fc22d011bb5aa31cf",
-          "name": "Attack of the Giant Blurry Finger"
-        }
-      ],
-      "shortDescription": null,
-      "type": "movie",
-      "year": 2021,
-      "releaseYears": []
-    },
-    {
-      "externalId": {
         "kpHD": "40676c9a2160f593a03d787809f33032",
         "imdb": "tt6565702",
         "tmdb": 320288,
@@ -21495,63 +21438,6 @@
     {
       "externalId": {
         "kpHD": null,
-        "imdb": "tt0262221",
-        "tmdb": 195655,
-        "_id": "6376f29fab9a5694e47be919"
-      },
-      "logo": {
-        "_id": "62ee26e60f5be41246a7fbd0",
-        "url": null
-      },
-      "poster": {
-        "_id": "63398c4dc22d011bb5ce793f",
-        "url": "https://st.kp.yandex.net/images/film_big/34494.jpg",
-        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_34494.jpg"
-      },
-      "rating": {
-        "_id": "63398c4dc22d011bb5ce793d",
-        "kp": 5.734,
-        "imdb": 4.1,
-        "filmCritics": 0,
-        "russianFilmCritics": 0,
-        "await": 0
-      },
-      "votes": {
-        "kp": 206,
-        "imdb": 309,
-        "filmCritics": 0,
-        "russianFilmCritics": 0,
-        "await": 0,
-        "_id": "63d87dddf38219e94f79af80"
-      },
-      "watchability": {
-        "_id": "63398c4dc22d011bb5ce796c",
-        "items": null
-      },
-      "movieLength": 80,
-      "id": 34494,
-      "type": "movie",
-      "name": "Внеземная эротика 2",
-      "description": "На Землю попадает пришелец из космоса, миссия которого заключается в распространении микробов вожделения...",
-      "year": 2000,
-      "alternativeName": "Sex Files: Alien Erotica II",
-      "enName": null,
-      "names": [
-        {
-          "_id": "63398c4dc22d011bb5ce793b",
-          "name": "Внеземная эротика 2"
-        },
-        {
-          "_id": "63398c4dc22d011bb5ce793c",
-          "name": "Sex Files: Alien Erotica II"
-        }
-      ],
-      "shortDescription": null,
-      "releaseYears": []
-    },
-    {
-      "externalId": {
-        "kpHD": null,
         "imdb": "tt0092074",
         "tmdb": 24194,
         "_id": "6376edcdab9a5694e466ba0e"
@@ -21715,63 +21601,6 @@
         {
           "_id": "63397febc22d011bb5916291",
           "name": "Critters 3"
-        }
-      ],
-      "shortDescription": null,
-      "releaseYears": []
-    },
-    {
-      "externalId": {
-        "kpHD": null,
-        "imdb": "tt0051756",
-        "tmdb": 43117,
-        "_id": "6376f27aab9a5694e47b4fe2"
-      },
-      "logo": {
-        "_id": "62eadb8ab252103987498977",
-        "url": null
-      },
-      "poster": {
-        "_id": "63398908c22d011bb5b079c0",
-        "url": "https://st.kp.yandex.net/images/film_big/92962.jpg",
-        "previewUrl": "https://st.kp.yandex.net/images/film_iphone/iphone360_92962.jpg"
-      },
-      "rating": {
-        "kp": 5.426,
-        "imdb": 6.3,
-        "filmCritics": 6.3,
-        "russianFilmCritics": 0,
-        "await": 0,
-        "_id": "63bd0e8d0b7d940e83115c3c"
-      },
-      "votes": {
-        "kp": 193,
-        "imdb": 2865,
-        "filmCritics": 14,
-        "russianFilmCritics": 0,
-        "await": 0,
-        "_id": "63d8fcb4f38219e94fe74237"
-      },
-      "watchability": {
-        "_id": "63398908c22d011bb5b079eb",
-        "items": null
-      },
-      "movieLength": 78,
-      "id": 92962,
-      "type": "movie",
-      "name": "Я вышла замуж за монстра из космоса",
-      "description": "Пришельцы из открытого космоса постепенно меняются телами с землянами. Одним из первых стал молодой человек, накануне своей свадьбы. Жена замечает изменения произошедшие с мужем и подозрения усиливаются, когда начали изменяться все жители городка...",
-      "year": 1958,
-      "alternativeName": "I Married a Monster from Outer Space",
-      "enName": null,
-      "names": [
-        {
-          "_id": "63398908c22d011bb5b079bc",
-          "name": "Я вышла замуж за монстра из космоса"
-        },
-        {
-          "_id": "63398908c22d011bb5b079bd",
-          "name": "I Married a Monster from Outer Space"
         }
       ],
       "shortDescription": null,
