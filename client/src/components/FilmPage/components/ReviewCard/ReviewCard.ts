@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-import { renderAvatar } from 'src/components/Header/components/Account/components/Avatar/Avatar';
 import { renderModal } from 'src/components/ui/Modal/Modal';
 import { toggleModal } from 'src/components/ui/Modal/ToggleModal';
 import { renderStarsRating } from 'src/components/ui/StarsRating/StarsRating';
@@ -27,6 +26,11 @@ export const renderReviewCard = (
   const date = createElem('div', 'reviewCard__date');
   const stars = createElem('div', 'reviewCard__stars');
   const deleteBtn = createElem('div', 'reviewCard__delete');
+  const avatar = createElem('div', 'reviewCard__avatar');
+  const circle = createElem('div', 'reviewCard__avatar__circle');
+  const personImage = createElem('div', 'reviewCard__avatar__personImage');
+  circle.append(personImage);
+  avatar.append(circle);
 
   const link = createElem('a', 'reviewCard__link');
   link.innerHTML = 'читать дальше';
@@ -78,7 +82,7 @@ export const renderReviewCard = (
 
   headerInfoData.append(name, date);
   headerInfo.append(headerInfoData, movieTitleEl, stars);
-  header.append(renderAvatar(), headerInfo);
+  header.append(avatar, headerInfo);
   content.append(header, text);
   wrapper.append(content, deleteBtn);
   container.append(wrapper);

@@ -11,8 +11,6 @@
 }
 
 #bookmarks {
-  margin-top: $header-height;
-
   .slider__header {
     &::after {
       filter: var(--inverted-icon);
