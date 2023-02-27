@@ -47,7 +47,7 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
   load(image)
     .then(() => {
       loading.remove();
-      background.style.backgroundImage = `url(${image})`;
+      background.style.background = `50% 25% / cover no-repeat url(${image})`;
     })
     .catch((err) => {
       console.log(err);
