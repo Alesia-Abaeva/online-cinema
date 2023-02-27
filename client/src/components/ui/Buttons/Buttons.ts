@@ -15,7 +15,7 @@ import { closeDropdown } from '../ButtonDropdown/Handlers/close-dropdown';
 import { renderErrorMes } from '../Modal/components/ModalError/ModalError';
 import { renderModal } from '../Modal/Modal';
 import { toggleModal } from '../Modal/ToggleModal';
-import styles from './buttons.module.scss';
+import styles from './Buttons.module.scss';
 
 const watchFilmContent = `${watchFilmIcon}Смотреть фильм`;
 
