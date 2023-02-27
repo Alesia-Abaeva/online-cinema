@@ -2,7 +2,13 @@ import { createElem } from 'src/utils/create-element';
 import { renderBannerRating } from '../BannerRating/BannerRating';
 import styles from './Details.module.scss';
 
-export const renderDetails = (res: ResponseMovie): HTMLElement => {
+export const renderDetails = (
+  res: ResponseMovie,
+  userReview: {
+    data: UserFilmReviewResponse;
+    response: Response;
+  } | null
+): HTMLElement => {
   const details: HTMLElement = createElem('div', styles.filmDetails);
   const description = res.description ? res.description : 'Нет описания';
   const title = res.logo && res.logo.url ? `<img src="${res.logo.url}" alt="${res.name}" />` : res.name;
@@ -76,8 +82,8 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
   details.innerHTML = detailsTemplate;
 
   const ratingBlock = details.querySelector('.filmDetails__rating__userVotes') as HTMLElement;
-  if (ratingBlock) {
-    const userVote = renderBannerRating(6);
+  if (ratingBlock && userReview && userReview.data.review) {
+    const userVote = renderBannerRating(userReview.data.review.stars);
     const myVote = createElem('span');
     myVote.innerHTML = 'мой отзыв';
 

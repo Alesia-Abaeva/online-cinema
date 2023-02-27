@@ -11,9 +11,7 @@ export const renderFolders = (foldersCont: HTMLElement, filmId: number | undefin
       foldersCont.append(folder);
     });
   } else {
-    const sliderEmpty = renderUserWatchEmpty(
-      'Создайте новую папку и сможете собирать свои коллекции фильмов ( ‾́ ◡ ‾́ )'
-    );
+    const sliderEmpty = renderUserWatchEmpty('Создайте новую папку и сможете собирать свои коллекции фильмов');
     foldersCont.append(sliderEmpty);
   }
 };

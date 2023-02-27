@@ -1,0 +1,56 @@
+@import '/src/theme/variable';
+
+.profile-reviews {
+  background-color: transparent;
+  position: relative;
+
+  .profile-info__data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-reviews__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.reviews__show-more:disabled {
+  color: var(--text-btn-disabled);
+  background-image: none;
+  background-color: $tundora-60;
+  cursor: auto;
+
+  &:hover {
+    transform: none;
+  }
+}
+
+.reviews {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 1400px) {
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 475px) {
+  .profile-reviews {
+    .profile-info__data {
+      padding: 1rem;
+    }
+  }
+  .film-reviews {
+    .profile-info__data {
+      padding: 1rem;
+    }
+  }
+}

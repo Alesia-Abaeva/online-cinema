@@ -1,7 +1,15 @@
 import { lists } from 'src/pages/lists';
 import { list } from 'src/pages/list';
 import { subscriptions } from 'src/pages/subscriptions';
-import { user, userPromo, userReference, userSettings, userSubscribe, userWatch } from 'src/pages/user-account';
+import {
+  user,
+  userPromo,
+  userReference,
+  userReviews,
+  userSettings,
+  userSubscribe,
+  userWatch,
+} from 'src/pages/user-account';
 import { collection } from 'src/pages/collection';
 import { name } from 'src/pages/person-page';
 import { authorized } from 'src/pages/authorized';
@@ -94,6 +102,14 @@ export const ROUTER_PATHS = (): Paths => ({
       ? store.getState().uiConfig.viewType === ViewType.CHILD
         ? notFound
         : userReference
+      : notauthorized,
+    title: `user | ${projectTitle}`,
+  },
+  [PATH_NAMES.userReviews]: {
+    template: store.getState().uiConfig.isAuth
+      ? store.getState().uiConfig.viewType === ViewType.CHILD
+        ? notFound
+        : userReviews
       : notauthorized,
     title: `user | ${projectTitle}`,
   },

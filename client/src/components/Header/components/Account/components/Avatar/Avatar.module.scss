@@ -36,6 +36,10 @@
   height: 2.5rem;
 }
 
+.default-avatar {
+  filter: var(--icon);
+}
+
 .child-avatar__wrapper {
   gap: 0.5rem;
   cursor: pointer;

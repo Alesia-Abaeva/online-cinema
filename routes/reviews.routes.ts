@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createReview,
   deleteReview,
+  getReviewByUserAndFilm,
   getReviewsByFilm,
   getReviewsByUser,
   updateReview,
@@ -13,7 +14,9 @@ export const router = Router();
 // api/reviews/
 router.get("/", checkAuth, getReviewsByUser);
 // api/reviews/for-films/:filmId
-router.get("/for-film/:filmId", checkAuth, getReviewsByFilm);
+router.get("/for-film/:filmId", getReviewsByFilm);
+// api/reviews/for-films-user/:filmId
+router.get("/for-film-user/:filmId", checkAuth, getReviewByUserAndFilm);
 // api/reviews/:id
 router.delete("/:id", checkAuth, deleteReview);
 // api/reviews/

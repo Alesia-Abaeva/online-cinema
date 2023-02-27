@@ -3,6 +3,7 @@ interface FilmReview {
   text: string;
   stars: number;
   filmId: string;
+  filmName: string;
   user: {
     _id: string;
     name: string;
@@ -20,6 +21,7 @@ interface BaseReviewInfo {
 
 interface CreateReviewRequest extends BaseReviewInfo {
   filmId: string;
+  filmName: string;
 }
 
 interface UpdateReviewRequest extends BaseReviewInfo {
@@ -31,17 +33,26 @@ interface PersonalReview {
   text: string;
   stars: number;
   filmId: string;
+  filmName: string;
   user: string;
   createdAt: string;
   updatedAt: string;
 }
 
+interface FilmReviews extends PageLimit {
+  docs: FilmReview[];
+}
+
 interface FilmReviewResponse {
-  reviews: FilmReview[];
+  reviews: FilmReviews;
 }
 
 interface PersonalReviewResponse {
   reviews: PersonalReview[];
+}
+
+interface UserFilmReviewResponse {
+  review: FilmReview | null;
 }
 
 interface ActivationPromocodeRequest {

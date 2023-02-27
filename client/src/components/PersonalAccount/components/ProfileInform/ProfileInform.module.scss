@@ -167,6 +167,7 @@
     cursor: pointer;
 
     &:disabled {
+      color: var(--text-btn-disabled);
       background-image: none;
       background-color: $tundora-60;
     }

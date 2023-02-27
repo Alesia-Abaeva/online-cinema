@@ -11,9 +11,9 @@ export const renderHeroSectionAuthUser = (): HTMLElement => {
 
   const setFilms = view === ViewType.CHILD ? MAIN_FILM_BANNER_CHILD : MAIN_FILM_BANNER;
 
-  (() => {
+  (async () => {
     const randomID = setFilms[Math.floor(Math.random() * setFilms.length)];
-    const banner = renderMainBanner(`${randomID}`, false);
+    const banner = await renderMainBanner(`${randomID}`, false, 'main-banner-video');
     wrapper.append(banner);
   })();
 
@@ -21,9 +21,9 @@ export const renderHeroSectionAuthUser = (): HTMLElement => {
     const isAuth = store.getState().uiConfig.viewType;
 
     if (isAuth === ViewType.CHILD) {
-      (() => {
+      (async () => {
         const randomID = MAIN_FILM_BANNER_CHILD[Math.floor(Math.random() * MAIN_FILM_BANNER_CHILD.length)];
-        const banner = renderMainBanner(`${randomID}`, false);
+        const banner = await renderMainBanner(`${randomID}`, false, 'main-banner-video');
         wrapper.append(banner);
       })();
     }

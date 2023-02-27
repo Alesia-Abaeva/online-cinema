@@ -25,3 +25,7 @@ export const isResponseFolder = (data: ResponseFolder | ResponseUserFolder): dat
 export const isResponseUserFolder = (data: ResponseFolder | ResponseUserFolder): data is ResponseUserFolder => {
   return 'displayedName' in data;
 };
+
+export const isFilmReviews = (data: PersonalReview | FilmReview): data is FilmReview => {
+  return 'user' in data && typeof data.user === 'object';
+};

@@ -27,7 +27,7 @@ export const onSubmitCheckout = (e: Event): void => {
     heading.style.marginTop = '2rem';
     heading.innerHTML = 'Спасибо за заказ ヽ(•‿•)ノ На главную страницу через 3 сек';
     modal.append(heading);
-    const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
+    const overlay = document.querySelector('.modal__overlay') as HTMLElement;
     overlay.style.pointerEvents = 'none';
     handleChangeTariff({ tariff: Tariff.PREMIUM }); // обновляем данные пользователя на сервере
 

@@ -13,6 +13,8 @@ import { showCover } from './Handlers/showCover';
 import { createBtnInterest, createBtnTrailer, createBtnWatch } from '../ui/Buttons/Buttons';
 import { renderModal } from '../ui/ModalFilm/ModalFilm';
 import styles from './FilmPage.module.scss';
+import { renderReviewForm } from './components/ReviewForm/ReviewForm';
+import { renderFilmReviews } from './components/FilmReviews/FilmReviews';
 
 export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   const { viewType } = store.getState().uiConfig;
@@ -34,7 +36,6 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   else showCover(filmData, backdrop, mainContent)();
 
   // 1 column - poster
-  // const posterCont: HTMLElement = createElem('div', 'id-page__poster-cont');
   const filmPoster: HTMLElement = createElem('img', 'id-page__poster');
   const url = `${
     filmData.poster
@@ -43,7 +44,6 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
   }`;
   filmPoster.setAttribute('src', url);
   filmPoster.classList.add('skeleton');
-  // posterCont.append(filmPoster);
 
   // 2 column - film data
   const filmDescription: HTMLElement = createElem('div', 'id-page__description');
@@ -91,6 +91,18 @@ export const renderFilmPage = (filmData: ResponseMovie): HTMLElement => {
     const simiralMoviesSection: HTMLElement = renderSimilarMovies(similarMovies);
     filmDescription.append(simiralMoviesSection);
   }
+
+  const reviewForm: HTMLElement = renderReviewForm(filmData);
+  filmDescription.append(reviewForm);
+
+  const reviewsCont: HTMLElement = createElem('div', 'reviews-cont');
+  reviewsCont.id = 'review-cont';
+
+  const reviews: HTMLElement = renderFilmReviews(filmData.id);
+  reviewsCont.append(reviews);
+
+  filmDescription.append(reviewsCont);
+
   // 3 column - actors and rating
   const filmRatingAndActors = createElem('div', 'id-page__desc-aside');
 

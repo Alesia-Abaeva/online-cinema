@@ -37,7 +37,6 @@ export const handleUpdateFolders = async (body: FolderData) => {
   try {
     const { data } = await updateFoldersData(body);
     // const updateRes = await updateFoldersData(body);
-    console.log(data);
     appDispatch(setUserInfo({ data }));
     // appDispatch(setUserInfo({ data: updateRes.data }));
   } catch (err) {

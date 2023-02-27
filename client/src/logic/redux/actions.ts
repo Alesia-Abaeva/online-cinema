@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { backCall } from 'src/api/api';
 import {
   dataPersonHandler,
@@ -11,8 +12,9 @@ import { handleChangeTariff } from 'src/components/PersonalAccount/components/Pr
 import { PROMOCODE, PROMOCODE_PERSONAL, REVIEW, REVIEW_FOR_FILM } from 'src/const/api/url';
 import { LOCAL_STORAGE_KEYS } from 'src/const/local-storage';
 import { SLIDERS, SlidersSetsData, ViewType } from 'src/const/main-page-data';
+import { REVIEWS_PER_CLICK } from 'src/const/reviews-per-click';
 import { Tariff } from 'src/const/subscriptions-data';
-import { AppDispatch, RootState } from '.';
+import { AppDispatch, RootState, store } from '.';
 import { setLocalStorage } from '../local-storage/local-storage';
 import { AgeTypes, AuthTypes, PromocodeType, ReviewType, SliderType, UiConfigTypes, UserTypes } from './types-redux';
 
@@ -39,21 +41,21 @@ export const setUserInfo = (payload: ApiResponse<AuthGetPersonToken>) => {
   };
 };
 
-export const setPersonReview = (payload: ApiResponse<PersonalReviewResponse>) => {
+export const setPersonReview = (payload: ApiResponse<PersonalReview[]>) => {
   return {
     type: ReviewType.SET_PERSONAL_REVIEWS,
     payload,
   };
 };
 
-export const setFilmReview = (payload: ApiResponse<FilmReviewResponse>) => {
+export const setFilmReview = (payload: ApiResponse<FilmReview[]>) => {
   return {
     type: ReviewType.SET_FILM_REVIEWS,
     payload,
   };
 };
 
-export const setCreateReview = (payload: ApiResponse<CommonResponse>) => {
+export const setCreateReview = (payload: ApiResponse<FilmReview[]>) => {
   return {
     type: ReviewType.CREATE_REVIEW,
     payload,
@@ -238,22 +240,24 @@ export const fetchPersonalReviews = () => async (dispatch: AppDispatch) => {
 
     const { data } = await backCall.get<PersonalReviewResponse>(REVIEW);
 
-    // TODO: получить информацию о фильме, расширить модель стейта
-
-    dispatch(setPersonReview({ error: null, data, isLoading: false }));
+    dispatch(setPersonReview({ error: null, data: data.reviews, isLoading: false }));
   } catch (e) {
     dispatch(setPersonReview({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
 };
 
 /** Получить все отзывы по фильму */
-export const fetchFilmReviews = (filmId: string) => async (dispatch: AppDispatch) => {
+export const fetchFilmReviews = (filmId: number, page: number) => async (dispatch: AppDispatch) => {
   try {
     dispatch(setFilmReview({ isLoading: true }));
+    const { data } = await backCall.get<FilmReviewResponse>(`${REVIEW_FOR_FILM}/${filmId}`, {
+      page,
+      limit: REVIEWS_PER_CLICK,
+    });
+    const prevArr = store.getState().reviews.film.data as unknown as FilmReview[];
 
-    const { data } = await backCall.get<FilmReviewResponse>(`${REVIEW_FOR_FILM}/${filmId}`);
-
-    dispatch(setFilmReview({ error: null, data, isLoading: false }));
+    const arr = prevArr ? [...prevArr, ...data.reviews.docs] : data.reviews.docs;
+    dispatch(setFilmReview({ error: null, data: arr, pagination: data.reviews, isLoading: false }));
   } catch (e) {
     dispatch(setFilmReview({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
@@ -262,12 +266,16 @@ export const fetchFilmReviews = (filmId: string) => async (dispatch: AppDispatch
 /** Создание отзыва, передаем айди фильма с основной информацией об отзыве */
 export const createReview = (review: CreateReviewRequest) => async (dispatch: AppDispatch) => {
   try {
-    // TODO: придумать способ очищать data на скрытие всплывающей нотификации об успешном обновлении отзыва
     dispatch(setCreateReview({ data: null, isLoading: true }));
 
-    const { data } = await backCall.put<CreateReviewRequest, CommonResponse>(REVIEW, review);
+    const { data } = await backCall.put<CreateReviewRequest, FilmReview>(REVIEW, review);
 
-    dispatch(setCreateReview({ error: null, data, isLoading: false }));
+    const prevArr = store.getState().reviews.film.data as unknown as FilmReview[];
+
+    const arr = prevArr ? [...prevArr, data] : [data];
+
+    dispatch(setCreateReview({ error: null, data: arr, isLoading: false }));
+    dispatch(setFilmReview({ error: null, data: null, isLoading: false }));
   } catch (e) {
     dispatch(setCreateReview({ error: e as ErrorMessage, data: null, isLoading: false }));
   }
@@ -295,7 +303,14 @@ export const deleteReview = (reviewId: string) => async (dispatch: AppDispatch) 
 
     const { data } = await backCall.delete<CommonResponse>(`${REVIEW}/${reviewId}`);
 
+    const arr = store.getState().reviews.personal.data as unknown as PersonalReview[];
+
+    const deletedItem = arr.findIndex((el) => el._id === reviewId);
+    if (deletedItem !== undefined) {
+      arr.splice(deletedItem, 1);
+    }
     dispatch(setDeleteReview({ error: null, data, isLoading: false }));
+    dispatch(setPersonReview({ error: null, data: arr, isLoading: false }));
   } catch (e) {
     dispatch(setDeleteReview({ error: e as ErrorMessage, data: null, isLoading: false }));
   }

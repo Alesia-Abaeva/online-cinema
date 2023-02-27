@@ -1,13 +1,9 @@
 @import '/src/theme/variable';
 
 .reg-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   flex-direction: column;
-  min-height: calc(100vh - 70px);
-  @include default-page-container;
-  // TODO: !
+  min-height: calc(100vh - $footer-height);
 }
 
 .form__wrapp-reg {
