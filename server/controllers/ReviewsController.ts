@@ -109,9 +109,7 @@ export const getReviewsByUser = async (
   res: express.Response
 ) => {
   try {
-    const reviews = (
-      await Reviews.find({ user: req.user.userId })
-    ).reverse();
+    const reviews = (await Reviews.find({ user: req.user.userId })).reverse();
 
     res.status(200).send({ reviews });
   } catch (e) {

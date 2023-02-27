@@ -1,11 +1,11 @@
-import express from "express";
-import User from "../models/User";
-import Promocode from "../models/Promocode";
-import { readFileSync } from "node:fs";
+import express from 'express';
+import User from '../models/User';
+import Promocode from '../models/Promocode';
+import { readFileSync } from 'node:fs';
 
 export const setPromocodes = async () => {
   const promocodesFile = JSON.parse(
-    readFileSync("./collections/promocodes.json").toString()
+    readFileSync('./collections/promocodes.json').toString()
   );
 
   const promocodesDb = await Promocode.find({});
@@ -45,11 +45,11 @@ export const activatePromocode = async (
     const promocode = await Promocode.findOne({ code });
 
     if (promocode.user && promocode.user.toString() !== req.user.userId) {
-      return res.status(500).json({ message: "Промокод не найден." });
+      return res.status(500).json({ message: 'Промокод не найден.' });
     }
 
     if (promocode.activationDate) {
-      return res.status(500).json({ message: "Промокод уже активирован." });
+      return res.status(500).json({ message: 'Промокод уже активирован.' });
     }
 
     const currentDate = new Date();
@@ -57,7 +57,7 @@ export const activatePromocode = async (
     if (promocode.endDate < currentDate) {
       return res
         .status(500)
-        .json({ message: "Истек срок действия промокода." });
+        .json({ message: 'Истек срок действия промокода.' });
     }
 
     promocode.activationDate = currentDate;
@@ -66,12 +66,12 @@ export const activatePromocode = async (
     await promocode.save();
 
     return res.status(201).send({
-      message: "Промокод успешно применен!",
+      message: 'Промокод успешно применен!',
     });
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку
-      .json({ message: "Не удалось активировать промокод." });
+      .json({ message: 'Не удалось активировать промокод.' });
   }
 };
 
@@ -105,6 +105,6 @@ export const getPersonPromocode = async (
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку
-      .json({ message: "Не удалось найти промокод" });
+      .json({ message: 'Не удалось найти промокод' });
   }
 };

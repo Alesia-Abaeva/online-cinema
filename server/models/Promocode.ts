@@ -1,4 +1,4 @@
-import mongoose, { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from 'mongoose';
 
 const schema = new Schema(
   {
@@ -7,7 +7,7 @@ const schema = new Schema(
     activationDate: { type: Date },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
     },
   },
   {
@@ -15,4 +15,4 @@ const schema = new Schema(
   }
 );
 
-export default model("Promocode", schema);
+export default model('Promocode', schema);

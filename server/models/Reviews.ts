@@ -1,4 +1,4 @@
-import mongoose, { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from 'mongoose';
 
 const schema = new Schema(
   {
@@ -8,7 +8,7 @@ const schema = new Schema(
     filmName: { type: String, required: true },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
   },
@@ -17,4 +17,4 @@ const schema = new Schema(
   }
 );
 
-export default model("Reviews", schema);
+export default model('Reviews', schema);

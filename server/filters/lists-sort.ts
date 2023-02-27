@@ -1,4 +1,4 @@
-import { FindedMoviesBack } from "../types/films/res-film";
+import { FindedMoviesBack } from '../types/films/res-film';
 
 export const LISTS_SORT = [
   {
