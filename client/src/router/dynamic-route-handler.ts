@@ -17,7 +17,8 @@ export const dynamicRouteHandler = async (pathname: string, commonPath: string, 
       } else {
         route404();
       }
-    } catch {
+    } catch (e) {
+      console.log(e);
       route404();
     }
   } else {
