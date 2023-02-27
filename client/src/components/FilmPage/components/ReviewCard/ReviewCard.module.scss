@@ -61,6 +61,9 @@
     color: var(--text-primary);
     overflow-y: auto;
     padding-right: 10px;
+    .reviewCard__title {
+      padding-left: 1rem;
+    }
   }
   &__link {
     position: absolute;
@@ -125,4 +128,28 @@
   inline-size: 45vw;
   word-wrap: break-word;
   margin-top: 1rem;
+  padding: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .card-modal-size {
+    max-width: 75vw;
+  }
+
+  .reviewCard__text_modal {
+    inline-size: 70vw;
+  }
+}
+@media (max-width: $phone-width) {
+  .card-modal-size {
+    max-width: 95vw;
+  }
+
+  .reviewCard {
+    height: 240px;
+  }
+
+  .reviewCard__text_modal {
+    inline-size: 90vw;
+  }
 }
