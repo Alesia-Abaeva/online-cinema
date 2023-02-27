@@ -2,7 +2,8 @@ import { formatPriceNum } from 'src/utils/format-price';
 import { toHoursAndMinutes } from 'src/utils/to-hours-and-minutes';
 
 export const formatCountry = (countries: ChildeAttribures[]): string => {
-  return countries.map((el) => el.name).join(', ');
+  const result = countries.map((el) => el.name).filter((el) => el);
+  return result.length ? result.join(', ') : '';
 };
 
 export const formatGenres = (genres: ChildeAttribures[]): string => {
@@ -36,9 +37,9 @@ export const formatMovieLength = (movieLength: number): string => {
 };
 
 export const formatSlogan = (slogan: string): string => {
-  return slogan ? `"${slogan}"` : '';
+  return slogan.trim().length ? `"${slogan}"` : '';
 };
 
 export const getPersonsWithJob = (persons: PersonDataApi[], profession: string): PersonDataApi[] => {
-  return persons.filter((el) => el['enProfession'] === profession);
+  return persons.filter((el) => el['enProfession'] === profession).filter((el) => el.name);
 };

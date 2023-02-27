@@ -1,8 +1,9 @@
 import { createElem } from 'src/utils/create-element';
-import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-data';
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
 import styles from './AboutFilm.module.scss';
-import { renderBannerRatung } from '../BannerRating/BannerRating';
+import { renderBannerRating } from '../BannerRating/BannerRating';
+import { getReadableVotes } from 'src/utils/get-readable-votes';
+import { getReadableDuration } from 'src/utils/get-readable-duration';
 
 export const renderAboutFilm = (
   res: ResponseMovie,
@@ -72,7 +73,7 @@ export const renderAboutFilm = (
 
   const ratingBlock = content.querySelector('.contentWrapper__rating__userVotes') as HTMLElement;
   if (ratingBlock && userReview && userReview.data.review) {
-    const userVote = renderBannerRatung(userReview.data.review.stars);
+    const userVote = renderBannerRating(userReview.data.review.stars);
     ratingBlock.innerHTML = '';
     ratingBlock.append(userVote);
   }

@@ -11,21 +11,21 @@ export const renderHeroSectionAuthUser = (): HTMLElement => {
 
   const setFilms = view === ViewType.CHILD ? MAIN_FILM_BANNER_CHILD : MAIN_FILM_BANNER;
 
-  setTimeout(async () => {
+  (async () => {
     const randomID = setFilms[Math.floor(Math.random() * setFilms.length)];
     const banner = await renderMainBanner(`${randomID}`, false, 'main-banner-video');
     wrapper.append(banner);
-  }, 0);
+  })();
 
   store.subscribe(() => {
     const isAuth = store.getState().uiConfig.viewType;
 
     if (isAuth === ViewType.CHILD) {
-      setTimeout(async () => {
+      (async () => {
         const randomID = MAIN_FILM_BANNER_CHILD[Math.floor(Math.random() * MAIN_FILM_BANNER_CHILD.length)];
         const banner = await renderMainBanner(`${randomID}`, false, 'main-banner-video');
         wrapper.append(banner);
-      }, 0);
+      })();
     }
   });
 
