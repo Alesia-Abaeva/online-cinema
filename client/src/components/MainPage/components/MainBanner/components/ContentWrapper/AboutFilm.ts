@@ -1,9 +1,9 @@
 import { createElem } from 'src/utils/create-element';
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
-import styles from './AboutFilm.module.scss';
-import { renderBannerRating } from '../BannerRating/BannerRating';
 import { getReadableVotes } from 'src/utils/get-readable-votes';
 import { getReadableDuration } from 'src/utils/get-readable-duration';
+import styles from './AboutFilm.module.scss';
+import { renderBannerRating } from '../BannerRating/BannerRating';
 
 export const renderAboutFilm = (
   res: ResponseMovie,
