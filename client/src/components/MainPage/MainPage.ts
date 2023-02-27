@@ -33,7 +33,6 @@ const renderSliders = (main: HTMLElement) => {
       'slider'
     );
   });
-  console.log(sliders);
   sliders?.length && insertBefore({ nodes: sliders as HTMLElement[], parentNode: main, siblingNumber: 2 });
 };
 
@@ -71,7 +70,6 @@ export const renderMainPage = (): HTMLElement => {
   store.subscribe(() => {
     const state = store.getState();
     const currentView = state.uiConfig.viewType;
-    console.log(currentView, viewType);
 
     // если текущий viewType совпадает с закешированным, значит слайдеры обновлять не надо
     if (viewType === currentView) {

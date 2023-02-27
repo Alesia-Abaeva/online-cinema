@@ -9,6 +9,10 @@ export const createInputElement = (attribute: AttributeInput): HTMLInputElement 
   attribute.name && input.setAttribute('name', attribute.name);
   attribute.id && input.setAttribute('id', attribute.id);
   attribute.spellcheck && input.setAttribute('spellcheck', attribute.spellcheck);
+  attribute.disabled && input.setAttribute('disabled', attribute.disabled);
+  attribute.checked && input.setAttribute('checked', attribute.checked);
+  attribute.value && input.setAttribute('value', attribute.value);
+  attribute.minLength && input.setAttribute('minLength', attribute.minLength.toString());
 
   attribute.style && input.classList.add(attribute.style);
 

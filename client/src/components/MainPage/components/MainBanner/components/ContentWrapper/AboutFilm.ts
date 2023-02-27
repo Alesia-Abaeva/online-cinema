@@ -1,21 +1,27 @@
 import { createElem } from 'src/utils/create-element';
-import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-data';
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
+import { getReadableVotes } from 'src/utils/get-readable-votes';
+import { getReadableDuration } from 'src/utils/get-readable-duration';
 import styles from './AboutFilm.module.scss';
 import { renderBannerRating } from '../BannerRating/BannerRating';
 
-export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLElement => {
+export const renderAboutFilm = (
+  res: ResponseMovie,
+  dotsBtn: boolean,
+  userReview: {
+    data: UserFilmReviewResponse;
+    response: Response;
+  } | null
+): HTMLElement => {
   const btnSlice1 = createElem('div', styles.contentWrapper__actions__slice1);
   const btnSlice2 = createElem('div', styles.contentWrapper__actions__slice2);
   const buttons: HTMLElement = createElem('div', styles.contentWrapper__actions);
   const content: HTMLElement = createElem('div', styles.contentWrapper);
 
-  // const filmImg = res.backdrop ? res.backdrop.url : '';
-
   const btnWatch = createBtnWatch(res.id) as HTMLButtonElement;
   const btnTrailer = createBtnTrailer(res) as HTMLButtonElement;
-  // const btnBookmark = createBtnBookmark() as HTMLButtonElement;
   btnSlice2.append(btnTrailer);
+
   if (dotsBtn) {
     const btnInterest = createBtnInterest(res.id) as HTMLButtonElement;
     btnSlice2.append(btnInterest);
@@ -63,8 +69,8 @@ export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLEleme
   content.innerHTML = aboutFilmTemplate;
 
   const ratingBlock = content.querySelector('.contentWrapper__rating__userVotes') as HTMLElement;
-  if (ratingBlock) {
-    const userVote = renderBannerRating(8);
+  if (ratingBlock && userReview && userReview.data.review) {
+    const userVote = renderBannerRating(userReview.data.review.stars);
     ratingBlock.innerHTML = '';
     ratingBlock.append(userVote);
   }

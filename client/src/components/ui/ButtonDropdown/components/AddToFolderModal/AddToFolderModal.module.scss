@@ -7,6 +7,7 @@
 .add-to-folder-modal__title {
   text-align: center;
   margin-bottom: 2rem;
+  margin-right: 1.5rem;
 }
 
 .add-to-folder-modal__content {
@@ -40,11 +41,19 @@
   }
 }
 
+.modal_folders {
+  width: 70vw;
+}
+
 @media (max-width: $tablet-width) {
   .add-to-folder-modal__content {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .modal_folders {
+    width: 80vw;
   }
 
   .all-folders {
@@ -62,6 +71,7 @@
   }
 
   .modal_folders {
+    width: 95vw;
     padding: 1rem;
   }
 }
@@ -93,6 +103,7 @@
 @media (max-width: $iphoneSE) {
   .add-to-folder-modal__title {
     font-size: 0.9rem;
+    margin-left: -1.5rem;
   }
 
   .all-folders__cont {

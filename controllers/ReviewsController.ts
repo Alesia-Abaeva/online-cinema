@@ -1,7 +1,8 @@
-import { validationResult } from "express-validator";
-import express from "express";
-import User from "../models/User";
-import Reviews from "../models/Reviews";
+import { validationResult } from 'express-validator';
+import express from 'express';
+import User from '../models/User';
+import Reviews from '../models/Reviews';
+import { paginateData } from '../utils/pagination';
 
 export const createReview = async (
   req: express.Request,
@@ -14,12 +15,13 @@ export const createReview = async (
     if (!errors.isEmpty()) {
       return res.status(400).json({
         errors: errors.array(),
-        message: "Неккоректные данные.",
+        message: 'Неккоректные данные.',
       });
     }
 
-    const { filmId, text, stars } = req.body as {
+    const { filmId, filmName, text, stars } = req.body as {
       filmId: string;
+      filmName: string;
       text: string;
       stars: string;
     };
@@ -28,6 +30,7 @@ export const createReview = async (
 
     const review = new Reviews({
       filmId,
+      filmName,
       text,
       stars,
       user: user._id,
@@ -36,12 +39,18 @@ export const createReview = async (
     await review.save();
 
     res.status(201).send({
-      message: "Отзыв успешно создан!",
+      ...review['_doc'],
+      user: {
+        _id: user._id,
+        name: user.name,
+        lastName: user.lastName,
+        avatarUrl: user.avatarUrl,
+      },
     });
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку
-      .json({ message: "Не удалось создать отзыв." });
+      .json({ message: 'Не удалось создать отзыв.' });
   }
 };
 
@@ -56,7 +65,7 @@ export const updateReview = async (
     if (!errors.isEmpty()) {
       return res.status(400).json({
         errors: errors.array(),
-        message: "Неккоректные данные.",
+        message: 'Неккоректные данные.',
       });
     }
 
@@ -72,11 +81,11 @@ export const updateReview = async (
       { new: true }
     );
 
-    res.status(200).send({ message: "Отзыв успешно обновлен" });
+    res.status(200).send({ message: 'Отзыв успешно обновлен' });
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку
-      .json({ message: "Не удалось обновить отзыв." });
+      .json({ message: 'Не удалось обновить отзыв.' });
   }
 };
 
@@ -87,7 +96,7 @@ export const deleteReview = async (
   try {
     await Reviews.deleteOne({ _id: req.params.id });
 
-    res.status(200).send({ message: "Отзыв успешно удален" });
+    res.status(200).send({ message: 'Отзыв успешно удален' });
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку
@@ -100,7 +109,9 @@ export const getReviewsByUser = async (
   res: express.Response
 ) => {
   try {
-    const reviews = await Reviews.find({ user: req.user.userId });
+    const reviews = (
+      await Reviews.find({ user: req.user.userId })
+    ).reverse();
 
     res.status(200).send({ reviews });
   } catch (e) {
@@ -115,13 +126,15 @@ export const getReviewsByFilm = async (
   res: express.Response
 ) => {
   try {
-    const filmReviews = await Reviews.find({ filmId: req.params.filmId });
+    const filmReviews = (
+      await Reviews.find({ filmId: req.params.filmId })
+    ).reverse();
 
-    const reviews = await Promise.all(
+    const initialData = await Promise.all(
       filmReviews.map(async (review) => {
         const user = await User.findById(review.user);
         return {
-          ...review["_doc"],
+          ...review['_doc'],
           user: {
             _id: user._id,
             name: user.name,
@@ -132,7 +145,32 @@ export const getReviewsByFilm = async (
       })
     );
 
+    const reviews = paginateData(req, initialData);
+
     res.status(200).send({ reviews });
+  } catch (e) {
+    res
+      .status(500) // добавляем стандартную серверную ошибку
+      .json({ message: `Не удалось найти отзывы: ${e}` });
+  }
+};
+
+export const getReviewByUserAndFilm = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  if (!req?.params?.filmId) {
+    return res.status(400).json({ message: 'Film id is required' });
+  }
+  try {
+    const initialData = await Reviews.find({ user: req.user.userId });
+
+    const review = initialData.find((el) => el.filmId === req.params.filmId);
+    if (review) {
+      res.status(200).send({ review });
+    } else {
+      res.status(200).send({ review: null });
+    }
   } catch (e) {
     res
       .status(500) // добавляем стандартную серверную ошибку

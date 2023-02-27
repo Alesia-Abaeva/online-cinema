@@ -21,5 +21,6 @@ export const PATH_NAMES = {
   userSettings: '/user/settings',
   userReference: '/user/reference',
   userPromo: '/user/promo',
+  userReviews: '/user/reviews',
   loader: '/loader',
 } as const;
