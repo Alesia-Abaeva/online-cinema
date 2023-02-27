@@ -1,5 +1,5 @@
 import { createElem } from 'src/utils/create-element';
-import { renderBannerRatung } from '../BannerRating/BannerRating';
+import { renderBannerRating } from '../BannerRating/BannerRating';
 import styles from './Details.module.scss';
 
 export const renderDetails = (res: ResponseMovie): HTMLElement => {
@@ -77,7 +77,7 @@ export const renderDetails = (res: ResponseMovie): HTMLElement => {
 
   const ratingBlock = details.querySelector('.filmDetails__rating__userVotes') as HTMLElement;
   if (ratingBlock) {
-    const userVote = renderBannerRatung(6);
+    const userVote = renderBannerRating(6);
     const myVote = createElem('span');
     myVote.innerHTML = 'мой отзыв';
 

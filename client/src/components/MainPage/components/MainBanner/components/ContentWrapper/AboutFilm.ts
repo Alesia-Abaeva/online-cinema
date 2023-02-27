@@ -2,7 +2,7 @@ import { createElem } from 'src/utils/create-element';
 import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-data';
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
 import styles from './AboutFilm.module.scss';
-import { renderBannerRatung } from '../BannerRating/BannerRating';
+import { renderBannerRating } from '../BannerRating/BannerRating';
 
 export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLElement => {
   const btnSlice1 = createElem('div', styles.contentWrapper__actions__slice1);
@@ -64,7 +64,7 @@ export const renderAboutFilm = (res: ResponseMovie, dotsBtn: boolean): HTMLEleme
 
   const ratingBlock = content.querySelector('.contentWrapper__rating__userVotes') as HTMLElement;
   if (ratingBlock) {
-    const userVote = renderBannerRatung(8);
+    const userVote = renderBannerRating(8);
     ratingBlock.innerHTML = '';
     ratingBlock.append(userVote);
   }
