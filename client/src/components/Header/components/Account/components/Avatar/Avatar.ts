@@ -6,7 +6,7 @@ import { AgeTypes } from 'src/logic/redux/types-redux';
 import { route } from 'src/router/route';
 import { createElem } from 'src/utils/create-element';
 import user from 'assets/img/user.svg';
-// import { Tariff } from 'src/const/subscriptions-data';
+import { URL_SERVER } from 'src/const/api/url';
 import styles from './Avatar.module.scss';
 
 export const renderAvatar = (): HTMLElement => {
@@ -16,7 +16,7 @@ export const renderAvatar = (): HTMLElement => {
   const avatar: HTMLElement = createElem('div', styles['avatar__profile']);
 
   if (userStateOnLoad?.avatarUrl) {
-    avatar.style.backgroundImage = `url(http://localhost:3000${userStateOnLoad.avatarUrl})`;
+    avatar.style.backgroundImage = `url(${URL_SERVER}${userStateOnLoad.avatarUrl})`;
   } else {
     avatar.style.backgroundImage = `url(${user})`;
     avatar.classList.add('default-avatar');
@@ -31,7 +31,7 @@ export const renderAvatar = (): HTMLElement => {
     const userState = store.getState().user.personal;
 
     if (userState.data?.avatarUrl) {
-      avatar.style.backgroundImage = `url(http://localhost:3000${userState.data?.avatarUrl})`;
+      avatar.style.backgroundImage = `url(${URL_SERVER}${userState.data?.avatarUrl})`;
       avatar.classList.remove('default-avatar');
     }
     if (userState.data?.parentControls === AgeTypes.CHILD) {
