@@ -1,5 +1,4 @@
 @import '/src/theme/variable';
-@import '/src/theme/colors';
 
 .contentWrapper {
   display: flex;
@@ -86,6 +85,10 @@
   &__rating__votes {
     margin-left: 6px;
     margin-right: 12px;
+  }
+
+  &__rating__userVotes {
+    height: 100%;
   }
 
   &__actions {

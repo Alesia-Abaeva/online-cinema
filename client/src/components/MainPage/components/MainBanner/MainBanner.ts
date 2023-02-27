@@ -1,6 +1,7 @@
 import { createElem } from 'src/utils/create-element';
 import { getMovie } from 'src/api/films';
 import { renderBackgroundPlayer } from 'src/components/FilmPage/components/BackgroundPlayer/BackgroundPlayer';
+import { getUserFilmReview } from 'src/api/back/review';
 import { renderTabs } from './components/tabs/tabs';
 import { renderAboutFilm } from './components/ContentWrapper/AboutFilm';
 import styles from './MainBanner.module.scss';
@@ -17,7 +18,7 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
   const backgroundGradient: HTMLElement = createElem('div', styles.mainBanner__background__gradient);
   background.append(backgroundGradient);
 
-  const res: ResponseMovie = await getMovie({ id: movieId });
+  const [res, reviewRes] = await Promise.all([getMovie({ id: movieId }), getUserFilmReview(+movieId)]);
 
   // render trailer div and timeout trailer
   if (window.screen.width > 1000 && type) {
@@ -35,7 +36,7 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
     }, 100);
   }
 
-  const contentWrapper: HTMLElement = renderAboutFilm(res, isTabs);
+  const contentWrapper: HTMLElement = renderAboutFilm(res, isTabs, reviewRes.data.review);
 
   background.style.backgroundImage = `url(${res.backdrop?.url})`;
 
@@ -51,10 +52,10 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
 
       if (target.classList.contains('details')) {
         content.innerHTML = '';
-        content.append(renderDetails(res));
+        content.append(renderDetails(res, reviewRes.data.review));
       } else if (target.classList.contains('about-film')) {
         content.innerHTML = '';
-        content.append(renderAboutFilm(res, isTabs));
+        content.append(renderAboutFilm(res, isTabs, reviewRes.data.review));
       }
     });
   }
