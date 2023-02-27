@@ -1,5 +1,5 @@
 import { renderApp } from 'src/components/App/App';
-import { renderCollection } from 'src/components/CollectionPage/collectionPage';
+import { renderCollection } from 'src/components/CollectionPage/CollectionPage';
 import { DEFAULT_FOLDERS } from 'src/const/default-folders';
 import { extractAfterLastSlash } from 'src/utils/extract-after-last-slash';
 import { setPaginationState } from 'src/utils/paginate';
