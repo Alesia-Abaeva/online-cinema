@@ -3,6 +3,7 @@ import { getMovie } from 'src/api/films';
 import { renderBackgroundPlayer } from 'src/components/FilmPage/components/BackgroundPlayer/BackgroundPlayer';
 import { getUserFilmReview } from 'src/api/back/review';
 import { load } from 'src/utils/load-img';
+import { store } from 'src/logic/redux';
 import { renderLoadingSpinner } from 'src/components/ui/LoadingSpinner/LoadingSpinner';
 import { renderTabs } from './components/tabs/tabs';
 import { renderAboutFilm } from './components/ContentWrapper/AboutFilm';
@@ -22,7 +23,8 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
   const backgroundGradient: HTMLElement = createElem('div', styles.mainBanner__background__gradient);
   background.append(backgroundGradient);
 
-  const [res, reviewRes] = await Promise.all([getMovie({ id: movieId }), getUserFilmReview(+movieId)]);
+  const { isAuth } = store.getState().uiConfig;
+  const [res, reviewRes] = await Promise.all([getMovie({ id: movieId }), isAuth ? getUserFilmReview(+movieId) : null]);
 
   // render trailer div and timeout trailer
   if (window.screen.width > 1000 && type) {
@@ -40,7 +42,7 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
     }, 100);
   }
 
-  const contentWrapper: HTMLElement = renderAboutFilm(res, isTabs, reviewRes.data.review);
+  const contentWrapper: HTMLElement = renderAboutFilm(res, isTabs, reviewRes);
 
   const image = res.backdrop && res.backdrop.url ? res.backdrop.url : res.poster.url;
 
@@ -65,10 +67,10 @@ export const renderMainBanner = async (movieId: string, isTabs: boolean, type?: 
 
       if (target.classList.contains('details')) {
         content.innerHTML = '';
-        content.append(renderDetails(res, reviewRes.data.review));
+        content.append(renderDetails(res, reviewRes));
       } else if (target.classList.contains('about-film')) {
         content.innerHTML = '';
-        content.append(renderAboutFilm(res, isTabs, reviewRes.data.review));
+        content.append(renderAboutFilm(res, isTabs, reviewRes));
       }
     });
   }
