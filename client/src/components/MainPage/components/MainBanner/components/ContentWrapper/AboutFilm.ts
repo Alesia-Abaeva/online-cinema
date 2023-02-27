@@ -1,6 +1,7 @@
 import { createElem } from 'src/utils/create-element';
-import { getReadableVotes, getReadableDuration } from 'src/utils/get-readable-data';
+import { getReadableDuration } from 'src/utils/get-readable-duration';
 import { createBtnTrailer, createBtnInterest, createBtnWatch } from 'src/components/ui/Buttons/Buttons';
+import { getReadableVotes } from 'src/utils/get-readable-votes';
 import styles from './AboutFilm.module.scss';
 import { renderBannerRating } from '../BannerRating/BannerRating';
 
