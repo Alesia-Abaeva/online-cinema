@@ -8,7 +8,8 @@
     "client:start": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
-    "dev": "cross-env NODE_ENV=developmen concurrently \"npm run server:watch\" \"npm run client:start\""
+    "dev": "cross-env NODE_ENV=developmen concurrently \"npm run server:watch\" \"npm run client:start\"",
+    "start": "cross-env NODE_ENV=production ts-node app.ts"
   },
   "repository": {
     "type": "git",
