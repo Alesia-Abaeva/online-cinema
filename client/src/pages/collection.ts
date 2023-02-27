@@ -1,4 +1,4 @@
-import { renderCollection } from 'src/components/CollectionPage/collectionPage';
+import { renderCollection } from 'src/components/CollectionPage/CollectionPage';
 import { genresData } from 'src/const/genres-data';
 import { renderApp } from '../components/App/App';
 

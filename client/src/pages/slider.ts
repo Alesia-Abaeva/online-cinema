@@ -1,4 +1,4 @@
-import { renderCollection } from 'src/components/CollectionPage/collectionPage';
+import { renderCollection } from 'src/components/CollectionPage/CollectionPage';
 import { SLIDERS_ORDER } from 'src/const/main-page-data';
 import { renderApp } from '../components/App/App';
 
