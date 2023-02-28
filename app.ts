@@ -14,8 +14,6 @@ import { start } from "./cors/start";
 import uploadFiles from "./controllers/UploadController";
 import path from "path";
 
-// import { multerController } from "./middleware/multer.middleware";
-
 mongoose.set("strictQuery", true);
 
 mongoose

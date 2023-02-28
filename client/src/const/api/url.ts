@@ -10,8 +10,10 @@ export const API_REQUEST = {
 } as const;
 
 // export const URL_SERVER: string = 'http://127.0.0.1:3000';
-export const URL_SERVER = 'http://localhost:3000';
-// export const URL_SERVER = 'http://84.38.183.40';
+// export const URL_SERVER = 'http://localhost';
+// export const URL_SERVER = 'https://84.38.183.40';
+export const URL_SERVER = 'https://rs-films22q3.ru';
+
 // export const URL_SERVER_AVATAR = 'http://84.38.183.40';
 // export const URL_SERVER = 'http://localhost:3000';
 
