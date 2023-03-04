@@ -51,7 +51,6 @@
     "clean-webpack-plugin": "^4.0.0",
     "eslint-config-prettier": "^8.6.0",
     "jest-transform-css": "^6.0.1",
-    "preload-webpack-plugin": "^2.3.0",
     "redux": "^4.2.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.2",
