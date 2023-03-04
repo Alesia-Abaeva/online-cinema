@@ -4,7 +4,7 @@
 
 ## Key features
 
-- watch every movie, show, anime, trailer that is available on kinopoisk API
+- watch every movie, show, anime, trailer that are available on kinopoisk API
 - save movies to bookmarks, custom folders or mark them as watched
 - lists of best movies, shows. Track you progress on top 250 best
 - custom YouTube player for trailers
