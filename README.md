@@ -1,6 +1,6 @@
 # RS-films
 
-RS films is a free online cinema app with lots of features. This project was created as a final task (RS Clone) on RS School course.
+[RS films](http://rs-films22q3.ru/) is a free online cinema app with lots of features. This project was created as a final task (RS Clone) on RS School course.
 
 ## Key features
 
@@ -15,6 +15,7 @@ RS films is a free online cinema app with lots of features. This project was cre
 - user account and settings
 
 ## Screenshot
+![image](https://user-images.githubusercontent.com/101424508/222893646-82655804-30aa-4774-8a98-4f61d7bd0d5e.png)
 
 ## Tech stack
 
