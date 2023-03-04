@@ -11,7 +11,7 @@
 - kids mode to restrict adult content (only 12+ content is available and special desing)
 - light/dark theme
 - responsive design (up to iphone SE support)
-- registration / authorization (diffenet content is available)
+- registration / authorization (different content is available)
 - user account and settings
 
 ## Screenshot
