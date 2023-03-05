@@ -17,4 +17,5 @@ export const route = (pathname: string): void => {
 
   window.history.pushState({}, '', window.location.origin + path);
   pathResolver(path);
+  window.scrollTo(0, 0);
 };
