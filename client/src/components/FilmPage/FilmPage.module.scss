@@ -101,7 +101,6 @@
     right: 2rem;
   }
 
-
   .id-page__title {
     font-size: 2rem;
     max-width: 50%;
@@ -150,5 +149,9 @@
 
   .id-page__poster {
     width: 60%;
+  }
+
+  .id-page__action {
+    justify-content: center;
   }
 }
