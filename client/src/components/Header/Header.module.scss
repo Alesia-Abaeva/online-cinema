@@ -1,0 +1,65 @@
+@import '/src/theme/variable';
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  max-width: 100%;
+  height: $header-height;
+  z-index: 5;
+  background-color: var(--bg-primary);
+}
+
+.header__container {
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: $desktop;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  width: 15vw;
+}
+
+.header__logo-link {
+  display: block;
+  background-image: url('/src/assets/img/rs-films-logo.png');
+  width: 7rem;
+  height: 5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: var(--logo);
+}
+
+.header__account {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 15vw;
+}
+
+.header__login-link {
+  @include header-link;
+}
+
+@media (max-width: $phone-width) {
+  .header {
+    height: $header-height-mobile;
+  }
+
+  .header__account {
+    display: none;
+  }
+
+  .header-logo__link {
+    width: 5rem;
+    height: 3rem;
+  }
+}

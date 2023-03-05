@@ -1,0 +1,78 @@
+@import '/src/theme/variable';
+
+@keyframes layer1animation {
+  50% {
+    transform: translate(1rem, 1rem);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes layer2animation {
+  50% {
+    transform: translate(1rem, -1rem);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes layer3animation {
+  50% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.headerAnimation {
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  min-width: 1040px;
+  height: 100%;
+  overflow: visible;
+
+  &__layer1,
+  &__layer2,
+  &__layer3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    overflow: visible;
+    background-position: center, center;
+  }
+
+  &__layer1 {
+    background-image: url('../../../../assets/img/layer1.png');
+    animation-name: layer1animation;
+  }
+  &__layer2 {
+    background-image: url('../../../../assets/img/layer2.png');
+    animation-name: layer2animation;
+  }
+  &__layer3 {
+    background-image: url('../../../../assets/img/layer3.png');
+    animation-name: layer3animation;
+  }
+}
+
+@media (max-width: 1040px) {
+  .headerAnimation {
+    top: -10px;
+  }
+}
+@media (max-width: 600px) {
+  .headerAnimation {
+    top: -20px;
+  }
+}

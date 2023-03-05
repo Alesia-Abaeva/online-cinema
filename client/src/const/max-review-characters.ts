@@ -1,0 +1,1 @@
+export const MAX_REVIEW_CHARACTERS = 400;

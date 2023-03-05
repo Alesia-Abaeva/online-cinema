@@ -1,0 +1,170 @@
+@import '/src/theme/variable';
+
+.list-item {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 3fr 0.5fr;
+  border-bottom: 1px solid var(--border-primary);
+  gap: 0.5rem;
+
+  &:first-child {
+    border-radius: 10px 10px 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+
+  &:hover {
+    background-color: var(--bg-primary);
+  }
+}
+
+.list-item_active {
+  background-image: var(--gradient-primary-lighten);
+
+  .list-item__description,
+  .list-item__description_secondary {
+    color: var(--active-list-text);
+  }
+}
+
+.list-item__link {
+  height: 220px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 3fr 0.5fr;
+  gap: 1rem;
+}
+
+.list-item__number-cont {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.list-item__number {
+  width: 30px;
+}
+
+.list-item__img-cont {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  aspect-ratio: 3/4;
+}
+
+.list-item__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.list-item__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.list-item__title {
+  font-family: NetflixSans-Bold;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.list-item__description {
+  font-size: 0.9rem;
+}
+
+.list-item__description_secondary {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-ternary);
+}
+
+.list-item__rating-cont {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.rating {
+  font-size: 2rem;
+  font-family: NetflixSans-Bold;
+}
+
+.rating_bg {
+  font-size: 4rem;
+}
+
+.list-item__controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (max-width: $phone-width) {
+  .list-item__description_secondary {
+    display: none;
+  }
+}
+
+@media (max-width: 585px) {
+  .list-item__description {
+    font-size: 0.7rem;
+  }
+
+  .list-item__link {
+    gap: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .list-item__info {
+    display: none;
+  }
+
+  .list-item__link {
+    height: 300px;
+    grid-template-columns: 0.2fr 1fr 0.5fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .list-item__link {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .list-item__link {
+    gap: 0;
+  }
+}
+
+@media (max-width: 440px) {
+  .list-item__link {
+    height: 280px;
+  }
+}
+@media (max-width: 425px) {
+  .list-item__link {
+    height: 250px;
+  }
+}
+
+@media (max-width: 395px) {
+  .list-item {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .list-item__link {
+    height: 220px;
+  }
+}

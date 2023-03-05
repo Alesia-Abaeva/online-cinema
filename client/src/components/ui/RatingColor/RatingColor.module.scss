@@ -1,0 +1,33 @@
+@import '/src/theme/variable';
+
+.rating_ok {
+  color: $orange-light;
+}
+
+.rating_bad {
+  color: $yandex-red;
+}
+
+.rating_good {
+  color: $apple-green;
+}
+
+.rating-bg_ok {
+  background-color: $orange-light;
+}
+
+.rating-bg_bad {
+  background-color: $yandex-red;
+}
+
+.rating-bg_good {
+  background-color: $apple-green;
+}
+
+.rating_amazing {
+  @include gradinent-text(var(--gold-gradient));
+}
+
+.rating-bg_amazing {
+  background-image: var(--gold-gradient);
+}

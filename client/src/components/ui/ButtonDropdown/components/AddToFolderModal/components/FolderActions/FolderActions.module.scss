@@ -1,0 +1,41 @@
+@import '/src/theme/variable';
+
+#update-user-folder,
+#create-user-folder {
+  width: 20rem;
+}
+
+#update-user-folder-form {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: $phone-width) {
+  .folders-actions {
+    @include flex-center;
+    gap: 1rem;
+  }
+
+  #update-user-folder,
+  #create-user-folder {
+    width: 15rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .folders-actions {
+    flex-direction: column;
+    gap: 0rem;
+  }
+
+  .folders-actions__create,
+  .folders-actions__update {
+    width: 100%;
+  }
+
+  #update-user-folder,
+  #create-user-folder {
+    width: 100%;
+  }
+}
+

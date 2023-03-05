@@ -1,0 +1,60 @@
+{
+  "name": "rs-clone",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server": "cross-env NODE_ENV=production ts-node app.ts",
+    "server:watch": "cross-env NODE_ENV=development nodemon app.ts",
+    "client:start": "npm run start --prefix client",
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "dev": "cross-env NODE_ENV=developmen concurrently \"npm run server:watch\" \"npm run client:start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alesia-Abaeva/rs-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alesia-Abaeva/rs-clone/issues"
+  },
+  "homepage": "https://github.com/Alesia-Abaeva/rs-clone#readme",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/config": "^3.3.0",
+    "@types/cors": "^2.8.13",
+    "@types/json-server": "^0.14.4",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^18.11.18",
+    "@types/redux-logger": "^3.0.9",
+    "@types/webpack-env": "^1.18.0",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-router": "^0.0.1",
+    "express-routes": "^1.0.1",
+    "express-validator": "^6.14.3",
+    "json-server": "^0.17.1",
+    "jsonwebtoken": "^9.0.0",
+    "looger": "^5.0.0",
+    "mongoose": "^6.9.0",
+    "multer": "^1.4.5-lts.1",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.2"
+  }
+}

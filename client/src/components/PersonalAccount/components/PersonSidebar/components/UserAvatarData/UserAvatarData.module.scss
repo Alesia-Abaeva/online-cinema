@@ -1,0 +1,70 @@
+@import '/src/theme/variable';
+
+.profile-sidebar__user-avatar {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-sidebar__user-data {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  height: 6rem;
+
+  span {
+    font-size: 1.2rem; // TODO: адаптив!
+    line-height: 1rem;
+
+    &:last-child {
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      color: var(--text-ternary);
+    }
+  }
+}
+
+.user-avatar__ctn {
+  &:hover {
+    .user-avatar__svg-cnt {
+      z-index: 2;
+      opacity: 0.9;
+    }
+  }
+}
+
+.user-avatar__ctn {
+  position: relative;
+  .avatar__circle {
+    background-size: 7rem;
+  }
+  .avatar__profile {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+}
+
+.user-avatar__svg-cnt {
+  align-items: center;
+  color: var(--always-white);
+  background-color: $tundora-60;
+  border-radius: 100%;
+  bottom: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.2s ease-out;
+
+  @media (max-width: $phone-width) {
+    transition: none !important;
+  }
+}

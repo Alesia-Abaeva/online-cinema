@@ -1,0 +1,92 @@
+@import '/src/theme/variable';
+
+.films-container {
+  height: 90%;
+  border-radius: 10px;
+  // margin-top: 5rem;
+
+  iframe {
+    border-radius: 10px;
+  }
+}
+
+#modal-films {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: 4;
+  overflow: hidden;
+  transition: transform 0.2s ease-in;
+  transform: translateY(-1200px);
+}
+
+#modal-films.hidden-overlay_films {
+  opacity: 0;
+  z-index: -1;
+}
+
+.mоdal-films_window {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  transform: translateY(-1200px);
+  transition: transform 0.4s ease-in;
+
+  .loader__container,
+  .mоdal-films_error {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+  }
+}
+
+.close-modal_films {
+  transform: translateY(-1200px);
+}
+
+.open-modal_films {
+  transform: translateY(0px) !important;
+  z-index: 6 !important;
+}
+
+.mоdal-films_close {
+  cursor: pointer;
+  position: absolute;
+  top: 2.4rem;
+  right: 4rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 900;
+  background-color: $tundora-60;
+
+  &:hover {
+    transition: background-color 0.2s ease-in;
+    border-radius: 5px;
+    scale: 1.1;
+    background: var(--gradient-primary);
+  }
+}
+
+.mоdal-films_body {
+  padding: 1rem;
+  height: 100%;
+}
+
+.active-modal_films {
+  position: fixed;
+  height: 100vh;
+  overflow-y: hidden;
+  // padding-right: 15px;
+} //стиль на открытое окно

@@ -1,0 +1,75 @@
+@import '/src/theme/variable';
+
+@font-face {
+  font-family: 'NetflixSans-Regular';
+  src: url('/src/assets/fonts/NetflixSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NetflixSans-Bold';
+  src: url('/src/assets/fonts/NetflixSans-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NetflixSans-Light';
+  src: url('/src/assets/fonts/NetflixSans-Light.woff2') format('woff2');
+}
+
+#app {
+  position: relative;
+  overflow: hidden;
+}
+
+.main {
+  min-height: calc(100vh - $footer-height);
+}
+
+.main_banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/img/netflix.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.body {
+  background-color: var(--bg-primary);
+  font-family: NetflixSans-Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.gradient-text {
+  @include gradinent-text(var(--gradient-primary));
+}
+
+@media (max-width: $phone-width) {
+  .main {
+    min-height: calc(100vh - $footer-height-mobile);
+  }
+}
+
+svg {
+  pointer-events: none;
+}
+
+.danger {
+  color: $yandex-red !important;
+}

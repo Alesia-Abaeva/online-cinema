@@ -1,0 +1,62 @@
+{
+  "plugins": ["prettier", "import", "@typescript-eslint"],
+  "extends": ["airbnb/base", "plugin:prettier/recommended", "prettier", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "root": true,
+  "rules": {
+    // default rules
+    "no-shadow": "off",
+    "no-debugger": "off",
+    "no-console": 0,
+    "dot-notation": "off",
+    "no-plusplus": "off",
+    "class-methods-use-this": "off",
+    "no-unused-vars": "off",
+    "global-require": "off",
+    "no-return-await": "off",
+    "default-param-last": "off",
+    "no-unused-expressions": [
+      "error",
+      { "allowShortCircuit": true, "allowTernary": true, "allowTaggedTemplates": true, "enforceForJSX": true }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+
+    // import rules
+    "import/order": "warn",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+
+    // ts rules
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-shadow": "warn",
+    "@typescript-eslint/no-unused-vars": "warn"
+  }
+  // "settings": {
+  //   "import/resolver": {
+  //     "typescript": {
+  //       "alwaysTryTypes": true
+  //     }
+  //   }
+  // }
+}

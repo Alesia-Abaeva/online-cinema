@@ -1,0 +1,103 @@
+@import '/src/theme/variable';
+
+.profile-sidebar__cnt {
+  width: 35%;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  padding: 2rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  pointer-events: all;
+}
+
+.show-personal-data-mob {
+  @media (max-width: $phone-width) {
+    position: absolute;
+    width: 100%;
+    // z-index: 2;
+  }
+}
+
+.profile-sidebar__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-sidebar__item {
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  cursor: pointer;
+
+  a {
+    padding: 0.6rem;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    background-color: var(--bg-ternary);
+    color: var(--text-primary);
+    border: 1px solid var(--text-secondary);
+    transform: scale(1.05);
+  }
+
+  &:last-child {
+    margin-bottom: 2rem;
+  }
+}
+
+.profile-sidebar__tariff {
+  font-family: NetflixSans-Bold;
+  margin-top: 1rem;
+  transition: 0.5s;
+  color: white;
+  border-radius: 10px;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  border: none;
+  display: block;
+  width: 100%;
+  margin-right: auto;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 2.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid $blue;
+  background-color: var(--bg-ternary);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+
+  @media (max-width: $tablet-width) {
+    width: 15rem;
+    margin-right: 0;
+  }
+  @media (max-width: 830px) {
+    width: 12rem;
+    margin-right: 0;
+  }
+}
+
+.tariff_icon {
+  height: 40px;
+  width: 40px;
+  background-image: url('../../../../assets/img/icons/tariff-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tariff_name {
+  @include gradinent-text(var(--gradient-primary));
+}
+
+.active-block {
+  background-color: var(--bg-ternary);
+  color: var(--text-primary);
+  border: 1px solid var(--text-secondary);
+  transform: scale(1.05);
+  border-radius: 10px;
+}

@@ -1,0 +1,30 @@
+@import '/src/theme/variable';
+
+.bubble-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bubble-filter__item {
+  border-radius: 10px;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  
+  &:hover {
+    transform: scale(1.1);
+    background: var(--bg-contrast);
+    color: var(--text-contrast);
+  }
+}
+
+.bubble-filter__item_active {
+  background-color: var(--bg-contrast);
+  color: var(--text-contrast);
+
+  &:hover {
+    transform: scale(1);
+    background: var(--bg-contrast);
+  }
+}

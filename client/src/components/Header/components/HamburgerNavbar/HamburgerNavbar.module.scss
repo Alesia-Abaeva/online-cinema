@@ -1,0 +1,75 @@
+@import '/src/theme/variable';
+
+.hamburger-menu,
+.hamburger-nav {
+  display: none;
+}
+
+@media (max-width: $phone-width) {
+  .nav__list_hamburger {
+    position: fixed;
+    right: -100%;
+    top: 60px;
+    gap: 2rem;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .nav__list_hamburger.menu-active {
+    right: 0;
+  }
+
+  .hamburger-nav {
+    @include flex-center;
+  }
+
+  .hamburger-menu {
+    width: 23px;
+    height: 30px;
+    cursor: pointer;
+    @include flex-center;
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+
+  .hamburger-menu__line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--bg-contrast);
+    border-radius: 5px;
+  }
+
+  #bar1 {
+    transform: translateY(-4px);
+    pointer-events: none;
+  }
+
+  #bar2 {
+    pointer-events: none;
+  }
+
+  #bar3 {
+    transform: translateY(4px);
+    pointer-events: none;
+  }
+
+  .active-burger #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+  }
+
+  .active-burger #bar2 {
+    opacity: 0;
+  }
+
+  .active-burger #bar3 {
+    transform: translateY(-2px) rotateZ(45deg);
+  }
+
+  .search-btn__icon {
+    filter: var(--inverted-icon);
+  }
+}

@@ -1,0 +1,69 @@
+@import '/src/theme/variable';
+
+.reg-page {
+  @include flex-center;
+  flex-direction: column;
+  min-height: calc(100vh - $footer-height);
+}
+
+.form__wrapp-reg {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  position: relative;
+
+  input {
+    font-size: 0.9rem;
+    padding: 1rem;
+    padding-left: 2.7rem;
+    background-color: var(--crystalline-blur);
+    color: var(--text-constast);
+
+    @media (max-width: $phone-width) {
+      width: 75vw;
+    }
+  }
+  &:invalid {
+    svg {
+      path {
+        stroke: $yandex-red;
+        fill: rgba(95, 158, 160, 0);
+      }
+    }
+    input {
+      border: 1px solid $yandex-red;
+      box-shadow: 0 0 0 1px $yandex-red;
+      outline: none;
+      color: $yandex-red;
+      &::placeholder {
+        color: $yandex-red;
+      }
+
+      &:focus {
+        color: $yandex-red;
+      }
+    }
+  }
+}
+
+.error-form {
+  svg {
+    path {
+      stroke: $yandex-red;
+      fill: rgba(95, 158, 160, 0);
+    }
+  }
+  input {
+    border: 1px solid $yandex-red;
+    box-shadow: 0 0 0 1px $yandex-red;
+    outline: none;
+    color: $yandex-red;
+    &::placeholder {
+      color: $yandex-red;
+    }
+
+    &:focus {
+      color: $yandex-red;
+    }
+  }
+}

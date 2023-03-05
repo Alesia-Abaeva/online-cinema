@@ -1,0 +1,89 @@
+@import '/src/theme/variable';
+
+.subscriptions {
+  @include default-page-container;
+  height: 100%;
+  gap: 2rem;
+  padding-top: calc($header-height * 1.5);
+}
+
+.subscriptions__title {
+  font-family: NetflixSans-Bold;
+  font-size: 2rem;
+  color: var(--text-white);
+  text-align: center;
+}
+
+.subscriptions__body {
+  @include flex-center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-height: 1080px) {
+  .subscriptions {
+    @include default-page-container;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .subscriptions {
+    gap: 1rem;
+  }
+
+  .subscriptions__body {
+    gap: 1rem;
+    flex-direction: column;
+  }
+}
+
+.active-tariff {
+  border: 5px solid $blue;
+  align-items: flex-start;
+
+  .tariff-card__header {
+    align-items: flex-start;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  .tariff-card__cost {
+    text-align: right;
+  }
+
+  .tariff-card__premium {
+    margin-top: 2rem;
+    @include gradinent-text(var(--gradient-primary));
+    font-family: NetflixSans-Bold;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    text-align: center;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}
+
+.hide-tariff {
+  display: none;
+}
+
+.active-base {
+  border: 5px solid $blue;
+
+  .tariff-card__premium {
+    margin-top: 0.7rem;
+    @include gradinent-text(var(--gradient-primary));
+    font-family: NetflixSans-Bold;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-align: center;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}

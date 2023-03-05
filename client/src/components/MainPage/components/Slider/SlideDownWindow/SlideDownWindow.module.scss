@@ -1,0 +1,35 @@
+.slideDown {
+  height: 0px;
+  width: 100%;
+  transition: all 1s;
+  position: relative;
+  opacity: 0;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+  }
+
+  &__close__img {
+    fill: var(--always-white);
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.show-slidedown {
+  height: 100%;
+  opacity: 1;
+}

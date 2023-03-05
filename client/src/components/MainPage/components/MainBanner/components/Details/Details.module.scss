@@ -1,0 +1,232 @@
+@import '/src/theme/variable';
+@import '/src/theme/colors';
+
+.filmDetails {
+  display: flex;
+  flex-direction: column;
+  padding: 72px 60px;
+  width: 100%;
+  height: 100%;
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+    transform-origin: bottom left;
+
+    h1 {
+      display: flex;
+      align-items: flex-end;
+      max-height: 76px;
+      height: 76px;
+    }
+
+    h1 img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__tabs {
+    position: absolute;
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__body__left {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+  }
+  &__person__link {
+    text-decoration: none;
+    color: white;
+    &:hover {
+      color: $orange-intense;
+      cursor: pointer;
+    }
+  }
+  &__body__right {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    .body__right__container {
+      display: flex;
+      flex-direction: column;
+    }
+    .body__right__block {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+    }
+    .body__right__title {
+      margin-bottom: 8px;
+      color: hsla(0, 0%, 100%, 0.6);
+      font-size: 13px;
+      line-height: 18px;
+    }
+    .body__right__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .body__right__item {
+      color: hsla(0, 0%, 100%, 0.9);
+      margin-bottom: 4px;
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+
+  &__meta {
+    margin-bottom: 12px;
+  }
+  &__meta__base {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+  }
+  &__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 28px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: fit-content;
+    text-decoration: none;
+    cursor: pointer;
+    color: hsla(0deg, 0%, 100%, 0.6);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    transition: 0.3s;
+    &:hover {
+      color: hsla(0deg, 0%, 100%, 0.8);
+    }
+    &:hover > svg {
+      fill: hsla(0deg, 0%, 100%, 0.8);
+      transform: rotate(45deg);
+    }
+
+    &__svg {
+      width: 20px;
+      height: 20px;
+      fill: hsla(0deg, 0%, 100%, 0.6);
+      margin-left: 10px;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  &__rating__value {
+    display: flex;
+    align-items: center;
+    color: $apple-green;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+
+  &__rating__votes {
+    padding-left: 1px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    color: hsla(0, 0%, 100%, 0.6);
+  }
+
+  &__rating__userVotes {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+    color: hsla(0, 0%, 100%, 0.6);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    gap: 2px;
+  }
+
+  &__actions {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .filmDetails {
+    &__body__left {
+      max-width: 600px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .filmDetails {
+    &__description {
+      -webkit-line-clamp: 7;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .filmDetails {
+    h1 {
+      line-height: 36px;
+    }
+    &__rating {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+    &__rating__userVotes {
+      flex-direction: row;
+      align-items: center;
+    }
+    &__meta__base {
+      align-items: center;
+    }
+    &__body__right {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .filmDetails {
+    padding: 60px 30px;
+    &__description {
+      -webkit-line-clamp: 7;
+    }
+    &__body__left {
+      max-width: 700px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .filmDetails {
+    &__body__left {
+      max-width: 100%;
+    }
+  }
+}

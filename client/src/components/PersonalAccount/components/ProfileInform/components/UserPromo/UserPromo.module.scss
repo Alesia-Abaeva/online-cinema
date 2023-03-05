@@ -1,0 +1,160 @@
+@import '/src/theme/variable';
+
+.profile-promo {
+  position: relative;
+}
+
+.profile-promo {
+  .profile-info__data {
+    padding-bottom: 3rem;
+    text-align: center;
+    gap: 0.4rem;
+
+    .profile-promo__title {
+      @include gradinent-text(var(--gradient-primary));
+    }
+  }
+}
+
+.profile-promo__description,
+.profile-promo__title {
+  width: 100%;
+}
+
+.profile-promo__description {
+  color: var(--text-ternary);
+  margin-bottom: 1.5rem;
+}
+
+.promo-cnt {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  .profile__form-label {
+    height: 2.5rem;
+    text-align: center;
+  }
+
+  @media (max-width: $iphoneXR) {
+    justify-content: center;
+    flex-direction: column;
+    .profile__form-label {
+      width: 20rem;
+    }
+  }
+}
+
+.profile__promo-cnt {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  input {
+    background-color: var(--bg-ternary);
+    border: 1px solid transparent;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    width: 25rem;
+    &::placeholder {
+      color: var(--text-ternary);
+      font-size: 1rem;
+    }
+  }
+
+  .button {
+    &:disabled {
+      background-image: none;
+      background-color: $tundora-60;
+    }
+  }
+
+  @media (max-width: $phone-width) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    input {
+      width: 20rem;
+    }
+  }
+
+  @media (max-width: $iphoneXR) {
+    input {
+      width: 16rem;
+    }
+  }
+}
+
+.profile-info__title-gift {
+  padding: 0 0 1rem 2rem;
+
+  @media (max-width: $phone-width) {
+    position: relative;
+    padding: 0 0 1rem 3rem;
+    z-index: 0;
+  }
+}
+
+.profile-info__data-promo {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  // gap: 1.5rem;
+  flex-wrap: wrap;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  padding: 2rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  pointer-events: all;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: $iphoneXR) {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.profile-promo__code {
+  @include gradinent-text(var(--gradient-primary));
+  font-size: 2rem;
+}
+
+.profile-promo__code-description {
+  display: flex;
+  align-items: center;
+}
+
+.activate-promo {
+  width: 0%;
+  height: 85%;
+  position: absolute;
+  background-color: var(--bg-secondary);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  right: 0;
+
+  @media (max-width: $phone-width-850) {
+    height: 90%;
+  }
+}
+
+.active-promo-modal {
+  z-index: 2;
+  visibility: visible;
+  width: 100%;
+
+  @media (max-width: $phone-width-850) {
+    width: 100%;
+    height: 90%;
+  }
+}

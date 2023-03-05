@@ -1,0 +1,22 @@
+@import '/src/theme/variable';
+
+.search-box__no-results {
+  @include flex-center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.seach-box__suggestions {
+  font-size: 1.1rem;
+  padding: 1rem 1.3rem 0rem 1.3em;
+  color: $black-50;
+}
+
+.seach-box__child-back {
+  background: url('assets/img/losyash.0302f628.jpg') no-repeat;
+  width: 17rem;
+  height: 17rem;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+}

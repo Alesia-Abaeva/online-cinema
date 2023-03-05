@@ -1,0 +1,103 @@
+@import '/src/theme/variable';
+
+.login-page {
+  @include flex-center;
+  flex-direction: column;
+  min-height: calc(100vh - $footer-height);
+}
+
+.form_container {
+  @include crystalline-blur;
+  margin-top: 5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.form_logo {
+  width: 14rem;
+  height: 5rem;
+  background-image: url('../../assets/img/rs-films-logo.png');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 0.5rem;
+}
+
+.form__wrapp {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  position: relative;
+
+  input {
+    font-size: 0.9rem;
+    padding: 1rem;
+    padding-left: 2.7rem;
+    background-color: var(--crystalline-blur);
+    color: var(--text-constast);
+
+    @media (max-width: $phone-width) {
+      width: 75vw;
+    }
+  }
+}
+
+.icon__container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding-left: 0.75rem;
+}
+
+.form_button {
+  width: 20rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-white);
+  background-color: var(--blue);
+
+  &:hover {
+    background-color: var(--blue);
+  }
+
+  @media (max-width: $phone-width) {
+    width: 75vw;
+  }
+}
+
+.reg__container {
+  font-size: 0.8rem;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.reg__link {
+  color: var(--text-primary);
+}
+
+.form__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  margin-bottom: 1rem;
+  width: 20rem;
+  height: 2rem;
+  padding: 0.1rem;
+  outline: none;
+  border: 1px solid $yandex-red;
+  border-radius: 5px;
+  background-color: $yandex-red;
+  font-size: 0.7rem;
+  text-align: center;
+
+  @media (max-width: $phone-width) {
+    width: 15rem;
+  }
+}

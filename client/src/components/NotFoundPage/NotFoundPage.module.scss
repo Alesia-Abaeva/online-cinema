@@ -1,0 +1,18 @@
+@import '/src/theme/variable';
+
+.not-found {
+  @include default-page-container;
+}
+
+.not-found__error-code {
+  margin-bottom: 1rem;
+  font-size: 4.5rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.not-found__message {
+  margin-bottom: 2.4rem;
+  text-align: center;
+  font-size: 1.8rem;
+}

@@ -1,0 +1,138 @@
+@import '/src/theme/variable';
+
+.devices {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-primary);
+  padding: 0 calc(2.5% + 15px);
+  padding-top: 40px;
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__container {
+    color: var(--text-primary);
+    width: 1600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 600px;
+  }
+
+  &__leftSide {
+    height: 100%;
+    width: 40%;
+    padding: 90px 0 0 70px;
+    h3 {
+      width: 100%;
+      font-size: 32px;
+      line-height: 38px;
+      margin-bottom: 12px;
+      text-align: start;
+      font-weight: 700;
+    }
+    p {
+      font-weight: 400;
+      width: 100%;
+      text-align: start;
+      line-height: 24px;
+      margin-bottom: 40px;
+      opacity: 0.7;
+    }
+  }
+
+  &__rightSide {
+    display: flex;
+    width: 60%;
+    background: url('../../../../assets/img/devices-tablet.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top, left;
+    height: 100%;
+    margin-left: 100px;
+  }
+
+  @media (max-width: 1600px) {
+    &__container {
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 1250px) {
+    &__container {
+      height: 400px;
+    }
+    &__leftSide {
+      padding: 70px 0 0 50px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    &__container {
+      flex-direction: column;
+      height: 400px;
+    }
+    &__rightSide {
+      width: 100%;
+      margin-left: 50px;
+    }
+    &__leftSide {
+      height: 30%;
+      width: 100%;
+      padding: 0 100px;
+      p {
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    &__container {
+      flex-direction: column;
+      height: 450px;
+      padding: 0;
+    }
+    &__rightSide {
+      width: 100%;
+    }
+    &__leftSide {
+      width: 100%;
+      padding: 0 20px;
+      h3 {
+        font-size: 24px;
+        line-height: 28px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__container {
+      flex-direction: column;
+    }
+    &__rightSide {
+      width: 100%;
+      margin-left: 30px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    &__container {
+      padding: 0;
+    }
+    &__leftSide {
+      height: 45%;
+    }
+    &__rightSide {
+      width: 100%;
+      height: 55%;
+      margin-left: 20px;
+    }
+  }
+}

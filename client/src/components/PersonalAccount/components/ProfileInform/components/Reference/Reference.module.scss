@@ -1,0 +1,9 @@
+@import '/src/theme/variable';
+
+.profile-referens {
+  .profile-info__data {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}

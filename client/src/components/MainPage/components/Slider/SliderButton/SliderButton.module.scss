@@ -1,0 +1,12 @@
+@import '/src/theme/variable';
+
+.slider__button {
+  width: $slider-padding;
+  height: calc(100% - 16px * 2);
+  position: absolute;
+  top: 16px;
+  z-index: 4;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
